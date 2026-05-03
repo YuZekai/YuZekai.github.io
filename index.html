@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/utif@3.1.0/UTIF.min.js"></script>
 <style>
   :root {
     --paper: #f4f1ea;
@@ -104,66 +103,6 @@
     letter-spacing: 1em;
   }
 
-  /* Toolbar */
-  .toolbar {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px 64px;
-    border-bottom: 1px solid var(--rule);
-    background: rgba(232,227,214,.4);
-  }
-
-  .btn {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    background: var(--paper);
-    border: 1px solid var(--ink-soft);
-    color: var(--ink);
-    padding: 8px 18px;
-    cursor: pointer;
-    transition: all .25s;
-    font-weight: 500;
-  }
-  .btn:hover {
-    background: var(--ink);
-    color: var(--paper);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow);
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: var(--paper);
-    border-color: var(--accent);
-  }
-  .btn-primary:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-  }
-  .btn-ghost {
-    background: transparent;
-    border-color: var(--ink-faint);
-    color: var(--ink-faint);
-  }
-
-  /* Stats bar */
-  #dirStatusBar {
-    text-align: center;
-    padding: 8px 24px;
-    border-bottom: 1px solid var(--rule);
-    background: rgba(232,227,214,.3);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--ink-faint);
-    letter-spacing: .05em;
-  }
-  #dirStatus.connected { color: var(--gold); font-style: normal; font-weight: 500; }
-  #dirStatus { cursor: default; }
-
   /* Tab navigation */
   .tab-nav {
     display: flex;
@@ -194,10 +133,10 @@
     font-weight: 500;
   }
 
-  /* Review entry — wider grid since no abstract column */
+  /* Review / Conference entry */
   article.review-entry {
     display: grid;
-    grid-template-columns: 160px 1fr auto;
+    grid-template-columns: 160px 1fr;
     gap: 36px;
     padding: 32px 0;
     border-top: 1px solid var(--rule);
@@ -245,17 +184,6 @@
     letter-spacing: .15em;
     color: var(--ink-faint);
     margin-left: 4px;
-  }
-  .review-meta .timeframe {
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13.5px;
-    color: var(--ink-faint);
-  }
-  .review-meta .timeframe strong {
-    font-style: normal;
-    font-weight: 500;
-    color: var(--ink-soft);
   }
 
   .review-notes {
@@ -326,7 +254,7 @@
   /* Article entry */
   article.entry {
     display: grid;
-    grid-template-columns: 220px 1fr auto;
+    grid-template-columns: 220px 1fr;
     gap: 40px;
     padding: 40px 0;
     border-top: 1px solid var(--rule);
@@ -377,23 +305,6 @@
     letter-spacing: .15em;
     text-transform: uppercase;
   }
-  .cover-upload-overlay {
-    position: absolute; inset: 0;
-    background: rgba(26,22,18,.75);
-    color: var(--paper);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-    opacity: 0;
-    transition: opacity .25s;
-    cursor: pointer;
-    font-size: 12px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-  }
-  .cover-wrap:hover .cover-upload-overlay { opacity: 1; }
 
   /* Body of the entry */
   .body {
@@ -496,58 +407,15 @@
   .rb-sci    { background: #cfe9d6; color: #1c5731; border-color: #a8d3b4; }
   .rb-ssci   { background: #e2d5f1; color: #4a2870; border-color: #c8b3e0; }
   .rb-ahci   { background: #ffe1d6; color: #7a361a; border-color: #f5c0aa; }
-  .rb-cas    { background: #cce4f6; color: #1d456e; border-color: #a8cae6; }   /* 中科院 */
-  .rb-warn   { background: #ffd8d8; color: #8b1a1a; border-color: #f0a8a8; }   /* 预警 */
-  .rb-if     { background: #fff1bf; color: #7a5a14; border-color: #f0d985; }   /* IF */
-  .rb-cn     { background: #f8d8e0; color: #8a2849; border-color: #ecb4c2; }   /* 中文核心 */
-  .rb-school { background: #fdebc7; color: #80551a; border-color: #f1cf8d; }   /* 学校等级 */
+  .rb-cas    { background: #cce4f6; color: #1d456e; border-color: #a8cae6; }   
+  .rb-warn   { background: #ffd8d8; color: #8b1a1a; border-color: #f0a8a8; }   
+  .rb-if     { background: #fff1bf; color: #7a5a14; border-color: #f0d985; }   
+  .rb-cn     { background: #f8d8e0; color: #8a2849; border-color: #ecb4c2; }   
+  .rb-school { background: #fdebc7; color: #80551a; border-color: #f1cf8d; }   
   .rb-eii    { background: #d6e4ff; color: #1f3a7a; border-color: #b3c8f0; }
   .rb-ccf    { background: #e0d8f7; color: #3e2a82; border-color: #c3b6e8; }
   .rb-default{ background: #e8e3d6; color: #3d342b; border-color: #c9bfa9; }
-  .rb-info   { background: #cfe5e3; color: #1f5651; border-color: #a8cdc9; }   /* JCI/ESI 等 */
-
-  .rank-empty {
-    font-style: italic;
-    font-size: 12px;
-    color: var(--ink-faint);
-    font-family: 'Cormorant Garamond', serif;
-    padding: 4px 0;
-  }
-
-  .lookup-btn {
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--ink-faint);
-    font-size: 11px;
-    letter-spacing: .1em;
-    padding: 2px 8px;
-    cursor: pointer;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    transition: all .2s;
-    border-radius: 11px;
-  }
-  .lookup-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(139,26,26,.04);
-  }
-  .lookup-btn:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-  }
-  .lookup-btn.loading::after {
-    content: '';
-    display: inline-block;
-    width: 8px; height: 8px;
-    border: 1.5px solid currentColor;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin .8s linear infinite;
-    margin-left: 4px;
-    vertical-align: middle;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .rb-info   { background: #cfe5e3; color: #1f5651; border-color: #a8cdc9; }   
 
   .meta-line {
     display: flex;
@@ -610,38 +478,6 @@
     border-color: var(--ink);
   }
 
-  /* Actions */
-  .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    opacity: 0;
-    transition: opacity .25s;
-  }
-  article.entry:hover .actions { opacity: 1; }
-  .icon-btn {
-    width: 32px; height: 32px;
-    border: 1px solid var(--rule);
-    background: var(--paper);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--ink-faint);
-    transition: all .2s;
-    font-family: 'Cormorant Garamond', serif;
-  }
-  .icon-btn:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-    background: var(--paper-dark);
-  }
-  .icon-btn.danger:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
   /* Footer */
   footer {
     text-align: center;
@@ -654,256 +490,9 @@
     letter-spacing: .05em;
   }
 
-  /* Modal */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(26,22,18,.55);
-    backdrop-filter: blur(4px);
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    animation: fadeIn .2s;
-  }
-  .modal-overlay.active { display: flex; }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .modal {
-    background: var(--paper);
-    width: 100%;
-    max-width: 720px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 30px 80px rgba(0,0,0,.4);
-    position: relative;
-    border: 1px solid var(--ink);
-    animation: slideUp .3s;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  .modal-header {
-    padding: 24px 32px;
-    border-bottom: 2px solid var(--ink);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--paper-dark);
-  }
-  .modal-header h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 28px;
-    letter-spacing: -.01em;
-  }
-  .modal-header h3 em { color: var(--accent); font-style: italic; }
-  .close-btn {
-    background: none; border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--ink-faint);
-    line-height: 1;
-    padding: 4px 8px;
-    font-family: 'Cormorant Garamond', serif;
-  }
-  .close-btn:hover { color: var(--accent); }
-
-  .modal-body { padding: 28px 32px; }
-
-  .apa-paste {
-    background: linear-gradient(135deg, rgba(184,137,58,.08), rgba(139,26,26,.04));
-    border: 1px dashed var(--gold);
-    padding: 14px 16px;
-    margin-bottom: 20px;
-  }
-  .apa-paste-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .apa-paste-label .lbl-text strong { color: var(--accent); font-style: normal; font-weight: 600; }
-  .apa-paste textarea {
-    width: 100%;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 10px 12px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14.5px;
-    line-height: 1.55;
-    color: var(--ink);
-    resize: vertical;
-    min-height: 70px;
-  }
-  .apa-paste textarea:focus { outline: none; border-color: var(--accent); }
-  .apa-paste-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-    align-items: center;
-  }
-  .btn-mini {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    background: var(--ink);
-    color: var(--paper);
-    border: none;
-    padding: 6px 14px;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .btn-mini:hover { background: var(--accent); }
-  .btn-mini.ghost { background: transparent; color: var(--ink-faint); border: 1px solid var(--rule); }
-  .btn-mini.ghost:hover { color: var(--ink); border-color: var(--ink); background: transparent; }
-  .apa-hint {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    color: var(--ink-faint);
-    margin-left: auto;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .form-grid .full { grid-column: 1 / -1; }
-
-  .field { display: flex; flex-direction: column; gap: 4px; }
-  .field label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    font-weight: 500;
-  }
-  .field input, .field textarea {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-bottom: 1px solid var(--ink-faint);
-    padding: 8px 10px;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 15px;
-    color: var(--ink);
-    transition: border-color .2s;
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-  }
-  .field input:focus, .field textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    background: #fffefa;
-  }
-  .field textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
-
-  /* Paired date inputs (审稿弹窗用) */
-  .date-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .date-cell {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: rgba(184,137,58,.04);
-    border: 1px solid var(--rule);
-    padding: 10px 12px;
-  }
-  .date-cell-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 12px;
-    color: var(--ink-faint);
-    letter-spacing: .05em;
-  }
-  .date-pair {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 6px;
-  }
-  .date-pair input { padding: 6px 8px; font-size: 14px; }
-
-  .cover-input-tabs {
-    display: flex;
-    gap: 0;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .cover-tab {
-    padding: 6px 14px;
-    background: none;
-    border: none;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-  }
-  .cover-tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-
-  .cover-preview {
-    width: 100px;
-    aspect-ratio: 3/4;
-    background: var(--paper-dark);
-    margin-top: 8px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .modal-footer {
-    padding: 20px 32px;
-    border-top: 1px solid var(--rule);
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    background: var(--paper-dark);
-  }
-
-  /* Toast */
-  .toast {
-    position: fixed;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--ink);
-    color: var(--paper);
-    padding: 12px 24px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    letter-spacing: .05em;
-    box-shadow: 0 10px 30px rgba(0,0,0,.3);
-    z-index: 200;
-    transition: transform .3s;
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); }
-
   /* Responsive */
   @media (max-width: 800px) {
     header.masthead { padding: 32px 24px 20px; }
-    .toolbar { padding: 16px 24px; }
     .stats { gap: 32px; }
     main { padding: 40px 24px 64px; }
     article.entry {
@@ -911,21 +500,13 @@
       gap: 20px;
       padding: 28px 0;
     }
-    .actions {
-      grid-column: 1 / -1;
-      flex-direction: row;
-      opacity: 1;
-    }
     h2.paper-title { font-size: 22px; }
-    .form-grid { grid-template-columns: 1fr; }
-    .date-row { grid-template-columns: 1fr; }
-    .modal-body, .modal-header, .modal-footer { padding-left: 20px; padding-right: 20px; }
     .stat-num { font-size: 28px; }
   }
 
   /* Print friendly */
   @media print {
-    .toolbar, .actions, footer { display: none; }
+    footer { display: none; }
     article.entry { break-inside: avoid; }
     body::before { display: none; }
   }
@@ -945,27 +526,12 @@
   <div class="subtitle">— a curated record of academic works —</div>
 </header>
 
-<div class="toolbar">
-  <button class="btn btn-primary" id="addBtn" onclick="addCurrent()">＋ 添加论文</button>
-  <button class="btn" onclick="pickDirectory()">📁 选择数据文件夹</button>
-  <button class="btn" onclick="exportBackup()">↓ 备份 JSON</button>
-  <button class="btn btn-ghost" onclick="openSettings()">⚙ 设置</button>
-  <button class="btn btn-ghost" onclick="lookupAllRanks()">↻ 批量查询分区</button>
-  <button class="btn btn-ghost" onclick="lookupAllCitations()">↻ 批量查询引用数</button>
-  <button class="btn btn-ghost" onclick="loadSample()">载入示例</button>
-  <button class="btn btn-ghost" onclick="clearAll()">清空</button>
-</div>
-<div id="dirStatusBar">
-  <span id="dirStatus">📂 未选择数据文件夹</span>
-</div>
-
 <nav class="tab-nav">
   <button class="tab-btn active" data-tab="papers" onclick="switchView('papers')">— Publications · 论文 —</button>
   <button class="tab-btn" data-tab="reviews" onclick="switchView('reviews')">— Peer Reviews · 审稿 —</button>
   <button class="tab-btn" data-tab="conferences" onclick="switchView('conferences')">— Conferences · 会议任职 —</button>
 </nav>
 
-<!-- Papers view -->
 <div id="papersView">
   <div class="stats">
     <div class="stat"><span class="stat-num" id="statCount">0</span><span class="stat-label">Papers</span></div>
@@ -976,7 +542,6 @@
   <main id="list"></main>
 </div>
 
-<!-- Reviews view -->
 <div id="reviewsView" style="display:none">
   <div class="stats">
     <div class="stat"><span class="stat-num" id="rvJournals">0</span><span class="stat-label">Journals</span></div>
@@ -987,7 +552,6 @@
   <main id="reviewList"></main>
 </div>
 
-<!-- Conferences view -->
 <div id="conferencesView" style="display:none">
   <div class="stats">
     <div class="stat"><span class="stat-num" id="cfCount">0</span><span class="stat-label">Conferences</span></div>
@@ -1003,591 +567,86 @@
 
 </div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="modalTitle">添加 <em>新论文</em></h3>
-      <button class="close-btn" onclick="closeModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="apa-paste">
-        <div class="apa-paste-label">
-          <span class="lbl-text">✦ <strong>快速填充</strong> &nbsp;·&nbsp; <em>粘贴 APA 引用，自动解析到下方字段</em></span>
-        </div>
-        <textarea id="apaInput" placeholder="例：Zhang, L., Chen, M., &amp; Wang, Y. (2024). A unified framework for protein prediction. Nature, 625(7993), 142–158. https://doi.org/10.1038/s41586-024-00000-0"></textarea>
-        <div class="apa-paste-actions">
-          <button type="button" class="btn-mini" onclick="parseAPA()">⚡ 解析</button>
-          <button type="button" class="btn-mini ghost" onclick="document.getElementById('apaInput').value=''">清空</button>
-          <span class="apa-hint">支持 APA 6 / APA 7 · 也兼容部分 MLA、Chicago</span>
-        </div>
-      </div>
-      <div class="form-grid">
-        <div class="field full">
-          <label>标题 Title *</label>
-          <input type="text" id="f-title" placeholder="论文标题">
-        </div>
-        <div class="field full">
-          <label>作者 Authors</label>
-          <input type="text" id="f-authors" placeholder="张三, 李四, 王五*">
-        </div>
-        <div class="field">
-          <label style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-            <span>期刊 Journal *</span>
-            <button type="button" class="lookup-btn" id="modalLookupBtn" onclick="lookupCurrent()" style="text-transform:none;letter-spacing:.05em">🔍 查询分区</button>
-          </label>
-          <input type="text" id="f-journal" placeholder="Nature">
-          <div id="modalRankPreview" style="margin-top:6px"></div>
-        </div>
-        <div class="field">
-          <label>影响因子 Impact Factor</label>
-          <input type="number" step="0.1" id="f-if" placeholder="50.5">
-        </div>
-        <div class="field">
-          <label>年份 Year *</label>
-          <input type="number" id="f-year" placeholder="2024">
-        </div>
-        <div class="field">
-          <label>月 / 日 Month / Day</label>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-            <input type="number" min="1" max="12" id="f-month" placeholder="月">
-            <input type="number" min="1" max="31" id="f-day" placeholder="日">
-          </div>
-        </div>
-        <div class="field">
-          <label>卷期 Volume / Issue</label>
-          <input type="text" id="f-volume" placeholder="615(7951)">
-        </div>
-        <div class="field">
-          <label>页码 Pages</label>
-          <input type="text" id="f-pages" placeholder="123–135">
-        </div>
-        <div class="field">
-          <label>DOI</label>
-          <input type="text" id="f-doi" placeholder="10.1038/...">
-        </div>
-        <div class="field">
-          <label style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-            <span>引用数 Citations</span>
-            <button type="button" class="lookup-btn" id="citationLookupBtn" onclick="lookupCitations()" style="text-transform:none;letter-spacing:.05em">🔍 查询</button>
-          </label>
-          <input type="number" id="f-citations" placeholder="42">
-          <div id="citationSourceHint" style="font-size:10.5px;color:var(--ink-faint);margin-top:3px;font-family:'JetBrains Mono',monospace;min-height:14px"></div>
-        </div>
-        <div class="field full">
-          <label>链接 URL</label>
-          <input type="url" id="f-url" placeholder="https://...">
-        </div>
-        <div class="field full">
-          <label>封面 Cover Image</label>
-          <div class="cover-input-tabs">
-            <button class="cover-tab active" data-tab="upload" type="button">本地上传</button>
-            <button class="cover-tab" data-tab="url" type="button">图片网址</button>
-          </div>
-          <div id="tab-upload">
-            <input type="file" id="f-cover-file" accept="image/*,.tif,.tiff">
-            <div style="font-size:11px;color:var(--ink-faint);margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic">支持 JPG / PNG / WebP / GIF / TIFF（自动转换）</div>
-          </div>
-          <div id="tab-url" style="display:none">
-            <input type="url" id="f-cover-url" placeholder="https://...jpg">
-          </div>
-          <img id="coverPreview" class="cover-preview" style="display:none">
-        </div>
-        <div class="field full">
-          <label>摘要 Abstract</label>
-          <textarea id="f-abstract" placeholder="论文摘要..."></textarea>
-        </div>
-        <div class="field full">
-          <label>备注 Notes</label>
-          <textarea id="f-notes" placeholder="个人备注、获奖信息、合作者等..." rows="2"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal()">取消</button>
-      <button class="btn btn-primary" onclick="savePaper()">保存</button>
-    </div>
-  </div>
-</div>
-
-<!-- Review Modal -->
-<div class="modal-overlay" id="reviewModal" onclick="if(event.target===this)closeReviewModal()">
-  <div class="modal" style="max-width:680px">
-    <div class="modal-header">
-      <h3 id="reviewModalTitle">添加 <em>审稿期刊</em></h3>
-      <button class="close-btn" onclick="closeReviewModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-grid">
-        <div class="field full">
-          <label style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-            <span>期刊 Journal *</span>
-            <button type="button" class="lookup-btn" id="reviewLookupBtn" onclick="lookupReviewCurrent()" style="text-transform:none;letter-spacing:.05em">🔍 查询分区</button>
-          </label>
-          <input type="text" id="rf-journal" placeholder="Nature">
-          <div id="reviewRankPreview" style="margin-top:6px"></div>
-        </div>
-        <div class="field">
-          <label>影响因子 Impact Factor</label>
-          <input type="number" step="0.1" id="rf-if" placeholder="50.5">
-        </div>
-        <div class="field">
-          <label>审稿次数 Review Count</label>
-          <input type="number" min="1" id="rf-count" value="1">
-        </div>
-
-        <div class="field full">
-          <label>封面 Cover Image</label>
-          <div class="cover-input-tabs">
-            <button class="cover-tab active" data-rtab="upload" type="button" onclick="switchReviewTab('upload')">本地上传</button>
-            <button class="cover-tab" data-rtab="url" type="button" onclick="switchReviewTab('url')">图片网址</button>
-          </div>
-          <div id="rtab-upload">
-            <input type="file" id="rf-cover-file" accept="image/*,.tif,.tiff">
-            <div style="font-size:11px;color:var(--ink-faint);margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic">支持 JPG / PNG / WebP / GIF / TIFF（自动转换）</div>
-          </div>
-          <div id="rtab-url" style="display:none">
-            <input type="url" id="rf-cover-url" placeholder="https://...jpg">
-          </div>
-          <img id="reviewCoverPreview" class="cover-preview" style="display:none">
-        </div>
-        <div class="field full">
-          <label>备注 Notes</label>
-          <textarea id="rf-notes" placeholder="如：Outstanding Reviewer 2023、特别关注的研究方向等..." rows="2"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeReviewModal()">取消</button>
-      <button class="btn btn-primary" onclick="saveReview()">保存</button>
-    </div>
-  </div>
-</div>
-
-<!-- Conference Modal -->
-<div class="modal-overlay" id="confModal" onclick="if(event.target===this)closeConfModal()">
-  <div class="modal" style="max-width:680px">
-    <div class="modal-header">
-      <h3 id="confModalTitle">添加 <em>会议任职</em></h3>
-      <button class="close-btn" onclick="closeConfModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-grid">
-        <div class="field full">
-          <label>会议名称 Conference *</label>
-          <input type="text" id="cf-name" placeholder="ACM SIGGRAPH 2024">
-        </div>
-        <div class="field full">
-          <label>会议链接 URL</label>
-          <input type="url" id="cf-url" placeholder="https://s2024.siggraph.org">
-        </div>
-        <div class="field">
-          <label>角色 Role *</label>
-          <input type="text" id="cf-role" placeholder="Session Chair / TPC Member / Reviewer">
-          <div style="font-size:11px;color:var(--ink-faint);margin-top:3px;font-family:'Cormorant Garamond',serif;font-style:italic">常见：Session Chair · TPC Member · Reviewer · Area Chair · Local Organizer</div>
-        </div>
-        <div class="field">
-          <label>年份 Year *</label>
-          <input type="number" id="cf-year" placeholder="2024">
-        </div>
-        <div class="field full">
-          <label>地点 Location</label>
-          <input type="text" id="cf-location" placeholder="Denver, USA / 线上">
-        </div>
-        <div class="field full">
-          <label>封面 Cover Image</label>
-          <div class="cover-input-tabs">
-            <button class="cover-tab active" data-ctab="upload" type="button" onclick="switchConfTab('upload')">本地上传</button>
-            <button class="cover-tab" data-ctab="url" type="button" onclick="switchConfTab('url')">图片网址</button>
-          </div>
-          <div id="ctab-upload">
-            <input type="file" id="cf-cover-file" accept="image/*,.tif,.tiff">
-            <div style="font-size:11px;color:var(--ink-faint);margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic">支持 JPG / PNG / WebP / GIF / TIFF（自动转换）</div>
-          </div>
-          <div id="ctab-url" style="display:none">
-            <input type="url" id="cf-cover-url" placeholder="https://...jpg">
-          </div>
-          <img id="confCoverPreview" class="cover-preview" style="display:none">
-        </div>
-        <div class="field full">
-          <label>备注 Notes</label>
-          <textarea id="cf-notes" placeholder="如：审稿 X 篇、做了 keynote、最佳论文奖等..." rows="2"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeConfModal()">取消</button>
-      <button class="btn btn-primary" onclick="saveConf()">保存</button>
-    </div>
-  </div>
-</div>
-
-<!-- Settings Modal -->
-<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeSettings()">
-  <div class="modal" style="max-width:520px">
-    <div class="modal-header">
-      <h3>设置 <em>· easyScholar</em></h3>
-      <button class="close-btn" onclick="closeSettings()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="field" style="display:flex;flex-direction:column;gap:6px">
-        <label style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);font-weight:500">easyScholar SecretKey</label>
-        <input type="password" id="settingsKey" placeholder="粘贴你的 SecretKey" style="background:var(--paper);border:1px solid var(--rule);border-bottom:1px solid var(--ink-faint);padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:13px">
-        <label style="display:flex;align-items:center;gap:6px;font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ink-faint);margin-top:6px;cursor:pointer">
-          <input type="checkbox" id="settingsShowKey" onchange="document.getElementById('settingsKey').type=this.checked?'text':'password'"> 显示密钥
-        </label>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-faint);margin-top:12px;line-height:1.6">
-          密钥仅保存在本机浏览器（localStorage），不会上传到任何服务器。<br>
-          <strong style="color:var(--ink-soft);font-style:normal">⚠ 注意：</strong>导出 JSON 时<strong style="color:var(--ink-soft);font-style:normal">不会包含</strong>密钥。如把 HTML 文件分享给他人，密钥不会随之泄露（保存在浏览器，不在文件里）。<br>
-          获取密钥：<a href="https://www.easyscholar.cc" target="_blank" style="color:var(--accent)">easyscholar.cc</a> 注册后在「开放接口」页面查看。
-        </p>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeSettings()">取消</button>
-      <button class="btn btn-primary" onclick="saveSettings()">保存</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
 <script>
 let papers = [];
 let reviews = [];
 let conferences = [];
-let currentView = 'papers';        // 'papers' | 'reviews' | 'conferences'
-let editingId = null;
-let editingType = 'paper';         // 'paper' | 'review'
-let coverData = null;        // string for URL, or { kind, blob/url, ext } for file pending write, or null
-let currentRanks = null;
-let dirHandle = null;        // FileSystemDirectoryHandle
-let coverObjectURLs = {};    // { id: objectURL } — keyed by paper.id or review.id
-const HANDLE_KEY = 'publications_dir_handle_v1'; // IndexedDB key
 
-// ------- IndexedDB tiny helper (to remember the directory handle across sessions) -------
-function idbOpen() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open('publications_app', 1);
-    req.onupgradeneeded = () => req.result.createObjectStore('handles');
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-}
-async function idbGet(key) {
-  const db = await idbOpen();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction('handles', 'readonly');
-    const req = tx.objectStore('handles').get(key);
-    req.onsuccess = () => resolve(req.result || null);
-    req.onerror = () => reject(req.error);
-  });
-}
-async function idbSet(key, val) {
-  const db = await idbOpen();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction('handles', 'readwrite');
-    tx.objectStore('handles').put(val, key);
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
-  });
-}
+const RANK_LABELS = {
+  swufe: '西南财经', cufe: '中央财经', uibe: '对外经贸', sdufe: '山东财经',
+  xdu: '西电', swjtu: '西南交大', ruc: '人大', xmu: '厦大',
+  sjtu: '上交', fdu: '复旦', hhu: '河海', scu: '川大',
+  cqu: '重大', nju: '南大', xju: '新大', cug: '地大',
+  cju: '长大', zju: '浙大', cpu: '中国药科', dufe: 'DUFE',
+  pku: '北大核心', cssci: '南大核心', zhongguokejihexin: '中国科技核心',
+  ccf: 'CCF', fms: 'FMS', utd24: 'UTD24', ajg: 'ABS', ft50: 'FT50',
+  eii: 'EI', cscd: 'CSCD', ahci: 'A&HCI', esi: 'ESI',
+  sciif: 'IF', sciif5: 'IF(5)', jci: 'JCI',
+  sci: 'JCR', ssci: 'SSCI', sciwarn: '中科院预警',
+  sciBase: 'SCI基础版', sciUp: 'SCI升级版', sciUpSmall: 'SCI升级版小类', sciUpTop: '中科院TOP',
+};
 
-// ------- File system layer -------
-function isFSAvailable() {
-  return 'showDirectoryPicker' in window;
-}
+const RANK_COLORS = {
+  sci: 'rb-sci', sciBase: 'rb-sci', sciUp: 'rb-sci', sciUpSmall: 'rb-sci', sciUpTop: 'rb-sci',
+  ssci: 'rb-ssci', ahci: 'rb-ahci',
+  sciif: 'rb-if', sciif5: 'rb-if', jci: 'rb-info', esi: 'rb-info',
+  sciwarn: 'rb-warn',
+  pku: 'rb-cn', cssci: 'rb-cn', zhongguokejihexin: 'rb-cn', cscd: 'rb-cn',
+  ccf: 'rb-ccf', eii: 'rb-eii',
+  fms: 'rb-default', utd24: 'rb-default', ajg: 'rb-default', ft50: 'rb-default',
+};
 
-async function ensurePermission(handle, mode = 'readwrite') {
-  if (!handle) return false;
-  const opts = { mode };
-  if ((await handle.queryPermission(opts)) === 'granted') return true;
-  if ((await handle.requestPermission(opts)) === 'granted') return true;
-  return false;
-}
+function colorForKey(key) { return RANK_COLORS[key] || 'rb-school'; }
+function labelFor(key) { return RANK_LABELS[key] || key.toUpperCase(); }
 
-async function pickDirectory() {
-  if (!isFSAvailable()) {
-    alert('当前浏览器不支持文件系统访问 API。\n请使用 Chrome / Edge / Opera 桌面版。');
-    return false;
-  }
-  try {
-    dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
-    await idbSet(HANDLE_KEY, dirHandle);
-    document.getElementById('dirStatus').textContent = `📁 ${dirHandle.name}`;
-    document.getElementById('dirStatus').classList.add('connected');
-    await loadFromFS();
-
-    // Offer migration from old localStorage
-    const oldRaw = localStorage.getItem('publications_v1');
-    if (oldRaw && !papers.length) {
-      try {
-        const old = JSON.parse(oldRaw);
-        if (Array.isArray(old) && old.length) {
-          if (confirm(`检测到浏览器中存有 ${old.length} 篇旧论文数据，是否迁移到当前文件夹？\n\n（封面会从 base64 转换为本地图片文件）`)) {
-            await migrateFromLocalStorage(old);
-          }
-        }
-      } catch {}
-    }
-
-    toast(`已连接到「${dirHandle.name}」`);
-    return true;
-  } catch (err) {
-    if (err.name !== 'AbortError') {
-      toast('选择文件夹失败：' + err.message);
-    }
-    return false;
-  }
-}
-
-async function migrateFromLocalStorage(oldPapers) {
-  toast('迁移中...');
-  papers = [];
-  for (const op of oldPapers) {
-    const id = op.id || ('p_' + Date.now() + '_' + Math.random().toString(36).slice(2,8));
-    const np = {
-      id,
-      title: op.title || '',
-      authors: op.authors || '',
-      journal: op.journal || '',
-      impactFactor: op.impactFactor || '',
-      year: op.year || '',
-      month: op.month || '',
-      day: op.day || '',
-      volume: op.volume || '',
-      pages: op.pages || '',
-      doi: op.doi || '',
-      citations: op.citations || '',
-      url: op.url || '',
-      abstract: op.abstract || '',
-      notes: op.notes || '',
-      coverFile: '',
-      coverURL: '',
-      ranks: op.ranks || null
-    };
-    // Old schema stored cover as either base64 data URL or external URL string
-    if (op.cover && typeof op.cover === 'string') {
-      if (op.cover.startsWith('data:')) {
-        // Convert base64 to blob and write to disk
-        try {
-          const resp = await fetch(op.cover);
-          const blob = await resp.blob();
-          const ext = (blob.type.match(/\/(\w+)/) || [, 'jpg'])[1].replace('jpeg','jpg');
-          np._pendingCoverBlob = blob;
-          np._pendingCoverExt = ext;
-        } catch (e) { console.warn('migrate cover failed', e); }
-      } else {
-        np.coverURL = op.cover;
-      }
-    }
-    papers.push(np);
-  }
-  const ok = await save();
-  if (ok) {
-    await loadFromFS();
-    toast(`迁移完成：${papers.length} 条`);
-    // Optional: clear old data after successful migration
-    if (confirm('迁移成功！是否清除浏览器中的旧数据？\n（建议清除以避免下次重复迁移）')) {
-      localStorage.removeItem('publications_v1');
-    }
-  }
-}
-
-async function reconnectDirectory() {
-  // try to silently reconnect to the previously-chosen directory
-  try {
-    const handle = await idbGet(HANDLE_KEY);
-    if (!handle) return false;
-    const ok = await ensurePermission(handle, 'readwrite');
-    if (!ok) {
-      // can't auto-grant; user needs to click pick again
-      document.getElementById('dirStatus').textContent = `📁 ${handle.name} (未授权·点击恢复)`;
-      document.getElementById('dirStatus').onclick = async () => {
-        if (await ensurePermission(handle, 'readwrite')) {
-          dirHandle = handle;
-          document.getElementById('dirStatus').textContent = `📁 ${handle.name}`;
-          document.getElementById('dirStatus').classList.add('connected');
-          await loadFromFS();
-        }
-      };
-      return false;
-    }
-    dirHandle = handle;
-    document.getElementById('dirStatus').textContent = `📁 ${handle.name}`;
-    document.getElementById('dirStatus').classList.add('connected');
-    await loadFromFS();
-    return true;
-  } catch (err) {
-    console.warn('reconnect failed', err);
-    return false;
-  }
-}
-
-async function loadFromFS() {
-  if (!dirHandle) return;
-  // revoke old object URLs
-  Object.values(coverObjectURLs).forEach(u => URL.revokeObjectURL(u));
-  coverObjectURLs = {};
-
-  // 1. read publications.json
-  try {
-    const fileHandle = await dirHandle.getFileHandle('publications.json', { create: false });
-    const file = await fileHandle.getFile();
-    papers = JSON.parse(await file.text());
-  } catch (err) {
-    if (err.name === 'NotFoundError') papers = [];
-    else { toast('读取 publications.json 失败：' + err.message); papers = []; }
-  }
-
-  // 2. read reviews.json
-  try {
-    const fileHandle = await dirHandle.getFileHandle('reviews.json', { create: false });
-    const file = await fileHandle.getFile();
-    reviews = JSON.parse(await file.text());
-  } catch (err) {
-    if (err.name === 'NotFoundError') reviews = [];
-    else { toast('读取 reviews.json 失败：' + err.message); reviews = []; }
-  }
-
-  // 2b. read conferences.json
-  try {
-    const fileHandle = await dirHandle.getFileHandle('conferences.json', { create: false });
-    const file = await fileHandle.getFile();
-    conferences = JSON.parse(await file.text());
-  } catch (err) {
-    if (err.name === 'NotFoundError') conferences = [];
-    else { toast('读取 conferences.json 失败：' + err.message); conferences = []; }
-  }
-
-  // 3. resolve covers (shared folder)
-  let coversDir;
-  try {
-    coversDir = await dirHandle.getDirectoryHandle('covers', { create: false });
-  } catch { coversDir = null; }
-
-  if (coversDir) {
-    const all = [...papers, ...reviews, ...conferences];
-    for (const item of all) {
-      if (!item.coverFile) continue;
-      try {
-        const fh = await coversDir.getFileHandle(item.coverFile, { create: false });
-        const f = await fh.getFile();
-        coverObjectURLs[item.id] = URL.createObjectURL(f);
-      } catch { /* missing file, skip */ }
-    }
-  }
-  render();
-}
-
-async function writeJSON() {
-  if (!dirHandle) return false;
-  const stripPending = (arr) => arr.map(p => {
-    const { _pendingCoverBlob, _pendingCoverExt, ...rest } = p;
-    return rest;
-  });
-  try {
-    // publications.json
-    const fhP = await dirHandle.getFileHandle('publications.json', { create: true });
-    const wP = await fhP.createWritable();
-    await wP.write(JSON.stringify(stripPending(papers), null, 2));
-    await wP.close();
-    // reviews.json
-    const fhR = await dirHandle.getFileHandle('reviews.json', { create: true });
-    const wR = await fhR.createWritable();
-    await wR.write(JSON.stringify(stripPending(reviews), null, 2));
-    await wR.close();
-    // conferences.json
-    const fhC = await dirHandle.getFileHandle('conferences.json', { create: true });
-    const wC = await fhC.createWritable();
-    await wC.write(JSON.stringify(stripPending(conferences), null, 2));
-    await wC.close();
-    return true;
-  } catch (err) {
-    toast('写入失败：' + err.message);
-    return false;
-  }
-}
-
-async function writeCover(itemId, blob, ext) {
-  if (!dirHandle) return null;
-  try {
-    const coversDir = await dirHandle.getDirectoryHandle('covers', { create: true });
-    const filename = `${itemId}.${ext}`;
-    const fh = await coversDir.getFileHandle(filename, { create: true });
-    const w = await fh.createWritable();
-    await w.write(blob);
-    await w.close();
-    return filename;
-  } catch (err) {
-    toast('写入封面失败：' + err.message);
-    return null;
-  }
-}
-
-async function deleteCoverFile(filename) {
-  if (!dirHandle || !filename) return;
-  try {
-    const coversDir = await dirHandle.getDirectoryHandle('covers', { create: false });
-    await coversDir.removeEntry(filename);
-  } catch { /* file may not exist; ignore */ }
-}
-
-// Persist all in-memory pending changes to disk
-async function save() {
-  if (!dirHandle) {
-    toast('请先选择数据文件夹');
-    return false;
-  }
-  // Write any pending cover blobs first (papers + reviews + conferences)
-  for (const p of [...papers, ...reviews, ...conferences]) {
-    if (p._pendingCoverBlob) {
-      const filename = await writeCover(p.id, p._pendingCoverBlob, p._pendingCoverExt || 'jpg');
-      if (filename) {
-        if (p.coverFile && p.coverFile !== filename) {
-          await deleteCoverFile(p.coverFile);
-        }
-        p.coverFile = filename;
-        if (coverObjectURLs[p.id]) URL.revokeObjectURL(coverObjectURLs[p.id]);
-        coverObjectURLs[p.id] = URL.createObjectURL(p._pendingCoverBlob);
-      }
-      delete p._pendingCoverBlob;
-      delete p._pendingCoverExt;
-    }
-  }
-  return await writeJSON();
-}
-
-// Resolve a cover for rendering: prefer object URL (local file), then external URL
 function resolveCover(item) {
-  if (coverObjectURLs[item.id]) return coverObjectURLs[item.id];
+  // 优先加载相对路径下的本地封面，如果没有则加载外链
+  if (item.coverFile) return `./covers/${item.coverFile}`;
   if (item.coverURL) return item.coverURL;
   return '';
 }
 
-// ------- Render -------
-function render() {
-  renderPapers();
-  renderReviews();
-  renderConferences();
+function switchView(view) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === view);
+  });
+  document.getElementById('papersView').style.display = view === 'papers' ? '' : 'none';
+  document.getElementById('reviewsView').style.display = view === 'reviews' ? '' : 'none';
+  document.getElementById('conferencesView').style.display = view === 'conferences' ? '' : 'none';
+}
+
+function renderRankBadges(ranks) {
+  if (!ranks || !ranks.length) return '';
+  const priority = (r) => {
+    const k = r.key;
+    if (['sci','ssci','ahci'].includes(k)) return 1;
+    if (['sciif','sciif5','jci'].includes(k)) return 2;
+    if (['sciBase','sciUp','sciUpSmall','sciUpTop','sciwarn','esi'].includes(k)) return 3;
+    if (['pku','cssci','zhongguokejihexin','cscd'].includes(k)) return 4;
+    if (['ccf','eii','fms','utd24','ajg','ft50'].includes(k)) return 5;
+    if (k.startsWith('custom_')) return 7;
+    return 6;
+  };
+  const sorted = [...ranks].sort((a,b) => priority(a) - priority(b));
+  const items = sorted.map(r => {
+    const cls = r.key.startsWith('custom_') ? 'rb-school' : colorForKey(r.key);
+    const label = r.customAbbName || labelFor(r.key);
+    return `<span class="rank-badge ${cls}"><span class="rb-key">${escapeHtml(label)}</span><span class="rb-val">${escapeHtml(String(r.value))}</span></span>`;
+  });
+  return `<div class="rank-badges">${items.join('')}</div>`;
 }
 
 function renderPapers() {
   const list = document.getElementById('list');
   if (!papers.length) {
-    const tip = dirHandle
-      ? '点击上方「＋ 添加论文」开始，或「载入示例」查看效果'
-      : '<strong style="color:var(--accent)">第一步：</strong>点击上方 <strong>「📁 选择数据文件夹」</strong>，建议选一个空文件夹（如和 HTML 同目录的 <code>data/</code>）';
     list.innerHTML = `
       <div class="empty-state">
         <div class="ornament-big">∽</div>
         <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无论文</p>
-        <p>${tip}</p>
       </div>`;
     updateStats();
     return;
   }
-  // sort: year desc, then month desc, then day desc
   const sorted = [...papers].sort((a,b) => {
     const ay = +a.year || 0, by = +b.year || 0;
     if (by !== ay) return by - ay;
@@ -1596,93 +655,8 @@ function renderPapers() {
     const ad = +a.day || 0, bd = +b.day || 0;
     return bd - ad;
   });
-
   list.innerHTML = sorted.map(p => renderEntry(p)).join('');
   updateStats();
-}
-
-function renderReviews() {
-  const list = document.getElementById('reviewList');
-  if (!reviews.length) {
-    const tip = dirHandle
-      ? '点击上方「＋ 添加审稿期刊」开始'
-      : '请先选择数据文件夹';
-    list.innerHTML = `
-      <div class="empty-state">
-        <div class="ornament-big">∽</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无审稿记录</p>
-        <p>${tip}</p>
-      </div>`;
-    updateReviewStats();
-    return;
-  }
-  // sort by review count desc
-  const sorted = [...reviews].sort((a,b) => (+b.count || 0) - (+a.count || 0));
-  list.innerHTML = sorted.map(r => renderReviewEntry(r)).join('');
-  updateReviewStats();
-}
-
-function renderReviewEntry(r) {
-  const coverSrc = resolveCover(r);
-  const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
-    : `<div class="cover-placeholder">
-         <div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div>
-         <div class="hint">No Cover</div>
-       </div>`;
-
-  const ifBadge = r.impactFactor ? `<span class="if-badge">${parseFloat(r.impactFactor).toFixed(1)}</span>` : '';
-
-  return `
-    <article class="review-entry" data-id="${r.id}">
-      <div class="cover-wrap" onclick="quickEditReviewCover('${r.id}')">
-        ${cover}
-        <div class="cover-upload-overlay">点击更换封面</div>
-      </div>
-      <div class="review-body">
-        <div class="review-journal">${escapeHtml(r.journal || '—')} ${ifBadge}</div>
-        ${renderRankBadges(r.ranks)}
-        <div class="review-meta">
-          <span><span class="count">${parseInt(r.count) || 0}</span><span class="count-label">次审稿</span></span>
-        </div>
-        ${r.notes ? `<div class="review-notes">${escapeHtml(r.notes)}</div>` : ''}
-      </div>
-      <div class="actions">
-        <button class="icon-btn" onclick="editReview('${r.id}')" title="编辑">✎</button>
-        <button class="icon-btn danger" onclick="deleteReview('${r.id}')" title="删除">×</button>
-      </div>
-    </article>
-  `;
-}
-
-function updateReviewStats() {
-  document.getElementById('rvJournals').textContent = reviews.length;
-  const total = reviews.reduce((s,r) => s + (parseInt(r.count) || 0), 0);
-  document.getElementById('rvTotal').textContent = total;
-  const ifs = reviews.map(r => parseFloat(r.impactFactor)).filter(v => !isNaN(v));
-  document.getElementById('rvAvgIF').textContent = ifs.length
-    ? (ifs.reduce((s,x)=>s+x,0) / ifs.length).toFixed(1) : '0.0';
-  // Total IF (sum across journals)
-  const totalIF = reviews.reduce((s,r) => s + (parseFloat(r.impactFactor)||0), 0);
-  document.getElementById('rvSpan').textContent = totalIF.toFixed(1);
-}
-
-function switchView(view) {
-  currentView = view;
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tab === view);
-  });
-  document.getElementById('papersView').style.display = view === 'papers' ? '' : 'none';
-  document.getElementById('reviewsView').style.display = view === 'reviews' ? '' : 'none';
-  document.getElementById('conferencesView').style.display = view === 'conferences' ? '' : 'none';
-  const labels = { papers: '＋ 添加论文', reviews: '＋ 添加审稿期刊', conferences: '＋ 添加会议任职' };
-  document.getElementById('addBtn').textContent = labels[view] || '＋ 添加';
-}
-
-function addCurrent() {
-  if (currentView === 'papers') openModal();
-  else if (currentView === 'reviews') openReviewModal();
-  else openConfModal();
 }
 
 function renderEntry(p) {
@@ -1712,9 +686,8 @@ function renderEntry(p) {
 
   return `
     <article class="entry" data-id="${p.id}">
-      <div class="cover-wrap" onclick="quickEditCover('${p.id}')">
+      <div class="cover-wrap">
         ${cover}
-        <div class="cover-upload-overlay">点击更换封面</div>
       </div>
       <div class="body">
         <div class="year-marker">${escapeHtml(dateLabel)}</div>
@@ -1730,10 +703,6 @@ function renderEntry(p) {
         ${p.abstract ? `<p class="abstract">${escapeHtml(p.abstract)}</p>` : ''}
         ${p.notes ? `<div class="notes">${escapeHtml(p.notes)}</div>` : ''}
         ${links.length ? `<div class="links">${links.join('')}</div>` : ''}
-      </div>
-      <div class="actions">
-        <button class="icon-btn" onclick="editPaper('${p.id}')" title="编辑">✎</button>
-        <button class="icon-btn danger" onclick="deletePaper('${p.id}')" title="删除">×</button>
       </div>
     </article>
   `;
@@ -1759,484 +728,72 @@ function updateStats() {
   document.getElementById('dateLabel').textContent = `Updated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
 }
 
-// ------- Modal -------
-function openModal(id) {
-  editingId = id || null;
-  coverData = null;
-  currentRanks = null;
-  document.getElementById('modalRankPreview').innerHTML = '';
-  document.getElementById('modalTitle').innerHTML = id ? '编辑 <em>论文</em>' : '添加 <em>新论文</em>';
-  // reset form
-  ['title','authors','journal','if','year','month','day','volume','pages','doi','citations','url','abstract','notes','cover-url'].forEach(k => {
-    const el = document.getElementById('f-'+k);
-    if (el) el.value = '';
-  });
-  document.getElementById('f-cover-file').value = '';
-  document.getElementById('coverPreview').style.display = 'none';
-  document.getElementById('apaInput').value = '';
-  document.getElementById('citationSourceHint').textContent = '';
-  document.getElementById('citationSourceHint').style.color = 'var(--ink-faint)';
-  switchTab('upload');
-
-  if (id) {
-    const p = papers.find(x => x.id === id);
-    if (p) {
-      document.getElementById('f-title').value = p.title || '';
-      document.getElementById('f-authors').value = p.authors || '';
-      document.getElementById('f-journal').value = p.journal || '';
-      document.getElementById('f-if').value = p.impactFactor || '';
-      document.getElementById('f-year').value = p.year || '';
-      document.getElementById('f-month').value = p.month || '';
-      document.getElementById('f-day').value = p.day || '';
-      document.getElementById('f-volume').value = p.volume || '';
-      document.getElementById('f-pages').value = p.pages || '';
-      document.getElementById('f-doi').value = p.doi || '';
-      document.getElementById('f-citations').value = p.citations || '';
-      document.getElementById('f-url').value = p.url || '';
-      document.getElementById('f-abstract').value = p.abstract || '';
-      document.getElementById('f-notes').value = p.notes || '';
-      if (p.ranks) {
-        currentRanks = p.ranks;
-        document.getElementById('modalRankPreview').innerHTML = renderRankBadges(p.ranks);
-      }
-      // Load cover preview based on which storage form was used
-      const prev = document.getElementById('coverPreview');
-      if (p.coverFile && coverObjectURLs[p.id]) {
-        // Local file — keep coverData null so save() knows nothing changed
-        coverData = null;
-        prev.src = coverObjectURLs[p.id];
-        prev.style.display = 'block';
-        switchTab('upload');
-      } else if (p.coverURL) {
-        coverData = { kind: 'url', url: p.coverURL };
-        prev.src = p.coverURL;
-        prev.style.display = 'block';
-        switchTab('url');
-        document.getElementById('f-cover-url').value = p.coverURL;
-      }
-    }
-  } else {
-    document.getElementById('f-year').value = new Date().getFullYear();
-  }
-  document.getElementById('modal').classList.add('active');
-  setTimeout(() => document.getElementById('f-title').focus(), 100);
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-  editingId = null;
-  coverData = null;
-}
-
-function switchTab(name) {
-  document.querySelectorAll('.cover-tab[data-tab]').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === name);
-  });
-  document.getElementById('tab-upload').style.display = name === 'upload' ? '' : 'none';
-  document.getElementById('tab-url').style.display = name === 'url' ? '' : 'none';
-}
-
-document.querySelectorAll('.cover-tab[data-tab]').forEach(t => {
-  t.addEventListener('click', () => switchTab(t.dataset.tab));
-});
-
-document.getElementById('f-cover-file').addEventListener('change', async e => {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const isTiff = /\.tiff?$/i.test(file.name) || file.type === 'image/tiff' || file.type === 'image/tif';
-
-  if (isTiff) {
-    toast('正在转换 TIFF...');
-    try {
-      if (typeof UTIF === 'undefined') {
-        toast('TIFF 库未加载，请检查网络');
-        return;
-      }
-      const buf = await file.arrayBuffer();
-      const ifds = UTIF.decode(buf);
-      if (!ifds.length) throw new Error('无法解析 TIFF');
-      UTIF.decodeImage(buf, ifds[0]);
-      const rgba = UTIF.toRGBA8(ifds[0]);
-      const w = ifds[0].width, h = ifds[0].height;
-
-      const canvas = document.createElement('canvas');
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      const imageData = ctx.createImageData(w, h);
-      imageData.data.set(rgba);
-      ctx.putImageData(imageData, 0, 0);
-
-      let outCanvas = canvas;
-      const MAX_DIM = 1600;
-      if (w > MAX_DIM || h > MAX_DIM) {
-        const scale = Math.min(MAX_DIM / w, MAX_DIM / h);
-        const nw = Math.round(w * scale), nh = Math.round(h * scale);
-        outCanvas = document.createElement('canvas');
-        outCanvas.width = nw;
-        outCanvas.height = nh;
-        outCanvas.getContext('2d').drawImage(canvas, 0, 0, nw, nh);
-      }
-      const blob = await new Promise(res => outCanvas.toBlob(res, 'image/jpeg', 0.9));
-      coverData = { kind: 'blob', blob, ext: 'jpg' };
-      const prev = document.getElementById('coverPreview');
-      const tmpUrl = URL.createObjectURL(blob);
-      prev.src = tmpUrl;
-      prev.style.display = 'block';
-      toast('TIFF 已转换');
-    } catch (err) {
-      toast('TIFF 转换失败：' + err.message);
-      console.error(err);
-    }
-  } else {
-    // Standard formats: pass through as-is, just record extension
-    const ext = (file.name.match(/\.([a-zA-Z0-9]+)$/) || [, 'jpg'])[1].toLowerCase();
-    coverData = { kind: 'blob', blob: file, ext };
-    const prev = document.getElementById('coverPreview');
-    prev.src = URL.createObjectURL(file);
-    prev.style.display = 'block';
-  }
-});
-
-document.getElementById('f-cover-url').addEventListener('input', e => {
-  const url = e.target.value.trim();
-  if (url) {
-    coverData = { kind: 'url', url };
-    const prev = document.getElementById('coverPreview');
-    prev.src = url;
-    prev.style.display = 'block';
-  } else {
-    coverData = null;
-    document.getElementById('coverPreview').style.display = 'none';
-  }
-});
-
-async function savePaper() {
-  if (!dirHandle) {
-    toast('请先点工具栏「📁 选择数据文件夹」');
+function renderReviews() {
+  const list = document.getElementById('reviewList');
+  if (!reviews.length) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <div class="ornament-big">∽</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无审稿记录</p>
+      </div>`;
+    updateReviewStats();
     return;
   }
-  const title = document.getElementById('f-title').value.trim();
-  const journal = document.getElementById('f-journal').value.trim();
-  const year = document.getElementById('f-year').value.trim();
-  if (!title || !journal || !year) {
-    toast('请填写 标题/期刊/年份');
-    return;
-  }
-  const id = editingId || ('p_' + Date.now() + '_' + Math.random().toString(36).slice(2,8));
-  const existing = editingId ? papers.find(p => p.id === editingId) : null;
-
-  const data = {
-    id,
-    title,
-    authors: document.getElementById('f-authors').value.trim(),
-    journal,
-    impactFactor: document.getElementById('f-if').value.trim(),
-    year,
-    month: document.getElementById('f-month').value.trim(),
-    day: document.getElementById('f-day').value.trim(),
-    volume: document.getElementById('f-volume').value.trim(),
-    pages: document.getElementById('f-pages').value.trim(),
-    doi: document.getElementById('f-doi').value.trim(),
-    citations: document.getElementById('f-citations').value.trim(),
-    url: document.getElementById('f-url').value.trim(),
-    abstract: document.getElementById('f-abstract').value.trim(),
-    notes: document.getElementById('f-notes').value.trim(),
-    // Preserve existing cover refs by default
-    coverFile: existing ? (existing.coverFile || '') : '',
-    coverURL: existing ? (existing.coverURL || '') : '',
-    ranks: currentRanks || (existing ? existing.ranks : null) || null
-  };
-
-  // Apply cover changes based on coverData
-  if (coverData) {
-    if (coverData.kind === 'blob') {
-      // mark for write in save()
-      data._pendingCoverBlob = coverData.blob;
-      data._pendingCoverExt = coverData.ext;
-      data.coverURL = ''; // switching to local file
-    } else if (coverData.kind === 'url') {
-      data.coverURL = coverData.url;
-      // delete old local file if any
-      if (data.coverFile) {
-        await deleteCoverFile(data.coverFile);
-        data.coverFile = '';
-        if (coverObjectURLs[id]) {
-          URL.revokeObjectURL(coverObjectURLs[id]);
-          delete coverObjectURLs[id];
-        }
-      }
-    }
-  }
-
-  if (editingId) {
-    const idx = papers.findIndex(p => p.id === editingId);
-    if (idx >= 0) papers[idx] = data;
-  } else {
-    papers.push(data);
-  }
-  const ok = await save();
-  if (ok) {
-    toast(editingId ? '已更新' : '已添加');
-    render();
-    closeModal();
-  }
+  const sorted = [...reviews].sort((a,b) => (+b.count || 0) - (+a.count || 0));
+  list.innerHTML = sorted.map(r => renderReviewEntry(r)).join('');
+  updateReviewStats();
 }
 
-function editPaper(id) { openModal(id); }
+function renderReviewEntry(r) {
+  const coverSrc = resolveCover(r);
+  const cover = coverSrc
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
+    : `<div class="cover-placeholder">
+         <div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div>
+         <div class="hint">No Cover</div>
+       </div>`;
 
-async function deletePaper(id) {
-  const p = papers.find(x => x.id === id);
-  if (!confirm(`确定删除「${p?.title || '该论文'}」？`)) return;
-  if (p?.coverFile) await deleteCoverFile(p.coverFile);
-  if (coverObjectURLs[id]) {
-    URL.revokeObjectURL(coverObjectURLs[id]);
-    delete coverObjectURLs[id];
-  }
-  papers = papers.filter(x => x.id !== id);
-  await save();
-  render();
-  toast('已删除');
+  const ifBadge = r.impactFactor ? `<span class="if-badge">${parseFloat(r.impactFactor).toFixed(1)}</span>` : '';
+
+  return `
+    <article class="review-entry" data-id="${r.id}">
+      <div class="cover-wrap">
+        ${cover}
+      </div>
+      <div class="review-body">
+        <div class="review-journal">${escapeHtml(r.journal || '—')} ${ifBadge}</div>
+        ${renderRankBadges(r.ranks)}
+        <div class="review-meta">
+          <span><span class="count">${parseInt(r.count) || 0}</span><span class="count-label">次审稿</span></span>
+        </div>
+        ${r.notes ? `<div class="review-notes">${escapeHtml(r.notes)}</div>` : ''}
+      </div>
+    </article>
+  `;
 }
 
-function quickEditCover(id) { openModal(id); }
-
-// ------- Review modal & CRUD -------
-let reviewCoverData = null; // separate state for review cover input
-let reviewCurrentRanks = null;
-let editingReviewId = null;
-
-function openReviewModal(id) {
-  if (!dirHandle) { toast('请先选择数据文件夹'); return; }
-  editingReviewId = id || null;
-  reviewCoverData = null;
-  reviewCurrentRanks = null;
-  document.getElementById('reviewModalTitle').innerHTML = id ? '编辑 <em>审稿记录</em>' : '添加 <em>审稿期刊</em>';
-  // reset
-  ['journal','if','count','notes','cover-url'].forEach(k => {
-    const el = document.getElementById('rf-' + k);
-    if (el) el.value = '';
-  });
-  document.getElementById('rf-count').value = '1';
-  document.getElementById('rf-cover-file').value = '';
-  document.getElementById('reviewCoverPreview').style.display = 'none';
-  document.getElementById('reviewRankPreview').innerHTML = '';
-  switchReviewTab('upload');
-
-  if (id) {
-    const r = reviews.find(x => x.id === id);
-    if (r) {
-      document.getElementById('rf-journal').value = r.journal || '';
-      document.getElementById('rf-if').value = r.impactFactor || '';
-      document.getElementById('rf-count').value = r.count || '1';
-      document.getElementById('rf-notes').value = r.notes || '';
-      if (r.ranks) {
-        reviewCurrentRanks = r.ranks;
-        document.getElementById('reviewRankPreview').innerHTML = renderRankBadges(r.ranks);
-      }
-      const prev = document.getElementById('reviewCoverPreview');
-      if (r.coverFile && coverObjectURLs[r.id]) {
-        reviewCoverData = null;
-        prev.src = coverObjectURLs[r.id];
-        prev.style.display = 'block';
-        switchReviewTab('upload');
-      } else if (r.coverURL) {
-        reviewCoverData = { kind: 'url', url: r.coverURL };
-        prev.src = r.coverURL;
-        prev.style.display = 'block';
-        switchReviewTab('url');
-        document.getElementById('rf-cover-url').value = r.coverURL;
-      }
-    }
-  }
-  document.getElementById('reviewModal').classList.add('active');
-  setTimeout(() => document.getElementById('rf-journal').focus(), 100);
+function updateReviewStats() {
+  document.getElementById('rvJournals').textContent = reviews.length;
+  const total = reviews.reduce((s,r) => s + (parseInt(r.count) || 0), 0);
+  document.getElementById('rvTotal').textContent = total;
+  const ifs = reviews.map(r => parseFloat(r.impactFactor)).filter(v => !isNaN(v));
+  document.getElementById('rvAvgIF').textContent = ifs.length
+    ? (ifs.reduce((s,x)=>s+x,0) / ifs.length).toFixed(1) : '0.0';
+  const totalIF = reviews.reduce((s,r) => s + (parseFloat(r.impactFactor)||0), 0);
+  document.getElementById('rvSpan').textContent = totalIF.toFixed(1);
 }
 
-function closeReviewModal() {
-  document.getElementById('reviewModal').classList.remove('active');
-  editingReviewId = null;
-  reviewCoverData = null;
-  reviewCurrentRanks = null;
-}
-
-function switchReviewTab(name) {
-  document.querySelectorAll('[data-rtab]').forEach(t => {
-    t.classList.toggle('active', t.dataset.rtab === name);
-  });
-  document.getElementById('rtab-upload').style.display = name === 'upload' ? '' : 'none';
-  document.getElementById('rtab-url').style.display = name === 'url' ? '' : 'none';
-}
-
-document.getElementById('rf-cover-file').addEventListener('change', async e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const isTiff = /\.tiff?$/i.test(file.name) || file.type === 'image/tiff' || file.type === 'image/tif';
-  const prev = document.getElementById('reviewCoverPreview');
-  if (isTiff) {
-    toast('正在转换 TIFF...');
-    try {
-      const buf = await file.arrayBuffer();
-      const ifds = UTIF.decode(buf);
-      if (!ifds.length) throw new Error('无法解析 TIFF');
-      UTIF.decodeImage(buf, ifds[0]);
-      const rgba = UTIF.toRGBA8(ifds[0]);
-      const w = ifds[0].width, h = ifds[0].height;
-      const canvas = document.createElement('canvas');
-      canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      const id = ctx.createImageData(w, h);
-      id.data.set(rgba);
-      ctx.putImageData(id, 0, 0);
-      let outCanvas = canvas;
-      const MAX = 1600;
-      if (w > MAX || h > MAX) {
-        const s = Math.min(MAX/w, MAX/h);
-        const nw = Math.round(w*s), nh = Math.round(h*s);
-        outCanvas = document.createElement('canvas');
-        outCanvas.width = nw; outCanvas.height = nh;
-        outCanvas.getContext('2d').drawImage(canvas, 0, 0, nw, nh);
-      }
-      const blob = await new Promise(res => outCanvas.toBlob(res, 'image/jpeg', 0.9));
-      reviewCoverData = { kind: 'blob', blob, ext: 'jpg' };
-      prev.src = URL.createObjectURL(blob);
-      prev.style.display = 'block';
-      toast('TIFF 已转换');
-    } catch (err) { toast('TIFF 转换失败：' + err.message); }
-  } else {
-    const ext = (file.name.match(/\.([a-zA-Z0-9]+)$/) || [, 'jpg'])[1].toLowerCase();
-    reviewCoverData = { kind: 'blob', blob: file, ext };
-    prev.src = URL.createObjectURL(file);
-    prev.style.display = 'block';
-  }
-});
-
-document.getElementById('rf-cover-url').addEventListener('input', e => {
-  const url = e.target.value.trim();
-  const prev = document.getElementById('reviewCoverPreview');
-  if (url) {
-    reviewCoverData = { kind: 'url', url };
-    prev.src = url;
-    prev.style.display = 'block';
-  } else {
-    reviewCoverData = null;
-    prev.style.display = 'none';
-  }
-});
-
-async function lookupReviewCurrent() {
-  const journal = document.getElementById('rf-journal').value.trim();
-  if (!journal) { toast('请先填写期刊名'); return; }
-  const btn = document.getElementById('reviewLookupBtn');
-  btn.classList.add('loading'); btn.disabled = true;
-  try {
-    const ranks = await lookupJournalRanks(journal);
-    if (!ranks.length) {
-      reviewCurrentRanks = null;
-      document.getElementById('reviewRankPreview').innerHTML = '<div class="rank-empty">未查到分区</div>';
-      toast('未查到分区信息');
-    } else {
-      reviewCurrentRanks = ranks;
-      document.getElementById('reviewRankPreview').innerHTML = renderRankBadges(ranks);
-      const ifEntry = ranks.find(r => r.key === 'sciif');
-      const ifInput = document.getElementById('rf-if');
-      if (ifEntry && !ifInput.value) ifInput.value = parseFloat(ifEntry.value).toFixed(1);
-      toast(`已查到 ${ranks.length} 项`);
-    }
-  } catch (err) {
-    if (err.message === 'NO_KEY') {
-      toast('请先在「设置」中填入 SecretKey');
-      setTimeout(openSettings, 600);
-    } else toast('查询失败：' + err.message);
-  } finally {
-    btn.classList.remove('loading'); btn.disabled = false;
-  }
-}
-
-async function saveReview() {
-  if (!dirHandle) { toast('请先选择数据文件夹'); return; }
-  const journal = document.getElementById('rf-journal').value.trim();
-  if (!journal) { toast('请填写期刊名'); return; }
-  const id = editingReviewId || ('r_' + Date.now() + '_' + Math.random().toString(36).slice(2,8));
-  const existing = editingReviewId ? reviews.find(x => x.id === editingReviewId) : null;
-
-  const data = {
-    id,
-    journal,
-    impactFactor: document.getElementById('rf-if').value.trim(),
-    count: document.getElementById('rf-count').value.trim() || '1',
-    notes: document.getElementById('rf-notes').value.trim(),
-    coverFile: existing ? (existing.coverFile || '') : '',
-    coverURL: existing ? (existing.coverURL || '') : '',
-    ranks: reviewCurrentRanks || (existing ? existing.ranks : null) || null
-  };
-
-  if (reviewCoverData) {
-    if (reviewCoverData.kind === 'blob') {
-      data._pendingCoverBlob = reviewCoverData.blob;
-      data._pendingCoverExt = reviewCoverData.ext;
-      data.coverURL = '';
-    } else if (reviewCoverData.kind === 'url') {
-      data.coverURL = reviewCoverData.url;
-      if (data.coverFile) {
-        await deleteCoverFile(data.coverFile);
-        data.coverFile = '';
-        if (coverObjectURLs[id]) {
-          URL.revokeObjectURL(coverObjectURLs[id]);
-          delete coverObjectURLs[id];
-        }
-      }
-    }
-  }
-
-  if (editingReviewId) {
-    const idx = reviews.findIndex(x => x.id === editingReviewId);
-    if (idx >= 0) reviews[idx] = data;
-  } else {
-    reviews.push(data);
-  }
-  const ok = await save();
-  if (ok) {
-    toast(editingReviewId ? '已更新' : '已添加');
-    render();
-    closeReviewModal();
-  }
-}
-
-function editReview(id) { openReviewModal(id); }
-function quickEditReviewCover(id) { openReviewModal(id); }
-
-async function deleteReview(id) {
-  const r = reviews.find(x => x.id === id);
-  if (!confirm(`确定删除「${r?.journal || '该期刊'}」的审稿记录？`)) return;
-  if (r?.coverFile) await deleteCoverFile(r.coverFile);
-  if (coverObjectURLs[id]) {
-    URL.revokeObjectURL(coverObjectURLs[id]);
-    delete coverObjectURLs[id];
-  }
-  reviews = reviews.filter(x => x.id !== id);
-  await save();
-  render();
-  toast('已删除');
-}
-// ------- end Review CRUD -------
-
-// ------- Conference rendering & CRUD -------
 function renderConferences() {
   const list = document.getElementById('conferenceList');
   if (!conferences.length) {
-    const tip = dirHandle ? '点击上方「＋ 添加会议任职」开始' : '请先选择数据文件夹';
     list.innerHTML = `
       <div class="empty-state">
         <div class="ornament-big">∽</div>
         <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无会议任职</p>
-        <p>${tip}</p>
       </div>`;
     updateConferenceStats();
     return;
   }
-  // sort: year desc, then name asc
   const sorted = [...conferences].sort((a,b) => {
     const ay = +a.year || 0, by = +b.year || 0;
     if (by !== ay) return by - ay;
@@ -2261,9 +818,8 @@ function renderConferenceEntry(c) {
 
   return `
     <article class="review-entry conf-entry" data-id="${c.id}">
-      <div class="cover-wrap" onclick="quickEditConfCover('${c.id}')">
+      <div class="cover-wrap">
         ${cover}
-        <div class="cover-upload-overlay">点击更换封面</div>
       </div>
       <div class="review-body">
         <div class="year-marker">${escapeHtml(c.year || '—')}</div>
@@ -2273,17 +829,12 @@ function renderConferenceEntry(c) {
         ${linkBtn}
         ${c.notes ? `<div class="review-notes">${escapeHtml(c.notes)}</div>` : ''}
       </div>
-      <div class="actions">
-        <button class="icon-btn" onclick="editConf('${c.id}')" title="编辑">✎</button>
-        <button class="icon-btn danger" onclick="deleteConf('${c.id}')" title="删除">×</button>
-      </div>
     </article>
   `;
 }
 
 function updateConferenceStats() {
   document.getElementById('cfCount').textContent = conferences.length;
-  // unique roles
   const uniqueRoles = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean));
   document.getElementById('cfRoles').textContent = uniqueRoles.size;
   const years = conferences.map(c => +c.year).filter(Boolean);
@@ -2295,837 +846,38 @@ function updateConferenceStats() {
   }
 }
 
-let confCoverData = null;
-let editingConfId = null;
-
-function openConfModal(id) {
-  if (!dirHandle) { toast('请先选择数据文件夹'); return; }
-  editingConfId = id || null;
-  confCoverData = null;
-  document.getElementById('confModalTitle').innerHTML = id ? '编辑 <em>会议任职</em>' : '添加 <em>会议任职</em>';
-  ['name','url','role','year','location','notes','cover-url'].forEach(k => {
-    const el = document.getElementById('cf-' + k);
-    if (el) el.value = '';
-  });
-  document.getElementById('cf-cover-file').value = '';
-  document.getElementById('confCoverPreview').style.display = 'none';
-  switchConfTab('upload');
-
-  if (id) {
-    const c = conferences.find(x => x.id === id);
-    if (c) {
-      document.getElementById('cf-name').value = c.name || '';
-      document.getElementById('cf-url').value = c.url || '';
-      document.getElementById('cf-role').value = c.role || '';
-      document.getElementById('cf-year').value = c.year || '';
-      document.getElementById('cf-location').value = c.location || '';
-      document.getElementById('cf-notes').value = c.notes || '';
-      const prev = document.getElementById('confCoverPreview');
-      if (c.coverFile && coverObjectURLs[c.id]) {
-        confCoverData = null;
-        prev.src = coverObjectURLs[c.id];
-        prev.style.display = 'block';
-        switchConfTab('upload');
-      } else if (c.coverURL) {
-        confCoverData = { kind: 'url', url: c.coverURL };
-        prev.src = c.coverURL;
-        prev.style.display = 'block';
-        switchConfTab('url');
-        document.getElementById('cf-cover-url').value = c.coverURL;
-      }
-    }
-  } else {
-    document.getElementById('cf-year').value = new Date().getFullYear();
-  }
-  document.getElementById('confModal').classList.add('active');
-  setTimeout(() => document.getElementById('cf-name').focus(), 100);
-}
-
-function closeConfModal() {
-  document.getElementById('confModal').classList.remove('active');
-  editingConfId = null;
-  confCoverData = null;
-}
-
-function switchConfTab(name) {
-  document.querySelectorAll('[data-ctab]').forEach(t => {
-    t.classList.toggle('active', t.dataset.ctab === name);
-  });
-  document.getElementById('ctab-upload').style.display = name === 'upload' ? '' : 'none';
-  document.getElementById('ctab-url').style.display = name === 'url' ? '' : 'none';
-}
-
-document.getElementById('cf-cover-file').addEventListener('change', async e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const isTiff = /\.tiff?$/i.test(file.name) || file.type === 'image/tiff' || file.type === 'image/tif';
-  const prev = document.getElementById('confCoverPreview');
-  if (isTiff) {
-    toast('正在转换 TIFF...');
-    try {
-      const buf = await file.arrayBuffer();
-      const ifds = UTIF.decode(buf);
-      if (!ifds.length) throw new Error('无法解析 TIFF');
-      UTIF.decodeImage(buf, ifds[0]);
-      const rgba = UTIF.toRGBA8(ifds[0]);
-      const w = ifds[0].width, h = ifds[0].height;
-      const canvas = document.createElement('canvas');
-      canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      const id = ctx.createImageData(w, h);
-      id.data.set(rgba);
-      ctx.putImageData(id, 0, 0);
-      let outCanvas = canvas;
-      const MAX = 1600;
-      if (w > MAX || h > MAX) {
-        const s = Math.min(MAX/w, MAX/h);
-        const nw = Math.round(w*s), nh = Math.round(h*s);
-        outCanvas = document.createElement('canvas');
-        outCanvas.width = nw; outCanvas.height = nh;
-        outCanvas.getContext('2d').drawImage(canvas, 0, 0, nw, nh);
-      }
-      const blob = await new Promise(res => outCanvas.toBlob(res, 'image/jpeg', 0.9));
-      confCoverData = { kind: 'blob', blob, ext: 'jpg' };
-      prev.src = URL.createObjectURL(blob);
-      prev.style.display = 'block';
-      toast('TIFF 已转换');
-    } catch (err) { toast('TIFF 转换失败：' + err.message); }
-  } else {
-    const ext = (file.name.match(/\.([a-zA-Z0-9]+)$/) || [, 'jpg'])[1].toLowerCase();
-    confCoverData = { kind: 'blob', blob: file, ext };
-    prev.src = URL.createObjectURL(file);
-    prev.style.display = 'block';
-  }
-});
-
-document.getElementById('cf-cover-url').addEventListener('input', e => {
-  const url = e.target.value.trim();
-  const prev = document.getElementById('confCoverPreview');
-  if (url) {
-    confCoverData = { kind: 'url', url };
-    prev.src = url;
-    prev.style.display = 'block';
-  } else {
-    confCoverData = null;
-    prev.style.display = 'none';
-  }
-});
-
-async function saveConf() {
-  if (!dirHandle) { toast('请先选择数据文件夹'); return; }
-  const name = document.getElementById('cf-name').value.trim();
-  const role = document.getElementById('cf-role').value.trim();
-  const year = document.getElementById('cf-year').value.trim();
-  if (!name || !role || !year) { toast('请填写 会议名/角色/年份'); return; }
-
-  const id = editingConfId || ('c_' + Date.now() + '_' + Math.random().toString(36).slice(2,8));
-  const existing = editingConfId ? conferences.find(x => x.id === editingConfId) : null;
-
-  const data = {
-    id,
-    name,
-    url: document.getElementById('cf-url').value.trim(),
-    role,
-    year,
-    location: document.getElementById('cf-location').value.trim(),
-    notes: document.getElementById('cf-notes').value.trim(),
-    coverFile: existing ? (existing.coverFile || '') : '',
-    coverURL: existing ? (existing.coverURL || '') : ''
-  };
-
-  if (confCoverData) {
-    if (confCoverData.kind === 'blob') {
-      data._pendingCoverBlob = confCoverData.blob;
-      data._pendingCoverExt = confCoverData.ext;
-      data.coverURL = '';
-    } else if (confCoverData.kind === 'url') {
-      data.coverURL = confCoverData.url;
-      if (data.coverFile) {
-        await deleteCoverFile(data.coverFile);
-        data.coverFile = '';
-        if (coverObjectURLs[id]) {
-          URL.revokeObjectURL(coverObjectURLs[id]);
-          delete coverObjectURLs[id];
-        }
-      }
-    }
-  }
-
-  if (editingConfId) {
-    const idx = conferences.findIndex(x => x.id === editingConfId);
-    if (idx >= 0) conferences[idx] = data;
-  } else {
-    conferences.push(data);
-  }
-  const ok = await save();
-  if (ok) {
-    toast(editingConfId ? '已更新' : '已添加');
-    render();
-    closeConfModal();
-  }
-}
-
-function editConf(id) { openConfModal(id); }
-function quickEditConfCover(id) { openConfModal(id); }
-
-async function deleteConf(id) {
-  const c = conferences.find(x => x.id === id);
-  if (!confirm(`确定删除「${c?.name || '该会议'}」？`)) return;
-  if (c?.coverFile) await deleteCoverFile(c.coverFile);
-  if (coverObjectURLs[id]) {
-    URL.revokeObjectURL(coverObjectURLs[id]);
-    delete coverObjectURLs[id];
-  }
-  conferences = conferences.filter(x => x.id !== id);
-  await save();
-  render();
-  toast('已删除');
-}
-// ------- end Conference CRUD -------
-
-async function clearAll() {
-  if (currentView === 'papers') {
-    if (!papers.length) return;
-    if (!confirm('确定清空所有论文？（不影响审稿记录）建议先点「↓ 备份 JSON」。')) return;
-    // delete cover files for these papers
-    for (const p of papers) {
-      if (p.coverFile) await deleteCoverFile(p.coverFile);
-      if (coverObjectURLs[p.id]) {
-        URL.revokeObjectURL(coverObjectURLs[p.id]);
-        delete coverObjectURLs[p.id];
-      }
-    }
-    papers = [];
-  } else {
-    if (!reviews.length) return;
-    if (!confirm('确定清空所有审稿记录？（不影响论文）')) return;
-    for (const r of reviews) {
-      if (r.coverFile) await deleteCoverFile(r.coverFile);
-      if (coverObjectURLs[r.id]) {
-        URL.revokeObjectURL(coverObjectURLs[r.id]);
-        delete coverObjectURLs[r.id];
-      }
-    }
-    reviews = [];
-  }
-  await save();
-  render();
-  toast('已清空');
-}
-
-// ------- Backup -------
-async function exportBackup() {
-  if (!papers.length && !reviews.length) { toast('暂无数据'); return; }
-  const strip = (arr) => arr.map(p => {
-    const { _pendingCoverBlob, _pendingCoverExt, ...rest } = p;
-    return rest;
-  });
-  const data = JSON.stringify({ papers: strip(papers), reviews: strip(reviews) }, null, 2);
-  const blob = new Blob([data], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `academic_backup_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-  toast('已下载 JSON 快照（封面文件已在你选的文件夹中）');
-}
-
-async function loadSample() {
-  if (!dirHandle) { toast('请先选择数据文件夹'); return; }
-  if (papers.length && !confirm('将覆盖现有数据，确定？')) return;
-  papers = [
-    {
-      id: 'p_sample_1',
-      title: 'Emergent abilities of large language models in multi-modal scientific reasoning',
-      authors: 'Zhang, L., Chen, M., Wang, Y., et al.',
-      journal: 'Nature',
-      impactFactor: '64.8',
-      year: '2024',
-      month: '11',
-      volume: '625(7993)',
-      pages: '142–158',
-      doi: '10.1038/s41586-024-00000-0',
-      citations: '87',
-      url: 'https://www.nature.com',
-      abstract: '我们展示了大语言模型在跨模态科学推理任务中的涌现行为。通过系统性评估，我们发现模型规模与推理能力呈现明显的相变特征，且这一现象在化学、生物、物理等多个领域具有普适性。',
-      notes: 'Featured on cover · Editor\'s Choice',
-      coverFile: '', coverURL: ''
-    },
-    {
-      id: 'p_sample_2',
-      title: 'A unified framework for graph-based protein structure prediction',
-      authors: 'Wang, Y., Zhang, L., Liu, H.',
-      journal: 'Cell',
-      impactFactor: '45.5',
-      year: '2024',
-      month: '6',
-      volume: '187(13)',
-      pages: '3201–3215',
-      doi: '10.1016/j.cell.2024.00000',
-      citations: '124',
-      abstract: '提出了一种统一的图神经网络框架用于蛋白质结构预测，在 CASP15 基准测试中取得最先进性能。',
-      coverFile: '', coverURL: ''
-    },
-    {
-      id: 'p_sample_3',
-      title: 'Self-supervised learning of molecular representations from unlabeled data',
-      authors: 'Chen, M., Zhang, L.',
-      journal: 'Science',
-      impactFactor: '56.9',
-      year: '2023',
-      month: '9',
-      volume: '381(6661)',
-      pages: '988–995',
-      doi: '10.1126/science.0000000',
-      citations: '256',
-      abstract: '通过对比学习从大规模未标注分子数据中学习通用分子表征，在 12 个下游任务上显著超越监督方法。',
-      coverFile: '', coverURL: ''
-    },
-    {
-      id: 'p_sample_4',
-      title: 'Attention mechanisms reveal hidden patterns in single-cell transcriptomics',
-      authors: 'Liu, H., Zhang, L., Chen, M.',
-      journal: 'Nature Methods',
-      impactFactor: '36.1',
-      year: '2022',
-      month: '4',
-      volume: '19(4)',
-      pages: '442–451',
-      citations: '342',
-      abstract: '应用 Transformer 注意力机制对单细胞转录组数据进行可解释建模，发现了若干新的细胞亚群。',
-      coverFile: '', coverURL: ''
-    }
-  ];
-  await save();
-  render();
-  toast('已载入示例数据');
-}
-
-// ------- Helpers -------
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 }
 function escapeAttr(s) { return escapeHtml(s); }
 
-let toastTimer;
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+function renderAll() {
+  renderPapers();
+  renderReviews();
+  renderConferences();
 }
 
-// ------- APA Parser -------
-function parseAPA() {
-  const raw = document.getElementById('apaInput').value.trim();
-  if (!raw) { toast('请先粘贴引用文本'); return; }
-
-  // Normalize: collapse whitespace, normalize dashes
-  let text = raw.replace(/\s+/g, ' ').replace(/[–—]/g, '-').trim();
-
-  const result = {};
-
-  // 1. Extract DOI (very reliable). DOIs can contain dots — only stop at whitespace, comma, or end.
-  const doiMatch = text.match(/(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)(10\.\d{4,9}\/\S+?)(?:[\s,]|$)/i)
-                || text.match(/\b(10\.\d{4,9}\/\S+?)(?:[\s,]|$)/);
-  if (doiMatch) {
-    // Strip trailing punctuation that's likely sentence-ending, not part of DOI
-    result.doi = doiMatch[1].replace(/[.,;)]+$/, '');
-    // remove DOI/url from text for cleaner downstream parsing
-    text = text.replace(/https?:\/\/(?:dx\.)?doi\.org\/\S+/i, '')
-               .replace(/doi:\s*\S+/i, '')
-               .replace(/\b10\.\d{4,9}\/\S+/, '')
-               .trim();
-  }
-
-  // 2. Extract URL (if no DOI, may have plain URL)
-  const urlMatch = raw.match(/https?:\/\/[^\s)]+/);
-  if (urlMatch && !result.doi) {
-    result.url = urlMatch[0].replace(/[.,;)]+$/, '');
-    text = text.replace(urlMatch[0], '').trim();
-  } else if (urlMatch && result.doi) {
-    // keep doi.org link out, but if a different URL exists, save it
-    if (!/doi\.org/i.test(urlMatch[0])) result.url = urlMatch[0].replace(/[.,;)]+$/, '');
-  }
-
-  // 3. Extract year — first 4-digit number in parens, allow "2024a"/"2024b" suffix
-  const yearMatch = text.match(/\((\d{4})[a-z]?\)/);
-  if (yearMatch) {
-    result.year = yearMatch[1];
-  } else {
-    const looseYear = text.match(/\b(19|20)\d{2}\b/);
-    if (looseYear) result.year = looseYear[0];
-  }
-
-  // Split into segments around the year-paren if possible
-  let authorsPart = '', restPart = text;
-  if (yearMatch) {
-    const idx = text.indexOf(yearMatch[0]);
-    authorsPart = text.slice(0, idx).trim().replace(/[.,;\s]+$/, '');
-    restPart = text.slice(idx + yearMatch[0].length).trim().replace(/^[.,:\s]+/, '');
-  }
-
-  // 4. Authors
-  if (authorsPart) {
-    // strip trailing period
-    result.authors = authorsPart.replace(/\.$/, '').trim();
-  }
-
-  // 5. Now restPart should look like:  "Title. Journal, Volume(Issue), Pages."
-  //    Title ends at first ". " followed by capital letter (journal name)
-  //    Use the LAST period before a comma+digits pattern to find journal start, but simpler heuristic:
-  //    Title ends at first sentence-ending period before journal info.
-  if (restPart) {
-    // Try to find journal volume pattern: ", <Volume>(Issue), <pages>" or ", <Volume>, <pages>"
-    // Pages can be: "142-158", "L101-L108", "e1234", "1-45", etc.
-    const journalVolPattern = /,\s*(\d+)\s*(?:\(([^)]+)\))?\s*,\s*([A-Za-z]?\d[\w]*(?:\s*-\s*[A-Za-z]?\d[\w]*)?)/;
-    const jvMatch = restPart.match(journalVolPattern);
-
-    let titleAndJournal = restPart;
-    if (jvMatch) {
-      result.volume = jvMatch[2] ? `${jvMatch[1]}(${jvMatch[2]})` : jvMatch[1];
-      result.pages = jvMatch[3].replace(/\s/g, '');
-      titleAndJournal = restPart.slice(0, jvMatch.index).trim();
-    } else {
-      // No volume info; try to strip trailing period
-      titleAndJournal = restPart.replace(/[.,\s]+$/, '');
-    }
-
-    // titleAndJournal: "Title. Journal Name"
-    // Split at last period that's followed by a space and a capital letter or italics-marker
-    // Heuristic: split at FIRST period followed by space + capital letter, but title may contain periods (e.g. "U.S.")
-    // Better: split at LAST ". " where what follows is the journal name (typically Title Case, all words)
-    // Pragmatic: try splitting at ". " — pick the split that makes the journal look "journal-y"
-    const splitCandidates = [];
-    let searchFrom = 0;
-    while (true) {
-      const dotIdx = titleAndJournal.indexOf('. ', searchFrom);
-      if (dotIdx === -1) break;
-      splitCandidates.push(dotIdx);
-      searchFrom = dotIdx + 1;
-    }
-
-    let chosen = null;
-    if (splitCandidates.length === 1) {
-      chosen = splitCandidates[0];
-    } else if (splitCandidates.length > 1) {
-      // Prefer the LAST split — journal usually comes right before volume info
-      // But avoid splits inside abbreviations like "U.S." (single uppercase letters around period)
-      for (let i = splitCandidates.length - 1; i >= 0; i--) {
-        const idx = splitCandidates[i];
-        const before = titleAndJournal[idx - 1] || '';
-        const afterChars = titleAndJournal.slice(idx + 2, idx + 4);
-        // Skip if it looks like an abbreviation (single letter + period + single letter + period)
-        if (/[A-Z]/.test(before) && before === before.toUpperCase() && idx >= 2
-            && titleAndJournal[idx - 2] === '.') continue;
-        chosen = idx;
-        break;
-      }
-      if (chosen === null) chosen = splitCandidates[splitCandidates.length - 1];
-    }
-
-    if (chosen !== null) {
-      result.title = titleAndJournal.slice(0, chosen).trim().replace(/[.\s]+$/, '');
-      result.journal = titleAndJournal.slice(chosen + 2).trim().replace(/[.,\s]+$/, '');
-    } else {
-      // No clear split — assume entire thing is the title
-      result.title = titleAndJournal.replace(/[.,\s]+$/, '');
-    }
-  }
-
-  // Apply to form
-  let filled = 0;
-  const map = {
-    'f-title': result.title,
-    'f-authors': result.authors,
-    'f-journal': result.journal,
-    'f-year': result.year,
-    'f-volume': result.volume,
-    'f-pages': result.pages,
-    'f-doi': result.doi,
-    'f-url': result.url
-  };
-  for (const [id, val] of Object.entries(map)) {
-    if (val) {
-      document.getElementById(id).value = val;
-      filled++;
-    }
-  }
-
-  if (filled === 0) {
-    toast('未能识别，请检查格式或手动填写');
-  } else {
-    const missing = [];
-    if (!result.title) missing.push('标题');
-    if (!result.journal) missing.push('期刊');
-    if (!result.year) missing.push('年份');
-    const msg = missing.length
-      ? `已填充 ${filled} 项，请补全：${missing.join('、')}`
-      : `已填充 ${filled} 项 ✓`;
-    toast(msg);
-    // Briefly highlight filled fields
-    for (const [id, val] of Object.entries(map)) {
-      if (val) {
-        const el = document.getElementById(id);
-        el.style.transition = 'background-color .6s';
-        el.style.backgroundColor = 'rgba(184,137,58,.18)';
-        setTimeout(() => { el.style.backgroundColor = ''; }, 1200);
-      }
-    }
-  }
-}
-
-// ------- APA Parser end -------
-
-// ------- easyScholar Integration -------
-const SETTINGS_KEY = 'publications_settings_v1';
-function getSettings() {
+// 核心逻辑：从相对路径的 json 文件中读取数据
+async function loadData() {
   try {
-    return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  } catch { return {}; }
-}
-function setSettings(obj) {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(obj));
-}
+    const [pubRes, revRes, confRes] = await Promise.all([
+      fetch('./publications.json').catch(() => null),
+      fetch('./reviews.json').catch(() => null),
+      fetch('./conferences.json').catch(() => null)
+    ]);
 
-function openSettings() {
-  const s = getSettings();
-  document.getElementById('settingsKey').value = s.secretKey || '';
-  document.getElementById('settingsKey').type = 'password';
-  document.getElementById('settingsShowKey').checked = false;
-  document.getElementById('settingsModal').classList.add('active');
-}
-function closeSettings() {
-  document.getElementById('settingsModal').classList.remove('active');
-}
-function saveSettings() {
-  const key = document.getElementById('settingsKey').value.trim();
-  const s = getSettings();
-  s.secretKey = key;
-  setSettings(s);
-  closeSettings();
-  toast(key ? '设置已保存' : '已清除密钥');
-}
-
-// Map of all easyScholar abbreviations to friendly Chinese labels
-// Reference: appendix 1 of easyScholar API docs
-const RANK_LABELS = {
-  // 学校等级
-  swufe: '西南财经', cufe: '中央财经', uibe: '对外经贸', sdufe: '山东财经',
-  xdu: '西电', swjtu: '西南交大', ruc: '人大', xmu: '厦大',
-  sjtu: '上交', fdu: '复旦', hhu: '河海', scu: '川大',
-  cqu: '重大', nju: '南大', xju: '新大', cug: '地大',
-  cju: '长大', zju: '浙大', cpu: '中国药科', dufe: 'DUFE',
-  // 核心
-  pku: '北大核心', cssci: '南大核心', zhongguokejihexin: '中国科技核心',
-  // 学会/榜单
-  ccf: 'CCF', fms: 'FMS', utd24: 'UTD24', ajg: 'ABS', ft50: 'FT50',
-  // 检索
-  eii: 'EI', cscd: 'CSCD', ahci: 'A&HCI', esi: 'ESI',
-  // SCI / 中科院
-  sciif: 'IF', sciif5: 'IF(5)', jci: 'JCI',
-  sci: 'JCR', ssci: 'SSCI', sciwarn: '中科院预警',
-  sciBase: 'SCI基础版', sciUp: 'SCI升级版', sciUpSmall: 'SCI升级版小类', sciUpTop: '中科院TOP',
-};
-
-// Each abbreviation maps to a CSS class for badge color
-const RANK_COLORS = {
-  sci: 'rb-sci', sciBase: 'rb-sci', sciUp: 'rb-sci', sciUpSmall: 'rb-sci', sciUpTop: 'rb-sci',
-  ssci: 'rb-ssci', ahci: 'rb-ahci',
-  sciif: 'rb-if', sciif5: 'rb-if', jci: 'rb-info', esi: 'rb-info',
-  sciwarn: 'rb-warn',
-  pku: 'rb-cn', cssci: 'rb-cn', zhongguokejihexin: 'rb-cn', cscd: 'rb-cn',
-  ccf: 'rb-ccf', eii: 'rb-eii',
-  fms: 'rb-default', utd24: 'rb-default', ajg: 'rb-default', ft50: 'rb-default',
-};
-function colorForKey(key) {
-  if (RANK_COLORS[key]) return RANK_COLORS[key];
-  // Default to school category (yellow)
-  return 'rb-school';
-}
-function labelFor(key) {
-  return RANK_LABELS[key] || key.toUpperCase();
-}
-
-async function lookupJournalRanks(journalName) {
-  const s = getSettings();
-  if (!s.secretKey) {
-    throw new Error('NO_KEY');
-  }
-  const url = `https://www.easyscholar.cc/open/getPublicationRank?secretKey=${encodeURIComponent(s.secretKey)}&publicationName=${encodeURIComponent(journalName)}`;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error('网络错误 ' + resp.status);
-  const json = await resp.json();
-  if (json.code !== 200) throw new Error(json.msg || '查询失败');
-  return normalizeRanks(json.data);
-}
-
-// Convert easyScholar response to a flat list of {key, value, customAbbName}
-function normalizeRanks(data) {
-  const out = [];
-  if (!data) return out;
-
-  // officialRank.select first (user-selected datasets), then any in .all not in .select
-  const official = data.officialRank || {};
-  const seen = new Set();
-  const sel = official.select || {};
-  Object.keys(sel).forEach(k => {
-    out.push({ key: k, value: sel[k] });
-    seen.add(k);
-  });
-  const all = official.all || {};
-  Object.keys(all).forEach(k => {
-    if (!seen.has(k)) {
-      out.push({ key: k, value: all[k] });
-    }
-  });
-
-  // customRank
-  const custom = data.customRank || {};
-  if (Array.isArray(custom.rank) && Array.isArray(custom.rankInfo)) {
-    custom.rank.forEach(r => {
-      const [uuid, level] = r.split('&&&');
-      const info = custom.rankInfo.find(i => i.uuid === uuid);
-      if (!info) return;
-      const lvlField = ['oneRankText','twoRankText','threeRankText','fourRankText','fiveRankText'][parseInt(level,10)-1];
-      const lvlText = info[lvlField] || level;
-      out.push({ key: 'custom_' + uuid, value: lvlText, customAbbName: info.abbName });
-    });
-  }
-  return out;
-}
-
-function renderRankBadges(ranks) {
-  if (!ranks || !ranks.length) return '';
-  // Order: SCI/SSCI first, then IF, then 中科院, then 核心, then 学校, then custom
-  const priority = (r) => {
-    const k = r.key;
-    if (['sci','ssci','ahci'].includes(k)) return 1;
-    if (['sciif','sciif5','jci'].includes(k)) return 2;
-    if (['sciBase','sciUp','sciUpSmall','sciUpTop','sciwarn','esi'].includes(k)) return 3;
-    if (['pku','cssci','zhongguokejihexin','cscd'].includes(k)) return 4;
-    if (['ccf','eii','fms','utd24','ajg','ft50'].includes(k)) return 5;
-    if (k.startsWith('custom_')) return 7;
-    return 6;
-  };
-  const sorted = [...ranks].sort((a,b) => priority(a) - priority(b));
-  const items = sorted.map(r => {
-    const cls = r.key.startsWith('custom_') ? 'rb-school' : colorForKey(r.key);
-    const label = r.customAbbName || labelFor(r.key);
-    return `<span class="rank-badge ${cls}"><span class="rb-key">${escapeHtml(label)}</span><span class="rb-val">${escapeHtml(String(r.value))}</span></span>`;
-  });
-  return `<div class="rank-badges">${items.join('')}</div>`;
-}
-
-async function lookupCurrent() {
-  const journal = document.getElementById('f-journal').value.trim();
-  if (!journal) { toast('请先填写期刊名'); return; }
-  const btn = document.getElementById('modalLookupBtn');
-  btn.classList.add('loading');
-  btn.disabled = true;
-  try {
-    const ranks = await lookupJournalRanks(journal);
-    if (!ranks.length) {
-      toast('未查到分区信息');
-      currentRanks = null;
-      document.getElementById('modalRankPreview').innerHTML = '<div class="rank-empty">未查到分区</div>';
-    } else {
-      currentRanks = ranks;
-      document.getElementById('modalRankPreview').innerHTML = renderRankBadges(ranks);
-      // Auto-fill IF if available and IF field is empty
-      const ifEntry = ranks.find(r => r.key === 'sciif');
-      const ifInput = document.getElementById('f-if');
-      if (ifEntry && !ifInput.value) {
-        ifInput.value = parseFloat(ifEntry.value).toFixed(1);
-      }
-      toast(`已查到 ${ranks.length} 项`);
-    }
-  } catch (err) {
-    if (err.message === 'NO_KEY') {
-      toast('请先在「设置」中填入 SecretKey');
-      setTimeout(openSettings, 600);
-    } else {
-      toast('查询失败：' + err.message);
-    }
+    if (pubRes && pubRes.ok) papers = await pubRes.json();
+    if (revRes && revRes.ok) reviews = await revRes.json();
+    if (confRes && confRes.ok) conferences = await confRes.json();
+  } catch (error) {
+    console.error("数据加载失败", error);
   } finally {
-    btn.classList.remove('loading');
-    btn.disabled = false;
+    renderAll();
   }
 }
 
-async function lookupAllRanks() {
-  const s = getSettings();
-  if (!s.secretKey) {
-    toast('请先在「设置」中填入 SecretKey');
-    setTimeout(openSettings, 600);
-    return;
-  }
-  const isReviews = currentView === 'reviews';
-  const collection = isReviews ? reviews : papers;
-  const label = isReviews ? '审稿期刊' : '论文';
-  if (!collection.length) { toast(`暂无${label}`); return; }
-
-  const targets = collection.filter(p => p.journal);
-  if (!confirm(`将查询 ${targets.length} 项${label}的期刊分区。\n每条间隔 600ms，预计耗时 ${Math.ceil(targets.length * 0.6)} 秒。\n\n继续？`)) return;
-
-  let ok = 0, fail = 0;
-  toast(`查询中 0 / ${targets.length}...`);
-  for (let i = 0; i < targets.length; i++) {
-    const p = targets[i];
-    try {
-      const ranks = await lookupJournalRanks(p.journal);
-      const idx = collection.findIndex(x => x.id === p.id);
-      if (idx >= 0) collection[idx].ranks = ranks;
-      ok++;
-    } catch (err) {
-      fail++;
-      console.warn('Lookup failed for', p.journal, err);
-    }
-    document.getElementById('toast').textContent = `查询中 ${i+1} / ${targets.length}...`;
-    if (i < targets.length - 1) await new Promise(r => setTimeout(r, 600));
-  }
-  await save();
-  render();
-  toast(`完成 · 成功 ${ok} 失败 ${fail}`);
-}
-
-// ------- end easyScholar -------
-
-// ------- Citation lookup (Crossref + OpenCitations) -------
-async function fetchCrossrefCitations(doi) {
-  const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}`;
-  const resp = await fetch(url, { headers: { 'Accept': 'application/json' } });
-  if (!resp.ok) throw new Error('Crossref ' + resp.status);
-  const json = await resp.json();
-  const count = json?.message?.['is-referenced-by-count'];
-  return typeof count === 'number' ? count : null;
-}
-
-async function fetchOpenCitationsCitations(doi) {
-  // OpenCitations COCI API: returns [{ "count": "N" }]
-  const url = `https://opencitations.net/index/coci/api/v1/citation-count/${encodeURIComponent(doi)}`;
-  const resp = await fetch(url, { headers: { 'Accept': 'application/json' } });
-  if (!resp.ok) throw new Error('OpenCitations ' + resp.status);
-  const json = await resp.json();
-  const item = Array.isArray(json) ? json[0] : json;
-  if (!item || item.count == null) return null;
-  const n = parseInt(item.count, 10);
-  return isNaN(n) ? null : n;
-}
-
-// Returns { count, source } where count is the max from both sources
-async function lookupCitationCount(doi) {
-  if (!doi) throw new Error('NO_DOI');
-  // Run both in parallel; tolerate failures of either
-  const [cr, oc] = await Promise.allSettled([
-    fetchCrossrefCitations(doi),
-    fetchOpenCitationsCitations(doi)
-  ]);
-  const crCount = cr.status === 'fulfilled' ? cr.value : null;
-  const ocCount = oc.status === 'fulfilled' ? oc.value : null;
-
-  if (crCount == null && ocCount == null) {
-    const errs = [];
-    if (cr.status === 'rejected') errs.push('Crossref: ' + cr.reason.message);
-    if (oc.status === 'rejected') errs.push('OpenCitations: ' + oc.reason.message);
-    throw new Error(errs.join(' / ') || '两个数据源均无数据');
-  }
-
-  const max = Math.max(crCount ?? 0, ocCount ?? 0);
-  let source;
-  if (crCount != null && ocCount != null) source = `Crossref ${crCount} · OpenCitations ${ocCount}`;
-  else if (crCount != null) source = `Crossref ${crCount}（OpenCitations 无数据）`;
-  else source = `OpenCitations ${ocCount}（Crossref 无数据）`;
-  return { count: max, source };
-}
-
-async function lookupCitations() {
-  const doi = document.getElementById('f-doi').value.trim();
-  const hint = document.getElementById('citationSourceHint');
-  if (!doi) {
-    hint.textContent = '需要 DOI 才能查询';
-    hint.style.color = 'var(--accent)';
-    toast('请先填写 DOI');
-    return;
-  }
-  const btn = document.getElementById('citationLookupBtn');
-  btn.classList.add('loading');
-  btn.disabled = true;
-  hint.textContent = '查询中...';
-  hint.style.color = 'var(--ink-faint)';
-  try {
-    const { count, source } = await lookupCitationCount(doi);
-    document.getElementById('f-citations').value = count;
-    hint.textContent = `✓ ${source} · 取最大值`;
-    hint.style.color = 'var(--gold)';
-    toast(`引用数：${count}`);
-  } catch (err) {
-    hint.textContent = '✗ ' + (err.message || '查询失败');
-    hint.style.color = 'var(--accent)';
-    toast('查询失败：' + err.message);
-  } finally {
-    btn.classList.remove('loading');
-    btn.disabled = false;
-  }
-}
-
-async function lookupAllCitations() {
-  const targets = papers.filter(p => p.doi);
-  if (!targets.length) {
-    toast('没有论文带 DOI，无法批量查询');
-    return;
-  }
-  const skipped = papers.length - targets.length;
-  const note = skipped ? `\n（${skipped} 篇无 DOI 将跳过）` : '';
-  if (!confirm(
-    `将查询 ${targets.length} 篇论文的引用数。\n` +
-    `数据源：Crossref + OpenCitations，取最大值\n` +
-    `每条间隔 400ms，预计耗时 ${Math.ceil(targets.length * 0.4)} 秒${note}\n\n继续？`
-  )) return;
-
-  let ok = 0, fail = 0, updated = 0;
-  toast(`查询中 0 / ${targets.length}...`);
-  for (let i = 0; i < targets.length; i++) {
-    const p = targets[i];
-    try {
-      const { count } = await lookupCitationCount(p.doi);
-      const idx = papers.findIndex(x => x.id === p.id);
-      if (idx >= 0) {
-        const old = parseInt(papers[idx].citations, 10) || 0;
-        if (count !== old) updated++;
-        papers[idx].citations = String(count);
-      }
-      ok++;
-    } catch (err) {
-      fail++;
-      console.warn('Citation lookup failed for', p.doi, err);
-    }
-    document.getElementById('toast').textContent = `查询中 ${i+1} / ${targets.length}...`;
-    if (i < targets.length - 1) await new Promise(r => setTimeout(r, 400));
-  }
-  await save();
-  render();
-  toast(`完成 · 成功 ${ok} 失败 ${fail} · 更新 ${updated}`);
-}
-// ------- end Citation lookup -------
-
-// keyboard shortcut
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeModal(); closeReviewModal(); closeSettings(); }
-  if ((e.ctrlKey || e.metaKey) && e.key === 'n') { e.preventDefault(); addCurrent(); }
-});
-
-// init
-(async function init() {
-  if (!isFSAvailable()) {
-    document.getElementById('dirStatus').textContent = '⚠ 当前浏览器不支持文件系统访问 API（请用 Chrome / Edge / Opera 桌面版）';
-  }
-  render();
-  // try silent reconnect; if it works, papers and covers load automatically
-  await reconnectDirectory();
-})();
+// 初始化
+loadData();
 </script>
 </body>
 </html>
