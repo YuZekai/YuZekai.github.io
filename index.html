@@ -667,7 +667,7 @@ function renderPapers() {
 function renderEntry(p) {
   const coverSrc = resolveCover(p);
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}" loading="lazy" decoding="async">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
@@ -752,7 +752,7 @@ function renderReviews() {
 function renderReviewEntry(r) {
   const coverSrc = resolveCover(r);
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}" loading="lazy" decoding="async">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
@@ -811,7 +811,7 @@ function renderConferences() {
 function renderConferenceEntry(c) {
   const coverSrc = resolveCover(c);
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}" loading="lazy" decoding="async">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
