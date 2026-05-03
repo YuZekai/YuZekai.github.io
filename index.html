@@ -22,53 +22,6 @@
     --shadow: 0 1px 2px rgba(26,22,18,.08), 0 8px 24px rgba(26,22,18,.06);
     --shadow-lift: 0 4px 8px rgba(26,22,18,.1), 0 20px 40px rgba(26,22,18,.12);
   }
-  .title-gold {
-  background: linear-gradient(135deg, #e8c558 0%, #c9962e 35%, #8a5a18 70%, #6b4410 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* 浮雕：上方强高光 + 下方深阴影 + 远处柔和投影，三层叠加 */
-  filter: 
-    drop-shadow(0 -1px 0 rgba(255,240,190,.9))
-    drop-shadow(0 1px 0 rgba(80,45,5,.55))
-    drop-shadow(0 3px 2px rgba(60,35,5,.35))
-    drop-shadow(0 6px 10px rgba(40,25,5,.25));
-}
-
-h1.title em {
-  text-shadow: 
-    0 -1px 0 rgba(255,255,255,.55),
-    0 1px 0 rgba(80,10,10,.5),
-    0 3px 2px rgba(60,5,5,.3),
-    0 6px 12px rgba(139,26,26,.28);
-}
-/* === Masthead 顶栏：Vol. I · No. 1 / Updated... / Personalia === */
-.masthead-top {
-  color: var(--gold);
-  border-bottom-color: rgba(184,137,58,.35);
-}
-
-/* === Footer 两行 === */
-footer {
-  color: var(--gold);
-  border-top-color: var(--gold);
-}
-footer > div:last-child {
-  /* "— Ex Officina Zekai Yu —" 那一行稍微淡一点，避免两行同色压得太死 */
-  color: rgba(184,137,58,.75) !important;
-}
-
-/* === Tab 选项卡 === */
-.tab-btn {
-  color: rgba(184,137,58,.65);  /* 默认：淡金，低调 */
-}
-.tab-btn:hover {
-  color: var(--gold);            /* 悬停：标准金 */
-}
-.tab-btn.active {
-  color: #8a5a18;                /* 激活：深铜，和标题渐变末端呼应 */
-  border-bottom-color: #8a5a18;
-}
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -232,6 +185,59 @@ footer > div:last-child {
     footer, .tab-nav, .sort-bar { display: none; }
     article.entry, article.review-entry { break-inside: avoid; }
     body::before { display: none; }
+  }
+
+  /* ============================================== */
+  /* === 自定义覆盖：金色主题 (置于末尾确保生效) === */
+  /* ============================================== */
+
+  /* 大标题 Opera 渐变金 + 浮雕 */
+  .title-gold {
+    background: linear-gradient(135deg, #e8c558 0%, #c9962e 35%, #8a5a18 70%, #6b4410 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: 
+      drop-shadow(0 -1px 0 rgba(255,240,190,.9))
+      drop-shadow(0 1px 0 rgba(80,45,5,.55))
+      drop-shadow(0 3px 2px rgba(60,35,5,.35))
+      drop-shadow(0 6px 10px rgba(40,25,5,.25));
+  }
+
+  /* 大标题 Selecta 红色浮雕（保留原 accent 色，叠加阴影） */
+  h1.title em {
+    text-shadow: 
+      0 -1px 0 rgba(255,255,255,.55),
+      0 1px 0 rgba(80,10,10,.5),
+      0 3px 2px rgba(60,5,5,.3),
+      0 6px 12px rgba(139,26,26,.28);
+  }
+
+  /* Masthead 顶栏：Vol. I · No. 1 / Updated... / Personalia */
+  .masthead-top {
+    color: var(--gold);
+    border-bottom-color: rgba(184,137,58,.35);
+  }
+
+  /* Footer 两行 */
+  footer {
+    color: var(--gold);
+    border-top-color: var(--gold);
+  }
+  footer > div:last-child {
+    color: rgba(184,137,58,.75) !important;
+  }
+
+  /* Tab 选项卡：默认淡金 / 悬停标准金 / 激活深铜 */
+  .tab-btn {
+    color: rgba(184,137,58,.65);
+  }
+  .tab-btn:hover {
+    color: var(--gold);
+  }
+  .tab-btn.active {
+    color: #8a5a18;
+    border-bottom-color: #8a5a18;
   }
 </style>
 </head>
