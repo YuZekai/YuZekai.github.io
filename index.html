@@ -254,6 +254,95 @@
     color: #6b4410;
     border-bottom-color: #6b4410;
   }
+/* ============================================== */
+  /* === 手机端适配补强 === */
+  /* ============================================== */
+
+  @media (max-width: 800px) {
+    /* Tab 横向滚动：挤不下时不换行，改成左右滑 */
+    .tab-nav {
+      flex-wrap: nowrap;                    /* 禁止换行（覆盖原版的 wrap） */
+      overflow-x: auto;                      /* 水平滚动 */
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;     /* iOS 惯性滚动 */
+      scrollbar-width: none;                 /* Firefox 隐藏滚动条 */
+      scroll-snap-type: x proximity;         /* 滚动时吸附到 tab */
+      /* 右侧渐隐提示还有内容可滑 */
+      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
+      -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
+    }
+    .tab-nav::-webkit-scrollbar {
+      display: none;                         /* Chrome/Safari 隐藏滚动条 */
+    }
+    .tab-btn {
+      flex: 0 0 auto;                        /* 不压缩、不拉伸，保持原宽度 */
+      padding: 14px 18px;                    /* 内边距略收，单 tab 占地少一点 */
+      font-size: 14px;
+      letter-spacing: .05em;
+      scroll-snap-align: start;
+      white-space: nowrap;                   /* tab 内文字不换行 */
+    }
+
+    /* 顶栏小字适配：手机上字间距收一点，三段不挤一起 */
+    .masthead-top {
+      font-size: 12px;
+      letter-spacing: .1em;
+      gap: 8px;
+    }
+    .masthead-top span {
+      letter-spacing: .08em;
+    }
+
+    /* Stats 数字栏：手机上间距收紧 */
+    .stats {
+      gap: 24px;
+      padding: 18px 12px;
+    }
+    .stat-num {
+      font-size: 26px;
+    }
+
+    /* Sort bar 手机上也允许换行，避免挤压 */
+    .sort-bar {
+      gap: 14px;
+      font-size: 12px;
+    }
+
+    /* 论文/审稿条目右上角 citations 数字在手机上太大，缩一下 */
+    .highlight-metric .hm-num {
+      font-size: 28px;
+    }
+
+    /* 标题手机端再调一下，避免 Opera 渐变在小屏幕上糊 */
+    h1.title {
+      font-size: clamp(44px, 13vw, 72px);
+      letter-spacing: -.01em;
+    }
+    .subtitle {
+      font-size: 15px;
+      padding: 0 16px;
+    }
+
+    /* Footer 手机端字号回收 */
+    footer {
+      padding: 24px 16px;
+      font-size: 14px;
+    }
+    footer > div:first-child {
+      font-size: 16px !important;
+    }
+    footer > div:last-child {
+      font-size: 12px !important;
+    }
+  }
+
+  /* 极窄屏（<= 380px，老款 iPhone SE 等） */
+  @media (max-width: 380px) {
+    h1.title { font-size: clamp(36px, 11vw, 56px); }
+    .masthead-top { font-size: 11px; }
+    .tab-btn { padding: 12px 14px; font-size: 13px; }
+    .stat-num { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
