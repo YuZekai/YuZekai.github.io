@@ -217,26 +217,41 @@
   .masthead-top {
     color: var(--accent);
     border-bottom-color: rgba(139,26,26,.3);
+    font-size: 14px;          /* 从 11px → 14px，放大约 27% */
+    font-weight: 500;         /* 比默认 400 重一点，更清晰 */
+    letter-spacing: .18em;    /* 字间距从 .2em 略收，避免太松散 */
+  }
+  .masthead-top span {
+    letter-spacing: .14em;
   }
 
   /* Footer 两行 */
   footer {
     color: var(--gold);
     border-top-color: var(--gold);
+    font-size: 16px;          /* 从 14px → 16px */
+  }
+  footer > div:first-child {
+    font-size: 18px;          /* "Per Aspera Ad Astra" 那行再大一点，作为主句 */
+    font-weight: 500;
+    color: #8a5a18;           /* 加深成深铜，更醒目 */
+    margin-bottom: 12px !important;  /* 两行间距也拉开一点 */
   }
   footer > div:last-child {
-    color: rgba(184,137,58,.75) !important;
+    color: rgba(184,137,58,.85) !important;  /* 从 .75 提到 .85，更清晰 */
+    font-size: 14px;
+    letter-spacing: .12em !important;
   }
 
   /* Tab 选项卡：默认中金 / 悬停深铜 / 激活深铜加粗 */
   .tab-btn {
-    color: #a87422;          /* 默认：中金，比之前的淡金深一档，清晰可读 */
+    color: #a87422;
   }
   .tab-btn:hover {
-    color: #8a5a18;          /* 悬停：深铜 */
+    color: #8a5a18;
   }
   .tab-btn.active {
-    color: #6b4410;          /* 激活：焦褐，最深 */
+    color: #6b4410;
     border-bottom-color: #6b4410;
   }
 </style>
