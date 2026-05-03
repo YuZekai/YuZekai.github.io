@@ -134,6 +134,35 @@
     font-weight: 500;
   }
 
+  /* Sorting Controls */
+  .sort-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 12px;
+    background: rgba(184,137,58,0.03);
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+  .sort-label { font-style: italic; margin-right: -8px; }
+  .sort-opt {
+    cursor: pointer;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .sort-opt:hover { color: var(--accent); }
+  .sort-opt.active { color: var(--accent); font-weight: 600; }
+  .sort-opt.active::after {
+    content: ' ↓';
+    font-size: 10px;
+    position: absolute;
+    right: -12px;
+  }
+
   /* Review / Conference entry */
   article.review-entry {
     display: grid;
@@ -172,19 +201,6 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 14px;
     color: var(--ink-soft);
-  }
-  .review-meta .count {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .review-meta .count-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .15em;
-    color: var(--ink-faint);
-    margin-left: 4px;
   }
 
   .review-notes {
@@ -481,23 +497,23 @@
     letter-spacing: .05em;
   }
 
-  /* === 新增：将引用和审稿数靠右并放大 === */
+  /* Metric Styles */
   .meta-line, .review-meta {
-    justify-content: space-between; /* 让内容分布在左右两端 */
-    align-items: center; /* 垂直居中对齐 */
+    justify-content: space-between;
+    align-items: center;
   }
 
   .highlight-metric {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 文字整体靠右 */
-    margin-left: auto; /* 强制推到最右侧 */
+    align-items: flex-end;
+    margin-left: auto;
   }
 
   .highlight-metric .hm-num {
-    font-size: 36px; /* 放大数字，可根据喜好调整 */
+    font-size: 36px;
     font-weight: 600;
-    color: var(--accent); /* 使用您原有的深红强调色 */
+    color: var(--accent);
     line-height: 0.9;
     font-family: 'Cormorant Garamond', serif;
   }
@@ -529,6 +545,7 @@
     .review-journal { font-size: 20px; }
     h2.paper-title { font-size: 22px; }
     .stat-num { font-size: 28px; }
+    .sort-bar { gap: 12px; font-size: 11px; }
   }
 
   /* Print friendly */
@@ -566,6 +583,12 @@
     <div class="stat"><span class="stat-num" id="statCite">0</span><span class="stat-label">Citations</span></div>
     <div class="stat"><span class="stat-num" id="statYears">—</span><span class="stat-label">Span</span></div>
   </div>
+  <div class="sort-bar">
+    <span class="sort-label">Order by:</span>
+    <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
+    <span class="sort-opt" id="sort-paper-cite" onclick="setPaperSort('cite')">Citations</span>
+    <span class="sort-opt" id="sort-paper-if" onclick="setPaperSort('if')">Impact Factor</span>
+  </div>
   <main id="list"></main>
 </div>
 
@@ -575,6 +598,11 @@
     <div class="stat"><span class="stat-num" id="rvTotal">0</span><span class="stat-label">Reviews</span></div>
     <div class="stat"><span class="stat-num" id="rvAvgIF">0.0</span><span class="stat-label">Avg IF</span></div>
     <div class="stat"><span class="stat-num" id="rvSpan">0.0</span><span class="stat-label">Total IF</span></div>
+  </div>
+  <div class="sort-bar">
+    <span class="sort-label">Order by:</span>
+    <span class="sort-opt active" id="sort-rev-count" onclick="setReviewSort('count')">Review Count</span>
+    <span class="sort-opt" id="sort-rev-if" onclick="setReviewSort('if')">Impact Factor</span>
   </div>
   <main id="reviewList"></main>
 </div>
@@ -598,6 +626,10 @@
 let papers = [];
 let reviews = [];
 let conferences = [];
+
+// 排序状态
+let paperSortMode = 'date'; // 'date', 'cite', 'if'
+let reviewSortMode = 'count'; // 'count', 'if'
 
 const RANK_LABELS = {
   swufe: '西南财经', cufe: '中央财经', uibe: '对外经贸', sdufe: '山东财经',
@@ -630,7 +662,6 @@ function resolveCover(item) {
   if (item.coverFile) {
     const user = 'YuZekai'; 
     const repo = 'YuZekai.github.io'; 
-    
     return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}`;
   }
   if (item.coverURL) return item.coverURL;
@@ -644,6 +675,22 @@ function switchView(view) {
   document.getElementById('papersView').style.display = view === 'papers' ? '' : 'none';
   document.getElementById('reviewsView').style.display = view === 'reviews' ? '' : 'none';
   document.getElementById('conferencesView').style.display = view === 'conferences' ? '' : 'none';
+}
+
+// 论文排序控制
+function setPaperSort(mode) {
+  paperSortMode = mode;
+  document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active'));
+  document.getElementById(`sort-paper-${mode}`).classList.add('active');
+  renderPapers();
+}
+
+// 审稿排序控制
+function setReviewSort(mode) {
+  reviewSortMode = mode;
+  document.querySelectorAll('#reviewsView .sort-opt').forEach(el => el.classList.remove('active'));
+  document.getElementById(`sort-rev-${mode}`).classList.add('active');
+  renderReviews();
 }
 
 function renderRankBadges(ranks) {
@@ -670,22 +717,26 @@ function renderRankBadges(ranks) {
 function renderPapers() {
   const list = document.getElementById('list');
   if (!papers.length) {
-    list.innerHTML = `
-      <div class="empty-state">
-        <div class="ornament-big">∽</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无论文</p>
-      </div>`;
+    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无论文</p></div>`;
     updateStats();
     return;
   }
+
   const sorted = [...papers].sort((a,b) => {
-    const ay = +a.year || 0, by = +b.year || 0;
-    if (by !== ay) return by - ay;
-    const am = +a.month || 0, bm = +b.month || 0;
-    if (bm !== am) return bm - am;
-    const ad = +a.day || 0, bd = +b.day || 0;
-    return bd - ad;
+    if (paperSortMode === 'cite') {
+      return (parseInt(b.citations) || 0) - (parseInt(a.citations) || 0);
+    } else if (paperSortMode === 'if') {
+      return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
+    } else {
+      // 默认按日期
+      const ay = +a.year || 0, by = +b.year || 0;
+      if (by !== ay) return by - ay;
+      const am = +a.month || 0, bm = +b.month || 0;
+      if (bm !== am) return bm - am;
+      return (+b.day || 0) - (+a.day || 0);
+    }
   });
+
   list.innerHTML = sorted.map(p => renderEntry(p)).join('');
   updateStats();
 }
@@ -694,10 +745,7 @@ function renderEntry(p) {
   const coverSrc = resolveCover(p);
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">`
-    : `<div class="cover-placeholder">
-         <div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div>
-         <div class="hint">No Cover</div>
-       </div>`;
+    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
 
   const ifBadge = p.impactFactor ? `<span class="if-badge">${parseFloat(p.impactFactor).toFixed(1)}</span>` : '';
   const volPage = [p.volume, p.pages].filter(Boolean).join(', ');
@@ -721,9 +769,7 @@ function renderEntry(p) {
 
   return `
     <article class="entry" data-id="${p.id}">
-      <div class="cover-wrap">
-        ${cover}
-      </div>
+      <div class="cover-wrap">${cover}</div>
       <div class="body">
         <div class="year-marker">${escapeHtml(dateLabel)}</div>
         <h2 class="paper-title">${escapeHtml(p.title || '未命名论文')}</h2>
@@ -766,15 +812,19 @@ function updateStats() {
 function renderReviews() {
   const list = document.getElementById('reviewList');
   if (!reviews.length) {
-    list.innerHTML = `
-      <div class="empty-state">
-        <div class="ornament-big">∽</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无审稿记录</p>
-      </div>`;
+    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无审稿记录</p></div>`;
     updateReviewStats();
     return;
   }
-  const sorted = [...reviews].sort((a,b) => (+b.count || 0) - (+a.count || 0));
+
+  const sorted = [...reviews].sort((a,b) => {
+    if (reviewSortMode === 'if') {
+      return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
+    } else {
+      return (parseInt(b.count) || 0) - (parseInt(a.count) || 0);
+    }
+  });
+
   list.innerHTML = sorted.map(r => renderReviewEntry(r)).join('');
   updateReviewStats();
 }
@@ -783,18 +833,13 @@ function renderReviewEntry(r) {
   const coverSrc = resolveCover(r);
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
-    : `<div class="cover-placeholder">
-         <div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div>
-         <div class="hint">No Cover</div>
-       </div>`;
+    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
 
   const ifBadge = r.impactFactor ? `<span class="if-badge">${parseFloat(r.impactFactor).toFixed(1)}</span>` : '';
 
   return `
     <article class="review-entry" data-id="${r.id}">
-      <div class="cover-wrap">
-        ${cover}
-      </div>
+      <div class="cover-wrap">${cover}</div>
       <div class="review-body">
         <div class="review-journal">${escapeHtml(r.journal || '—')} ${ifBadge}</div>
         ${renderRankBadges(r.ranks)}
@@ -825,19 +870,11 @@ function updateReviewStats() {
 function renderConferences() {
   const list = document.getElementById('conferenceList');
   if (!conferences.length) {
-    list.innerHTML = `
-      <div class="empty-state">
-        <div class="ornament-big">∽</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:8px">尚无会议任职</p>
-      </div>`;
+    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无会议任职</p></div>`;
     updateConferenceStats();
     return;
   }
-  const sorted = [...conferences].sort((a,b) => {
-    const ay = +a.year || 0, by = +b.year || 0;
-    if (by !== ay) return by - ay;
-    return (a.name || '').localeCompare(b.name || '');
-  });
+  const sorted = [...conferences].sort((a,b) => (+b.year || 0) - (+a.year || 0));
   list.innerHTML = sorted.map(c => renderConferenceEntry(c)).join('');
   updateConferenceStats();
 }
@@ -846,26 +883,17 @@ function renderConferenceEntry(c) {
   const coverSrc = resolveCover(c);
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">`
-    : `<div class="cover-placeholder">
-         <div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div>
-         <div class="hint">No Cover</div>
-       </div>`;
-
-  const linkBtn = c.url
-    ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener" class="conf-link">访问会议网站 ↗</a>`
-    : '';
+    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
 
   return `
     <article class="review-entry conf-entry" data-id="${c.id}">
-      <div class="cover-wrap">
-        ${cover}
-      </div>
+      <div class="cover-wrap">${cover}</div>
       <div class="review-body">
         <div class="year-marker">${escapeHtml(c.year || '—')}</div>
         <div class="review-journal">${escapeHtml(c.name || '—')}</div>
         ${c.role ? `<div class="conf-role"><span class="role-badge">${escapeHtml(c.role)}</span></div>` : ''}
         ${c.location ? `<div class="conf-location">📍 ${escapeHtml(c.location)}</div>` : ''}
-        ${linkBtn}
+        ${c.url ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener" class="conf-link">访问会议网站 ↗</a>` : ''}
         ${c.notes ? `<div class="review-notes">${escapeHtml(c.notes)}</div>` : ''}
       </div>
     </article>
@@ -896,7 +924,6 @@ function renderAll() {
   renderConferences();
 }
 
-// 核心逻辑：从相对路径的 json 文件中读取数据
 async function loadData() {
   try {
     const [pubRes, revRes, confRes] = await Promise.all([
@@ -904,7 +931,6 @@ async function loadData() {
       fetch('./reviews.json').catch(() => null),
       fetch('./conferences.json').catch(() => null)
     ]);
-
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
     if (confRes && confRes.ok) conferences = await confRes.json();
@@ -915,7 +941,6 @@ async function loadData() {
   }
 }
 
-// 初始化
 loadData();
 </script>
 </body>
