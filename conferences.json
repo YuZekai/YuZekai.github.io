@@ -1,0 +1,24 @@
+[
+  {
+    "id": "c_1777808883928_meppb9",
+    "name": "The 14th IEEE International Conference on Healthcare Informatics (ICHI 2026)",
+    "url": "https://zhang-informatics.github.io/ICHI2026/",
+    "role": "Program Committee Member",
+    "year": "2026",
+    "location": "Minneapolis, Minnesota, US",
+    "notes": "",
+    "coverFile": "c_1777808883928_meppb9.png",
+    "coverURL": ""
+  },
+  {
+    "id": "c_1777809071294_nxbvt2",
+    "name": "ICML 2026 Workshop AIWILD",
+    "url": "https://agentwild-workshop.github.io/icml2026/",
+    "role": "Reviewer",
+    "year": "2026",
+    "location": "Seoul, South Korea",
+    "notes": "",
+    "coverFile": "",
+    "coverURL": ""
+  }
+]

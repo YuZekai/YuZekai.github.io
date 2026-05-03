@@ -1,0 +1,2117 @@
+[
+  {
+    "id": "r_1777806726350_dcer38",
+    "journal": "Journal of Medical Internet Research",
+    "impactFactor": "6.0",
+    "count": "21",
+    "notes": "",
+    "coverFile": "r_1777806726350_dcer38.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "6.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.9"
+      },
+      {
+        "key": "jci",
+        "value": "1.58"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科一流"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务2区/医学：信息2区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务2区; 医学：信息2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "1区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777806825366_r8l790",
+    "journal": "Annals of Medicine and Surgery",
+    "impactFactor": "1.6",
+    "count": "15",
+    "notes": "",
+    "coverFile": "r_1777806825366_r8l790.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.6"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.6"
+      },
+      {
+        "key": "jci",
+        "value": "0.45"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科4区"
+      },
+      {
+        "key": "xrWarn",
+        "value": "1"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777806864926_vlwvth",
+    "journal": "International Journal of Surgery",
+    "impactFactor": "10.3",
+    "count": "11",
+    "notes": "",
+    "coverFile": "r_1777806864926_vlwvth.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "10.3"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "10.4"
+      },
+      {
+        "key": "jci",
+        "value": "4.35"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "外科2区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "外科2区"
+      },
+      {
+        "key": "xrWarn",
+        "value": "1"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777806981672_fexs3s",
+    "journal": "World Journal of Gastrointestinal Surgery",
+    "impactFactor": "1.7",
+    "count": "8",
+    "notes": "",
+    "coverFile": "r_1777806981672_fexs3s.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.0"
+      },
+      {
+        "key": "jci",
+        "value": "0.52"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "胃肠肝病学4区/外科4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "胃肠肝病学4区; 外科4区"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807049706_ksrohs",
+    "journal": "Expert Systems with Applications",
+    "impactFactor": "7.5",
+    "count": "7",
+    "notes": "",
+    "coverFile": "r_1777807049706_ksrohs.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "uibe",
+        "value": "B"
+      },
+      {
+        "key": "sdufe",
+        "value": "A2"
+      },
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "hhu",
+        "value": "A类"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "工程技术T2"
+      },
+      {
+        "key": "ccf",
+        "value": "C"
+      },
+      {
+        "key": "sciif",
+        "value": "7.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "工程技术2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "计算机科学1区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "ajg",
+        "value": "1"
+      },
+      {
+        "key": "scu",
+        "value": "计算机科学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "7.8"
+      },
+      {
+        "key": "fms",
+        "value": "C"
+      },
+      {
+        "key": "jci",
+        "value": "1.50"
+      },
+      {
+        "key": "esi",
+        "value": "工程科学"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "计算机科学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：人工智能2区/工程：电子与电气2区/运筹学与管理科学2区。"
+      },
+      {
+        "key": "xr",
+        "value": "计算机科学1区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：人工智能2区; 工程：电子与电气1区; 运筹学与管理科学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "计算机科学TOP"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "1区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807065016_t3twxq",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "impactFactor": "8.0",
+    "count": "6",
+    "notes": "",
+    "coverFile": "r_1777807065016_t3twxq.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "hhu",
+        "value": "B类"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "工程技术T2"
+      },
+      {
+        "key": "ccf",
+        "value": "C"
+      },
+      {
+        "key": "sciif",
+        "value": "8.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "工程技术2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "计算机科学1区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "scu",
+        "value": "计算机科学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "7.7"
+      },
+      {
+        "key": "jci",
+        "value": "1.73"
+      },
+      {
+        "key": "esi",
+        "value": "工程科学"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "计算机科学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "工程：综合1区/自动化与控制系统2区/计算机：人工智能2区/工程：电子与电气2区。"
+      },
+      {
+        "key": "xr",
+        "value": "计算机科学1区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "自动化与控制系统1区; 计算机：人工智能2区; 工程：综合1区; 工程：电子与电气2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "计算机科学TOP"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "1区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807115551_58opn2",
+    "journal": "World Journal of Gastroenterology",
+    "impactFactor": "5.4",
+    "count": "6",
+    "notes": "",
+    "coverFile": "r_1777807115551_58opn2.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "5.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.91"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "胃肠肝病学4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "胃肠肝病学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807183394_0yj9sk",
+    "journal": "Annals of Surgical Oncology",
+    "impactFactor": "3.5",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807183394_0yj9sk.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "3.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.6"
+      },
+      {
+        "key": "jci",
+        "value": "1.22"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "外科2区/肿瘤学3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学3区; 外科2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807217045_40o27k",
+    "journal": "BMC Pharmacology and Toxicology",
+    "impactFactor": "2.7",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807217045_40o27k.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.9"
+      },
+      {
+        "key": "jci",
+        "value": "0.80"
+      },
+      {
+        "key": "esi",
+        "value": "药理学与毒物学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "毒理学2区/药学3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "药学3区; 毒理学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807288711_6gqtc9",
+    "journal": "JMIR MHealth and UHealth",
+    "impactFactor": "6.2",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807288711_6gqtc9.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "6.2"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.1"
+      },
+      {
+        "key": "jci",
+        "value": "1.31"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务2区/医学：信息2区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务1区; 医学：信息2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "1区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807335773_m5jp3u",
+    "journal": "JMIR Medical Informatics",
+    "impactFactor": "3.8",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807335773_m5jp3u.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "sciif",
+        "value": "3.8"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.72"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：信息3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：信息3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807372848_wxx9lt",
+    "journal": "JMIR Serious Games",
+    "impactFactor": "4.1",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807372848_wxx9lt.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "工程技术T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.8"
+      },
+      {
+        "key": "jci",
+        "value": "1.09"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务2区/医学：信息2区/公共卫生、环境卫生与职业卫生2区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务2区; 公共卫生、环境卫生与职业卫生1区; 医学：信息2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807452461_cx5vur",
+    "journal": "Journal of Surgical Research",
+    "impactFactor": "1.7",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807452461_cx5vur.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "1.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.0"
+      },
+      {
+        "key": "jci",
+        "value": "0.84"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "外科4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "外科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807519630_32bggi",
+    "journal": "Medical Science Monitor",
+    "impactFactor": "2.1",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807519630_32bggi.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "2.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.4"
+      },
+      {
+        "key": "jci",
+        "value": "0.43"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：研究与实验4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：研究与实验4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807580396_x0zx06",
+    "journal": "World Journal of Clinical Oncology",
+    "impactFactor": "3.2",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807580396_x0zx06.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "3.2"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.2"
+      },
+      {
+        "key": "jci",
+        "value": "0.45"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807605054_cquax4",
+    "journal": "World Journal of Gastrointestinal Endoscopy",
+    "impactFactor": "1.8",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807605054_cquax4.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.8"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.9"
+      },
+      {
+        "key": "jci",
+        "value": "0.33"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "胃肠肝病学4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "胃肠肝病学4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807624359_c8p3cj",
+    "journal": "World Journal of Gastrointestinal Oncology",
+    "impactFactor": "2.5",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807624359_c8p3cj.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.46"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "胃肠肝病学4区/肿瘤学4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学4区; 胃肠肝病学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807644666_puq1bi",
+    "journal": "World Journal of Methodology",
+    "impactFactor": "",
+    "count": "2",
+    "notes": "",
+    "coverFile": "r_1777807644666_puq1bi.jpg",
+    "coverURL": "",
+    "ranks": null
+  },
+  {
+    "id": "r_1777807801529_kg0sbq",
+    "journal": "Advances in Medical Education and Practice",
+    "impactFactor": "1.7",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777807801529_kg0sbq.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.7"
+      },
+      {
+        "key": "sciUp",
+        "value": "教育学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.84"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "学科教育4区。"
+      },
+      {
+        "key": "xr",
+        "value": "教育学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "学科教育3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807839040_pdvxmr",
+    "journal": "Applied Clinical Informatics",
+    "impactFactor": "2.2",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777807839040_pdvxmr.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "2.2"
+      },
+      {
+        "key": "sci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.55"
+      },
+      {
+        "key": "esi",
+        "value": "计算机科学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：信息4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：信息3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807906065_kcbvk1",
+    "journal": "Diabetes Research and Clinical Practice",
+    "impactFactor": "7.4",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777807906065_kcbvk1.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "7.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.0"
+      },
+      {
+        "key": "jci",
+        "value": "1.45"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "内分泌学与代谢3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "内分泌学与代谢3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777807936223_hjtrhf",
+    "journal": "Ethics, Medicine and Public Health",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777807936223_hjtrhf.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808192815_24xwu7",
+    "journal": "Food Science & Nutrition",
+    "impactFactor": "3.8",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808192815_24xwu7.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "农林科学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "3.8"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "工程技术4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "农林科学2区"
+      },
+      {
+        "key": "scu",
+        "value": "农林科学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.73"
+      },
+      {
+        "key": "esi",
+        "value": "农业科学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "食品科技3区。"
+      },
+      {
+        "key": "xr",
+        "value": "农林科学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "食品科技3区"
+      },
+      {
+        "key": "xrTop",
+        "value": "农林科学TOP"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808212316_81sg9g",
+    "journal": "Frontiers in Psychology",
+    "impactFactor": "2.9",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808212316_81sg9g.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "cug",
+        "value": "心理学,多学科T1"
+      },
+      {
+        "key": "sciif",
+        "value": "2.9"
+      },
+      {
+        "key": "ssci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUp",
+        "value": "心理学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.97"
+      },
+      {
+        "key": "esi",
+        "value": "精神病学／心理学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心理学：综合3区。"
+      },
+      {
+        "key": "xr",
+        "value": "心理学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心理学：综合2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808257848_j8cmi2",
+    "journal": "Hypertension Research",
+    "impactFactor": "4.6",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808257848_j8cmi2.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.3"
+      },
+      {
+        "key": "jci",
+        "value": "1.08"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "外周血管病3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "外周血管病2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808551008_swlslh",
+    "journal": "Indonesian Journal of Electrical Engineering and Informatics (IJEEI)",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808551008_swlslh.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808582936_r4ewck",
+    "journal": "JMIR Cancer",
+    "impactFactor": "2.7",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808582936_r4ewck.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.7"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.63"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "3区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808607577_ka4kbp",
+    "journal": "JMIR Research Protocols",
+    "impactFactor": "1.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808607577_ka4kbp.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.5"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.47"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务4区/公共卫生、环境卫生与职业卫生4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务4区; 公共卫生、环境卫生与职业卫生4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808658709_m9btrg",
+    "journal": "Journal of Asthma",
+    "impactFactor": "1.3",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808658709_m9btrg.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "1.3"
+      },
+      {
+        "key": "sci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.39"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "过敏4区/呼吸系统4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "过敏3区; 呼吸系统4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808696367_5cwhe0",
+    "journal": "Journal of Imaging Informatics in Medicine",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808696367_5cwhe0.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "N/A"
+      },
+      {
+        "key": "sci",
+        "value": "N/A"
+      },
+      {
+        "key": "sciif5",
+        "value": "N/A"
+      },
+      {
+        "key": "jci",
+        "value": "N/A"
+      },
+      {
+        "key": "xr",
+        "value": "工程技术2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "核医学2区"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808732365_agltqw",
+    "journal": "Journal of Inflammation Research",
+    "impactFactor": "4.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808732365_agltqw.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "4.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.79"
+      },
+      {
+        "key": "esi",
+        "value": "免疫学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "免疫学3区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "免疫学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "2区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808752960_8jdv2x",
+    "journal": "World Journal of Clinical Cases",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808752960_8jdv2x.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1777808773410_b4azdd",
+    "journal": "World Journal of Radiology",
+    "impactFactor": "1.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777808773410_b4azdd.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.5"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.6"
+      },
+      {
+        "key": "jci",
+        "value": "0.35"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "核医学4区。"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "xrSmall",
+        "value": "核医学4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "custom_2039732548472053760",
+        "value": "4区",
+        "customAbbName": "新锐分区"
+      }
+    ]
+  }
+]
