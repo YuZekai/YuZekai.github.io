@@ -1,0 +1,20 @@
+{
+  "basic": {
+    "name": "Zekai Yu",
+    "title": "",
+    "bio": "",
+    "email": "yuzekai@hdu.edu.cn",
+    "github": "https://github.com/YuZekai",
+    "scholar": "https://scholar.google.com/citations?user=-uwnnhwAAAAJ&hl=zh-TW",
+    "website": ""
+  },
+  "education": [
+    {
+      "id": "edu_1777829815330",
+      "degree": "Bachelor of Engineering in Computer Science and Technology",
+      "school": "Hangzhou Dianzi University",
+      "year": "2024-Present",
+      "desc": ""
+    }
+  ]
+}
