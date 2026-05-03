@@ -600,8 +600,13 @@ function colorForKey(key) { return RANK_COLORS[key] || 'rb-school'; }
 function labelFor(key) { return RANK_LABELS[key] || key.toUpperCase(); }
 
 function resolveCover(item) {
-  // 优先加载相对路径下的本地封面，如果没有则加载外链
-  if (item.coverFile) return `./covers/${item.coverFile}`;
+  if (item.coverFile) {
+    const user = 'YuZekai'; 
+    const repo = 'YuZekai.github.io'; 
+    
+    // 拼接 jsDelivr 加速链接（@main 代表主分支，如果你用的是 master 分支请改成 @master）
+    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}`;
+  }
   if (item.coverURL) return item.coverURL;
   return '';
 }
