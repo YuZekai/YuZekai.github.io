@@ -666,6 +666,7 @@ function renderPapers() {
 
 function renderEntry(p) {
   const coverSrc = resolveCover(p);
+  // 论文页保留懒加载，因为一打开就在屏幕上且可能很多
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}" loading="lazy" decoding="async">`
     : `<div class="cover-placeholder">
@@ -751,8 +752,9 @@ function renderReviews() {
 
 function renderReviewEntry(r) {
   const coverSrc = resolveCover(r);
+  // 去除懒加载，保证切换 Tab 时图片已就绪
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}" loading="lazy" decoding="async">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
@@ -810,8 +812,9 @@ function renderConferences() {
 
 function renderConferenceEntry(c) {
   const coverSrc = resolveCover(c);
+  // 去除懒加载，保证切换 Tab 时图片已就绪
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}" loading="lazy" decoding="async">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
