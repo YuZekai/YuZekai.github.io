@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publications · 论文集与简介</title>
+<title>Opera Selecta: Investigationes et Experimenta Zekai Yu</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -290,6 +290,7 @@ let papers = [];
 let reviews = [];
 let conferences = [];
 let memberships = [];
+let meta = { lastUpdated: null };
 
 let paperSortMode = 'date'; 
 let reviewSortMode = 'count'; 
@@ -348,6 +349,19 @@ function renderRankBadges(ranks) {
 // ==========================================
 // 4. RENDERING FUNCTIONS
 // ==========================================
+function updateDateLabel() {
+  const dateLabel = document.getElementById('dateLabel');
+  if (!dateLabel) return;
+  if (meta && meta.lastUpdated) {
+    const d = new Date(meta.lastUpdated);
+    if (!isNaN(d.getTime())) {
+      dateLabel.textContent = `Updated ${d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
+      return;
+    }
+  }
+  dateLabel.textContent = '— Anno Domini —';
+}
+
 function updateStats() {
   document.getElementById('statCount').textContent = papers.length;
   document.getElementById('statIF').textContent = papers.reduce((s,p) => s + (parseFloat(p.impactFactor)||0), 0).toFixed(1);
@@ -362,10 +376,8 @@ function updateStats() {
   document.getElementById('cfCount').textContent = conferences.length; document.getElementById('cfRoles').textContent = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean)).size;
   const cyears = conferences.map(c => +c.year).filter(Boolean); document.getElementById('cfYears').textContent = cyears.length ? (Math.min(...cyears) === Math.max(...cyears) ? Math.min(...cyears) : `${Math.min(...cyears)}–${Math.max(...cyears)}`) : '—';
 
-  const dateLabel = document.getElementById('dateLabel');
-  if (dateLabel.textContent === '— Anno Domini —') {
-    dateLabel.textContent = `Updated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
-  }
+  // 顶部更新时间：从 meta.json 读取，由编辑版保存时写入
+  updateDateLabel();
 }
 
 function renderProfile() {
@@ -508,20 +520,32 @@ function renderAll() {
   updateStats();
 }
 
+// 给 fetch URL 加时间戳，绕过浏览器/CDN 缓存，避免发布后看不到最新数据
+function nocache(url) {
+  return `${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`;
+}
+
 async function loadData() {
   try {
-    const [profRes, pubRes, revRes, confRes, msRes] = await Promise.all([
-      fetch('./profile.json').catch(() => null),
-      fetch('./publications.json').catch(() => null),
-      fetch('./reviews.json').catch(() => null),
-      fetch('./conferences.json').catch(() => null),
-      fetch('./memberships.json').catch(() => null)
+    const [profRes, pubRes, revRes, confRes, msRes, metaRes] = await Promise.all([
+      fetch(nocache('./profile.json')).catch(() => null),
+      fetch(nocache('./publications.json')).catch(() => null),
+      fetch(nocache('./reviews.json')).catch(() => null),
+      fetch(nocache('./conferences.json')).catch(() => null),
+      fetch(nocache('./memberships.json')).catch(() => null),
+      fetch(nocache('./meta.json')).catch(() => null)
     ]);
     if (profRes && profRes.ok) profile = await profRes.json();
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
     if (confRes && confRes.ok) conferences = await confRes.json();
     if (msRes && msRes.ok) memberships = await msRes.json();
+    if (metaRes && metaRes.ok) {
+      try {
+        const m = await metaRes.json();
+        if (m && typeof m === 'object') meta = m;
+      } catch (e) { /* meta.json 解析失败，保持默认 */ }
+    }
   } catch (error) {
     console.error("Data load failed:", error);
   } finally {
