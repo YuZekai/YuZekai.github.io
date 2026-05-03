@@ -23,11 +23,21 @@
     --shadow-lift: 0 4px 8px rgba(26,22,18,.1), 0 20px 40px rgba(26,22,18,.12);
   }
   .title-gold {
-  background: linear-gradient(135deg, #d4a93f 0%, #b8893a 45%, #8a6420 100%);
+  background: linear-gradient(135deg, #e8c558 0%, #c9962e 35%, #8a5a18 70%, #6b4410 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 1px 0 rgba(184,137,58,.15);
+  /* 渐变文字本身无法用 text-shadow，用 drop-shadow 模拟凸版浮雕 */
+  filter: 
+    drop-shadow(0 1px 0 rgba(255,248,220,.35))
+    drop-shadow(0 2px 5px rgba(138,90,24,.28));
+}
+
+h1.title em {
+  text-shadow: 
+    0 1px 0 rgba(255,255,255,.4),
+    0 2px 6px rgba(139,26,26,.22);
+}
 }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -205,6 +215,7 @@
     <span>Personalia</span>
   </div>
   <div class="ornament">❦</div>
+  <h1 class="title">
   <h1 class="title">
   <span class="title-gold">Opera</span>
   <em>Selecta</em>
