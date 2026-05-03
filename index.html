@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Publications · 论文集</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -666,9 +667,9 @@ function renderPapers() {
 
 function renderEntry(p) {
   const coverSrc = resolveCover(p);
-  // 论文页保留懒加载，因为一打开就在屏幕上且可能很多
+  // 去除了懒加载，让所有论文封面同时请求下载
   const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}" loading="lazy" decoding="async">`
+    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">`
     : `<div class="cover-placeholder">
          <div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div>
          <div class="hint">No Cover</div>
@@ -752,7 +753,7 @@ function renderReviews() {
 
 function renderReviewEntry(r) {
   const coverSrc = resolveCover(r);
-  // 去除懒加载，保证切换 Tab 时图片已就绪
+  // 去除了懒加载
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
     : `<div class="cover-placeholder">
@@ -812,7 +813,7 @@ function renderConferences() {
 
 function renderConferenceEntry(c) {
   const coverSrc = resolveCover(c);
-  // 去除懒加载，保证切换 Tab 时图片已就绪
+  // 去除了懒加载
   const cover = coverSrc
     ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">`
     : `<div class="cover-placeholder">
