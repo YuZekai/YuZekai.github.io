@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publications · 论文集</title>
+<title>Publications · 论文集与简介</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,503 +55,135 @@
     padding: 48px 64px 32px;
     background: linear-gradient(180deg, transparent, rgba(184,137,58,.04));
   }
-
   .masthead-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 24px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint);
+    padding-bottom: 16px; border-bottom: 1px solid var(--rule); margin-bottom: 24px;
   }
-
   .masthead-top span { font-style: italic; letter-spacing: .15em; }
 
-  h1.title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: clamp(56px, 9vw, 112px);
-    line-height: .95;
-    letter-spacing: -.02em;
-    text-align: center;
-    margin: 8px 0 4px;
-  }
-  h1.title em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-
-  .subtitle {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--ink-faint);
-    letter-spacing: .05em;
-  }
-
-  .ornament {
-    text-align: center;
-    color: var(--gold);
-    font-size: 20px;
-    margin: 20px 0 8px;
-    letter-spacing: 1em;
-  }
+  h1.title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(56px, 9vw, 112px); line-height: .95; letter-spacing: -.02em; text-align: center; margin: 8px 0 4px; }
+  h1.title em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .subtitle { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-faint); letter-spacing: .05em; }
+  .ornament { text-align: center; color: var(--gold); font-size: 20px; margin: 20px 0 8px; letter-spacing: 1em; }
 
   /* Tab navigation */
   .tab-nav {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    border-bottom: 1px solid var(--rule);
-    background: rgba(232,227,214,.2);
+    display: flex; justify-content: center; gap: 0; border-bottom: 1px solid var(--rule); background: rgba(232,227,214,.2); flex-wrap: wrap;
   }
   .tab-btn {
-    background: none;
-    border: none;
-    padding: 16px 36px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    font-style: italic;
-    color: var(--ink-faint);
-    letter-spacing: .08em;
-    cursor: pointer;
-    position: relative;
-    transition: color .25s;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
+    background: none; border: none; padding: 16px 24px; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--ink-faint); letter-spacing: .08em;
+    cursor: pointer; position: relative; transition: color .25s; border-bottom: 2px solid transparent; margin-bottom: -1px;
   }
   .tab-btn:hover { color: var(--ink); }
-  .tab-btn.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-    font-weight: 500;
-  }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
 
-  /* Sorting Controls */
+  /* Sort Bar */
   .sort-bar {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    padding: 12px;
-    background: rgba(184,137,58,0.03);
-    border-bottom: 1px solid var(--rule);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
+    display: flex; justify-content: center; gap: 24px; padding: 12px; background: rgba(184,137,58,0.03); border-bottom: 1px solid var(--rule);
+    font-family: 'Cormorant Garamond', serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint);
   }
   .sort-label { font-style: italic; margin-right: -8px; }
-  .sort-opt {
-    cursor: pointer;
-    transition: color 0.2s;
-    position: relative;
-  }
+  .sort-opt { cursor: pointer; transition: color 0.2s; position: relative; }
   .sort-opt:hover { color: var(--accent); }
   .sort-opt.active { color: var(--accent); font-weight: 600; }
-  .sort-opt.active::after {
-    content: ' ↓';
-    font-size: 10px;
-    position: absolute;
-    right: -12px;
-  }
+  .sort-opt.active::after { content: ' ↓'; font-size: 10px; position: absolute; right: -12px; }
 
-  /* Review / Conference entry */
-  article.review-entry {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 36px;
-    padding: 32px 0;
-    border-top: 1px solid var(--rule);
-    align-items: start;
-  }
-  article.review-entry:first-child { border-top: none; padding-top: 8px; }
-  article.review-entry:last-child { border-bottom: 1px solid var(--rule); }
-  article.review-entry .cover-wrap { aspect-ratio: 3/4; }
-
-  .review-body { min-width: 0; padding-top: 4px; }
-
-  .review-journal {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 6px;
-    letter-spacing: -.005em;
-  }
-
-  .review-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    align-items: baseline;
-    padding: 8px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin: 6px 0 4px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-
-  .review-notes {
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14.5px;
-    color: var(--ink-faint);
-    padding: 6px 12px;
-    border-left: 3px solid var(--gold);
-    background: rgba(184,137,58,.06);
-    margin-top: 10px;
-  }
-
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    padding: 24px;
-    border-bottom: 1px solid var(--rule);
-    font-family: 'Cormorant Garamond', serif;
-  }
+  /* Stats */
+  .stats { display: flex; justify-content: center; gap: 64px; padding: 24px; border-bottom: 1px solid var(--rule); font-family: 'Cormorant Garamond', serif; flex-wrap: wrap; }
   .stat { text-align: center; }
-  .stat-num {
-    display: block;
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--accent);
-  }
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-top: 4px;
-  }
+  .stat-num { display: block; font-size: 38px; font-weight: 600; line-height: 1; color: var(--accent); }
+  .stat-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); margin-top: 4px; }
 
-  /* Main content */
-  main {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 56px 64px 96px;
-  }
+  /* Profile View */
+  .profile-header { text-align: center; margin-bottom: 40px; padding: 20px 0; }
+  .profile-name { font-size: 42px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .profile-title { font-size: 18px; font-style: italic; color: var(--ink-faint); margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; }
+  .profile-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; font-family: 'Cormorant Garamond', serif; font-size: 15px;}
+  .profile-links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border 0.2s; }
+  .profile-links a:hover { border-bottom-color: var(--accent); }
+  .profile-bio { max-width: 800px; margin: 0 auto; text-align: justify; font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; }
+  
+  .edu-timeline { max-width: 800px; margin: 40px auto 0; border-left: 2px solid var(--rule); padding-left: 24px; }
+  .edu-item { position: relative; margin-bottom: 36px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+  .edu-degree { font-size: 20px; font-weight: 600; color: var(--ink); font-family: 'Cormorant Garamond', serif; margin-bottom: 4px; }
+  .edu-school { font-size: 15px; font-style: italic; color: var(--ink-faint); margin-bottom: 8px; font-family: 'Cormorant Garamond', serif;}
+  .edu-desc { font-size: 14.5px; color: var(--ink-soft); text-align: justify; line-height: 1.6; }
 
-  .empty-state {
-    text-align: center;
-    padding: 80px 20px;
-    color: var(--ink-faint);
+  /* Entries (Papers, Reviews, Conferences, Memberships) */
+  article.entry, article.review-entry {
+    display: grid; gap: 40px; padding: 40px 0; border-top: 1px solid var(--rule); position: relative; align-items: start;
   }
-  .empty-state .ornament-big {
-    font-size: 64px;
-    color: var(--gold);
-    margin-bottom: 16px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-  }
+  article.entry { grid-template-columns: 220px 1fr; }
+  article.review-entry { grid-template-columns: 160px 1fr; padding: 32px 0; gap: 36px; }
+  article.entry:first-child, article.review-entry:first-child { border-top: none; padding-top: 8px; }
+  article.entry:last-child, article.review-entry:last-child { border-bottom: 1px solid var(--rule); }
 
-  /* Article entry */
-  article.entry {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 40px;
-    padding: 40px 0;
-    border-top: 1px solid var(--rule);
-    position: relative;
-    align-items: start;
-  }
-  article.entry:first-child { border-top: none; padding-top: 8px; }
-  article.entry:last-child { border-bottom: 1px solid var(--rule); }
+  .cover-wrap { position: relative; aspect-ratio: 3/4; background: var(--paper-dark); box-shadow: var(--shadow); overflow: hidden; transition: transform .4s, box-shadow .4s; }
+  .cover-wrap:hover { transform: translateY(-4px) rotate(-.5deg); box-shadow: var(--shadow-lift); }
+  .cover-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cover-placeholder { display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; text-align: center; padding: 16px; background: linear-gradient(135deg, var(--paper-dark), #d4c8b0); color: var(--ink-faint); }
+  .cover-placeholder .icon { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-style: italic; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .cover-placeholder .hint { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
 
-  .cover-wrap {
-    position: relative;
-    aspect-ratio: 3/4;
-    background: var(--paper-dark);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transition: transform .4s, box-shadow .4s;
-  }
-  .cover-wrap:hover {
-    transform: translateY(-4px) rotate(-.5deg);
-    box-shadow: var(--shadow-lift);
-  }
-  .cover-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .cover-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    flex-direction: column;
-    text-align: center;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--paper-dark), #d4c8b0);
-    color: var(--ink-faint);
-  }
-  .cover-placeholder .icon {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-style: italic;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .cover-placeholder .hint {
-    font-size: 11px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-  }
-
-  /* Body of the entry */
-  .body {
-    min-width: 0;
-    padding-top: 4px;
-  }
-
-  .year-marker {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: var(--accent);
-    font-size: 14px;
-    letter-spacing: .1em;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .year-marker::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  h2.paper-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.2;
-    letter-spacing: -.01em;
-    margin-bottom: 12px;
-    color: var(--ink);
-  }
-
-  .authors {
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin-bottom: 16px;
-    font-family: 'Noto Serif SC', serif;
-  }
-
-  .journal-line {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-    padding: 10px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .journal-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--ink);
-  }
-  .vol-page {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-  }
-  .if-badge {
-    background: var(--accent);
-    color: var(--paper);
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 12px;
-    padding: 2px 10px;
-    letter-spacing: .08em;
-  }
+  .body, .review-body { min-width: 0; padding-top: 4px; }
+  .year-marker { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--accent); font-size: 14px; letter-spacing: .1em; margin-bottom: 6px; display: flex; align-items: center; gap: 12px; }
+  .year-marker::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  h2.paper-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px; line-height: 1.2; letter-spacing: -.01em; margin-bottom: 12px; color: var(--ink); }
+  .review-journal { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 26px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; letter-spacing: -.005em; }
+  .authors { font-size: 14px; color: var(--ink-soft); margin-bottom: 16px; font-family: 'Noto Serif SC', serif; }
+  .journal-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; padding: 10px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .journal-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 17px; color: var(--ink); }
+  .vol-page { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); }
+  .if-badge { background: var(--accent); color: var(--paper); font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 12px; padding: 2px 10px; letter-spacing: .08em; }
   .if-badge::before { content: 'IF '; opacity: .7; }
 
-  /* Rank badges (easyScholar) */
-  .rank-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px 6px;
-    margin: 10px 0 4px;
-  }
-  .rank-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'Noto Serif SC', system-ui, sans-serif;
-    font-size: 11.5px;
-    font-weight: 500;
-    padding: 2px 9px;
-    border-radius: 11px;
-    line-height: 1.5;
-    border: 1px solid transparent;
-    white-space: nowrap;
-  }
+  /* Rank badges */
+  .rank-badges { display: flex; flex-wrap: wrap; gap: 5px 6px; margin: 10px 0 4px; }
+  .rank-badge { display: inline-flex; align-items: center; gap: 4px; font-family: 'Noto Serif SC', system-ui, sans-serif; font-size: 11.5px; font-weight: 500; padding: 2px 9px; border-radius: 11px; line-height: 1.5; border: 1px solid transparent; white-space: nowrap; }
   .rank-badge .rb-key { opacity: .85; font-weight: 500; }
   .rank-badge .rb-val { font-weight: 600; }
+  .rb-sci { background: #cfe9d6; color: #1c5731; border-color: #a8d3b4; } .rb-ssci { background: #e2d5f1; color: #4a2870; border-color: #c8b3e0; } .rb-ahci { background: #ffe1d6; color: #7a361a; border-color: #f5c0aa; } .rb-warn { background: #ffd8d8; color: #8b1a1a; border-color: #f0a8a8; } .rb-if { background: #fff1bf; color: #7a5a14; border-color: #f0d985; } .rb-cn { background: #f8d8e0; color: #8a2849; border-color: #ecb4c2; } .rb-school { background: #fdebc7; color: #80551a; border-color: #f1cf8d; } .rb-eii { background: #d6e4ff; color: #1f3a7a; border-color: #b3c8f0; } .rb-ccf { background: #e0d8f7; color: #3e2a82; border-color: #c3b6e8; } .rb-default{ background: #e8e3d6; color: #3d342b; border-color: #c9bfa9; } .rb-info { background: #cfe5e3; color: #1f5651; border-color: #a8cdc9; }   
 
-  /* Color families */
-  .rb-sci    { background: #cfe9d6; color: #1c5731; border-color: #a8d3b4; }
-  .rb-ssci   { background: #e2d5f1; color: #4a2870; border-color: #c8b3e0; }
-  .rb-ahci   { background: #ffe1d6; color: #7a361a; border-color: #f5c0aa; }
-  .rb-cas    { background: #cce4f6; color: #1d456e; border-color: #a8cae6; }   
-  .rb-warn   { background: #ffd8d8; color: #8b1a1a; border-color: #f0a8a8; }   
-  .rb-if     { background: #fff1bf; color: #7a5a14; border-color: #f0d985; }   
-  .rb-cn     { background: #f8d8e0; color: #8a2849; border-color: #ecb4c2; }   
-  .rb-school { background: #fdebc7; color: #80551a; border-color: #f1cf8d; }   
-  .rb-eii    { background: #d6e4ff; color: #1f3a7a; border-color: #b3c8f0; }
-  .rb-ccf    { background: #e0d8f7; color: #3e2a82; border-color: #c3b6e8; }
-  .rb-default{ background: #e8e3d6; color: #3d342b; border-color: #c9bfa9; }
-  .rb-info   { background: #cfe5e3; color: #1f5651; border-color: #a8cdc9; }   
-
-  .meta-line {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-faint);
-    margin-bottom: 14px;
-  }
+  /* Right-Aligned Metrics */
+  .meta-line, .review-meta { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-faint); margin-bottom: 14px; }
   .meta-line span strong { color: var(--ink); font-weight: 500; }
+  .highlight-metric { display: flex; flex-direction: column; align-items: flex-end; margin-left: auto; }
+  .highlight-metric .hm-num { font-size: 36px; font-weight: 600; color: var(--accent); line-height: 0.9; font-family: 'Cormorant Garamond', serif; }
+  .highlight-metric .hm-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-faint); margin-top: 6px; font-family: 'Noto Serif SC', sans-serif;}
 
-  .abstract {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    margin-bottom: 12px;
-    text-align: justify;
-    hyphens: auto;
-  }
-  .abstract::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--accent);
-    float: left;
-    line-height: .85;
-    padding: 4px 6px 0 0;
-  }
+  .abstract { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 12px; text-align: justify; hyphens: auto; }
+  .abstract::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--accent); float: left; line-height: .85; padding: 4px 6px 0 0; }
+  .notes, .review-notes { font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--ink-faint); padding: 8px 14px; border-left: 3px solid var(--gold); background: rgba(184,137,58,.06); margin-top: 12px; }
+  .links { display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+  .links a { color: var(--accent); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: all .2s; }
+  .links a:hover { color: var(--ink); border-color: var(--ink); }
 
-  .notes {
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--ink-faint);
-    padding: 8px 14px;
-    border-left: 3px solid var(--gold);
-    background: rgba(184,137,58,.06);
-    margin-top: 12px;
-  }
+  /* Main content layout */
+  main { max-width: 1280px; margin: 0 auto; padding: 56px 64px 96px; }
+  .empty-state { text-align: center; padding: 80px 20px; color: var(--ink-faint); }
+  .empty-state .ornament-big { font-size: 64px; color: var(--gold); margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-  .links {
-    display: flex;
-    gap: 14px;
-    margin-top: 14px;
-    flex-wrap: wrap;
-  }
-  .links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 1px;
-    transition: all .2s;
-  }
-  .links a:hover {
-    color: var(--ink);
-    border-color: var(--ink);
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 32px;
-    border-top: 3px double var(--ink);
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: var(--ink-faint);
-    font-size: 14px;
-    letter-spacing: .05em;
-  }
-
-  /* Metric Styles */
-  .meta-line, .review-meta {
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .highlight-metric {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-left: auto;
-  }
-
-  .highlight-metric .hm-num {
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--accent);
-    line-height: 0.9;
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .highlight-metric .hm-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--ink-faint);
-    margin-top: 6px;
-  }
+  footer { text-align: center; padding: 32px; border-top: 3px double var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--ink-faint); font-size: 14px; letter-spacing: .05em; }
 
   /* Responsive */
   @media (max-width: 800px) {
     header.masthead { padding: 32px 24px 20px; }
     .stats { gap: 32px; }
     main { padding: 40px 24px 64px; }
-    .tab-btn { padding: 14px 18px; font-size: 14px; }
-    article.entry {
-      grid-template-columns: 120px 1fr;
-      gap: 20px;
-      padding: 28px 0;
-    }
-    article.review-entry {
-      grid-template-columns: 100px 1fr;
-      gap: 18px;
-      padding: 24px 0;
-    }
-    .review-journal { font-size: 20px; }
+    article.entry { grid-template-columns: 120px 1fr; gap: 20px; padding: 28px 0; }
+    article.review-entry { grid-template-columns: 100px 1fr; gap: 18px; padding: 24px 0; }
     h2.paper-title { font-size: 22px; }
+    .review-journal { font-size: 20px; }
     .stat-num { font-size: 28px; }
-    .sort-bar { gap: 12px; font-size: 11px; }
   }
 
-  /* Print friendly */
   @media print {
-    footer { display: none; }
-    article.entry { break-inside: avoid; }
+    footer, .tab-nav, .sort-bar { display: none; }
+    article.entry, article.review-entry { break-inside: avoid; }
     body::before { display: none; }
   }
 </style>
@@ -571,12 +203,34 @@
 </header>
 
 <nav class="tab-nav">
-  <button class="tab-btn active" data-tab="papers" onclick="switchView('papers')">— Publications · 论文 —</button>
+  <button class="tab-btn active" data-tab="profile" onclick="switchView('profile')">— Profile · 简介 —</button>
+  <button class="tab-btn" data-tab="papers" onclick="switchView('papers')">— Publications · 论文 —</button>
   <button class="tab-btn" data-tab="reviews" onclick="switchView('reviews')">— Peer Reviews · 审稿 —</button>
   <button class="tab-btn" data-tab="conferences" onclick="switchView('conferences')">— Conferences · 会议任职 —</button>
 </nav>
 
-<div id="papersView">
+<div id="profileView">
+  <main>
+    <div class="profile-header">
+      <h2 class="profile-name" id="profName">加载中...</h2>
+      <div class="profile-title" id="profTitle"></div>
+      <div class="profile-links" id="profLinks"></div>
+      <p class="profile-bio abstract" id="profBio"></p>
+    </div>
+    
+    <div class="profile-education" style="margin-top: 48px;">
+      <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Education <em>&amp; Experience</em></h3>
+      <div class="edu-timeline" id="eduList"></div>
+    </div>
+
+    <div class="profile-memberships" style="margin-top: 64px;">
+      <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Professional <em>Memberships</em></h3>
+      <div id="msProfileList"></div>
+    </div>
+  </main>
+</div>
+
+<div id="papersView" style="display:none">
   <div class="stats">
     <div class="stat"><span class="stat-num" id="statCount">0</span><span class="stat-label">Papers</span></div>
     <div class="stat"><span class="stat-num" id="statIF">0.0</span><span class="stat-label">Total IF</span></div>
@@ -623,324 +277,254 @@
 </div>
 
 <script>
+// ==========================================
+// 1. DATA STATE
+// ==========================================
+let profile = { basic: {}, education: [] };
 let papers = [];
 let reviews = [];
 let conferences = [];
+let memberships = [];
 
-// 排序状态
-let paperSortMode = 'date'; // 'date', 'cite', 'if'
-let reviewSortMode = 'count'; // 'count', 'if'
+let paperSortMode = 'date'; 
+let reviewSortMode = 'count'; 
 
-const RANK_LABELS = {
-  swufe: '西南财经', cufe: '中央财经', uibe: '对外经贸', sdufe: '山东财经',
-  xdu: '西电', swjtu: '西南交大', ruc: '人大', xmu: '厦大',
-  sjtu: '上交', fdu: '复旦', hhu: '河海', scu: '川大',
-  cqu: '重大', nju: '南大', xju: '新大', cug: '地大',
-  cju: '长大', zju: '浙大', cpu: '中国药科', dufe: 'DUFE',
-  pku: '北大核心', cssci: '南大核心', zhongguokejihexin: '中国科技核心',
-  ccf: 'CCF', fms: 'FMS', utd24: 'UTD24', ajg: 'ABS', ft50: 'FT50',
-  eii: 'EI', cscd: 'CSCD', ahci: 'A&HCI', esi: 'ESI',
-  sciif: 'IF', sciif5: 'IF(5)', jci: 'JCI',
-  sci: 'JCR', ssci: 'SSCI', sciwarn: '中科院预警',
-  sciBase: 'SCI基础版', sciUp: 'SCI升级版', sciUpSmall: 'SCI升级版小类', sciUpTop: '中科院TOP',
-};
+// 智能年份排序助手（支持 2024、2023-2024、2020-Present 等）
+function parseYearForSort(str) {
+  if (!str) return 0;
+  if (/present|now|至今|目前/i.test(str)) return 9999;
+  const matches = String(str).match(/\d{4}/g);
+  if (matches) return Math.max(...matches.map(Number));
+  return 0;
+}
 
-const RANK_COLORS = {
-  sci: 'rb-sci', sciBase: 'rb-sci', sciUp: 'rb-sci', sciUpSmall: 'rb-sci', sciUpTop: 'rb-sci',
-  ssci: 'rb-ssci', ahci: 'rb-ahci',
-  sciif: 'rb-if', sciif5: 'rb-if', jci: 'rb-info', esi: 'rb-info',
-  sciwarn: 'rb-warn',
-  pku: 'rb-cn', cssci: 'rb-cn', zhongguokejihexin: 'rb-cn', cscd: 'rb-cn',
-  ccf: 'rb-ccf', eii: 'rb-eii',
-  fms: 'rb-default', utd24: 'rb-default', ajg: 'rb-default', ft50: 'rb-default',
-};
-
-function colorForKey(key) { return RANK_COLORS[key] || 'rb-school'; }
-function labelFor(key) { return RANK_LABELS[key] || key.toUpperCase(); }
-
+// 提取封面地址
 function resolveCover(item) {
-  if (item.coverFile) {
+  if (item.coverURL) return item.coverURL; 
+  if (item.coverFile) { 
     const user = 'YuZekai'; 
     const repo = 'YuZekai.github.io'; 
-    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}`;
+    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}`; 
   }
-  if (item.coverURL) return item.coverURL;
   return '';
 }
 
+// ==========================================
+// 2. UI NAVIGATION
+// ==========================================
 function switchView(view) {
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tab === view);
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === view));
+  ['profile','papers','reviews','conferences'].forEach(v => { 
+    document.getElementById(v+'View').style.display = view === v ? '' : 'none'; 
   });
-  document.getElementById('papersView').style.display = view === 'papers' ? '' : 'none';
-  document.getElementById('reviewsView').style.display = view === 'reviews' ? '' : 'none';
-  document.getElementById('conferencesView').style.display = view === 'conferences' ? '' : 'none';
 }
 
-// 论文排序控制
-function setPaperSort(mode) {
-  paperSortMode = mode;
-  document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active'));
-  document.getElementById(`sort-paper-${mode}`).classList.add('active');
-  renderPapers();
-}
+function setPaperSort(mode) { paperSortMode = mode; document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-paper-${mode}`).classList.add('active'); renderPapers(); }
+function setReviewSort(mode) { reviewSortMode = mode; document.querySelectorAll('#reviewsView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-rev-${mode}`).classList.add('active'); renderReviews(); }
 
-// 审稿排序控制
-function setReviewSort(mode) {
-  reviewSortMode = mode;
-  document.querySelectorAll('#reviewsView .sort-opt').forEach(el => el.classList.remove('active'));
-  document.getElementById(`sort-rev-${mode}`).classList.add('active');
-  renderReviews();
-}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
+function escapeAttr(s) { return escapeHtml(s); }
 
+// ==========================================
+// 3. RANK BADGES UTILS
+// ==========================================
+const RANK_LABELS = { swufe: '西南财经', cufe: '中央财经', uibe: '对外经贸', sdufe: '山东财经', xdu: '西电', swjtu: '西南交大', ruc: '人大', xmu: '厦大', sjtu: '上交', fdu: '复旦', hhu: '河海', scu: '川大', cqu: '重大', nju: '南大', xju: '新大', cug: '地大', cju: '长大', zju: '浙大', cpu: '中国药科', dufe: 'DUFE', pku: '北大核心', cssci: '南大核心', zhongguokejihexin: '中国科技核心', ccf: 'CCF', fms: 'FMS', utd24: 'UTD24', ajg: 'ABS', ft50: 'FT50', eii: 'EI', cscd: 'CSCD', ahci: 'A&HCI', esi: 'ESI', sciif: 'IF', sciif5: 'IF(5)', jci: 'JCI', sci: 'JCR', ssci: 'SSCI', sciwarn: '中科院预警', sciBase: 'SCI基础版', sciUp: 'SCI升级版', sciUpSmall: 'SCI升级版小类', sciUpTop: '中科院TOP' };
+const RANK_COLORS = { sci: 'rb-sci', sciBase: 'rb-sci', sciUp: 'rb-sci', sciUpSmall: 'rb-sci', sciUpTop: 'rb-sci', ssci: 'rb-ssci', ahci: 'rb-ahci', sciif: 'rb-if', sciif5: 'rb-if', jci: 'rb-info', esi: 'rb-info', sciwarn: 'rb-warn', pku: 'rb-cn', cssci: 'rb-cn', zhongguokejihexin: 'rb-cn', cscd: 'rb-cn', ccf: 'rb-ccf', eii: 'rb-eii', fms: 'rb-default', utd24: 'rb-default', ajg: 'rb-default', ft50: 'rb-default' };
+function colorForKey(key) { return RANK_COLORS[key] || 'rb-school'; }
+function labelFor(key) { return RANK_LABELS[key] || key.toUpperCase(); }
 function renderRankBadges(ranks) {
   if (!ranks || !ranks.length) return '';
-  const priority = (r) => {
-    const k = r.key;
-    if (['sci','ssci','ahci'].includes(k)) return 1;
-    if (['sciif','sciif5','jci'].includes(k)) return 2;
-    if (['sciBase','sciUp','sciUpSmall','sciUpTop','sciwarn','esi'].includes(k)) return 3;
-    if (['pku','cssci','zhongguokejihexin','cscd'].includes(k)) return 4;
-    if (['ccf','eii','fms','utd24','ajg','ft50'].includes(k)) return 5;
-    if (k.startsWith('custom_')) return 7;
-    return 6;
-  };
+  const priority = (r) => { const k = r.key; if (['sci','ssci','ahci'].includes(k)) return 1; if (['sciif','sciif5','jci'].includes(k)) return 2; if (['sciBase','sciUp','sciUpSmall','sciUpTop','sciwarn','esi'].includes(k)) return 3; if (['pku','cssci','zhongguokejihexin','cscd'].includes(k)) return 4; if (['ccf','eii','fms','utd24','ajg','ft50'].includes(k)) return 5; if (k.startsWith('custom_')) return 7; return 6; };
   const sorted = [...ranks].sort((a,b) => priority(a) - priority(b));
-  const items = sorted.map(r => {
-    const cls = r.key.startsWith('custom_') ? 'rb-school' : colorForKey(r.key);
-    const label = r.customAbbName || labelFor(r.key);
-    return `<span class="rank-badge ${cls}"><span class="rb-key">${escapeHtml(label)}</span><span class="rb-val">${escapeHtml(String(r.value))}</span></span>`;
-  });
+  const items = sorted.map(r => `<span class="rank-badge ${r.key.startsWith('custom_') ? 'rb-school' : colorForKey(r.key)}"><span class="rb-key">${escapeHtml(r.customAbbName || labelFor(r.key))}</span><span class="rb-val">${escapeHtml(String(r.value))}</span></span>`);
   return `<div class="rank-badges">${items.join('')}</div>`;
+}
+
+// ==========================================
+// 4. RENDERING FUNCTIONS
+// ==========================================
+function updateStats() {
+  document.getElementById('statCount').textContent = papers.length;
+  document.getElementById('statIF').textContent = papers.reduce((s,p) => s + (parseFloat(p.impactFactor)||0), 0).toFixed(1);
+  document.getElementById('statCite').textContent = papers.reduce((s,p) => s + (parseInt(p.citations)||0), 0);
+  const years = papers.map(p => +p.year).filter(Boolean); document.getElementById('statYears').textContent = years.length ? (Math.min(...years) === Math.max(...years) ? Math.min(...years) : `${Math.min(...years)}–${Math.max(...years)}`) : '—';
+  
+  document.getElementById('rvJournals').textContent = reviews.length;
+  document.getElementById('rvTotal').textContent = reviews.reduce((s,r) => s + (parseInt(r.count) || 0), 0);
+  const ifs = reviews.map(r => parseFloat(r.impactFactor)).filter(v => !isNaN(v)); document.getElementById('rvAvgIF').textContent = ifs.length ? (ifs.reduce((s,x)=>s+x,0) / ifs.length).toFixed(1) : '0.0';
+  document.getElementById('rvSpan').textContent = reviews.reduce((s,r) => s + (parseFloat(r.impactFactor)||0), 0).toFixed(1);
+  
+  document.getElementById('cfCount').textContent = conferences.length; document.getElementById('cfRoles').textContent = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean)).size;
+  const cyears = conferences.map(c => +c.year).filter(Boolean); document.getElementById('cfYears').textContent = cyears.length ? (Math.min(...cyears) === Math.max(...cyears) ? Math.min(...cyears) : `${Math.min(...cyears)}–${Math.max(...cyears)}`) : '—';
+
+  const dateLabel = document.getElementById('dateLabel');
+  if (dateLabel.textContent === '— Anno Domini —') {
+    dateLabel.textContent = `Updated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
+  }
+}
+
+function renderProfile() {
+  if (profile.basic.name) document.getElementById('profName').textContent = profile.basic.name;
+  else document.getElementById('profName').innerHTML = '<em>Loading...</em>';
+  
+  document.getElementById('profTitle').textContent = profile.basic.title || '';
+  document.getElementById('profBio').textContent = profile.basic.bio || '';
+  
+  const linksHtml = [];
+  if (profile.basic.email) linksHtml.push(`<a href="mailto:${escapeAttr(profile.basic.email)}">Email</a>`);
+  if (profile.basic.github) linksHtml.push(`<a href="${escapeAttr(profile.basic.github)}" target="_blank">GitHub</a>`);
+  if (profile.basic.scholar) linksHtml.push(`<a href="${escapeAttr(profile.basic.scholar)}" target="_blank">Google Scholar</a>`);
+  if (profile.basic.website) linksHtml.push(`<a href="${escapeAttr(profile.basic.website)}" target="_blank">Website</a>`);
+  document.getElementById('profLinks').innerHTML = linksHtml.join(' &nbsp;·&nbsp; ');
+
+  // 1. 教育经历 (降序)
+  const sortedEdu = [...profile.education].sort((a, b) => parseYearForSort(b.year) - parseYearForSort(a.year));
+  const eduHtml = sortedEdu.map(e => `
+    <div class="edu-item">
+      <div class="edu-year">${escapeHtml(e.year)}</div>
+      <div class="edu-degree">${escapeHtml(e.degree)}</div>
+      <div class="edu-school">${escapeHtml(e.school)}</div>
+      ${e.desc ? `<div class="edu-desc">${escapeHtml(e.desc)}</div>` : ''}
+    </div>
+  `).join('');
+  document.getElementById('eduList').innerHTML = eduHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无经历</p>';
+
+  // 2. 学会会员 (嵌套在 Profile 中，降序)
+  const msList = document.getElementById('msProfileList');
+  if (!memberships.length) { msList.innerHTML = `<p style="color:var(--ink-faint);text-align:center;">暂无记录</p>`; return; }
+  
+  const sortedMs = [...memberships].sort((a,b) => {
+    const dy = parseYearForSort(b.year) - parseYearForSort(a.year);
+    if (dy !== 0) return dy;
+    return (a.name || '').localeCompare(b.name || '');
+  });
+
+  msList.innerHTML = sortedMs.map(m => {
+    const coverSrc = resolveCover(m); 
+    const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(m.name||'logo')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((m.name||'?').slice(0,1))}</div><div class="hint">No Logo</div></div>`;
+    return `
+      <article class="review-entry">
+        <div class="cover-wrap">${cover}</div>
+        <div class="review-body">
+          <div class="year-marker">${escapeHtml(m.year || '—')}</div>
+          <div class="review-journal">${escapeHtml(m.name || '—')}</div>
+          ${m.role ? `<div style="font-family:'Noto Serif SC',serif; font-size:14px; margin-bottom:6px; color:var(--ink-soft);"><span style="display:inline-flex;align-items:center;gap:4px;background:#fdebc7;color:#80551a;padding:2px 9px;border-radius:11px;font-weight:500;">❖ ${escapeHtml(m.role)}</span></div>` : ''}
+          ${m.url ? `<a href="${escapeAttr(m.url)}" target="_blank" style="color:var(--accent); font-family:'Cormorant Garamond',serif; font-style:italic; text-decoration:none; border-bottom:1px solid currentColor;">Website ↗</a>` : ''}
+          ${m.notes ? `<div class="review-notes">${escapeHtml(m.notes)}</div>` : ''}
+        </div>
+      </article>`;
+  }).join('');
 }
 
 function renderPapers() {
   const list = document.getElementById('list');
-  if (!papers.length) {
-    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无论文</p></div>`;
-    updateStats();
-    return;
-  }
-
+  if (!papers.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无论文</p></div>`; updateStats(); return; }
   const sorted = [...papers].sort((a,b) => {
-    if (paperSortMode === 'cite') {
-      return (parseInt(b.citations) || 0) - (parseInt(a.citations) || 0);
-    } else if (paperSortMode === 'if') {
-      return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
-    } else {
-      // 默认按日期
-      const ay = +a.year || 0, by = +b.year || 0;
-      if (by !== ay) return by - ay;
-      const am = +a.month || 0, bm = +b.month || 0;
-      if (bm !== am) return bm - am;
-      return (+b.day || 0) - (+a.day || 0);
-    }
+    if (paperSortMode === 'cite') return (parseInt(b.citations) || 0) - (parseInt(a.citations) || 0);
+    if (paperSortMode === 'if') return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
+    const ay = +a.year || 0, by = +b.year || 0; if (by !== ay) return by - ay;
+    const am = +a.month || 0, bm = +b.month || 0; if (bm !== am) return bm - am; return (+b.day || 0) - (+a.day || 0);
   });
-
-  list.innerHTML = sorted.map(p => renderEntry(p)).join('');
-  updateStats();
-}
-
-function renderEntry(p) {
-  const coverSrc = resolveCover(p);
-  const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">`
-    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
-
-  const ifBadge = p.impactFactor ? `<span class="if-badge">${parseFloat(p.impactFactor).toFixed(1)}</span>` : '';
-  const volPage = [p.volume, p.pages].filter(Boolean).join(', ');
-  let dateLabel = p.year || '';
-  if (p.year && p.month) {
-    dateLabel = `${p.year}.${String(p.month).padStart(2,'0')}`;
-    if (p.day) dateLabel += `.${String(p.day).padStart(2,'0')}`;
-  }
-
-  const doiHtml = p.doi ? `<span><strong>DOI:</strong> ${escapeHtml(p.doi)}</span>` : '';
-  const citeHtml = p.citations ? `
-    <div class="highlight-metric">
-      <span class="hm-num">${p.citations}</span>
-      <span class="hm-label">Citations</span>
-    </div>` : '';
-  const metaHtml = (doiHtml || citeHtml) ? `<div class="meta-line"><div>${doiHtml}</div>${citeHtml}</div>` : '';
-
-  const links = [];
-  if (p.url) links.push(`<a href="${escapeAttr(p.url)}" target="_blank" rel="noopener">原文链接 ↗</a>`);
-  if (p.doi) links.push(`<a href="https://doi.org/${escapeAttr(p.doi)}" target="_blank" rel="noopener">DOI ↗</a>`);
-
-  return `
-    <article class="entry" data-id="${p.id}">
-      <div class="cover-wrap">${cover}</div>
-      <div class="body">
-        <div class="year-marker">${escapeHtml(dateLabel)}</div>
-        <h2 class="paper-title">${escapeHtml(p.title || '未命名论文')}</h2>
-        ${p.authors ? `<div class="authors">${escapeHtml(p.authors)}</div>` : ''}
-        <div class="journal-line">
-          <span class="journal-name">${escapeHtml(p.journal || '—')}</span>
-          ${volPage ? `<span class="vol-page">${escapeHtml(volPage)}</span>` : ''}
-          ${ifBadge}
+  list.innerHTML = sorted.map(p => {
+    let dateLabel = p.year || ''; if (p.year && p.month) dateLabel = `${p.year}.${String(p.month).padStart(2,'0')}`;
+    const coverSrc = resolveCover(p); const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
+    const doiHtml = p.doi ? `<span><strong>DOI:</strong> ${escapeHtml(p.doi)}</span>` : '';
+    const citeHtml = p.citations ? `<div class="highlight-metric"><span class="hm-num">${p.citations}</span><span class="hm-label">Citations</span></div>` : '';
+    const metaHtml = (doiHtml || citeHtml) ? `<div class="meta-line"><div>${doiHtml}</div>${citeHtml}</div>` : '';
+    const volPage = [p.volume, p.pages].filter(Boolean).join(', ');
+    const links = []; if (p.url) links.push(`<a href="${escapeAttr(p.url)}" target="_blank" rel="noopener">原文链接 ↗</a>`); if (p.doi) links.push(`<a href="https://doi.org/${escapeAttr(p.doi)}" target="_blank" rel="noopener">DOI ↗</a>`);
+    return `
+      <article class="entry" data-id="${p.id}">
+        <div class="cover-wrap">${cover}</div>
+        <div class="body">
+          <div class="year-marker">${escapeHtml(dateLabel)}</div>
+          <h2 class="paper-title">${escapeHtml(p.title || '未命名')}</h2>
+          ${p.authors ? `<div class="authors">${escapeHtml(p.authors)}</div>` : ''}
+          <div class="journal-line"><span class="journal-name">${escapeHtml(p.journal || '—')}</span>${volPage ? `<span class="vol-page">${escapeHtml(volPage)}</span>` : ''}${p.impactFactor ? `<span class="if-badge">${parseFloat(p.impactFactor).toFixed(1)}</span>` : ''}</div>
+          ${renderRankBadges(p.ranks)}
+          ${metaHtml}
+          ${p.abstract ? `<p class="abstract">${escapeHtml(p.abstract)}</p>` : ''}
+          ${p.notes ? `<div class="notes">${escapeHtml(p.notes)}</div>` : ''}
+          ${links.length ? `<div class="links">${links.join('')}</div>` : ''}
         </div>
-        ${renderRankBadges(p.ranks)}
-        ${metaHtml}
-        ${p.abstract ? `<p class="abstract">${escapeHtml(p.abstract)}</p>` : ''}
-        ${p.notes ? `<div class="notes">${escapeHtml(p.notes)}</div>` : ''}
-        ${links.length ? `<div class="links">${links.join('')}</div>` : ''}
-      </div>
-    </article>
-  `;
-}
-
-function updateStats() {
-  document.getElementById('statCount').textContent = papers.length;
-  const totalIF = papers.reduce((s,p) => s + (parseFloat(p.impactFactor)||0), 0);
-  document.getElementById('statIF').textContent = totalIF.toFixed(1);
-  const totalCite = papers.reduce((s,p) => s + (parseInt(p.citations)||0), 0);
-  document.getElementById('statCite').textContent = totalCite;
-  if (papers.length) {
-    const years = papers.map(p => +p.year).filter(Boolean);
-    if (years.length) {
-      const mn = Math.min(...years), mx = Math.max(...years);
-      document.getElementById('statYears').textContent = mn === mx ? mn : `${mn}–${mx}`;
-    } else {
-      document.getElementById('statYears').textContent = '—';
-    }
-  } else {
-    document.getElementById('statYears').textContent = '—';
-  }
-  document.getElementById('dateLabel').textContent = `Updated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
+      </article>`;
+  }).join('');
+  updateStats();
 }
 
 function renderReviews() {
   const list = document.getElementById('reviewList');
-  if (!reviews.length) {
-    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无审稿记录</p></div>`;
-    updateReviewStats();
-    return;
-  }
-
-  const sorted = [...reviews].sort((a,b) => {
-    if (reviewSortMode === 'if') {
-      return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
-    } else {
-      return (parseInt(b.count) || 0) - (parseInt(a.count) || 0);
-    }
-  });
-
-  list.innerHTML = sorted.map(r => renderReviewEntry(r)).join('');
-  updateReviewStats();
-}
-
-function renderReviewEntry(r) {
-  const coverSrc = resolveCover(r);
-  const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">`
-    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
-
-  const ifBadge = r.impactFactor ? `<span class="if-badge">${parseFloat(r.impactFactor).toFixed(1)}</span>` : '';
-
-  return `
-    <article class="review-entry" data-id="${r.id}">
-      <div class="cover-wrap">${cover}</div>
-      <div class="review-body">
-        <div class="review-journal">${escapeHtml(r.journal || '—')} ${ifBadge}</div>
-        ${renderRankBadges(r.ranks)}
-        <div class="review-meta">
-          <span></span>
-          <div class="highlight-metric">
-            <span class="hm-num">${parseInt(r.count) || 0}</span>
-            <span class="hm-label">Peer Reviews</span>
-          </div>
+  if (!reviews.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无记录</p></div>`; return; }
+  const sorted = [...reviews].sort((a,b) => { if (reviewSortMode === 'if') return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0); return (parseInt(b.count) || 0) - (parseInt(a.count) || 0); });
+  list.innerHTML = sorted.map(r => {
+    const coverSrc = resolveCover(r); const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(r.journal||'cover')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((r.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
+    return `
+      <article class="review-entry" data-id="${r.id}">
+        <div class="cover-wrap">${cover}</div>
+        <div class="review-body">
+          <div class="review-journal">${escapeHtml(r.journal || '—')} ${r.impactFactor ? `<span class="if-badge">${parseFloat(r.impactFactor).toFixed(1)}</span>` : ''}</div>
+          ${renderRankBadges(r.ranks)}
+          <div class="review-meta"><span></span><div class="highlight-metric"><span class="hm-num">${parseInt(r.count) || 0}</span><span class="hm-label">Peer Reviews</span></div></div>
+          ${r.notes ? `<div class="review-notes">${escapeHtml(r.notes)}</div>` : ''}
         </div>
-        ${r.notes ? `<div class="review-notes">${escapeHtml(r.notes)}</div>` : ''}
-      </div>
-    </article>
-  `;
-}
-
-function updateReviewStats() {
-  document.getElementById('rvJournals').textContent = reviews.length;
-  const total = reviews.reduce((s,r) => s + (parseInt(r.count) || 0), 0);
-  document.getElementById('rvTotal').textContent = total;
-  const ifs = reviews.map(r => parseFloat(r.impactFactor)).filter(v => !isNaN(v));
-  document.getElementById('rvAvgIF').textContent = ifs.length
-    ? (ifs.reduce((s,x)=>s+x,0) / ifs.length).toFixed(1) : '0.0';
-  const totalIF = reviews.reduce((s,r) => s + (parseFloat(r.impactFactor)||0), 0);
-  document.getElementById('rvSpan').textContent = totalIF.toFixed(1);
+      </article>`;
+  }).join('');
 }
 
 function renderConferences() {
   const list = document.getElementById('conferenceList');
-  if (!conferences.length) {
-    list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无会议任职</p></div>`;
-    updateConferenceStats();
-    return;
-  }
-  const sorted = [...conferences].sort((a,b) => (+b.year || 0) - (+a.year || 0));
-  list.innerHTML = sorted.map(c => renderConferenceEntry(c)).join('');
-  updateConferenceStats();
+  if (!conferences.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无记录</p></div>`; return; }
+  const sorted = [...conferences].sort((a,b) => parseYearForSort(b.year) - parseYearForSort(a.year));
+  list.innerHTML = sorted.map(c => {
+    const coverSrc = resolveCover(c); const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
+    return `
+      <article class="review-entry" data-id="${c.id}">
+        <div class="cover-wrap">${cover}</div>
+        <div class="review-body">
+          <div class="year-marker">${escapeHtml(c.year || '—')}</div>
+          <div class="review-journal">${escapeHtml(c.name || '—')}</div>
+          ${c.role ? `<div style="font-family:'Noto Serif SC',serif; font-size:14px; margin-bottom:6px; color:var(--ink-soft);"><span style="display:inline-flex;align-items:center;gap:4px;background:#e8e3d6;color:#3d342b;padding:2px 9px;border-radius:11px;font-weight:500;">✓ ${escapeHtml(c.role)}</span></div>` : ''}
+          ${c.location ? `<div style="font-size:14px; color:var(--ink-faint); margin-bottom:8px;">📍 ${escapeHtml(c.location)}</div>` : ''}
+          ${c.url ? `<a href="${escapeAttr(c.url)}" target="_blank" style="color:var(--accent); font-family:'Cormorant Garamond',serif; font-style:italic; text-decoration:none; border-bottom:1px solid currentColor;">Website ↗</a>` : ''}
+          ${c.notes ? `<div class="review-notes">${escapeHtml(c.notes)}</div>` : ''}
+        </div>
+      </article>`;
+  }).join('');
 }
 
-function renderConferenceEntry(c) {
-  const coverSrc = resolveCover(c);
-  const cover = coverSrc
-    ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(c.name||'cover')}">`
-    : `<div class="cover-placeholder"><div class="icon">${escapeHtml((c.name||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
-
-  return `
-    <article class="review-entry conf-entry" data-id="${c.id}">
-      <div class="cover-wrap">${cover}</div>
-      <div class="review-body">
-        <div class="year-marker">${escapeHtml(c.year || '—')}</div>
-        <div class="review-journal">${escapeHtml(c.name || '—')}</div>
-        ${c.role ? `<div class="conf-role"><span class="role-badge">${escapeHtml(c.role)}</span></div>` : ''}
-        ${c.location ? `<div class="conf-location">📍 ${escapeHtml(c.location)}</div>` : ''}
-        ${c.url ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener" class="conf-link">访问会议网站 ↗</a>` : ''}
-        ${c.notes ? `<div class="review-notes">${escapeHtml(c.notes)}</div>` : ''}
-      </div>
-    </article>
-  `;
-}
-
-function updateConferenceStats() {
-  document.getElementById('cfCount').textContent = conferences.length;
-  const uniqueRoles = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean));
-  document.getElementById('cfRoles').textContent = uniqueRoles.size;
-  const years = conferences.map(c => +c.year).filter(Boolean);
-  if (years.length) {
-    const mn = Math.min(...years), mx = Math.max(...years);
-    document.getElementById('cfYears').textContent = mn === mx ? mn : `${mn}–${mx}`;
-  } else {
-    document.getElementById('cfYears').textContent = '—';
-  }
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
-}
-function escapeAttr(s) { return escapeHtml(s); }
-
+// ==========================================
+// 5. INITIALIZATION
+// ==========================================
 function renderAll() {
+  renderProfile();
   renderPapers();
   renderReviews();
   renderConferences();
+  updateStats();
 }
 
 async function loadData() {
   try {
-    const [pubRes, revRes, confRes] = await Promise.all([
+    const [profRes, pubRes, revRes, confRes, msRes] = await Promise.all([
+      fetch('./profile.json').catch(() => null),
       fetch('./publications.json').catch(() => null),
       fetch('./reviews.json').catch(() => null),
-      fetch('./conferences.json').catch(() => null)
+      fetch('./conferences.json').catch(() => null),
+      fetch('./memberships.json').catch(() => null)
     ]);
+    if (profRes && profRes.ok) profile = await profRes.json();
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
     if (confRes && confRes.ok) conferences = await confRes.json();
+    if (msRes && msRes.ok) memberships = await msRes.json();
   } catch (error) {
-    console.error("数据加载失败", error);
+    console.error("Data load failed:", error);
   } finally {
     renderAll();
   }
 }
 
+// Start
 loadData();
 </script>
 </body>
