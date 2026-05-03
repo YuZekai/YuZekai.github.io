@@ -67,13 +67,40 @@
   .subtitle { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-faint); letter-spacing: .05em; }
   .ornament { text-align: center; color: var(--gold); font-size: 20px; margin: 20px 0 8px; letter-spacing: 1em; }
 
-  /* Tab navigation */
+  /* Tab navigation —— 全局：永不换行，挤不下时横向滚动 */
   .tab-nav {
-    display: flex; justify-content: center; gap: 0; border-bottom: 1px solid var(--rule); background: rgba(232,227,214,.2); flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(232,227,214,.2);
+    flex-wrap: nowrap;                     /* 强制单行 */
+    overflow-x: auto;                       /* 溢出时可横向滚动 */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;      /* iOS 惯性滚动 */
+    scrollbar-width: none;                  /* Firefox 隐藏滚动条 */
+    scroll-snap-type: x proximity;          /* 吸附效果 */
+  }
+  .tab-nav::-webkit-scrollbar {
+    display: none;                          /* Chrome/Safari 隐藏滚动条 */
   }
   .tab-btn {
-    background: none; border: none; padding: 16px 24px; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--ink-faint); letter-spacing: .08em;
-    cursor: pointer; position: relative; transition: color .25s; border-bottom: 2px solid transparent; margin-bottom: -1px;
+    background: none;
+    border: none;
+    padding: 16px 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink-faint);
+    letter-spacing: .08em;
+    cursor: pointer;
+    position: relative;
+    transition: color .25s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    flex: 0 0 auto;                         /* 不压缩、不拉伸 */
+    white-space: nowrap;                    /* tab 内文字不换行 */
+    scroll-snap-align: center;              /* 滚动时吸附到容器中央 */
   }
   .tab-btn:hover { color: var(--ink); }
   .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
@@ -188,10 +215,10 @@
   }
 
   /* ============================================== */
-  /* === 自定义覆盖：金色主题 (置于末尾确保生效) === */
+  /* === 自定义覆盖：金色/红色主题 (置于末尾确保生效) === */
   /* ============================================== */
 
-  /* 大标题 Opera 渐变金 + 浮雕 */
+  /* 大标题 Opera 渐变金 + 浮雕（提亮版） */
   .title-gold {
     background: linear-gradient(135deg, #f7dc7a 0%, #e0b545 30%, #b88528 65%, #8a5a18 100%);
     -webkit-background-clip: text;
@@ -204,7 +231,7 @@
       drop-shadow(0 6px 10px rgba(60,40,10,.22));
   }
 
-  /* 大标题 Selecta 红色浮雕（保留原 accent 色，叠加阴影） */
+  /* 大标题 Selecta 红色浮雕 */
   h1.title em {
     text-shadow: 
       0 -1px 0 rgba(255,255,255,.55),
@@ -213,13 +240,13 @@
       0 6px 12px rgba(139,26,26,.28);
   }
 
-  /* Masthead 顶栏：Vol. I · No. 1 / Updated... / Personalia */
+  /* Masthead 顶栏：放大 + 红色 */
   .masthead-top {
     color: var(--accent);
     border-bottom-color: rgba(139,26,26,.3);
-    font-size: 14px;          /* 从 11px → 14px，放大约 27% */
-    font-weight: 500;         /* 比默认 400 重一点，更清晰 */
-    letter-spacing: .18em;    /* 字间距从 .2em 略收，避免太松散 */
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .18em;
   }
   .masthead-top span {
     letter-spacing: .14em;
@@ -229,21 +256,21 @@
   footer {
     color: var(--gold);
     border-top-color: var(--gold);
-    font-size: 16px;          /* 从 14px → 16px */
+    font-size: 16px;
   }
   footer > div:first-child {
-    font-size: 18px;          /* "Per Aspera Ad Astra" 那行再大一点，作为主句 */
+    font-size: 18px;
     font-weight: 500;
-    color: #8a5a18;           /* 加深成深铜，更醒目 */
-    margin-bottom: 12px !important;  /* 两行间距也拉开一点 */
+    color: #8a5a18;
+    margin-bottom: 12px !important;
   }
   footer > div:last-child {
-    color: rgba(184,137,58,.85) !important;  /* 从 .75 提到 .85，更清晰 */
+    color: rgba(184,137,58,.85) !important;
     font-size: 14px;
     letter-spacing: .12em !important;
   }
 
-  /* Tab 选项卡：默认中金 / 悬停深铜 / 激活深铜加粗 */
+  /* Tab 选项卡：默认中金 / 悬停深铜 / 激活焦褐 */
   .tab-btn {
     color: #a87422;
   }
@@ -254,33 +281,24 @@
     color: #6b4410;
     border-bottom-color: #6b4410;
   }
-/* ============================================== */
+
+  /* ============================================== */
   /* === 手机端适配补强 === */
   /* ============================================== */
 
   @media (max-width: 800px) {
-    /* Tab 横向滚动：挤不下时不换行，改成左右滑 */
+    /* Tab 在手机上：两侧留半屏 padding，使任一 tab 都能滚到正中央 */
     .tab-nav {
-      flex-wrap: nowrap;                    /* 禁止换行（覆盖原版的 wrap） */
-      overflow-x: auto;                      /* 水平滚动 */
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;     /* iOS 惯性滚动 */
-      scrollbar-width: none;                 /* Firefox 隐藏滚动条 */
-      scroll-snap-type: x proximity;         /* 滚动时吸附到 tab */
-      /* 右侧渐隐提示还有内容可滑 */
-      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
-      -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
-    }
-    .tab-nav::-webkit-scrollbar {
-      display: none;                         /* Chrome/Safari 隐藏滚动条 */
+      padding-left: 50%;
+      padding-right: 50%;
+      scroll-padding-left: 50%;
+      scroll-padding-right: 50%;
+      justify-content: flex-start;       /* 滚动容器不能用 center 否则会卡住 */
     }
     .tab-btn {
-      flex: 0 0 auto;                        /* 不压缩、不拉伸，保持原宽度 */
-      padding: 14px 18px;                    /* 内边距略收，单 tab 占地少一点 */
+      padding: 14px 18px;
       font-size: 14px;
       letter-spacing: .05em;
-      scroll-snap-align: start;
-      white-space: nowrap;                   /* tab 内文字不换行 */
     }
 
     /* 顶栏小字适配：手机上字间距收一点，三段不挤一起 */
@@ -293,7 +311,7 @@
       letter-spacing: .08em;
     }
 
-    /* Stats 数字栏：手机上间距收紧 */
+    /* Stats 数字栏 */
     .stats {
       gap: 24px;
       padding: 18px 12px;
@@ -302,18 +320,18 @@
       font-size: 26px;
     }
 
-    /* Sort bar 手机上也允许换行，避免挤压 */
+    /* Sort bar */
     .sort-bar {
       gap: 14px;
       font-size: 12px;
     }
 
-    /* 论文/审稿条目右上角 citations 数字在手机上太大，缩一下 */
+    /* 论文/审稿条目右上角 citations 数字 */
     .highlight-metric .hm-num {
       font-size: 28px;
     }
 
-    /* 标题手机端再调一下，避免 Opera 渐变在小屏幕上糊 */
+    /* 大标题手机端适配 */
     h1.title {
       font-size: clamp(44px, 13vw, 72px);
       letter-spacing: -.01em;
