@@ -502,6 +502,10 @@ function switchView(view) {
   ['profile','papers','reviews','conferences'].forEach(v => { 
     document.getElementById(v+'View').style.display = view === v ? '' : 'none'; 
   });
+  const activeBtn = document.querySelector(`.tab-btn[data-tab="${view}"]`);
+  if (activeBtn) {
+    activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
 }
 
 function setPaperSort(mode) { paperSortMode = mode; document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-paper-${mode}`).classList.add('active'); renderPapers(); }
