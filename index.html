@@ -250,71 +250,6 @@
   .empty-state { text-align: center; padding: 80px 20px; color: var(--ink-faint); }
   .empty-state .ornament-big { font-size: 64px; color: var(--gold); margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-  /* === 新增：平铺模式 (Grid Mode) 核心布局 === */
-  
-  /* 容器：当点击切换后，给 #list 或 #reviewList 加上这个类，开启网格 */
-  #list.grid-mode, #reviewList.grid-mode {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    padding-top: 20px;
-    border-top: none;
-  }
-
-  /* 平铺模式下的卡片外框 */
-  .grid-mode article.entry, 
-  .grid-mode article.review-entry {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid var(--rule) !important; /* 强制显示边框形成卡片 */
-    border-radius: 8px;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .grid-mode article.entry:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lift);
-  }
-
-  /* 平铺模式下的封面图：占满卡片上部 */
-  .grid-mode .cover-wrap {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 3/4;
-    margin-bottom: 12px;
-  }
-
-  /* 平铺模式下隐藏摘要，保持整洁 */
-  .grid-mode .abstract, 
-  .grid-mode .meta-line > div:first-child { 
-    display: none; 
-  }
-
-  /* 平铺模式下的标题字号微调 */
-  .grid-mode h2.paper-title {
-    font-size: 18px;
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
-
-  /* 切换按钮的视觉样式 */
-  .view-toggle {
-    margin-left: auto;
-    cursor: pointer;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 2px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: all 0.2s;
-  }
-  .view-toggle:hover { background: var(--accent); color: var(--paper); }
-  
   footer { text-align: center; padding: 32px; border-top: 3px double var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--ink-faint); font-size: 14px; letter-spacing: .05em; }
 
   /* Professional Memberships Square Logos (Display Version) */
@@ -609,63 +544,6 @@
     font-weight: 300; 
     font-style: normal !important; 
   }
-  /* === 平铺模式：极简展示策略 === */
-
-/* 网格容器设置 */
-#list.grid-mode, #reviewList.grid-mode {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-  padding-top: 20px;
-}
-
-/* 卡片样式与内容居中 */
-.grid-mode article.entry, 
-.grid-mode article.review-entry {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid var(--rule) !important;
-  border-radius: 8px;
-  text-align: center; /* 文本居中 */
-  align-items: center; /* 元素居中 */
-  height: 100%;
-}
-
-/* 【关键】平铺模式下隐藏：分区、IF、作者、年份、摘要、备注、链接、页码 */
-.grid-mode .rank-badges,
-.grid-mode .if-badge,
-.grid-mode .authors,
-.grid-mode .year-marker,
-.grid-mode .abstract,
-.grid-mode .notes,
-.grid-mode .review-notes,
-.grid-mode .links,
-.grid-mode .vol-page {
-  display: none !important;
-}
-
-/* 调整标题和期刊名的层级 */
-.grid-mode h2.paper-title { font-size: 18px; margin: 10px 0; order: 2; }
-.grid-mode .journal-line { border: none; padding: 0; order: 3; }
-.grid-mode .journal-name, .grid-mode .review-journal { font-size: 15px; font-style: italic; }
-
-/* 引用数/审稿数放在最显眼的第1位 */
-.grid-mode .highlight-metric { order: 1; align-items: center; margin-bottom: 5px; }
-.grid-mode .hm-num { font-size: 32px; color: var(--accent); }
-
-/* 切换按钮样式：去掉 margin-left: auto 以保持随 sort-bar 居中 */
-.view-toggle {
-  cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-right: -10px; /* 稍微缩短与 Order by 的距离 */
-}
 </style>
 </head>
 <body>
@@ -728,13 +606,11 @@
     <div class="stat"><span class="stat-num" id="statYears">—</span><span class="stat-label">Span</span></div>
   </div>
   <div class="sort-bar">
-  <div class="view-toggle" onclick="toggleGridView('list')">
-    <span id="view-icon-list">⊞ Tile</span>
+    <span class="sort-label">Order by:</span>
+    <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
+    <span class="sort-opt" id="sort-paper-cite" onclick="setPaperSort('cite')">Citations</span>
+    <span class="sort-opt" id="sort-paper-if" onclick="setPaperSort('if')">Impact Factor</span>
   </div>
-  <span class="sort-label">Order by:</span>
-  <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
-  </div>
-</div>
   <main id="list"></main>
 </div>
 
@@ -746,12 +622,10 @@
     <div class="stat"><span class="stat-num" id="rvSpan">0.0</span><span class="stat-label">Total IF</span></div>
   </div>
   <div class="sort-bar">
-  <div class="view-toggle" onclick="toggleGridView('reviewList')">
-    <span id="view-icon-reviewList">⊞ Tile</span>
+    <span class="sort-label">Order by:</span>
+    <span class="sort-opt active" id="sort-rev-count" onclick="setReviewSort('count')">Review Count</span>
+    <span class="sort-opt" id="sort-rev-if" onclick="setReviewSort('if')">Impact Factor</span>
   </div>
-  <span class="sort-label">Order by:</span>
-  </div>
-</div>
   <main id="reviewList"></main>
 </div>
 
@@ -851,22 +725,6 @@ function switchView(view) {
 }
 
 function setPaperSort(mode) { paperSortMode = mode; document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-paper-${mode}`).classList.add('active'); renderPapers(); }
-/**
- * 切换平铺/列表视图逻辑
- * @param {string} containerId - 'list' 或 'reviewList'
- */
-function toggleGridView(containerId) {
-  const container = document.getElementById(containerId);
-  const icon = document.getElementById('view-icon-' + containerId);
-  const isGrid = container.classList.toggle('grid-mode');
-  
-  // 仅切换按钮文字
-  icon.textContent = isGrid ? '☰ List' : '⊞ Tile';
-  
-  // 重新渲染以确保图片在平铺模式下加载正确
-  if (containerId === 'list') renderPapers();
-  else if (containerId === 'reviewList') renderReviews();
-}
 function setReviewSort(mode) { reviewSortMode = mode; document.querySelectorAll('#reviewsView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-rev-${mode}`).classList.add('active'); renderReviews(); }
 
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
