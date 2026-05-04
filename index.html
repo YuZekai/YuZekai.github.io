@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -510,6 +511,21 @@
   .title-block .ornament {
     letter-spacing: 0;
   }
+  /* ========================================= */
+  /* 访客浏览量统计样式 */
+  /* ========================================= */
+  .visitor-stats {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    letter-spacing: 0.05em;
+  }
+  .visitor-stats .divider { opacity: 0.3; font-weight: 300; }
 </style>
 </head>
 <body>
@@ -610,6 +626,16 @@
   </div>
   <div style="font-size: 13px; letter-spacing: 0.1em; color: var(--ink-faint); font-family: 'Cormorant Garamond', serif;">
     — Ex Officina Zekai Yu —
+  </div>
+
+  <div class="visitor-stats">
+    <span id="busuanzi_container_site_pv" style="display:none">
+      ✦ Views: <span id="busuanzi_value_site_pv" style="color: var(--accent); font-weight: 500;"></span>
+    </span>
+    <span class="divider">|</span>
+    <span id="busuanzi_container_site_uv" style="display:none">
+      Visitors: <span id="busuanzi_value_site_uv" style="color: var(--gold); font-weight: 500;"></span> ✦
+    </span>
   </div>
 </footer>
 
