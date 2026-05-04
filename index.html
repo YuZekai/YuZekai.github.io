@@ -609,6 +609,63 @@
     font-weight: 300; 
     font-style: normal !important; 
   }
+  /* === 平铺模式：极简展示策略 === */
+
+/* 网格容器设置 */
+#list.grid-mode, #reviewList.grid-mode {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding-top: 20px;
+}
+
+/* 卡片样式与内容居中 */
+.grid-mode article.entry, 
+.grid-mode article.review-entry {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--rule) !important;
+  border-radius: 8px;
+  text-align: center; /* 文本居中 */
+  align-items: center; /* 元素居中 */
+  height: 100%;
+}
+
+/* 【关键】平铺模式下隐藏：分区、IF、作者、年份、摘要、备注、链接、页码 */
+.grid-mode .rank-badges,
+.grid-mode .if-badge,
+.grid-mode .authors,
+.grid-mode .year-marker,
+.grid-mode .abstract,
+.grid-mode .notes,
+.grid-mode .review-notes,
+.grid-mode .links,
+.grid-mode .vol-page {
+  display: none !important;
+}
+
+/* 调整标题和期刊名的层级 */
+.grid-mode h2.paper-title { font-size: 18px; margin: 10px 0; order: 2; }
+.grid-mode .journal-line { border: none; padding: 0; order: 3; }
+.grid-mode .journal-name, .grid-mode .review-journal { font-size: 15px; font-style: italic; }
+
+/* 引用数/审稿数放在最显眼的第1位 */
+.grid-mode .highlight-metric { order: 1; align-items: center; margin-bottom: 5px; }
+.grid-mode .hm-num { font-size: 32px; color: var(--accent); }
+
+/* 切换按钮样式：去掉 margin-left: auto 以保持随 sort-bar 居中 */
+.view-toggle {
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: -10px; /* 稍微缩短与 Order by 的距离 */
+}
 </style>
 </head>
 <body>
@@ -671,13 +728,11 @@
     <div class="stat"><span class="stat-num" id="statYears">—</span><span class="stat-label">Span</span></div>
   </div>
   <div class="sort-bar">
-  <span class="sort-label">Order by:</span>
-  <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
-  <span class="sort-opt" id="sort-paper-cite" onclick="setPaperSort('cite')">Citations</span>
-  <span class="sort-opt" id="sort-paper-if" onclick="setPaperSort('if')">Impact Factor</span>
-  
   <div class="view-toggle" onclick="toggleGridView('list')">
     <span id="view-icon-list">⊞ Tile</span>
+  </div>
+  <span class="sort-label">Order by:</span>
+  <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
   </div>
 </div>
   <main id="list"></main>
@@ -691,13 +746,10 @@
     <div class="stat"><span class="stat-num" id="rvSpan">0.0</span><span class="stat-label">Total IF</span></div>
   </div>
   <div class="sort-bar">
-  <span class="sort-label">Order by:</span>
-  <span class="sort-opt active" id="sort-paper-date" onclick="setPaperSort('date')">Date</span>
-  <span class="sort-opt" id="sort-paper-cite" onclick="setPaperSort('cite')">Citations</span>
-  <span class="sort-opt" id="sort-paper-if" onclick="setPaperSort('if')">Impact Factor</span>
-  
   <div class="view-toggle" onclick="toggleGridView('reviewList')">
-    <span id="view-icon-list">⊞ Tile</span>
+    <span id="view-icon-reviewList">⊞ Tile</span>
+  </div>
+  <span class="sort-label">Order by:</span>
   </div>
 </div>
   <main id="reviewList"></main>
@@ -806,20 +858,12 @@ function setPaperSort(mode) { paperSortMode = mode; document.querySelectorAll('#
 function toggleGridView(containerId) {
   const container = document.getElementById(containerId);
   const icon = document.getElementById('view-icon-' + containerId);
-  
-  // 核心操作：切换 CSS 类名
   const isGrid = container.classList.toggle('grid-mode');
   
-  // 更新按钮显示的文字
-  if (isGrid) {
-    icon.textContent = '☰ List'; // 提示切换回列表
-    toast('Switched to Grid View');
-  } else {
-    icon.textContent = '⊞ Tile'; // 提示切换回平铺
-    toast('Switched to List View');
-  }
+  // 仅切换按钮文字
+  icon.textContent = isGrid ? '☰ List' : '⊞ Tile';
   
-  // 兼容性：如果正在平铺模式下，确保封面图显示正确
+  // 重新渲染以确保图片在平铺模式下加载正确
   if (containerId === 'list') renderPapers();
   else if (containerId === 'reviewList') renderReviews();
 }
