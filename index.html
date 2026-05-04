@@ -567,6 +567,19 @@
     --shadow-lift: 0 8px 24px rgba(0,0,0,0.7);
   }
 
+  /* 1. 修复学会标志：将强制白色背景改为深色背景，或透明 */
+  #msProfileList .cover-wrap {
+    background: var(--paper-dark) !important; /* 使用深色背景 */
+    border-color: var(--rule);
+  }
+
+  /* 2. 修复 IF 标签：强制文字为白色，不再跟随 --paper 变量 */
+  .if-badge {
+    color: #ffffff !important; 
+    background: var(--accent); /* 保持红色底 */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 增加一点文字阴影更清晰 */
+  }
+  
   /* 1. 基础背景处理 */
   body {
     background-image:
