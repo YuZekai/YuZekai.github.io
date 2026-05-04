@@ -361,6 +361,12 @@
     .tab-btn { padding: 12px 14px; font-size: 13px; }
     .stat-num { font-size: 22px; }
   }
+  /* Tab 中文部分不斜体，正文衬线字体 */
+  .tab-btn .cn {
+    font-style: normal;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+  }
 </style>
 </head>
 <body>
@@ -382,10 +388,10 @@
 </header>
 
 <nav class="tab-nav">
-  <button class="tab-btn active" data-tab="profile" onclick="switchView('profile')">— Profile · 简介 —</button>
-  <button class="tab-btn" data-tab="papers" onclick="switchView('papers')">— Publications · 论文 —</button>
-  <button class="tab-btn" data-tab="reviews" onclick="switchView('reviews')">— Peer Reviews · 审稿 —</button>
-  <button class="tab-btn" data-tab="conferences" onclick="switchView('conferences')">— Conferences · 会议任职 —</button>
+  <button class="tab-btn active" data-tab="profile" onclick="switchView('profile')">— Profile · <span class="cn">简介</span> —</button>
+<button class="tab-btn" data-tab="papers" onclick="switchView('papers')">— Publications · <span class="cn">论文</span> —</button>
+<button class="tab-btn" data-tab="reviews" onclick="switchView('reviews')">— Peer Reviews · <span class="cn">审稿</span> —</button>
+<button class="tab-btn" data-tab="conferences" onclick="switchView('conferences')">— Conferences · <span class="cn">会议任职</span> —</button>
 </nav>
 
 <div id="profileView">
