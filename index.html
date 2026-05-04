@@ -286,14 +286,28 @@
   .title-block {
     position: relative;
     overflow: hidden;
-    padding: 32px 0 24px;
-    margin: -24px -64px -32px;          /* top: -24px 抵消 masthead-top 的 margin-bottom，让浮雕贴住 Vol 线 */
+    aspect-ratio: 3503 / 976;            /* 强制和图片同比例 */
+    margin: -24px -64px -32px;
+    padding: 0;                           /* 移除原 padding，让背景充满 */
     background-image: 
       linear-gradient(180deg, rgba(244,241,234,.45) 0%, rgba(244,241,234,.25) 40%, rgba(244,241,234,.55) 100%),
       url('./assets/title-bg.jpg');
     background-size: cover;
-    background-position: center 50%;
+    background-position: center;
     background-repeat: no-repeat;
+    /* 让内部内容垂直居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  /* 撤销原本 .title 和 .subtitle 的上下 margin，避免容器变高 */
+  .title-block h1.title {
+    margin: 0;
+  }
+  .title-block .ornament {
+    margin: 0;
   }
 
   /* ============================================== */
@@ -368,13 +382,17 @@
     }
     /* 手机端浮雕背景（仅 Vol 线下方） */
     .title-block {
-      margin: -24px -24px -20px;        /* 同样抵消 masthead-top 的 margin-bottom */
-      padding: 24px 0 18px;
+      aspect-ratio: 3503 / 976;
+      margin: -24px -24px -20px;
+      padding: 0;
       background-image: 
         linear-gradient(180deg, rgba(244,241,234,.6) 0%, rgba(244,241,234,.4) 40%, rgba(244,241,234,.65) 100%),
         url('./assets/title-bg.jpg');
-      background-size: 200% auto;
-      background-position: center center;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 
