@@ -282,6 +282,17 @@
     color: #6b4410;
     border-bottom-color: #6b4410;
   }
+  /* === 标题区大理石浮雕背景 === */
+  header.masthead {
+    position: relative;
+    overflow: hidden;
+    background-image: 
+      linear-gradient(180deg, rgba(244,241,234,.45) 0%, rgba(244,241,234,.25) 40%, rgba(244,241,234,.55) 100%),
+      url('./assets/title-bg.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+  }
 
   /* ============================================== */
   /* === 手机端适配补强 === */
@@ -352,6 +363,14 @@
     }
     footer > div:last-child {
       font-size: 12px !important;
+    }
+    /* 手机端浮雕背景：放大裁剪只显示中央铭文板 */
+    header.masthead {
+      background-image: 
+        linear-gradient(180deg, rgba(244,241,234,.6) 0%, rgba(244,241,234,.4) 40%, rgba(244,241,234,.65) 100%),
+        url('./assets/title-bg.jpg');
+      background-size: 200% auto;
+      background-position: center center;
     }
   }
 
