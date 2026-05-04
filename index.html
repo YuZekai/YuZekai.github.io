@@ -512,11 +512,18 @@
     letter-spacing: 0;
   }
   /* ========================================= */
-  /* 访客浏览量统计样式 */
+  /* 访客浏览量统计样式：更换字体并取消斜体 */
   /* ========================================= */
   .visitor-stats {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12.5px;
+    /* 1. 更换为优雅的衬线字体 (与标题一致) */
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif; 
+    
+    /* 2. 强制取消斜体 */
+    font-style: normal !important; 
+    
+    /* 3. 稍微加大字号，取消斜体后通常需要大一点才清晰 */
+    font-size: 15px; 
+    
     color: var(--ink-faint);
     margin-top: 24px;
     display: flex;
@@ -525,7 +532,18 @@
     align-items: center;
     letter-spacing: 0.05em;
   }
-  .visitor-stats .divider { opacity: 0.3; font-weight: 300; }
+
+  /* 调整数字的样式，取消加粗或保持颜色对比 */
+  .visitor-stats span span {
+    font-style: normal !important;
+    font-weight: 600;
+  }
+
+  .visitor-stats .divider { 
+    opacity: 0.3; 
+    font-weight: 300; 
+    font-style: normal !important; 
+  }
 </style>
 </head>
 <body>
