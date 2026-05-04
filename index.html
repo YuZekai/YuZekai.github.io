@@ -552,6 +552,10 @@
 /* === 黑暗模式全局适配 (Opera Selecta Dark Gold Edition) === */
 /* ============================================================ */
 
+/* ============================================================ */
+/* === 黑暗模式全局适配 (Opera Selecta Dark Gold Edition) === */
+/* ============================================================ */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #161614;       /* 深石板黑 */
@@ -567,19 +571,6 @@
     --shadow-lift: 0 8px 24px rgba(0,0,0,0.7);
   }
 
-  /* 1. 修复学会标志：将强制白色背景改为深色背景，或透明 */
-  #msProfileList .cover-wrap {
-    background: var(--paper-dark) !important; /* 使用深色背景 */
-    border-color: var(--rule);
-  }
-
-  /* 2. 修复 IF 标签：强制文字为白色，不再跟随 --paper 变量 */
-  .if-badge {
-    color: #ffffff !important; 
-    background: var(--accent); /* 保持红色底 */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 增加一点文字阴影更清晰 */
-  }
-  
   /* 1. 基础背景处理 */
   body {
     background-image:
@@ -590,21 +581,23 @@
   body::before {
     opacity: 0.3;
     mix-blend-mode: soft-light;
-    filter: invert(1); /* 反转纸张纹理噪点颜色 */
+    filter: invert(1);
   }
 
-  /* 2. 标题区：Opera 保持并强化金色质感 */
+  /* 2. 标题区：Opera 强化金色质感 */
   .title-block {
     background-image: 
       linear-gradient(180deg, rgba(22,22,20,0.6) 0%, rgba(22,22,20,0.4) 40%, rgba(22,22,20,0.7) 100%),
       url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
-    filter: brightness(0.8) contrast(1.1); /* 让背景图更深邃 */
+    filter: brightness(0.8) contrast(1.1);
   }
 
-  .title-gold {
-    background: linear-gradient(135deg, #fff3a6 0%, #f7dc7a 30%, #e0b545 65%, #b88528 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+  /* Opera 与 学位标题：强制保持金色渐变并提亮 */
+  .title-gold, .edu-degree {
+    background: linear-gradient(135deg, #fff3a6 0%, #f7dc7a 30%, #e0b545 65%, #b88528 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
     filter: 
       drop-shadow(0 -0.5px 0 rgba(255,248,210,0.2)) 
       drop-shadow(0 2px 4px rgba(0,0,0,0.8))
@@ -620,39 +613,31 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   }
 
-  /* 3. 学位与证书：强化金箔浮雕感 */
-  .edu-degree {
-    background: linear-gradient(135deg, #fff3a6 0%, #e0b545 40%, #b88528 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+  /* 3. 背景统一修正：学位证书图片预览 & 学会标志背景 */
+  .item-image-preview,
+  #msProfileList .cover-wrap {
+    background: var(--paper-dark) !important;
+    border-color: var(--rule);
+    filter: brightness(0.9); /* 降低亮度，保护视力 */
   }
 
-  /* 4. Tab 导航与按钮 */
+  /* 4. 标签修复：IF 红色标签强制白字 */
+  .if-badge {
+    color: #ffffff !important; 
+    background: var(--accent); 
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); 
+  }
+
+  /* 5. Tab 导航 */
   .tab-btn { color: #b8893a; }
   .tab-btn:hover { color: #d4af37; }
   .tab-btn.active { color: #ffebbc; border-bottom-color: #ffebbc; }
 
-  /* 5. 卡片模式适配 */
-  .grid-mode article.entry, 
-  .grid-mode article.review-entry {
-    background: rgba(255, 255, 255, 0.03); /* 极暗的半透明白，形成玻璃拟态 */
-  }
-
-  /* 6. 图片预览处理：为了深夜护眼，降低图片亮度 */
-  .item-image-preview, .cover-wrap img {
-    filter: brightness(0.85);
-    transition: filter 0.3s;
-  }
-  .item-image-preview:hover, .cover-wrap:hover img {
-    filter: brightness(1);
-  }
-
-  /* 7. 各种期刊等级标签 (Rank Badges) 适配 */
+  /* 6. 期刊等级标签适配 */
   .rb-sci { background: #1c3d28; color: #a8d3b4; border-color: #2d5a3c; }
   .rb-ssci { background: #2d1f3d; color: #c8b3e0; border-color: #4a2d6b; }
   .rb-ahci { background: #3d241a; color: #f5c0aa; border-color: #7a361a; }
-  .rb-warn { background: #3d1a1a; color: #f0a8a8; border-color: #8b1a1a; }
+  .rb-warn { background: #4a1a1a; color: #ffffff !important; border-color: #8b1a1a; }
   .rb-if { background: #3d341a; color: #f0d985; border-color: #7a5a14; }
   .rb-info { background: #1f3d3a; color: #a8cdc9; border-color: #1f5651; }
   .rb-cn { background: #3d242d; color: #ecb4c2; border-color: #8a2849; }
@@ -660,10 +645,9 @@
   .rb-ccf { background: #2a2240; color: #c3b6e8; border-color: #3e2a82; }
   .rb-eii { background: #1f2a40; color: #b3c8f0; border-color: #1f3a7a; }
 
-  /* 8. 页脚 */
+  /* 7. 页脚 */
   footer { color: #e0b545; border-top-color: #8a5a18; }
   footer > div:first-child { color: #f7dc7a; }
-  .visitor-stats { color: var(--ink-faint); }
 }
 </style>
 </head>
