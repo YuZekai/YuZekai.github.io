@@ -14,7 +14,29 @@
       "degree": "Bachelor of Engineering in Computer Science and Technology",
       "school": "Hangzhou Dianzi University: Hangzhou, CN",
       "year": "2024-09 to Present",
-      "desc": ""
+      "desc": "",
+      "coverFile": "edu_1777829815330.png",
+      "coverURL": ""
+    }
+  ],
+  "qualifications": [
+    {
+      "id": "qual_1777916207589_xxlh8a",
+      "name": "Human Research Protection Training - Data or Specimens Only Research",
+      "issuer": "Collaborative Institutional Training Initiative (CITI Program): Fort Lauderdale, Florida, US",
+      "year": "Valid: 2025-10-12 to 2028-10-12",
+      "desc": "",
+      "coverFile": "qual_1777916207589_xxlh8a.png",
+      "coverURL": ""
+    },
+    {
+      "id": "qual_1777916297007_9hwf0f",
+      "name": "Climate Change - Economics, Politics, and Global Governance",
+      "issuer": "Indian Institute of Technology Guwahati: Guwahati, Assam, IN",
+      "year": "2026-02-09 to 2026-02-14",
+      "desc": "",
+      "coverFile": "qual_1777916297007_9hwf0f.png",
+      "coverURL": ""
     }
   ]
 }
