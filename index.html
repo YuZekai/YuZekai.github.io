@@ -543,7 +543,13 @@ function parseYearForSort(str) {
 
 // 提取封面地址
 function resolveCover(item) {
-  if (item.coverURL) return item.coverURL; 
+  if (item.coverURL) {
+    // 自动把 GitHub raw 链接转成 jsDelivr CDN
+    return item.coverURL.replace(
+      /^https?:\/\/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\//,
+      'https://cdn.jsdelivr.net/gh/$1/$2@$3/'
+    );
+  }
   if (item.coverFile) { 
     const user = 'YuZekai'; 
     const repo = 'YuZekai.github.io'; 
