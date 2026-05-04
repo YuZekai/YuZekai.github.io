@@ -148,8 +148,40 @@
   .edu-item:last-child { margin-bottom: 0; }
   .edu-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; z-index: 2;}
   .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
-  .edu-degree { font-size: 20px; font-weight: 600; color: var(--ink); font-family: 'Cormorant Garamond', serif; margin-bottom: 4px; }
-  .edu-school { font-size: 15px; font-style: italic; color: var(--ink-faint); margin-bottom: 8px; font-family: 'Cormorant Garamond', serif;}
+  /* ========================================= */
+/* 证书和学位：升级为渐变金色 */
+/* ========================================= */
+.edu-degree { 
+  font-size: 20px; 
+  font-weight: 600; 
+  font-family: 'Cormorant Garamond', serif; 
+  margin-bottom: 4px; 
+
+  /* 核心修改：渐变实现 */
+  display: inline-block;          /* 必须：确保渐变背景只随文字宽度生效，不会铺满整行 */
+  background: linear-gradient(
+    135deg, 
+    #f7dc7a 0%,    /* 亮金 */
+    #e0b545 30%,   /* 中金 */
+    #b88528 65%,   /* 深金 */
+    #8a5a18 100%   /* 焦铜 */
+  );
+  -webkit-background-clip: text; /* 将背景裁剪到文字 */
+  background-clip: text;
+  color: transparent;            /* 将文字颜色设为透明，露出背景渐变 */
+
+  /* 增加轻微阴影，增强浮雕效果，防止在浅色背景上看不清 */
+  filter: drop-shadow(0 2px 2px rgba(184,137,58,0.15));
+}
+
+/* 机构组织：保持黑色 */
+.edu-school { 
+  font-size: 15px; 
+  font-style: italic; 
+  color: var(--ink); 
+  margin-bottom: 8px; 
+  font-family: 'Cormorant Garamond', serif;
+}
   .edu-desc { font-size: 14.5px; color: var(--ink-soft); text-align: justify; line-height: 1.6; }
   .item-image-preview { 
     position: absolute; 
