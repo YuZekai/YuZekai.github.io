@@ -282,31 +282,6 @@
     color: #6b4410;
     border-bottom-color: #6b4410;
   }
-  /* 大标题左右蔓草装饰 */
-  .title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    margin: 8px 0 4px;
-  }
-  .title-row h1.title {
-    margin: 0;                          /* 覆盖原 h1 的上下 margin */
-    flex: 0 1 auto;                     /* 标题保持自身宽度，不被压缩 */
-  }
-  .title-flourish {
-    flex: 1 1 0;                        /* 左右花饰平分剩余空间 */
-    height: clamp(32px, 4.5vw, 60px);   /* 高度随屏宽缩放 */
-    max-width: 280px;                   /* 但不无限拉长，标题不被挤瘦 */
-    color: #b88528;                     /* 金色，与 Opera 渐变中段呼应 */
-    opacity: .7;                        /* 半透明做陪衬 */
-  }
-  
-  /* 手机端隐藏花饰，避免大字号标题被挤压 */
-  @media (max-width: 800px) {
-    .title-flourish { display: none; }
-    .title-row { gap: 0; }
-  }
 
   /* ============================================== */
   /* === 手机端适配补强 === */
@@ -405,30 +380,8 @@
     <span>Personalia</span>
   </div>
   <div class="ornament">❦</div>
-  <div class="title-row">
-  <!-- 左侧蔓草：藤蔓从左侧细细蔓延到中段，末端两片小叶尖朝标题 -->
-  <svg class="title-flourish left" viewBox="0 0 100 60" aria-hidden="true">
-    <path d="M5 30 Q 25 10, 45 30 T 85 30 M85 30 Q 90 22, 95 30 M85 30 Q 90 38, 95 30" 
-      fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-    <circle cx="25" cy="20" r="2" fill="currentColor"/>
-    <circle cx="65" cy="40" r="2" fill="currentColor"/>
-    <circle cx="45" cy="30" r="1.5" fill="currentColor"/>
-  </svg>
-  
   <h1 class="title">
-    <span class="title-gold">Opera</span>
-    <em>Selecta</em>
-  </h1>
-  
-  <!-- 右侧蔓草：左侧的镜像（沿 x=50 翻转） -->
-  <svg class="title-flourish right" viewBox="0 0 100 60" aria-hidden="true">
-    <path d="M95 30 Q 75 10, 55 30 T 15 30 M15 30 Q 10 22, 5 30 M15 30 Q 10 38, 5 30" 
-      fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-    <circle cx="75" cy="20" r="2" fill="currentColor"/>
-    <circle cx="35" cy="40" r="2" fill="currentColor"/>
-    <circle cx="55" cy="30" r="1.5" fill="currentColor"/>
-  </svg>
-</div>
+  <h1 class="title">
   <span class="title-gold">Opera</span>
   <em>Selecta</em>
 </h1>
