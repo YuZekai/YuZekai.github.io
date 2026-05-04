@@ -544,6 +544,87 @@
     font-weight: 300; 
     font-style: normal !important; 
   }
+  /* ========================================= */
+/* === 黑暗模式适配 (Dark Mode Support) === */
+/* ========================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #161614;       /* 深石板黑 */
+    --paper-dark: #1f1f1d;  /* 略浅的黑色层级 */
+    --ink: #e2ddd2;        /* 象牙白墨水 */
+    --ink-soft: #b5af9f;    /* 次要文字色 */
+    --ink-faint: #8a8271;   /* 极淡的文字色 */
+    --accent: #e54b4b;      /* 黑暗模式下更明亮的红 */
+    --accent-soft: #ff6b6b;
+    --gold: #d4af37;        /* 更具金属感的金 */
+    --rule: #3d3a33;        /* 深色分割线 */
+    --shadow: 0 4px 12px rgba(0,0,0,0.5);
+    --shadow-lift: 0 8px 24px rgba(0,0,0,0.7);
+  }
+
+  /* 调整背景噪点，使其在暗色下更自然 */
+  body::before {
+    opacity: 0.3;
+    mix-blend-mode: soft-light;
+    filter: invert(1); /* 反转噪点颜色 */
+  }
+
+  /* 调整渐变背景，避免暗色下过于突兀 */
+  body {
+    background-image:
+      radial-gradient(ellipse at top left, rgba(184,137,58,0.1), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(229,75,75,0.05), transparent 50%);
+  }
+
+  /* 调整大理石浮雕背景的亮度 */
+  .title-block {
+    background-image: 
+      linear-gradient(180deg, rgba(22,22,20,0.6) 0%, rgba(22,22,20,0.4) 40%, rgba(22,22,20,0.7) 100%),
+      url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
+    filter: brightness(0.8) contrast(1.1);
+  }
+
+  /* 标题浮雕阴影调整：暗色模式下阴影应更深，或者转化为微弱的光晕 */
+  .title-gold {
+    filter: 
+      drop-shadow(0 -1px 0 rgba(255,255,255,0.1))
+      drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+  }
+
+  h1.title em {
+    text-shadow: 
+      0 2px 4px rgba(0,0,0,0.8),
+      0 0 10px rgba(229,75,75,0.2);
+  }
+
+  /* 卡片模式背景调整 */
+  .grid-mode article.entry, 
+  .grid-mode article.review-entry {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* 学会 Logo 处理：为了防止白底 Logo 太刺眼，给图片增加微弱的反差 */
+  #msProfileList .cover-wrap {
+    background: #f0f0f0; /* 保持浅色底但稍微压暗，避免纯白 */
+    filter: brightness(0.85);
+    transition: filter 0.3s;
+  }
+  #msProfileList .cover-wrap:hover {
+    filter: brightness(1);
+  }
+
+  /* Tab 导航颜色微调 */
+  .tab-btn { color: #b8893a; }
+  .tab-btn:hover { color: #d4af37; }
+  .tab-btn.active { color: #ffebbc; border-bottom-color: #ffebbc; }
+
+  /* 标签颜色适配：暗色模式下需要更高的对比度 */
+  .rb-sci { background: #1c3d28; color: #a8d3b4; border-color: #2d5a3c; }
+  .rb-ssci { background: #2d1f3d; color: #c8b3e0; border-color: #4a2d6b; }
+  .rb-warn { background: #3d1a1a; color: #f0a8a8; border-color: #6b1a1a; }
+  .rb-if { background: #3d341a; color: #f0d985; border-color: #6b5a1a; }
+}
 </style>
 </head>
 <body>
