@@ -608,19 +608,29 @@ function parseYearForSort(str) {
   return 0;
 }
 
-// 提取封面地址
+// 提取封面地址（完美兼顾 CDN 缓存与更新的终极版）
 function resolveCover(item) {
+  // 核心改动：用系统的"最后保存时间"作为版本号。
+  // 如果没读取到 meta 时间，给一个固定后缀避免报错，绝对不用 Date.now()
+  let v = '1.0'; 
+  if (typeof meta !== 'undefined' && meta && meta.lastUpdated) {
+    v = new Date(meta.lastUpdated).getTime();
+  }
+
   if (item.coverURL) {
     // 自动把 GitHub raw 链接转成 jsDelivr CDN
-    return item.coverURL.replace(
+    let url = item.coverURL.replace(
       /^https?:\/\/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\//,
       'https://cdn.jsdelivr.net/gh/$1/$2@$3/'
     );
+    // 使用系统的保存时间作为版本号
+    return `${url}${url.includes('?') ? '&' : '?'}v=${v}`;
   }
   if (item.coverFile) { 
     const user = 'YuZekai'; 
     const repo = 'YuZekai.github.io'; 
-    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}`; 
+    // 只有当你真正在编辑器里点了"保存"时，这里的 v 才会变，CDN 才会拉取新图
+    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}?v=${v}`; 
   }
   return '';
 }
