@@ -132,14 +132,37 @@
   .profile-links a:hover { border-bottom-color: var(--accent); }
   .profile-bio { max-width: 800px; margin: 0 auto; text-align: justify; font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; }
   
-  .edu-timeline { max-width: 800px; margin: 40px auto 0; border-left: 2px solid var(--rule); padding-left: 24px; }
-  .edu-item { position: relative; margin-bottom: 36px; }
+  /* Timeline (Education & Qualifications) */
+  .edu-timeline { 
+    max-width: 800px; 
+    margin: 40px auto 0; 
+    border-left: 2px solid var(--rule); 
+    padding-left: 24px; 
+    margin-left: 110px; 
+  }
+  .edu-item { 
+    position: relative; 
+    margin-bottom: 36px; 
+    min-height: 90px; 
+  }
   .edu-item:last-child { margin-bottom: 0; }
-  .edu-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; }
+  .edu-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; z-index: 2;}
   .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
   .edu-degree { font-size: 20px; font-weight: 600; color: var(--ink); font-family: 'Cormorant Garamond', serif; margin-bottom: 4px; }
   .edu-school { font-size: 15px; font-style: italic; color: var(--ink-faint); margin-bottom: 8px; font-family: 'Cormorant Garamond', serif;}
   .edu-desc { font-size: 14.5px; color: var(--ink-soft); text-align: justify; line-height: 1.6; }
+  .item-image-preview { 
+    position: absolute; 
+    left: -130px; 
+    top: 0; 
+    width: 90px; 
+    height: 90px; 
+    object-fit: contain; 
+    background: var(--paper); 
+    border: 1px solid var(--rule); 
+    border-radius: 8px;  
+    box-shadow: var(--shadow); 
+  }
 
   /* Entries (Papers, Reviews, Conferences, Memberships) */
   article.entry, article.review-entry {
@@ -197,6 +220,29 @@
 
   footer { text-align: center; padding: 32px; border-top: 3px double var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--ink-faint); font-size: 14px; letter-spacing: .05em; }
 
+  /* Professional Memberships Square Logos (Display Version) */
+  #msProfileList article.review-entry {
+    grid-template-columns: 140px 1fr !important; 
+    align-items: center; 
+  }
+  #msProfileList .cover-wrap {
+    aspect-ratio: 1 / 1 !important;
+    width: 140px !important;      /* 强制宽度 */
+    height: 140px !important;     /* 强制高度 */
+    border-radius: 12px;
+    background: #ffffff;          /* 白底显示更好看 */
+    padding: 10px;                /* 给 Logo 留出内边距 */
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #msProfileList .cover-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* 强制图片完整显示，绝对不裁剪 */
+  }
+
   /* Responsive */
   @media (max-width: 800px) {
     header.masthead { padding: 32px 24px 20px; }
@@ -207,6 +253,21 @@
     h2.paper-title { font-size: 22px; }
     .review-journal { font-size: 20px; }
     .stat-num { font-size: 28px; }
+
+    /* Timeline Mobile */
+    .edu-timeline { margin-left: 80px; }
+    .item-image-preview { left: -95px; width: 60px; height: 60px; }
+    .edu-item { min-height: 60px; }
+
+    /* Memberships Mobile */
+    #msProfileList article.review-entry {
+      grid-template-columns: 90px 1fr !important; 
+      gap: 16px;
+    }
+    #msProfileList .cover-wrap {
+      width: 90px !important;
+      height: 90px !important;
+    }
   }
 
   @media print {
@@ -460,6 +521,11 @@
       <div class="edu-timeline" id="eduList"></div>
     </div>
 
+    <div class="profile-qualifications" style="margin-top: 64px;">
+      <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Certificates <em>&amp; Qualifications</em></h3>
+      <div class="edu-timeline" id="qualList"></div>
+    </div>
+
     <div class="profile-memberships" style="margin-top: 64px;">
       <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Professional <em>Memberships</em></h3>
       <div id="msProfileList"></div>
@@ -522,7 +588,8 @@
 // ==========================================
 // 1. DATA STATE
 // ==========================================
-let profile = { basic: {}, education: [] };
+// 新增了 qualifications
+let profile = { basic: {}, education: [], qualifications: [] };
 let papers = [];
 let reviews = [];
 let conferences = [];
@@ -532,7 +599,7 @@ let meta = { lastUpdated: null };
 let paperSortMode = 'date'; 
 let reviewSortMode = 'count'; 
 
-// 智能年份排序助手（支持 2024、2023-2024、2020-Present 等）
+// 智能年份排序助手
 function parseYearForSort(str) {
   if (!str) return 0;
   if (/present|now|至今|目前/i.test(str)) return 9999;
@@ -615,32 +682,28 @@ function updateStats() {
   document.getElementById('statCite').textContent = papers.reduce((s,p) => s + (parseInt(p.citations)||0), 0);
   const years = papers.map(p => +p.year).filter(Boolean); document.getElementById('statYears').textContent = years.length ? (Math.min(...years) === Math.max(...years) ? Math.min(...years) : `${Math.min(...years)}–${Math.max(...years)}`) : '—';
   
-  // Reviews 统计：四个口径分别表示「期刊数 / 审稿数 / 平均质量 / 总贡献」
-document.getElementById('rvJournals').textContent = reviews.length;
+  // Reviews 统计
+  document.getElementById('rvJournals').textContent = reviews.length;
 
-const totalReviews = reviews.reduce((s, r) => s + (parseInt(r.count) || 0), 0);
-document.getElementById('rvTotal').textContent = totalReviews;
+  const totalReviews = reviews.reduce((s, r) => s + (parseInt(r.count) || 0), 0);
+  document.getElementById('rvTotal').textContent = totalReviews;
 
-// 按审稿次数加权的平均 IF（学术圈通行口径，对标 Publons / Web of Science Reviewer）
-let weightedIFSum = 0;
-let weightedIFCount = 0;
-reviews.forEach(r => {
-  const ifVal = parseFloat(r.impactFactor);
-  const cnt = parseInt(r.count) || 0;
-  if (!isNaN(ifVal) && cnt > 0) {
-    weightedIFSum += ifVal * cnt;
-    weightedIFCount += cnt;
-  }
-});
-document.getElementById('rvAvgIF').textContent = weightedIFCount ? (weightedIFSum / weightedIFCount).toFixed(1) : '0.0';
-
-// 总审稿贡献 IF = Σ(IF × count)，反映"数量 × 质量"的综合工作量
-document.getElementById('rvSpan').textContent = weightedIFSum.toFixed(1);
+  let weightedIFSum = 0;
+  let weightedIFCount = 0;
+  reviews.forEach(r => {
+    const ifVal = parseFloat(r.impactFactor);
+    const cnt = parseInt(r.count) || 0;
+    if (!isNaN(ifVal) && cnt > 0) {
+      weightedIFSum += ifVal * cnt;
+      weightedIFCount += cnt;
+    }
+  });
+  document.getElementById('rvAvgIF').textContent = weightedIFCount ? (weightedIFSum / weightedIFCount).toFixed(1) : '0.0';
+  document.getElementById('rvSpan').textContent = weightedIFSum.toFixed(1);
   
   document.getElementById('cfCount').textContent = conferences.length; document.getElementById('cfRoles').textContent = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean)).size;
   const cyears = conferences.map(c => +c.year).filter(Boolean); document.getElementById('cfYears').textContent = cyears.length ? (Math.min(...cyears) === Math.max(...cyears) ? Math.min(...cyears) : `${Math.min(...cyears)}–${Math.max(...cyears)}`) : '—';
 
-  // 顶部更新时间：从 meta.json 读取，由编辑版保存时写入
   updateDateLabel();
 }
 
@@ -660,17 +723,35 @@ function renderProfile() {
 
   // 1. 教育经历 (降序)
   const sortedEdu = [...profile.education].sort((a, b) => parseYearForSort(b.year) - parseYearForSort(a.year));
-  const eduHtml = sortedEdu.map(e => `
+  const eduHtml = sortedEdu.map(e => {
+    const coverSrc = resolveCover(e);
+    return `
     <div class="edu-item">
       <div class="edu-year">${escapeHtml(e.year)}</div>
       <div class="edu-degree">${escapeHtml(e.degree)}</div>
       <div class="edu-school">${escapeHtml(e.school)}</div>
       ${e.desc ? `<div class="edu-desc">${escapeHtml(e.desc)}</div>` : ''}
+      ${coverSrc ? `<img src="${escapeAttr(coverSrc)}" class="item-image-preview" alt="image">` : ''}
     </div>
-  `).join('');
+  `}).join('');
   document.getElementById('eduList').innerHTML = eduHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无经历</p>';
 
-  // 2. 学会会员 (嵌套在 Profile 中，降序)
+  // 2. 证书资质 (降序)
+  const sortedQual = [...profile.qualifications].sort((a, b) => parseYearForSort(b.year) - parseYearForSort(a.year));
+  const qualHtml = sortedQual.map(q => {
+    const coverSrc = resolveCover(q);
+    return `
+    <div class="edu-item">
+      <div class="edu-year">${escapeHtml(q.year)}</div>
+      <div class="edu-degree">${escapeHtml(q.name)}</div>
+      <div class="edu-school">${escapeHtml(q.issuer)}</div>
+      ${q.desc ? `<div class="edu-desc">${escapeHtml(q.desc)}</div>` : ''}
+      ${coverSrc ? `<img src="${escapeAttr(coverSrc)}" class="item-image-preview" alt="image">` : ''}
+    </div>
+  `}).join('');
+  document.getElementById('qualList').innerHTML = qualHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无证书</p>';
+
+  // 3. 学会会员 (嵌套在 Profile 中，降序)
   const msList = document.getElementById('msProfileList');
   if (!memberships.length) { msList.innerHTML = `<p style="color:var(--ink-faint);text-align:center;">暂无记录</p>`; return; }
   
@@ -799,7 +880,12 @@ async function loadData() {
       fetch(nocache('./memberships.json')).catch(() => null),
       fetch(nocache('./meta.json')).catch(() => null)
     ]);
-    if (profRes && profRes.ok) profile = await profRes.json();
+    if (profRes && profRes.ok) {
+        profile = await profRes.json();
+        // 兼容之前没有 certificates 的旧数据
+        if (!profile.qualifications) profile.qualifications = [];
+        if (!profile.education) profile.education = [];
+    }
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
     if (confRes && confRes.ok) conferences = await confRes.json();
