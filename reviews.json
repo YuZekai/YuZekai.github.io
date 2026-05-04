@@ -2113,5 +2113,53 @@
         "customAbbName": "新锐分区"
       }
     ]
+  },
+  {
+    "id": "r_1777874139669_gimm8c",
+    "journal": "JMIR Formative Research",
+    "impactFactor": "2.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1777874139669_gimm8c.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.1"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "N/A"
+      },
+      {
+        "key": "jci",
+        "value": "0.66"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务4区/医学：信息4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务3区; 医学：信息4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
