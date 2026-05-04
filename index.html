@@ -558,10 +558,27 @@ function updateStats() {
   document.getElementById('statCite').textContent = papers.reduce((s,p) => s + (parseInt(p.citations)||0), 0);
   const years = papers.map(p => +p.year).filter(Boolean); document.getElementById('statYears').textContent = years.length ? (Math.min(...years) === Math.max(...years) ? Math.min(...years) : `${Math.min(...years)}–${Math.max(...years)}`) : '—';
   
-  document.getElementById('rvJournals').textContent = reviews.length;
-  document.getElementById('rvTotal').textContent = reviews.reduce((s,r) => s + (parseInt(r.count) || 0), 0);
-  const ifs = reviews.map(r => parseFloat(r.impactFactor)).filter(v => !isNaN(v)); document.getElementById('rvAvgIF').textContent = ifs.length ? (ifs.reduce((s,x)=>s+x,0) / ifs.length).toFixed(1) : '0.0';
-  document.getElementById('rvSpan').textContent = reviews.reduce((s,r) => s + (parseFloat(r.impactFactor)||0), 0).toFixed(1);
+  // Reviews 统计：四个口径分别表示「期刊数 / 审稿数 / 平均质量 / 总贡献」
+document.getElementById('rvJournals').textContent = reviews.length;
+
+const totalReviews = reviews.reduce((s, r) => s + (parseInt(r.count) || 0), 0);
+document.getElementById('rvTotal').textContent = totalReviews;
+
+// 按审稿次数加权的平均 IF（学术圈通行口径，对标 Publons / Web of Science Reviewer）
+let weightedIFSum = 0;
+let weightedIFCount = 0;
+reviews.forEach(r => {
+  const ifVal = parseFloat(r.impactFactor);
+  const cnt = parseInt(r.count) || 0;
+  if (!isNaN(ifVal) && cnt > 0) {
+    weightedIFSum += ifVal * cnt;
+    weightedIFCount += cnt;
+  }
+});
+document.getElementById('rvAvgIF').textContent = weightedIFCount ? (weightedIFSum / weightedIFCount).toFixed(1) : '0.0';
+
+// 总审稿贡献 IF = Σ(IF × count)，反映"数量 × 质量"的综合工作量
+document.getElementById('rvSpan').textContent = weightedIFSum.toFixed(1);
   
   document.getElementById('cfCount').textContent = conferences.length; document.getElementById('cfRoles').textContent = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean)).size;
   const cyears = conferences.map(c => +c.year).filter(Boolean); document.getElementById('cfYears').textContent = cyears.length ? (Math.min(...cyears) === Math.max(...cyears) ? Math.min(...cyears) : `${Math.min(...cyears)}–${Math.max(...cyears)}`) : '—';
