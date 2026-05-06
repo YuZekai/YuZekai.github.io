@@ -2392,7 +2392,7 @@
     "title": "Enhancing AI-generated fundus images through specialized training modules",
     "authors": "Yu Z",
     "journal": "Eye (London, England)",
-    "impactFactor": "",
+    "impactFactor": "3.4",
     "year": "2025",
     "month": "10",
     "day": "6",
@@ -2405,7 +2405,64 @@
     "notes": "",
     "coverFile": "p_1777803181809_cptms3.png",
     "coverURL": "",
-    "ranks": null
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "3.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.9"
+      },
+      {
+        "key": "jci",
+        "value": "1.07"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "眼科学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "眼科学2区"
+      }
+    ]
   },
   {
     "id": "p_1777803230042_iz8j27",
