@@ -69,7 +69,7 @@
   .subtitle { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-faint); letter-spacing: .05em; }
   .ornament { text-align: center; color: var(--gold); font-size: 20px; margin: 20px 0 8px; letter-spacing: 1em; }
 
-  /* Tab navigation —— 全局：永不换行，挤不下时横向滚动 */
+  /* Tab navigation —— 全局:永不换行,挤不下时横向滚动 */
   .tab-nav {
     display: flex;
     justify-content: center;
@@ -150,7 +150,7 @@
   .edu-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; z-index: 2;}
   .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
   /* ========================================= */
-/* 证书和学位：升级为渐变金色 */
+/* 证书和学位:升级为渐变金色 */
 /* ========================================= */
 .edu-degree { 
   font-size: 20px; 
@@ -158,8 +158,8 @@
   font-family: 'Cormorant Garamond', serif; 
   margin-bottom: 4px; 
 
-  /* 核心修改：渐变实现 */
-  display: inline-block;          /* 必须：确保渐变背景只随文字宽度生效，不会铺满整行 */
+  /* 核心修改:渐变实现 */
+  display: inline-block;          /* 必须:确保渐变背景只随文字宽度生效,不会铺满整行 */
   background: linear-gradient(
     135deg, 
     #e0b545 0%,   /* 中金 */
@@ -168,13 +168,13 @@
   );
   -webkit-background-clip: text; /* 将背景裁剪到文字 */
   background-clip: text;
-  color: transparent;            /* 将文字颜色设为透明，露出背景渐变 */
+  color: transparent;            /* 将文字颜色设为透明,露出背景渐变 */
 
-  /* 增加轻微阴影，增强浮雕效果，防止在浅色背景上看不清 */
+  /* 增加轻微阴影,增强浮雕效果,防止在浅色背景上看不清 */
   filter: drop-shadow(0 2px 2px rgba(184,137,58,0.15));
 }
 
-/* 机构组织：保持黑色 */
+/* 机构组织:保持黑色 */
 .edu-school { 
   font-size: 15px; 
   font-style: italic; 
@@ -272,12 +272,12 @@
   #msProfileList .cover-wrap img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important; /* 强制图片完整显示，绝对不裁剪 */
+    object-fit: contain !important; /* 强制图片完整显示,绝对不裁剪 */
   }
 
   /* Responsive */
   @media (max-width: 800px) {
-    header.masthead { padding: 32px 24px 20px; }
+    header.masthead { padding: 24px 16px 16px; }
     .stats { gap: 32px; }
     main { padding: 40px 24px 64px; }
     article.entry { grid-template-columns: 120px 1fr; gap: 20px; padding: 28px 0; }
@@ -309,10 +309,10 @@
   }
 
   /* ============================================== */
-  /* === 自定义覆盖：金色/红色主题 (置于末尾确保生效) === */
+  /* === 自定义覆盖:金色/红色主题 (置于末尾确保生效) === */
   /* ============================================== */
 
-  /* 大标题 Opera 渐变金 + 浮雕（提亮版） */
+  /* 大标题 Opera 渐变金 + 浮雕(提亮版) */
   .title-gold {
     background: linear-gradient(135deg, #f7dc7a 0%, #e0b545 30%, #b88528 65%, #8a5a18 100%);
     -webkit-background-clip: text;
@@ -334,7 +334,7 @@
       0 6px 12px rgba(139,26,26,.28);
   }
 
-  /* Masthead 顶栏：放大 + 红色 */
+  /* Masthead 顶栏:放大 + 红色 */
   .masthead-top {
     color: var(--accent);
     border-bottom-color: rgba(139,26,26,.3);
@@ -364,7 +364,7 @@
     letter-spacing: .12em !important;
   }
 
-  /* Tab 选项卡：默认中金 / 悬停深铜 / 激活焦褐 */
+  /* Tab 选项卡:默认中金 / 悬停深铜 / 激活焦褐 */
   .tab-btn {
     color: #a87422;
   }
@@ -375,13 +375,13 @@
     color: #6b4410;
     border-bottom-color: #6b4410;
   }
-  /* === 标题区大理石浮雕背景（仅显示在 Vol 线下方） === */
+  /* === 标题区大理石浮雕背景(仅显示在 Vol 线下方) === */
   .title-block {
     position: relative;
     overflow: hidden;
     aspect-ratio: 3503 / 976;            /* 强制和图片同比例 */
     margin: -24px -64px -32px;
-    padding: 0;                           /* 移除原 padding，让背景充满 */
+    padding: 0;                           /* 移除原 padding,让背景充满 */
     background-image: 
       linear-gradient(180deg, rgba(244,241,234,.45) 0%, rgba(244,241,234,.25) 40%, rgba(244,241,234,.55) 100%),
       url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
@@ -395,7 +395,7 @@
     gap: 4px;
   }
   
-  /* 撤销原本 .title 和 .subtitle 的上下 margin，避免容器变高 */
+  /* 撤销原本 .title 和 .subtitle 的上下 margin,避免容器变高 */
   .title-block h1.title {
     margin: 0;
   }
@@ -408,7 +408,7 @@
   /* ============================================== */
 
   @media (max-width: 800px) {
-    /* Tab 在手机上：两侧留半屏 padding，使任一 tab 都能滚到正中央 */
+    /* Tab 在手机上:两侧留半屏 padding,使任一 tab 都能滚到正中央 */
     .tab-nav {
       padding-left: 50%;
       padding-right: 50%;
@@ -422,23 +422,44 @@
       letter-spacing: .05em;
     }
 
-    /* 顶栏小字适配：手机上字间距收一点，三段不挤一起 */
+    /* 顶栏小字适配:手机上强制三段单行 */
     .masthead-top {
-      font-size: 12px;
-      letter-spacing: .1em;
-      gap: 8px;
+      font-size: 10px;
+      letter-spacing: .05em;
+      gap: 6px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
     .masthead-top span {
-      letter-spacing: .08em;
+      letter-spacing: .04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .masthead-top span:nth-child(2) {
+      flex-shrink: 1;        /* 中间那段允许压缩,但不换行 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
     }
 
-    /* Stats 数字栏 */
+    /* Stats 数字栏:手机端强制四项一行 */
     .stats {
-      gap: 24px;
-      padding: 18px 12px;
+      gap: 12px;
+      padding: 16px 8px;
+      flex-wrap: nowrap;            /* 强制不换行 */
+      justify-content: space-around;
+    }
+    .stat {
+      flex: 1 1 0;
+      min-width: 0;
     }
     .stat-num {
-      font-size: 26px;
+      font-size: 22px;
+    }
+    .stat-label {
+      font-size: 9px;
+      letter-spacing: .12em;
+      white-space: nowrap;
     }
 
     /* Sort bar */
@@ -473,10 +494,10 @@
     footer > div:last-child {
       font-size: 12px !important;
     }
-    /* 手机端浮雕背景（仅 Vol 线下方） */
+    /* 手机端浮雕背景(仅 Vol 线下方) */
     .title-block {
       aspect-ratio: 3503 / 976;
-      margin: -24px -24px -20px;
+      margin: -24px -16px -16px;
       padding: 0;
       background-image: 
         linear-gradient(180deg, rgba(244,241,234,.6) 0%, rgba(244,241,234,.4) 40%, rgba(244,241,234,.65) 100%),
@@ -489,14 +510,17 @@
     }
   }
 
-  /* 极窄屏（<= 380px，老款 iPhone SE 等） */
+  /* 极窄屏(<= 380px,老款 iPhone SE 等) */
   @media (max-width: 380px) {
     h1.title { font-size: clamp(36px, 11vw, 56px); }
-    .masthead-top { font-size: 11px; }
+    .masthead-top { font-size: 9px; gap: 4px; }
+    .masthead-top span { letter-spacing: .02em; }
     .tab-btn { padding: 12px 14px; font-size: 13px; }
-    .stat-num { font-size: 22px; }
+    .stats { gap: 8px; padding: 14px 6px; }
+    .stat-num { font-size: 18px; }
+    .stat-label { font-size: 8px; letter-spacing: .08em; }
   }
-  /* Tab 中文部分不斜体，正文衬线字体 */
+  /* Tab 中文部分不斜体,正文衬线字体 */
   .tab-btn .cn {
     font-style: normal;
     font-family: 'Noto Serif SC', serif;
@@ -512,7 +536,7 @@
     letter-spacing: 0;
   }
   /* ========================================= */
-  /* 访客浏览量统计样式：更换字体并取消斜体 */
+  /* 访客浏览量统计样式:更换字体并取消斜体 */
   /* ========================================= */
   .visitor-stats {
     /* 1. 更换为优雅的衬线字体 (与标题一致) */
@@ -521,7 +545,7 @@
     /* 2. 强制取消斜体 */
     font-style: normal !important; 
     
-    /* 3. 稍微加大字号，取消斜体后通常需要大一点才清晰 */
+    /* 3. 稍微加大字号,取消斜体后通常需要大一点才清晰 */
     font-size: 15px; 
     
     color: var(--ink-faint);
@@ -533,7 +557,7 @@
     letter-spacing: 0.05em;
   }
 
-  /* 调整数字的样式，取消加粗或保持颜色对比 */
+  /* 调整数字的样式,取消加粗或保持颜色对比 */
   .visitor-stats span span {
     font-style: normal !important;
     font-weight: 600;
@@ -584,7 +608,7 @@
     filter: invert(1);
   }
 
-  /* 2. 标题区：Opera 强化金色质感 */
+  /* 2. 标题区:Opera 强化金色质感 */
   .title-block {
     background-image: 
       linear-gradient(180deg, rgba(22,22,20,0.6) 0%, rgba(22,22,20,0.4) 40%, rgba(22,22,20,0.7) 100%),
@@ -592,7 +616,7 @@
     filter: brightness(0.8) contrast(1.1);
   }
 
-  /* Opera 与 学位标题：强制保持金色渐变并提亮 */
+  /* Opera 与 学位标题:强制保持金色渐变并提亮 */
   .title-gold, .edu-degree {
     background: linear-gradient(135deg, #fff3a6 0%, #f7dc7a 30%, #e0b545 65%, #b88528 100%) !important;
     -webkit-background-clip: text !important;
@@ -613,15 +637,15 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   }
 
-  /* 3. 背景统一修正：学位证书图片预览 & 学会标志背景 */
+  /* 3. 背景统一修正:学位证书图片预览 & 学会标志背景 */
   .item-image-preview,
   #msProfileList .cover-wrap {
     background: var(--paper-dark) !important;
     border-color: var(--rule);
-    filter: brightness(0.9); /* 降低亮度，保护视力 */
+    filter: brightness(0.9); /* 降低亮度,保护视力 */
   }
 
-  /* 4. 标签修复：IF 红色标签强制白字 */
+  /* 4. 标签修复:IF 红色标签强制白字 */
   .if-badge {
     color: #ffffff !important; 
     background: var(--accent); 
@@ -788,10 +812,10 @@ function parseYearForSort(str) {
   return 0;
 }
 
-// 提取封面地址（完美兼顾 CDN 缓存与更新的终极版）
+// 提取封面地址(完美兼顾 CDN 缓存与更新的终极版)
 function resolveCover(item) {
-  // 核心改动：用系统的"最后保存时间"作为版本号。
-  // 如果没读取到 meta 时间，给一个固定后缀避免报错，绝对不用 Date.now()
+  // 核心改动:用系统的"最后保存时间"作为版本号。
+  // 如果没读取到 meta 时间,给一个固定后缀避免报错,绝对不用 Date.now()
   let v = '1.0'; 
   if (typeof meta !== 'undefined' && meta && meta.lastUpdated) {
     v = new Date(meta.lastUpdated).getTime();
@@ -809,7 +833,7 @@ function resolveCover(item) {
   if (item.coverFile) { 
     const user = 'YuZekai'; 
     const repo = 'YuZekai.github.io'; 
-    // 只有当你真正在编辑器里点了"保存"时，这里的 v 才会变，CDN 才会拉取新图
+    // 只有当你真正在编辑器里点了"保存"时,这里的 v 才会变,CDN 才会拉取新图
     return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}?v=${v}`; 
   }
   return '';
@@ -941,7 +965,7 @@ function renderProfile() {
   `}).join('');
   document.getElementById('qualList').innerHTML = qualHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无证书</p>';
 
-  // 3. 学会会员 (嵌套在 Profile 中，降序)
+  // 3. 学会会员 (嵌套在 Profile 中,降序)
   const msList = document.getElementById('msProfileList');
   if (!memberships.length) { msList.innerHTML = `<p style="color:var(--ink-faint);text-align:center;">暂无记录</p>`; return; }
   
@@ -1055,7 +1079,7 @@ function renderAll() {
   updateStats();
 }
 
-// 给 fetch URL 加时间戳，绕过浏览器/CDN 缓存，避免发布后看不到最新数据
+// 给 fetch URL 加时间戳,绕过浏览器/CDN 缓存,避免发布后看不到最新数据
 function nocache(url) {
   return `${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`;
 }
@@ -1084,13 +1108,13 @@ async function loadData() {
       try {
         const m = await metaRes.json();
         if (m && typeof m === 'object') meta = m;
-      } catch (e) { /* meta.json 解析失败，保持默认 */ }
+      } catch (e) { /* meta.json 解析失败,保持默认 */ }
     }
   } catch (error) {
     console.error("Data load failed:", error);
   } finally {
     renderAll();
-    // 初始加载后把激活 tab 滚到中央（手机端首次进来时）
+    // 初始加载后把激活 tab 滚到中央(手机端首次进来时)
     const activeBtn = document.querySelector('.tab-btn.active');
     if (activeBtn) activeBtn.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
   }
