@@ -6987,5 +6987,75 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1778307275472_ths4mg",
+    "title": "Identification of Misdiagnosis Factors in Allergic  Bronchopulmonary Mycosis Using Explainable  Machine Learning",
+    "authors": "Chen X, Yu Z, Gong X, Cai R, Ge H, Jia Y, Tang J, Huang L, Li X, Feng J",
+    "journal": "Journal of Asthma and Allergy",
+    "impactFactor": "3.0",
+    "year": "2026",
+    "month": "5",
+    "day": "9",
+    "volume": "19",
+    "pages": "605864",
+    "doi": "10.2147/JAA.S605864",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1778307275472_ths4mg.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "3.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.74"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "过敏3区/免疫学3区/呼吸系统3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "过敏3区; 免疫学3区; 呼吸系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
