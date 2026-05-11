@@ -286,7 +286,7 @@
     "id": "r_1777807049706_ksrohs",
     "journal": "Expert Systems with Applications",
     "impactFactor": "7.5",
-    "count": "7",
+    "count": "8",
     "notes": "",
     "coverFile": "r_1777807049706_ksrohs.jpg",
     "coverURL": "",
@@ -1856,7 +1856,7 @@
     "id": "r_1777808658709_m9btrg",
     "journal": "Journal of Asthma",
     "impactFactor": "1.3",
-    "count": "1",
+    "count": "2",
     "notes": "",
     "coverFile": "r_1777808658709_m9btrg.png",
     "coverURL": "",
@@ -1969,7 +1969,7 @@
     "id": "r_1777808732365_agltqw",
     "journal": "Journal of Inflammation Research",
     "impactFactor": "4.1",
-    "count": "1",
+    "count": "2",
     "notes": "",
     "coverFile": "r_1777808732365_agltqw.png",
     "coverURL": "",
@@ -2154,6 +2154,78 @@
       {
         "key": "xrSmall",
         "value": "卫生保健与服务3区; 医学：信息4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1778478497109_hsmwq3",
+    "journal": "Infection and Drug Resistance",
+    "impactFactor": "2.9",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1778478497109_hsmwq3.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.79"
+      },
+      {
+        "key": "esi",
+        "value": "免疫学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "药学3区/传染病学4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "传染病学3区; 药学3区"
       },
       {
         "key": "custom_1635615726460694528",
