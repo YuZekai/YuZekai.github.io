@@ -7057,5 +7057,98 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1778500936187_r12s7p",
+    "title": "Letter to the editor: Expanding the artificial intelligence-nutrition integration framework to address implementation gaps",
+    "authors": "Yu, Z., & Qin, F",
+    "journal": "The American Journal of Clinical Nutrition",
+    "impactFactor": "6.9",
+    "year": "2026",
+    "month": "5",
+    "day": "11",
+    "volume": "",
+    "pages": "101300",
+    "doi": "10.1016/j.ajcnut.2026.101300",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1778500936187_r12s7p.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "nju",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "6.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "7.1"
+      },
+      {
+        "key": "jci",
+        "value": "1.48"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科一流"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "营养学1区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "营养学1区"
+      }
+    ]
   }
 ]
