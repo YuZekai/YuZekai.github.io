@@ -2233,5 +2233,125 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1778689824848_reiay6",
+    "journal": "Frontiers in Endocrinology",
+    "impactFactor": "4.6",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1778689824848_reiay6.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.2"
+      },
+      {
+        "key": "jci",
+        "value": "0.94"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "内分泌学与代谢3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "内分泌学与代谢2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1778690151748_gqmiuu",
+    "journal": "Frontiers in Artificial Intelligence",
+    "impactFactor": "4.7",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1778690151748_gqmiuu.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "4.7"
+      },
+      {
+        "key": "sciUp",
+        "value": "计算机科学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.1"
+      },
+      {
+        "key": "jci",
+        "value": "0.68"
+      },
+      {
+        "key": "xr",
+        "value": "计算机科学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：人工智能4区/计算机：信息系统4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：人工智能3区; 计算机：信息系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
