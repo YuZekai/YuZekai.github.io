@@ -7150,5 +7150,87 @@
         "value": "营养学1区"
       }
     ]
+  },
+  {
+    "id": "p_1778743801598_ggodav",
+    "title": "Advancing retrieval-augmented medical AI: methodological considerations for the HEART framework in hypertension education",
+    "authors": "Wang, Y., Li, S., Yu, Z., Zhao, Y., Zou, Y., & Li, D",
+    "journal": "Hypertension research",
+    "impactFactor": "4.6",
+    "year": "2026",
+    "month": "5",
+    "day": "13",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1038/s41440-026-02677-7",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1778743801598_ggodav.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.3"
+      },
+      {
+        "key": "jci",
+        "value": "1.08"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "外周血管病3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "外周血管病2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
