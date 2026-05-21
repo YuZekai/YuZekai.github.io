@@ -193,7 +193,7 @@
     "volume": "41(1)",
     "pages": "93",
     "doi": "10.1007/s00383-025-05993-0",
-    "citations": "4",
+    "citations": "5",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -535,7 +535,7 @@
     "volume": "59(5)",
     "pages": "933-934",
     "doi": "10.1007/s43441-025-00814-x",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -2094,7 +2094,7 @@
     "volume": "122(40)",
     "pages": "e2521127122",
     "doi": "10.1073/pnas.2521127122",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -3477,7 +3477,7 @@
     "volume": "183(2)",
     "pages": "217-218",
     "doi": "10.1111/bph.70276",
-    "citations": "1",
+    "citations": "2",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -3766,7 +3766,7 @@
     "volume": "",
     "pages": "",
     "doi": "10.1111/medu.70115",
-    "citations": "1",
+    "citations": "2",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -5729,7 +5729,7 @@
     "volume": "50(1)",
     "pages": "21",
     "doi": "10.1007/s10916-026-02349-6",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -7225,6 +7225,100 @@
       {
         "key": "xrSmall",
         "value": "外周血管病2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1779368168040_066onz",
+    "title": "Calibration, generalization, and explainability: AI challenges behind bedside EEG prognostication",
+    "authors": "Yu, Z., Li, S., Wang, Y., & Qin, F",
+    "journal": "Resuscitation",
+    "impactFactor": "4.6",
+    "year": "2026",
+    "month": "5",
+    "day": "21",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1016/j.resuscitation.2026.111136",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1779368168040_066onz.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "4.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.4"
+      },
+      {
+        "key": "jci",
+        "value": "2.06"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "急救医学1区/危重病医学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "危重病医学2区; 急救医学2区"
       },
       {
         "key": "custom_1635615726460694528",
