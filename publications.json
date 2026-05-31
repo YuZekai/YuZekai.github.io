@@ -7326,5 +7326,94 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1780198978989_wn01ar",
+    "title": "RE: Social factors influence cancer trial participation: can digital interventions help close the disparities gap?",
+    "authors": "Xu, S., Yu, Z., Hu, H., Ye, O., & Qin, F",
+    "journal": "Journal of the National Cancer Institute",
+    "impactFactor": "7.2",
+    "year": "2026",
+    "month": "5",
+    "day": "28",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1093/jnci/djag167",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1780198978989_wn01ar.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "nju",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T1"
+      },
+      {
+        "key": "sciif",
+        "value": "7.2"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "9.4"
+      },
+      {
+        "key": "jci",
+        "value": "1.93"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科顶尖"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学1区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学1区"
+      }
+    ]
   }
 ]
