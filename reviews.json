@@ -2353,5 +2353,89 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1780282932948_uqu6aa",
+    "journal": "Journal of Clinical Nursing",
+    "impactFactor": "3.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1780282932948_uqu6aa.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "护理学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "3.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "ssci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.3"
+      },
+      {
+        "key": "jci",
+        "value": "1.40"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "护理2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "护理1区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
