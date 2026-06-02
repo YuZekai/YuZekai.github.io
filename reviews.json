@@ -2437,5 +2437,105 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1780367487770_qgbcz0",
+    "journal": "Neurocomputing",
+    "impactFactor": "6.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1780367487770_qgbcz0.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "A2"
+      },
+      {
+        "key": "xdu",
+        "value": "1类贡献度"
+      },
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "hhu",
+        "value": "B类"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "工程技术T2"
+      },
+      {
+        "key": "ccf",
+        "value": "C"
+      },
+      {
+        "key": "sciif",
+        "value": "6.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "工程技术2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "计算机科学2区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "scu",
+        "value": "计算机科学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.0"
+      },
+      {
+        "key": "jci",
+        "value": "1.01"
+      },
+      {
+        "key": "esi",
+        "value": "计算机科学"
+      },
+      {
+        "key": "cpu",
+        "value": "理学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "计算机科学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "计算机科学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：人工智能2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：人工智能2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
