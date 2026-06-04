@@ -2537,5 +2537,73 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1780554962706_qczdmd",
+    "journal": "Frontiers in Oncology",
+    "impactFactor": "3.3",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1780554962706_qczdmd.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "3.3"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.68"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
