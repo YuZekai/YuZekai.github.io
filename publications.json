@@ -7415,5 +7415,71 @@
         "value": "肿瘤学1区"
       }
     ]
+  },
+  {
+    "id": "p_1780993404501_3xb0oz",
+    "title": "From One to Twelve: Feasibility and Clinical Utility of Deep Learning-Derived 12-Lead ECGs for Remote Cardiac Monitoring",
+    "authors": "Hu, H., Yu, Z., Qin, F., & Yang, F.",
+    "journal": "Frontiers in Cardiovascular Medicine",
+    "impactFactor": "2.9",
+    "year": "2026",
+    "month": "6",
+    "day": "9",
+    "volume": "13",
+    "pages": "1856637",
+    "doi": "10.3389/fcvm.2026.1856637",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1780993404501_3xb0oz.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.2"
+      },
+      {
+        "key": "jci",
+        "value": "0.72"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心脏和心血管系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
