@@ -1323,6 +1323,12 @@ function renderStatistics() {
           g.addColorStop(0.35, goldStops[1]);
           g.addColorStop(0.7, goldStops[2]);
           g.addColorStop(1, goldStops[3]);
+          // 关键:同一数据集的多根柱子在非交互状态下共享同一个样式对象($shared),
+          // 直接写入会被后一根柱子的渐变覆盖(渐变坐标是绝对的,错位后被钳制成纯色)。
+          // 先复制出独立样式对象再写入,确保每根柱子持有自己位置的渐变
+          if (el.options && el.options.$shared) {
+            el.options = Object.assign({}, el.options, { $shared: false });
+          }
           el.options.backgroundColor = g;
         });
       });
@@ -1379,7 +1385,8 @@ function renderStatistics() {
     const datasets = STACK_ORDER.map(b => ({
       label: b.label,
       data: years.map(y => papers.filter(p => +p.year === y && bucketOf(p.impactFactor) === b).length),
-      backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
+      backgroundColor: b.gold ? years.map(() => b.color) : b.color, // 数组形式可禁用样式共享
+      borderColor: b.border, borderWidth: 1,
       borderRadius: 2, maxBarThickness: 56, stack: 'papers',
       _goldGradient: !!b.gold
     })).filter(ds => ds.data.some(v => v > 0)); // 不出现的区间不进图例
