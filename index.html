@@ -315,12 +315,6 @@
   .chart-card .chart-sub::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
   .chart-box { position: relative; height: 300px; }
   .chart-card.full-width .chart-box { height: 340px; }
-  /* 图表整体淡入(替代柱状图生长动画) */
-  .chart-box canvas { animation: chartFade .45s ease-out; }
-  @keyframes chartFade { from { opacity: 0; } to { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) {
-    .chart-box canvas { animation: none; }
-  }
 
   /* 引用地图 */
   .map-box {
@@ -1304,19 +1298,23 @@ function renderStatistics() {
   const goldStops = isDark
     ? ['#fff3a6', '#f7dc7a', '#e0b545', '#b88528']
     : ['#f7dc7a', '#e0b545', '#b88528', '#8a5a18'];
-  const goldGradientPlugin = {
-    id: 'goldGradient',
-    beforeDatasetsDraw(chart) {
+  // 给金色段写入渐变:在布局完成后(afterUpdate)和每次绘制前(beforeDatasetsDraw)双重写入,
+  // 确保首帧、动画过程、动画结束后的静态帧都带渐变,不依赖悬停等交互触发的重绘
+  const applyGoldGradient = (chart) => {
+    try {
       chart.data.datasets.forEach((ds, i) => {
         if (!ds._goldGradient) return;
         const meta = chart.getDatasetMeta(i);
         meta.data.forEach(el => {
           if (!el || el.y == null || el.base == null || isNaN(el.y) || isNaN(el.base)) return;
-          // 用柱段的"最终高度"铺设渐变(getProps(..., true) 取动画结束后的值),
-          // 暗端钉在当前底边:生长动画相当于自下而上逐渐揭开完整色带,
-          // 任何一帧都能看到渐变,而不是等柱子长高后渐变才被"撑开"
-          const fin = el.getProps(['y', 'base'], true);
-          const H = Math.abs((fin.base ?? el.base) - (fin.y ?? el.y));
+          // 用柱段的"最终高度"铺设渐变,暗端钉在当前底边:
+          // 生长动画相当于自下而上逐渐揭开完整色带,任何一帧都能看到渐变
+          let H = Math.abs(el.base - el.y);
+          if (typeof el.getProps === 'function') {
+            const fin = el.getProps(['y', 'base'], true);
+            const fh = Math.abs((fin.base ?? el.base) - (fin.y ?? el.y));
+            if (fh) H = fh;
+          }
           if (!H) return;
           const w = el.width || 0;
           const left = el.x - w / 2, right = el.x + w / 2;
@@ -1328,7 +1326,12 @@ function renderStatistics() {
           el.options.backgroundColor = g;
         });
       });
-    }
+    } catch (e) { /* 渐变失败时保底显示数据集纯色,绝不中断图表渲染 */ }
+  };
+  const goldGradientPlugin = {
+    id: 'goldGradient',
+    afterUpdate(chart) { applyGoldGradient(chart); },
+    beforeDatasetsDraw(chart) { applyGoldGradient(chart); }
   };
   const IF_BUCKETS = [
     { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,          color: goldStops[1],                border: goldStops[3], gold: true },
@@ -1346,7 +1349,10 @@ function renderStatistics() {
   };
   const stackedOptions = (yTitle) => ({
     responsive: true, maintainAspectRatio: false,
-    animation: false, // 关闭生长动画:渐变按最终几何位置一次到位,改用 CSS 整体淡入
+    // 显式开启自下而上的生长动画
+    animation: { duration: 900, easing: 'easeOutQuart' },
+    // 关闭颜色过渡动画:它会用纯色插值覆盖插件写入的渐变,导致渐变要等悬停等交互重绘才出现
+    animations: { colors: false },
     interaction: { mode: 'index', intersect: false },
     plugins: {
       legend: { position: 'top', reverse: true, ...legendStyle },
