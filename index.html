@@ -1288,16 +1288,34 @@ function renderStatistics() {
     labels: { color: t.inkSoft, usePointStyle: true, pointStyle: 'rectRounded', boxWidth: 10, font: { size: 13, style: 'italic' } }
   };
 
-  // ===== 影响因子分档(两张堆叠图共用) =====
+  // ===== 影响因子分档(两张堆叠图共用,阈值 10 / 4 / 2 / 1 / 0) =====
   const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const bGreen = isDark ? '#5cab74' : '#1c5731';
   const bPurple = isDark ? '#9b7bd0' : '#4a2870';
+  const bTeal = isDark ? '#5aa8a0' : '#1f5651';
+  // 最高档:与站内标题同款的渐变金(柱体从下到上由深铜渐变到亮金)
+  const goldStops = isDark
+    ? ['#b88528', '#e0b545', '#f7dc7a', '#fff3a6']
+    : ['#8a5a18', '#b88528', '#e0b545', '#f7dc7a'];
+  const goldGradient = (ctx) => {
+    // 渐变范围取每段柱体自身的高度,保证再矮的柱段也能呈现完整的金色渐变
+    const el = ctx.element;
+    const c = ctx.chart.ctx;
+    if (!el || el.y == null || el.base == null || isNaN(el.y) || isNaN(el.base) || el.y === el.base) return goldStops[1];
+    const g = c.createLinearGradient(0, el.base, 0, el.y);
+    g.addColorStop(0, goldStops[0]);
+    g.addColorStop(0.4, goldStops[1]);
+    g.addColorStop(0.75, goldStops[2]);
+    g.addColorStop(1, goldStops[3]);
+    return g;
+  };
   const IF_BUCKETS = [
-    { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,           color: hexToRgba(bPurple, 0.75), border: bPurple },
-    { key: 'if6',  label: 'IF 6–10', test: f => f >= 6 && f < 10,  color: hexToRgba(t.accent, 0.7),   border: t.accent },
-    { key: 'if3',  label: 'IF 3–6',  test: f => f >= 3 && f < 6,   color: hexToRgba(bGreen, 0.65), border: bGreen },
-    { key: 'if0',  label: 'IF < 3',  test: f => f > 0 && f < 3,    color: hexToRgba(t.gold, 0.75),    border: t.gold },
-    { key: 'noif', label: '无 IF',    test: f => !(f > 0),          color: hexToRgba(t.inkFaint, 0.45), border: t.inkFaint }
+    { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,          color: goldGradient,                border: goldStops[0] },
+    { key: 'if4',  label: 'IF 4–10', test: f => f >= 4 && f < 10, color: hexToRgba(bPurple, 0.75),    border: bPurple },
+    { key: 'if2',  label: 'IF 2–4',  test: f => f >= 2 && f < 4,  color: hexToRgba(t.accent, 0.7),    border: t.accent },
+    { key: 'if1',  label: 'IF 1–2',  test: f => f >= 1 && f < 2,  color: hexToRgba(bGreen, 0.65),     border: bGreen },
+    { key: 'if0',  label: 'IF 0–1',  test: f => f > 0 && f < 1,   color: hexToRgba(bTeal, 0.65),      border: bTeal },
+    { key: 'noif', label: '无 IF',    test: f => !(f > 0),         color: hexToRgba(t.inkFaint, 0.45), border: t.inkFaint }
   ];
   const bucketOf = (ifValue) => {
     const f = parseFloat(ifValue);
