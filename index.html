@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
     --paper: #f4f1ea;
@@ -275,6 +276,50 @@
     object-fit: contain !important; /* 强制图片完整显示,绝对不裁剪 */
   }
 
+  /* ============================================== */
+  /* === Statistics 统计页签样式 === */
+  /* ============================================== */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .chart-card {
+    border: 1px solid var(--rule);
+    background: rgba(232,227,214,.25);
+    box-shadow: var(--shadow);
+    padding: 24px 24px 20px;
+    position: relative;
+  }
+  .chart-card.full-width { grid-column: 1 / -1; }
+  .chart-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 2px;
+    letter-spacing: -.005em;
+  }
+  .chart-card h3 em { color: var(--accent); font-weight: 400; }
+  .chart-card .chart-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: .08em;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .chart-card .chart-sub::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .chart-box { position: relative; height: 300px; }
+  .chart-card.full-width .chart-box { height: 340px; }
+
+  @media (max-width: 800px) {
+    .charts-grid { grid-template-columns: 1fr; gap: 20px; }
+    .chart-card { padding: 16px 14px 12px; }
+    .chart-box, .chart-card.full-width .chart-box { height: 260px; }
+  }
+
   /* Responsive */
   @media (max-width: 800px) {
     header.masthead { padding: 24px 16px 16px; }
@@ -536,8 +581,8 @@
     letter-spacing: 0;
   }
   /* ========================================= */
-  /* 访客浏览量统计样式:更换字体并取消斜体 */
-  /* ========================================= */
+/* 访客浏览量统计样式:更换字体并取消斜体 */
+/* ========================================= */
   .visitor-stats {
     /* 1. 更换为优雅的衬线字体 (与标题一致) */
     font-family: 'Cormorant Garamond', 'Noto Serif SC', serif; 
@@ -672,6 +717,9 @@
   /* 7. 页脚 */
   footer { color: #e0b545; border-top-color: #8a5a18; }
   footer > div:first-child { color: #f7dc7a; }
+
+  /* 8. 统计图表卡片 */
+  .chart-card { background: rgba(31,31,29,.5); }
 }
 </style>
 </head>
@@ -699,6 +747,7 @@
 <button class="tab-btn" data-tab="papers" onclick="switchView('papers')">— Publications · <span class="cn">论文</span> —</button>
 <button class="tab-btn" data-tab="reviews" onclick="switchView('reviews')">— Peer Reviews · <span class="cn">审稿</span> —</button>
 <button class="tab-btn" data-tab="conferences" onclick="switchView('conferences')">— Conferences · <span class="cn">会议任职</span> —</button>
+<button class="tab-btn" data-tab="statistics" onclick="switchView('statistics')">— Statistics · <span class="cn">统计</span> —</button>
 </nav>
 
 <div id="profileView">
@@ -765,6 +814,48 @@
     <div class="stat"><span class="stat-num" id="cfYears">—</span><span class="stat-label">Span</span></div>
   </div>
   <main id="conferenceList"></main>
+</div>
+
+<div id="statisticsView" style="display:none">
+  <div class="stats">
+    <div class="stat"><span class="stat-num" id="stHIndex">0</span><span class="stat-label">H-Index</span></div>
+    <div class="stat"><span class="stat-num" id="stPapers">0</span><span class="stat-label">Papers</span></div>
+    <div class="stat"><span class="stat-num" id="stCites">0</span><span class="stat-label">Citations</span></div>
+    <div class="stat"><span class="stat-num" id="stReviews">0</span><span class="stat-label">Reviews</span></div>
+  </div>
+  <main id="statisticsMain">
+    <div class="charts-grid" id="chartsGrid">
+      <div class="chart-card full-width">
+        <h3>Publications <em>&amp; Citations</em></h3>
+        <div class="chart-sub">Per Annum · 历年论文数量与引用</div>
+        <div class="chart-box"><canvas id="chartYearly"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Cumulative <em>Impact Factor</em></h3>
+        <div class="chart-sub">累计影响因子</div>
+        <div class="chart-box"><canvas id="chartCumIF"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Most Cited <em>Works</em></h3>
+        <div class="chart-sub">高被引论文</div>
+        <div class="chart-box"><canvas id="chartTopCited"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Peer Reviews <em>by Journal</em></h3>
+        <div class="chart-sub">各期刊审稿次数</div>
+        <div class="chart-box"><canvas id="chartReviews"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Journal <em>Quality</em></h3>
+        <div class="chart-sub">论文期刊影响因子分布</div>
+        <div class="chart-box"><canvas id="chartIFDist"></canvas></div>
+      </div>
+    </div>
+    <div class="empty-state" id="statsEmpty" style="display:none">
+      <div class="ornament-big">∽</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">暂无数据可供统计</p>
+    </div>
+  </main>
 </div>
 
 <footer>
@@ -846,13 +937,15 @@ function resolveCover(item) {
 // ==========================================
 function switchView(view) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === view));
-  ['profile','papers','reviews','conferences'].forEach(v => { 
+  ['profile','papers','reviews','conferences','statistics'].forEach(v => { 
     document.getElementById(v+'View').style.display = view === v ? '' : 'none'; 
   });
   const activeBtn = document.querySelector(`.tab-btn[data-tab="${view}"]`);
   if (activeBtn) {
     activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
+  // 图表必须在容器可见后再绘制,否则尺寸为 0
+  if (view === 'statistics') renderStatistics();
 }
 
 function setPaperSort(mode) { paperSortMode = mode; document.querySelectorAll('#papersView .sort-opt').forEach(el => el.classList.remove('active')); document.getElementById(`sort-paper-${mode}`).classList.add('active'); renderPapers(); }
@@ -919,6 +1012,15 @@ function updateStats() {
   
   document.getElementById('cfCount').textContent = conferences.length; document.getElementById('cfRoles').textContent = new Set(conferences.map(c => (c.role || '').trim()).filter(Boolean)).size;
   const cyears = conferences.map(c => +c.year).filter(Boolean); document.getElementById('cfYears').textContent = cyears.length ? (Math.min(...cyears) === Math.max(...cyears) ? Math.min(...cyears) : `${Math.min(...cyears)}–${Math.max(...cyears)}`) : '—';
+
+  // Statistics 页签顶部数字
+  const cites = papers.map(p => parseInt(p.citations) || 0).sort((a,b) => b - a);
+  let h = 0;
+  for (let i = 0; i < cites.length; i++) { if (cites[i] >= i + 1) h = i + 1; else break; }
+  document.getElementById('stHIndex').textContent = h;
+  document.getElementById('stPapers').textContent = papers.length;
+  document.getElementById('stCites').textContent = cites.reduce((s,c) => s + c, 0);
+  document.getElementById('stReviews').textContent = totalReviews;
 
   updateDateLabel();
 }
@@ -1071,6 +1173,277 @@ function renderConferences() {
 }
 
 // ==========================================
+// 4.5 STATISTICS CHARTS 统计图表
+// ==========================================
+let chartInstances = {};
+
+// 读取当前主题色(自动跟随黑暗模式)
+function chartTheme() {
+  const css = getComputedStyle(document.documentElement);
+  const get = (name, fallback) => (css.getPropertyValue(name) || fallback).trim();
+  return {
+    ink: get('--ink', '#1a1612'),
+    inkSoft: get('--ink-soft', '#3d342b'),
+    inkFaint: get('--ink-faint', '#6b5d4e'),
+    accent: get('--accent', '#8b1a1a'),
+    accentSoft: get('--accent-soft', '#c44545'),
+    gold: get('--gold', '#b8893a'),
+    rule: get('--rule', '#c9bfa9'),
+    paper: get('--paper', '#f4f1ea')
+  };
+}
+
+function hexToRgba(hex, alpha) {
+  const m = hex.replace('#','');
+  const full = m.length === 3 ? m.split('').map(c => c + c).join('') : m;
+  const n = parseInt(full, 16);
+  if (isNaN(n)) return `rgba(184,137,58,${alpha})`;
+  return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${alpha})`;
+}
+
+function destroyChart(key) {
+  if (chartInstances[key]) { chartInstances[key].destroy(); delete chartInstances[key]; }
+}
+
+function truncateLabel(s, max) {
+  s = String(s || '');
+  return s.length > max ? s.slice(0, max - 1) + '…' : s;
+}
+
+function renderStatistics() {
+  if (typeof Chart === 'undefined') return; // CDN 未加载成功时静默跳过
+
+  const t = chartTheme();
+  const hasData = papers.length || reviews.length;
+  document.getElementById('chartsGrid').style.display = hasData ? '' : 'none';
+  document.getElementById('statsEmpty').style.display = hasData ? 'none' : '';
+  if (!hasData) return;
+
+  // 全局默认字体与颜色
+  Chart.defaults.font.family = "'Cormorant Garamond','Noto Serif SC',serif";
+  Chart.defaults.font.size = 13;
+  Chart.defaults.color = t.inkFaint;
+
+  const gridColor = hexToRgba(t.rule, 0.5);
+  const baseScale = {
+    grid: { color: gridColor, drawBorder: false },
+    ticks: { color: t.inkFaint },
+    border: { color: t.rule }
+  };
+  const tooltipStyle = {
+    backgroundColor: hexToRgba(t.ink, 0.92),
+    titleColor: t.paper,
+    bodyColor: t.paper,
+    titleFont: { family: "'Cormorant Garamond',serif", size: 14, weight: '600' },
+    bodyFont: { family: "'Noto Serif SC',serif", size: 12 },
+    padding: 10,
+    cornerRadius: 4,
+    displayColors: false
+  };
+  const legendStyle = {
+    labels: { color: t.inkSoft, usePointStyle: true, pointStyle: 'rectRounded', boxWidth: 10, font: { size: 13, style: 'italic' } }
+  };
+
+  // ---------- 1. 历年论文数量 + 引用(柱+线双轴) ----------
+  {
+    const byYear = {};
+    papers.forEach(p => {
+      const y = +p.year; if (!y) return;
+      if (!byYear[y]) byYear[y] = { count: 0, cites: 0 };
+      byYear[y].count += 1;
+      byYear[y].cites += parseInt(p.citations) || 0;
+    });
+    const yearKeys = Object.keys(byYear).map(Number).sort((a,b) => a - b);
+    // 填补中间缺失的年份,让时间轴连续
+    const years = [];
+    if (yearKeys.length) for (let y = yearKeys[0]; y <= yearKeys[yearKeys.length-1]; y++) years.push(y);
+    const counts = years.map(y => byYear[y] ? byYear[y].count : 0);
+    const cites = years.map(y => byYear[y] ? byYear[y].cites : 0);
+
+    destroyChart('yearly');
+    chartInstances.yearly = new Chart(document.getElementById('chartYearly'), {
+      data: {
+        labels: years,
+        datasets: [
+          {
+            type: 'bar', label: 'Papers · 论文数', data: counts,
+            backgroundColor: hexToRgba(t.gold, 0.65), borderColor: t.gold, borderWidth: 1,
+            borderRadius: 2, maxBarThickness: 48, yAxisID: 'y'
+          },
+          {
+            type: 'line', label: 'Citations · 引用数', data: cites,
+            borderColor: t.accent, backgroundColor: hexToRgba(t.accent, 0.12),
+            pointBackgroundColor: t.accent, pointRadius: 4, pointHoverRadius: 6,
+            borderWidth: 2, tension: 0.35, fill: false, yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: { legend: { position: 'top', ...legendStyle }, tooltip: tooltipStyle },
+        scales: {
+          x: { ...baseScale, grid: { display: false } },
+          y: { ...baseScale, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 }, title: { display: true, text: 'Papers', color: t.inkFaint, font: { style: 'italic' } } },
+          y1: { ...baseScale, beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, ticks: { ...baseScale.ticks, precision: 0 }, title: { display: true, text: 'Citations', color: t.inkFaint, font: { style: 'italic' } } }
+        }
+      }
+    });
+  }
+
+  // ---------- 2. 累计影响因子(面积线) ----------
+  {
+    const byYear = {};
+    papers.forEach(p => {
+      const y = +p.year; if (!y) return;
+      byYear[y] = (byYear[y] || 0) + (parseFloat(p.impactFactor) || 0);
+    });
+    const yearKeys = Object.keys(byYear).map(Number).sort((a,b) => a - b);
+    const years = [];
+    if (yearKeys.length) for (let y = yearKeys[0]; y <= yearKeys[yearKeys.length-1]; y++) years.push(y);
+    let acc = 0;
+    const cum = years.map(y => { acc += byYear[y] || 0; return +acc.toFixed(1); });
+
+    destroyChart('cumIF');
+    chartInstances.cumIF = new Chart(document.getElementById('chartCumIF'), {
+      type: 'line',
+      data: {
+        labels: years,
+        datasets: [{
+          label: 'Cumulative IF · 累计影响因子', data: cum,
+          borderColor: t.gold, backgroundColor: hexToRgba(t.gold, 0.18),
+          pointBackgroundColor: t.gold, pointRadius: 4, pointHoverRadius: 6,
+          borderWidth: 2, tension: 0.35, fill: true
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: tooltipStyle },
+        scales: {
+          x: { ...baseScale, grid: { display: false } },
+          y: { ...baseScale, beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  // ---------- 3. 高被引论文(横向条形,Top 8) ----------
+  {
+    const top = [...papers]
+      .filter(p => (parseInt(p.citations) || 0) > 0)
+      .sort((a,b) => (parseInt(b.citations)||0) - (parseInt(a.citations)||0))
+      .slice(0, 8);
+    destroyChart('topCited');
+    if (top.length) {
+      chartInstances.topCited = new Chart(document.getElementById('chartTopCited'), {
+        type: 'bar',
+        data: {
+          labels: top.map(p => truncateLabel(p.title, 28)),
+          datasets: [{
+            label: 'Citations', data: top.map(p => parseInt(p.citations) || 0),
+            backgroundColor: hexToRgba(t.accent, 0.65), borderColor: t.accent, borderWidth: 1,
+            borderRadius: 2, maxBarThickness: 26
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...tooltipStyle, callbacks: { title: (items) => { const p = top[items[0].dataIndex]; return p.title || ''; } } }
+          },
+          scales: {
+            x: { ...baseScale, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 } },
+            y: { ...baseScale, grid: { display: false }, ticks: { ...baseScale.ticks, font: { size: 11 } } }
+          }
+        }
+      });
+    }
+  }
+
+  // ---------- 4. 各期刊审稿次数(横向条形) ----------
+  {
+    const sorted = [...reviews]
+      .filter(r => (parseInt(r.count) || 0) > 0)
+      .sort((a,b) => (parseInt(b.count)||0) - (parseInt(a.count)||0))
+      .slice(0, 10);
+    destroyChart('reviews');
+    if (sorted.length) {
+      chartInstances.reviews = new Chart(document.getElementById('chartReviews'), {
+        type: 'bar',
+        data: {
+          labels: sorted.map(r => truncateLabel(r.journal, 28)),
+          datasets: [{
+            label: 'Reviews', data: sorted.map(r => parseInt(r.count) || 0),
+            backgroundColor: hexToRgba(t.gold, 0.65), borderColor: t.gold, borderWidth: 1,
+            borderRadius: 2, maxBarThickness: 26
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...tooltipStyle, callbacks: { title: (items) => { const r = sorted[items[0].dataIndex]; return r.journal || ''; } } }
+          },
+          scales: {
+            x: { ...baseScale, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 } },
+            y: { ...baseScale, grid: { display: false }, ticks: { ...baseScale.ticks, font: { size: 11 } } }
+          }
+        }
+      });
+    }
+  }
+
+  // ---------- 5. 论文影响因子分布(甜甜圈) ----------
+  {
+    const buckets = { 'IF < 3': 0, 'IF 3–6': 0, 'IF 6–10': 0, 'IF ≥ 10': 0, '无 IF': 0 };
+    papers.forEach(p => {
+      const f = parseFloat(p.impactFactor);
+      if (isNaN(f) || f <= 0) buckets['无 IF']++;
+      else if (f < 3) buckets['IF < 3']++;
+      else if (f < 6) buckets['IF 3–6']++;
+      else if (f < 10) buckets['IF 6–10']++;
+      else buckets['IF ≥ 10']++;
+    });
+    const labels = Object.keys(buckets).filter(k => buckets[k] > 0);
+    const data = labels.map(k => buckets[k]);
+    const palette = [
+      hexToRgba(t.gold, 0.75),
+      hexToRgba(t.accent, 0.7),
+      hexToRgba('#1c5731', 0.65),
+      hexToRgba('#4a2870', 0.6),
+      hexToRgba(t.inkFaint, 0.45)
+    ];
+    destroyChart('ifDist');
+    if (labels.length) {
+      chartInstances.ifDist = new Chart(document.getElementById('chartIFDist'), {
+        type: 'doughnut',
+        data: {
+          labels,
+          datasets: [{ data, backgroundColor: palette.slice(0, labels.length), borderColor: t.paper, borderWidth: 2 }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          cutout: '58%',
+          plugins: {
+            legend: { position: 'bottom', ...legendStyle },
+            tooltip: { ...tooltipStyle, callbacks: { label: (item) => ` ${item.label}: ${item.raw} 篇` } }
+          }
+        }
+      });
+    }
+  }
+}
+
+// 黑暗模式切换时重绘图表,使颜色跟随主题
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (document.getElementById('statisticsView').style.display !== 'none') renderStatistics();
+  });
+}
+
+// ==========================================
 // 5. INITIALIZATION
 // ==========================================
 function renderAll() {
@@ -1079,6 +1452,8 @@ function renderAll() {
   renderReviews();
   renderConferences();
   updateStats();
+  // 若用户停留在统计页(例如数据刷新后),同步重绘
+  if (document.getElementById('statisticsView').style.display !== 'none') renderStatistics();
 }
 
 // 给 fetch URL 加时间戳,绕过浏览器/CDN 缓存,避免发布后看不到最新数据
