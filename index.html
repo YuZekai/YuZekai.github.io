@@ -874,23 +874,18 @@
     <div class="charts-grid" id="chartsGrid">
       <div class="chart-card full-width">
         <h3>Publications <em>· Count &amp; Impact Factor</em></h3>
-        <div class="chart-sub">历年论文数量与影响因子</div>
+        <div class="chart-sub">历年论文数量 · 颜色对应影响因子区间</div>
         <div class="chart-box"><canvas id="chartPapersIF"></canvas></div>
       </div>
       <div class="chart-card full-width">
         <h3>Peer Reviews <em>· Count &amp; Impact Factor</em></h3>
-        <div class="chart-sub">各期刊审稿次数与影响因子</div>
+        <div class="chart-sub">审稿次数 · 颜色对应期刊影响因子区间</div>
         <div class="chart-box"><canvas id="chartReviewsIF"></canvas></div>
       </div>
-      <div class="chart-card">
+      <div class="chart-card full-width">
         <h3>Most Cited <em>Works</em></h3>
         <div class="chart-sub">高被引论文</div>
         <div class="chart-box"><canvas id="chartTopCited"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <h3>Journal <em>Quality</em></h3>
-        <div class="chart-sub">论文期刊影响因子分布</div>
-        <div class="chart-box"><canvas id="chartIFDist"></canvas></div>
       </div>
       <div class="chart-card full-width" id="mapCard" style="display:none">
         <h3>Citations <em>Across the Globe</em></h3>
@@ -1293,91 +1288,99 @@ function renderStatistics() {
     labels: { color: t.inkSoft, usePointStyle: true, pointStyle: 'rectRounded', boxWidth: 10, font: { size: 13, style: 'italic' } }
   };
 
-  // ---------- 1. 历年论文数量 + 当年影响因子合计(柱+线双轴) ----------
+  // ===== 影响因子分档(两张堆叠图共用) =====
+  const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const bGreen = isDark ? '#5cab74' : '#1c5731';
+  const bPurple = isDark ? '#9b7bd0' : '#4a2870';
+  const IF_BUCKETS = [
+    { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,           color: hexToRgba(bPurple, 0.75), border: bPurple },
+    { key: 'if6',  label: 'IF 6–10', test: f => f >= 6 && f < 10,  color: hexToRgba(t.accent, 0.7),   border: t.accent },
+    { key: 'if3',  label: 'IF 3–6',  test: f => f >= 3 && f < 6,   color: hexToRgba(bGreen, 0.65), border: bGreen },
+    { key: 'if0',  label: 'IF < 3',  test: f => f > 0 && f < 3,    color: hexToRgba(t.gold, 0.75),    border: t.gold },
+    { key: 'noif', label: '无 IF',    test: f => !(f > 0),          color: hexToRgba(t.inkFaint, 0.45), border: t.inkFaint }
+  ];
+  const bucketOf = (ifValue) => {
+    const f = parseFloat(ifValue);
+    return IF_BUCKETS.find(b => b.test(isNaN(f) ? 0 : f));
+  };
+  const stackedOptions = (yTitle) => ({
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'top', ...legendStyle },
+      tooltip: { ...tooltipStyle, filter: (item) => item.raw > 0 }
+    },
+    scales: {
+      x: { ...baseScale, stacked: true, grid: { display: false } },
+      y: { ...baseScale, stacked: true, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 }, title: { display: true, text: yTitle, color: t.inkFaint, font: { style: 'italic' } } }
+    }
+  });
+  // 生成连续年份轴
+  const yearAxis = (yearSet) => {
+    const ys = [...yearSet].sort((a,b) => a - b);
+    const out = [];
+    if (ys.length) for (let y = ys[0]; y <= ys[ys.length-1]; y++) out.push(y);
+    return out;
+  };
+
+  // ---------- 1. 历年论文数量(按影响因子区间堆叠) ----------
   {
-    const byYear = {};
-    papers.forEach(p => {
-      const y = +p.year; if (!y) return;
-      if (!byYear[y]) byYear[y] = { count: 0, ifSum: 0 };
-      byYear[y].count += 1;
-      byYear[y].ifSum += parseFloat(p.impactFactor) || 0;
-    });
-    const yearKeys = Object.keys(byYear).map(Number).sort((a,b) => a - b);
-    // 填补中间缺失的年份,让时间轴连续
-    const years = [];
-    if (yearKeys.length) for (let y = yearKeys[0]; y <= yearKeys[yearKeys.length-1]; y++) years.push(y);
-    const counts = years.map(y => byYear[y] ? byYear[y].count : 0);
-    const ifs = years.map(y => byYear[y] ? +byYear[y].ifSum.toFixed(1) : 0);
+    const yearSet = new Set();
+    papers.forEach(p => { if (+p.year) yearSet.add(+p.year); });
+    const years = yearAxis(yearSet);
+    const datasets = IF_BUCKETS.map(b => ({
+      label: b.label,
+      data: years.map(y => papers.filter(p => +p.year === y && bucketOf(p.impactFactor) === b).length),
+      backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
+      borderRadius: 2, maxBarThickness: 56, stack: 'papers'
+    })).filter(ds => ds.data.some(v => v > 0)); // 不出现的区间不进图例
 
     destroyChart('papersIF');
-    chartInstances.papersIF = new Chart(document.getElementById('chartPapersIF'), {
-      data: {
-        labels: years,
-        datasets: [
-          {
-            type: 'bar', label: 'Papers · 论文数', data: counts,
-            backgroundColor: hexToRgba(t.gold, 0.65), borderColor: t.gold, borderWidth: 1,
-            borderRadius: 2, maxBarThickness: 48, yAxisID: 'y'
-          },
-          {
-            type: 'line', label: 'Total IF · 当年影响因子合计', data: ifs,
-            borderColor: t.accent, backgroundColor: hexToRgba(t.accent, 0.12),
-            pointBackgroundColor: t.accent, pointRadius: 4, pointHoverRadius: 6,
-            borderWidth: 2, tension: 0.3, fill: false, yAxisID: 'y1'
-          }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: { legend: { position: 'top', ...legendStyle }, tooltip: tooltipStyle },
-        scales: {
-          x: { ...baseScale, grid: { display: false } },
-          y: { ...baseScale, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 }, title: { display: true, text: 'Papers', color: t.inkFaint, font: { style: 'italic' } } },
-          y1: { ...baseScale, beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Impact Factor', color: t.inkFaint, font: { style: 'italic' } } }
-        }
-      }
-    });
+    if (years.length) {
+      chartInstances.papersIF = new Chart(document.getElementById('chartPapersIF'), {
+        type: 'bar',
+        data: { labels: years, datasets },
+        options: stackedOptions('Papers')
+      });
+    }
   }
 
-  // ---------- 2. 各期刊审稿次数 + 期刊影响因子(同款柱+线双轴) ----------
+  // ---------- 2. 历年审稿次数(按期刊影响因子区间堆叠) ----------
+  // 若 reviews.json 中没有 year 字段,则退回以期刊为横轴
   {
-    const sorted = [...reviews]
-      .filter(r => (parseInt(r.count) || 0) > 0)
-      .sort((a,b) => (parseInt(b.count)||0) - (parseInt(a.count)||0))
-      .slice(0, 12);
+    const valid = reviews.filter(r => (parseInt(r.count) || 0) > 0);
+    const hasYear = valid.some(r => +r.year);
     destroyChart('reviewsIF');
-    if (sorted.length) {
+
+    if (valid.length) {
+      let labels, countFor;
+      if (hasYear) {
+        const yearSet = new Set();
+        valid.forEach(r => { if (+r.year) yearSet.add(+r.year); });
+        labels = yearAxis(yearSet);
+        countFor = (b, label) => valid
+          .filter(r => +r.year === label && bucketOf(r.impactFactor) === b)
+          .reduce((s, r) => s + (parseInt(r.count) || 0), 0);
+      } else {
+        const sorted = [...valid].sort((a,b) => (parseInt(b.count)||0) - (parseInt(a.count)||0)).slice(0, 12);
+        labels = sorted.map(r => truncateLabel(r.journal, 20));
+        countFor = (b, label, idx) => bucketOf(sorted[idx].impactFactor) === b ? (parseInt(sorted[idx].count) || 0) : 0;
+      }
+      const datasets = IF_BUCKETS.map(b => ({
+        label: b.label,
+        data: labels.map((label, idx) => countFor(b, label, idx)),
+        backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
+        borderRadius: 2, maxBarThickness: 56, stack: 'reviews'
+      })).filter(ds => ds.data.some(v => v > 0));
+
       chartInstances.reviewsIF = new Chart(document.getElementById('chartReviewsIF'), {
-        data: {
-          labels: sorted.map(r => truncateLabel(r.journal, 20)),
-          datasets: [
-            {
-              type: 'bar', label: 'Reviews · 审稿次数', data: sorted.map(r => parseInt(r.count) || 0),
-              backgroundColor: hexToRgba(t.gold, 0.65), borderColor: t.gold, borderWidth: 1,
-              borderRadius: 2, maxBarThickness: 48, yAxisID: 'y'
-            },
-            {
-              type: 'line', label: 'Journal IF · 期刊影响因子', data: sorted.map(r => parseFloat(r.impactFactor) || 0),
-              borderColor: t.accent, backgroundColor: hexToRgba(t.accent, 0.12),
-              pointBackgroundColor: t.accent, pointRadius: 4, pointHoverRadius: 6,
-              borderWidth: 2, tension: 0.3, fill: false, yAxisID: 'y1'
-            }
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          interaction: { mode: 'index', intersect: false },
-          plugins: {
-            legend: { position: 'top', ...legendStyle },
-            tooltip: { ...tooltipStyle, callbacks: { title: (items) => { const r = sorted[items[0].dataIndex]; return r.journal || ''; } } }
-          },
-          scales: {
-            x: { ...baseScale, grid: { display: false }, ticks: { ...baseScale.ticks, font: { size: 11 }, maxRotation: 35, minRotation: 0 } },
-            y: { ...baseScale, beginAtZero: true, ticks: { ...baseScale.ticks, precision: 0 }, title: { display: true, text: 'Reviews', color: t.inkFaint, font: { style: 'italic' } } },
-            y1: { ...baseScale, beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Impact Factor', color: t.inkFaint, font: { style: 'italic' } } }
-          }
-        }
+        type: 'bar',
+        data: { labels, datasets },
+        options: (() => {
+          const opt = stackedOptions('Reviews');
+          if (!hasYear) opt.scales.x.ticks = { ...baseScale.ticks, font: { size: 11 }, maxRotation: 35, minRotation: 0 };
+          return opt;
+        })()
       });
     }
   }
@@ -1416,47 +1419,7 @@ function renderStatistics() {
     }
   }
 
-  // ---------- 4. 论文影响因子分布(甜甜圈) ----------
-  {
-    const buckets = { 'IF < 3': 0, 'IF 3–6': 0, 'IF 6–10': 0, 'IF ≥ 10': 0, '无 IF': 0 };
-    papers.forEach(p => {
-      const f = parseFloat(p.impactFactor);
-      if (isNaN(f) || f <= 0) buckets['无 IF']++;
-      else if (f < 3) buckets['IF < 3']++;
-      else if (f < 6) buckets['IF 3–6']++;
-      else if (f < 10) buckets['IF 6–10']++;
-      else buckets['IF ≥ 10']++;
-    });
-    const labels = Object.keys(buckets).filter(k => buckets[k] > 0);
-    const data = labels.map(k => buckets[k]);
-    const palette = [
-      hexToRgba(t.gold, 0.75),
-      hexToRgba(t.accent, 0.7),
-      hexToRgba('#1c5731', 0.65),
-      hexToRgba('#4a2870', 0.6),
-      hexToRgba(t.inkFaint, 0.45)
-    ];
-    destroyChart('ifDist');
-    if (labels.length) {
-      chartInstances.ifDist = new Chart(document.getElementById('chartIFDist'), {
-        type: 'doughnut',
-        data: {
-          labels,
-          datasets: [{ data, backgroundColor: palette.slice(0, labels.length), borderColor: t.paper, borderWidth: 2 }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          cutout: '58%',
-          plugins: {
-            legend: { position: 'bottom', ...legendStyle },
-            tooltip: { ...tooltipStyle, callbacks: { label: (item) => ` ${item.label}: ${item.raw} 篇` } }
-          }
-        }
-      });
-    }
-  }
-
-  // ---------- 5. 引用地理分布地图 ----------
+  // ---------- 4. 引用地理分布地图 ----------
   renderCitationMap();
 }
 
