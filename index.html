@@ -877,12 +877,12 @@
         <div class="chart-sub">历年论文数量 · 颜色对应影响因子区间</div>
         <div class="chart-box"><canvas id="chartPapersIF"></canvas></div>
       </div>
-      <div class="chart-card full-width">
+      <div class="chart-card">
         <h3>Peer Reviews <em>· Count &amp; Impact Factor</em></h3>
-        <div class="chart-sub">审稿次数 · 颜色对应期刊影响因子区间</div>
+        <div class="chart-sub">按影响因子区间统计审稿次数</div>
         <div class="chart-box"><canvas id="chartReviewsIF"></canvas></div>
       </div>
-      <div class="chart-card full-width">
+      <div class="chart-card">
         <h3>Most Cited <em>Works</em></h3>
         <div class="chart-sub">高被引论文</div>
         <div class="chart-box"><canvas id="chartTopCited"></canvas></div>
@@ -1377,44 +1377,88 @@ function renderStatistics() {
     }
   }
 
-  // ---------- 2. 历年审稿次数(按期刊影响因子区间堆叠) ----------
-  // 若 reviews.json 中没有 year 字段,则退回以期刊为横轴
+  // ---------- 2. 审稿环形图(按影响因子区间,中心显示总 IF 与总审稿数) ----------
   {
     const valid = reviews.filter(r => (parseInt(r.count) || 0) > 0);
-    const hasYear = valid.some(r => +r.year);
-    destroyChart('reviewsIF');
+    const totalReviews = valid.reduce((s, r) => s + (parseInt(r.count) || 0), 0);
+    const totalIF = valid.reduce((s, r) => {
+      const f = parseFloat(r.impactFactor);
+      return s + (isNaN(f) ? 0 : f * (parseInt(r.count) || 0));
+    }, 0);
 
-    if (valid.length) {
-      let labels, countFor;
-      if (hasYear) {
-        const yearSet = new Set();
-        valid.forEach(r => { if (+r.year) yearSet.add(+r.year); });
-        labels = yearAxis(yearSet);
-        countFor = (b, label) => valid
-          .filter(r => +r.year === label && bucketOf(r.impactFactor) === b)
-          .reduce((s, r) => s + (parseInt(r.count) || 0), 0);
-      } else {
-        const sorted = [...valid].sort((a,b) => (parseInt(b.count)||0) - (parseInt(a.count)||0)).slice(0, 12);
-        labels = sorted.map(r => truncateLabel(r.journal, 20));
-        countFor = (b, label, idx) => bucketOf(sorted[idx].impactFactor) === b ? (parseInt(sorted[idx].count) || 0) : 0;
+    // 按区间汇总审稿次数(图例从高到低)
+    const buckets = IF_BUCKETS.map(b => ({
+      bucket: b,
+      value: valid.filter(r => bucketOf(r.impactFactor) === b)
+        .reduce((s, r) => s + (parseInt(r.count) || 0), 0)
+    })).filter(x => x.value > 0);
+
+    // 中心文字:总 IF(大,红)+ 总审稿数
+    const centerTextPlugin = {
+      id: 'rvCenterText',
+      afterDraw(chart) {
+        const { ctx, chartArea } = chart;
+        if (!chartArea) return;
+        const cx = (chartArea.left + chartArea.right) / 2;
+        const cy = (chartArea.top + chartArea.bottom) / 2;
+        ctx.save();
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = t.accent;
+        ctx.font = "600 30px 'Cormorant Garamond', serif";
+        ctx.fillText(totalIF.toFixed(1), cx, cy - 22);
+        ctx.fillStyle = t.inkFaint;
+        ctx.font = "10px 'Noto Serif SC', serif";
+        ctx.fillText('T O T A L  I F', cx, cy - 2);
+        ctx.fillStyle = t.ink;
+        ctx.font = "600 24px 'Cormorant Garamond', serif";
+        ctx.fillText(String(totalReviews), cx, cy + 20);
+        ctx.fillStyle = t.inkFaint;
+        ctx.font = "10px 'Noto Serif SC', serif";
+        ctx.fillText('R E V I E W S', cx, cy + 38);
+        ctx.restore();
       }
-      const datasets = STACK_ORDER.map(b => ({
-        label: b.label,
-        data: labels.map((label, idx) => countFor(b, label, idx)),
-        backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
-        borderRadius: 2, maxBarThickness: 56, stack: 'reviews',
-        _goldGradient: !!b.gold
-      })).filter(ds => ds.data.some(v => v > 0));
+    };
+    // 渐变金扇区:左上亮 → 右下暗,渐变范围取整个环形区域
+    const donutGoldPlugin = {
+      id: 'rvDonutGold',
+      beforeDatasetsDraw(chart) {
+        const { ctx, chartArea } = chart;
+        if (!chartArea) return;
+        const meta = chart.getDatasetMeta(0);
+        buckets.forEach((x, i) => {
+          if (!x.bucket.gold || !meta.data[i]) return;
+          const g = ctx.createLinearGradient(chartArea.left, chartArea.top, chartArea.right, chartArea.bottom);
+          g.addColorStop(0, goldStops[0]);
+          g.addColorStop(0.35, goldStops[1]);
+          g.addColorStop(0.7, goldStops[2]);
+          g.addColorStop(1, goldStops[3]);
+          meta.data[i].options.backgroundColor = g;
+        });
+      }
+    };
 
+    destroyChart('reviewsIF');
+    if (buckets.length) {
       chartInstances.reviewsIF = new Chart(document.getElementById('chartReviewsIF'), {
-        type: 'bar',
-        data: { labels, datasets },
-        options: (() => {
-          const opt = stackedOptions('Reviews');
-          if (!hasYear) opt.scales.x.ticks = { ...baseScale.ticks, font: { size: 11 }, maxRotation: 35, minRotation: 0 };
-          return opt;
-        })(),
-        plugins: [goldGradientPlugin]
+        type: 'doughnut',
+        data: {
+          labels: buckets.map(x => x.bucket.label),
+          datasets: [{
+            data: buckets.map(x => x.value),
+            backgroundColor: buckets.map(x => x.bucket.color),
+            borderColor: t.paper,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          cutout: '64%',
+          plugins: {
+            legend: { position: 'bottom', ...legendStyle },
+            tooltip: { ...tooltipStyle, callbacks: { label: (item) => ` ${item.label}: ${item.raw} 次` } }
+          }
+        },
+        plugins: [donutGoldPlugin, centerTextPlugin]
       });
     }
   }
