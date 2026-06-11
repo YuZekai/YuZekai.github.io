@@ -1293,30 +1293,42 @@ function renderStatistics() {
   const bGreen = isDark ? '#5cab74' : '#1c5731';
   const bPurple = isDark ? '#9b7bd0' : '#4a2870';
   const bTeal = isDark ? '#5aa8a0' : '#1f5651';
-  // 最高档:与站内标题同款的渐变金(柱体从下到上由深铜渐变到亮金)
+  // 最高档:与站内标题同款的渐变金(左上亮 → 右下暗的斜向渐变)。
+  // 用绘制阶段插件按每段柱体的实际几何位置生成渐变;scriptable 颜色在元素定位前就被解析缓存,拿不到几何信息
   const goldStops = isDark
-    ? ['#b88528', '#e0b545', '#f7dc7a', '#fff3a6']
-    : ['#8a5a18', '#b88528', '#e0b545', '#f7dc7a'];
-  const goldGradient = (ctx) => {
-    // 渐变范围取每段柱体自身的高度,保证再矮的柱段也能呈现完整的金色渐变
-    const el = ctx.element;
-    const c = ctx.chart.ctx;
-    if (!el || el.y == null || el.base == null || isNaN(el.y) || isNaN(el.base) || el.y === el.base) return goldStops[1];
-    const g = c.createLinearGradient(0, el.base, 0, el.y);
-    g.addColorStop(0, goldStops[0]);
-    g.addColorStop(0.4, goldStops[1]);
-    g.addColorStop(0.75, goldStops[2]);
-    g.addColorStop(1, goldStops[3]);
-    return g;
+    ? ['#fff3a6', '#f7dc7a', '#e0b545', '#b88528']
+    : ['#f7dc7a', '#e0b545', '#b88528', '#8a5a18'];
+  const goldGradientPlugin = {
+    id: 'goldGradient',
+    beforeDatasetsDraw(chart) {
+      chart.data.datasets.forEach((ds, i) => {
+        if (!ds._goldGradient) return;
+        const meta = chart.getDatasetMeta(i);
+        meta.data.forEach(el => {
+          if (!el || el.y == null || el.base == null || isNaN(el.y) || isNaN(el.base) || el.y === el.base) return;
+          const w = el.width || 0;
+          const left = el.x - w / 2, right = el.x + w / 2;
+          // 从柱段左上角到右下角的斜向渐变
+          const g = chart.ctx.createLinearGradient(left, el.y, right, el.base);
+          g.addColorStop(0, goldStops[0]);
+          g.addColorStop(0.35, goldStops[1]);
+          g.addColorStop(0.7, goldStops[2]);
+          g.addColorStop(1, goldStops[3]);
+          el.options.backgroundColor = g;
+        });
+      });
+    }
   };
   const IF_BUCKETS = [
-    { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,          color: goldGradient,                border: goldStops[0] },
+    { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,          color: goldStops[1],                border: goldStops[3], gold: true },
     { key: 'if4',  label: 'IF 4–10', test: f => f >= 4 && f < 10, color: hexToRgba(bPurple, 0.75),    border: bPurple },
     { key: 'if2',  label: 'IF 2–4',  test: f => f >= 2 && f < 4,  color: hexToRgba(t.accent, 0.7),    border: t.accent },
     { key: 'if1',  label: 'IF 1–2',  test: f => f >= 1 && f < 2,  color: hexToRgba(bGreen, 0.65),     border: bGreen },
     { key: 'if0',  label: 'IF 0–1',  test: f => f > 0 && f < 1,   color: hexToRgba(bTeal, 0.65),      border: bTeal },
     { key: 'noif', label: '无 IF',    test: f => !(f > 0),         color: hexToRgba(t.inkFaint, 0.45), border: t.inkFaint }
   ];
+  // 堆叠顺序:无 IF 在最底,影响因子越高越靠顶(数据集顺序即堆叠顺序,自下而上)
+  const STACK_ORDER = [...IF_BUCKETS].reverse();
   const bucketOf = (ifValue) => {
     const f = parseFloat(ifValue);
     return IF_BUCKETS.find(b => b.test(isNaN(f) ? 0 : f));
@@ -1325,8 +1337,8 @@ function renderStatistics() {
     responsive: true, maintainAspectRatio: false,
     interaction: { mode: 'index', intersect: false },
     plugins: {
-      legend: { position: 'top', ...legendStyle },
-      tooltip: { ...tooltipStyle, filter: (item) => item.raw > 0 }
+      legend: { position: 'top', reverse: true, ...legendStyle },
+      tooltip: { ...tooltipStyle, filter: (item) => item.raw > 0, itemSort: (a, b) => b.datasetIndex - a.datasetIndex }
     },
     scales: {
       x: { ...baseScale, stacked: true, grid: { display: false } },
@@ -1346,11 +1358,12 @@ function renderStatistics() {
     const yearSet = new Set();
     papers.forEach(p => { if (+p.year) yearSet.add(+p.year); });
     const years = yearAxis(yearSet);
-    const datasets = IF_BUCKETS.map(b => ({
+    const datasets = STACK_ORDER.map(b => ({
       label: b.label,
       data: years.map(y => papers.filter(p => +p.year === y && bucketOf(p.impactFactor) === b).length),
       backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
-      borderRadius: 2, maxBarThickness: 56, stack: 'papers'
+      borderRadius: 2, maxBarThickness: 56, stack: 'papers',
+      _goldGradient: !!b.gold
     })).filter(ds => ds.data.some(v => v > 0)); // 不出现的区间不进图例
 
     destroyChart('papersIF');
@@ -1358,7 +1371,8 @@ function renderStatistics() {
       chartInstances.papersIF = new Chart(document.getElementById('chartPapersIF'), {
         type: 'bar',
         data: { labels: years, datasets },
-        options: stackedOptions('Papers')
+        options: stackedOptions('Papers'),
+        plugins: [goldGradientPlugin]
       });
     }
   }
@@ -1384,11 +1398,12 @@ function renderStatistics() {
         labels = sorted.map(r => truncateLabel(r.journal, 20));
         countFor = (b, label, idx) => bucketOf(sorted[idx].impactFactor) === b ? (parseInt(sorted[idx].count) || 0) : 0;
       }
-      const datasets = IF_BUCKETS.map(b => ({
+      const datasets = STACK_ORDER.map(b => ({
         label: b.label,
         data: labels.map((label, idx) => countFor(b, label, idx)),
         backgroundColor: b.color, borderColor: b.border, borderWidth: 1,
-        borderRadius: 2, maxBarThickness: 56, stack: 'reviews'
+        borderRadius: 2, maxBarThickness: 56, stack: 'reviews',
+        _goldGradient: !!b.gold
       })).filter(ds => ds.data.some(v => v > 0));
 
       chartInstances.reviewsIF = new Chart(document.getElementById('chartReviewsIF'), {
@@ -1398,7 +1413,8 @@ function renderStatistics() {
           const opt = stackedOptions('Reviews');
           if (!hasYear) opt.scales.x.ticks = { ...baseScale.ticks, font: { size: 11 }, maxRotation: 35, minRotation: 0 };
           return opt;
-        })()
+        })(),
+        plugins: [goldGradientPlugin]
       });
     }
   }
