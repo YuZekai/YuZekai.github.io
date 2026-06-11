@@ -1616,18 +1616,10 @@ let citationTileLayer = null;
 
 function mapTileURL() {
   const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  // 替换为国内加载极快的智图 (GeoQ) 底图
   return dark
-    ? 'https://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}'
-    : 'https://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}';
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 }
-
-//function mapTileURL() {
-//  const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-//  return dark
-//    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-//    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
-//}
 
 function renderCitationMap() {
   const card = document.getElementById('mapCard');
