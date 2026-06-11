@@ -1298,6 +1298,9 @@ function renderStatistics() {
   const goldStops = isDark
     ? ['#fff3a6', '#f7dc7a', '#e0b545', '#b88528']
     : ['#f7dc7a', '#e0b545', '#b88528', '#8a5a18'];
+  // 浮雕描边色:受光的左上缘高光 / 背光的右下缘暗影
+  const goldHi = isDark ? 'rgba(255,243,166,.55)' : 'rgba(255,248,210,.9)';
+  const goldSh = isDark ? 'rgba(0,0,0,.55)' : 'rgba(90,55,10,.45)';
   // 给金色段写入渐变:在布局完成后(afterUpdate)和每次绘制前(beforeDatasetsDraw)双重写入,
   // 确保首帧、动画过程、动画结束后的静态帧都带渐变,不依赖悬停等交互触发的重绘
   const applyGoldGradient = (chart) => {
@@ -1337,7 +1340,43 @@ function renderStatistics() {
   const goldGradientPlugin = {
     id: 'goldGradient',
     afterUpdate(chart) { applyGoldGradient(chart); },
-    beforeDatasetsDraw(chart) { applyGoldGradient(chart); }
+    beforeDatasetsDraw(chart) { applyGoldGradient(chart); },
+    // 雕刻感:柱段左上缘描亮金高光、右下缘描深铜暗影,呼应标题的浮雕效果
+    afterDatasetsDraw(chart) {
+      try {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((ds, i) => {
+          if (!ds._goldGradient) return;
+          const meta = chart.getDatasetMeta(i);
+          meta.data.forEach(el => {
+            if (!el || el.y == null || el.base == null || isNaN(el.y) || isNaN(el.base)) return;
+            const h = Math.abs(el.base - el.y);
+            if (h < 4) return; // 太矮的柱段画不下浮雕
+            const w = el.width || 0;
+            const left = el.x - w / 2, right = el.x + w / 2;
+            const top = Math.min(el.y, el.base), bottom = Math.max(el.y, el.base);
+            ctx.save();
+            ctx.lineWidth = 1.5;
+            ctx.lineJoin = 'round';
+            // 左上缘高光
+            ctx.strokeStyle = goldHi;
+            ctx.beginPath();
+            ctx.moveTo(left + 1, bottom - 1);
+            ctx.lineTo(left + 1, top + 1);
+            ctx.lineTo(right - 1, top + 1);
+            ctx.stroke();
+            // 右下缘暗影
+            ctx.strokeStyle = goldSh;
+            ctx.beginPath();
+            ctx.moveTo(right - 1, top + 1);
+            ctx.lineTo(right - 1, bottom - 1);
+            ctx.lineTo(left + 1, bottom - 1);
+            ctx.stroke();
+            ctx.restore();
+          });
+        });
+      } catch (e) { /* 浮雕失败不影响图表 */ }
+    }
   };
   const IF_BUCKETS = [
     { key: 'if10', label: 'IF ≥ 10',  test: f => f >= 10,          color: goldStops[1],                border: goldStops[3], gold: true },
@@ -1472,8 +1511,38 @@ function renderStatistics() {
           g.addColorStop(0.35, goldStops[1]);
           g.addColorStop(0.7, goldStops[2]);
           g.addColorStop(1, goldStops[3]);
+          if (el.options && el.options.$shared) {
+            el.options = Object.assign({}, el.options, { $shared: false });
+          }
           el.options.backgroundColor = g;
         });
+      },
+      // 雕刻感:金色弧段外缘描亮金高光、内缘描深铜暗影
+      afterDatasetsDraw(chart) {
+        try {
+          const { ctx } = chart;
+          const meta = chart.getDatasetMeta(0);
+          buckets.forEach((x, i) => {
+            if (!x.bucket.gold || !meta.data[i]) return;
+            const el = meta.data[i];
+            const { x: cx, y: cy, innerRadius, outerRadius, startAngle, endAngle } = el;
+            if ([cx, cy, innerRadius, outerRadius, startAngle, endAngle].some(v => v == null || isNaN(v))) return;
+            if (outerRadius - innerRadius < 6) return;
+            ctx.save();
+            ctx.lineWidth = 1.5;
+            // 外缘高光
+            ctx.strokeStyle = goldHi;
+            ctx.beginPath();
+            ctx.arc(cx, cy, outerRadius - 1, startAngle, endAngle);
+            ctx.stroke();
+            // 内缘暗影
+            ctx.strokeStyle = goldSh;
+            ctx.beginPath();
+            ctx.arc(cx, cy, innerRadius + 1, startAngle, endAngle);
+            ctx.stroke();
+            ctx.restore();
+          });
+        } catch (e) { /* 浮雕失败不影响图表 */ }
       }
     };
 
