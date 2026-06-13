@@ -7481,5 +7481,99 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1781347078935_on0bzm",
+    "title": "Comments on \"Artificial Intelligence in Colonoscopy Surveillance for Lynch Syndrome: Emerging Evidence, Lessons Learned From Average-Risk Populations, and Future Directions\"",
+    "authors": "Yu, Z., Xiong, W., Hu, H., & Qin, F",
+    "journal": "International journal of cancer",
+    "impactFactor": "4.7",
+    "year": "2026",
+    "month": "6",
+    "day": "12",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1002/ijc.70603",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1781347078935_on0bzm.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "nju",
+        "value": "B"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "4.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.9"
+      },
+      {
+        "key": "jci",
+        "value": "1.20"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科一流"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
