@@ -2605,5 +2605,77 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1781347444372_1gi02x",
+    "journal": "Risk Management and Healthcare Policy",
+    "impactFactor": "2.0",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1781347444372_1gi02x.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "sciif",
+        "value": "2.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q3"
+      },
+      {
+        "key": "ssci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.91"
+      },
+      {
+        "key": "esi",
+        "value": "一般社会科学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务4区/卫生政策与服务4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务3区; 卫生政策与服务3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
