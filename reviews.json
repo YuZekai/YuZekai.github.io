@@ -2677,5 +2677,53 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1781453617797_fqdjzv",
+    "journal": "Bioinformatics Advances",
+    "impactFactor": "2.8",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1781453617797_fqdjzv.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.8"
+      },
+      {
+        "key": "sciUp",
+        "value": "生物学4区"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.68"
+      },
+      {
+        "key": "xr",
+        "value": "生物学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "数学与计算生物学4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "数学与计算生物学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
