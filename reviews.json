@@ -2725,5 +2725,73 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1781456085181_q0noaa",
+    "journal": "Frontiers in Public Health",
+    "impactFactor": "3.4",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1781456085181_q0noaa.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "sciif",
+        "value": "3.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "ssci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.8"
+      },
+      {
+        "key": "jci",
+        "value": "1.05"
+      },
+      {
+        "key": "esi",
+        "value": "一般社会科学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "公共卫生、环境卫生与职业卫生3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "公共卫生、环境卫生与职业卫生2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
