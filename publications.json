@@ -7575,5 +7575,63 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1781622881629_tw83nt",
+    "title": "ECG-GPT: Considerations for advancing toward clinical implementation",
+    "authors": "Yu, Z., & Qin, F",
+    "journal": "European Heart Journal - Digital Health",
+    "impactFactor": "4.4",
+    "year": "2026",
+    "month": "6",
+    "day": "16",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1093/ehjdh/ztag089",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1781622881629_tw83nt.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "4.4"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.5"
+      },
+      {
+        "key": "jci",
+        "value": "1.04"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "esci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心脏和心血管系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
