@@ -242,15 +242,19 @@
   .highlight-metric .hm-num { font-size: 36px; font-weight: 600; color: var(--accent); line-height: 0.9; font-family: 'Cormorant Garamond', serif; }
   .highlight-metric .hm-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-faint); margin-top: 6px; font-family: 'Noto Serif SC', sans-serif;}
 
-  /* 右上角指标列:Citations 数字 + Altmetric 徽章上下堆叠靠右 */
+  /* 右上角指标列:Citations 数字 + Altmetric 徽章上下堆叠,浮在卡片右上 */
+  .meta-line { position: relative; }
   .metric-stack {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
-    margin-left: auto;
   }
   .metric-stack .altmetric-embed { line-height: 0; }
+  .doi-text { padding-right: 90px; }  /* 给右上角指标列让出空间,避免 DOI 文字被压到 */
   
   .abstract { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 12px; text-align: justify; hyphens: auto; }
   .abstract::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--accent); float: left; line-height: .85; padding: 4px 6px 0 0; }
@@ -1167,7 +1171,7 @@ function renderPapers() {
     const citeHtml = p.citations ? `<div class="highlight-metric"><span class="hm-num">${p.citations}</span><span class="hm-label">Citations</span></div>` : '';
     const altmetricHtml = p.doi ? `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-doi="${escapeAttr(p.doi)}" data-hide-no-mentions="true"></div>` : '';
     const rightCol = (citeHtml || altmetricHtml) ? `<div class="metric-stack">${citeHtml}${altmetricHtml}</div>` : '';
-    const metaHtml = (doiHtml || rightCol) ? `<div class="meta-line"><div>${doiHtml}</div>${rightCol}</div>` : '';
+    const metaHtml = (doiHtml || rightCol) ? `<div class="meta-line">${rightCol}<div class="doi-text">${doiHtml}</div></div>` : '';
     const volPage = [p.volume, p.pages].filter(Boolean).join(', ');
     const links = []; if (p.url) links.push(`<a href="${escapeAttr(p.url)}" target="_blank" rel="noopener">原文链接 ↗</a>`); if (p.doi) links.push(`<a href="https://doi.org/${escapeAttr(p.doi)}" target="_blank" rel="noopener">DOI ↗</a>`);
     return `
