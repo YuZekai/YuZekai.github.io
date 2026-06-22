@@ -242,6 +242,16 @@
   .highlight-metric .hm-num { font-size: 36px; font-weight: 600; color: var(--accent); line-height: 0.9; font-family: 'Cormorant Garamond', serif; }
   .highlight-metric .hm-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-faint); margin-top: 6px; font-family: 'Noto Serif SC', sans-serif;}
 
+  /* 右上角指标列:Citations 数字 + Altmetric 徽章上下堆叠靠右 */
+  .metric-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .metric-stack .altmetric-embed { line-height: 0; }
+  
   .abstract { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 12px; text-align: justify; hyphens: auto; }
   .abstract::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--accent); float: left; line-height: .85; padding: 4px 6px 0 0; }
   .notes, .review-notes { font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--ink-faint); padding: 8px 14px; border-left: 3px solid var(--gold); background: rgba(184,137,58,.06); margin-top: 12px; }
@@ -1155,7 +1165,9 @@ function renderPapers() {
     const coverSrc = resolveCover(p); const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
     const doiHtml = p.doi ? `<span><strong>DOI:</strong> ${escapeHtml(p.doi)}</span>` : '';
     const citeHtml = p.citations ? `<div class="highlight-metric"><span class="hm-num">${p.citations}</span><span class="hm-label">Citations</span></div>` : '';
-    const metaHtml = (doiHtml || citeHtml) ? `<div class="meta-line"><div>${doiHtml}</div>${citeHtml}</div>` : '';
+    const altmetricHtml = p.doi ? `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-doi="${escapeAttr(p.doi)}" data-hide-no-mentions="true"></div>` : '';
+    const rightCol = (citeHtml || altmetricHtml) ? `<div class="metric-stack">${citeHtml}${altmetricHtml}</div>` : '';
+    const metaHtml = (doiHtml || rightCol) ? `<div class="meta-line"><div>${doiHtml}</div>${rightCol}</div>` : '';
     const volPage = [p.volume, p.pages].filter(Boolean).join(', ');
     const links = []; if (p.url) links.push(`<a href="${escapeAttr(p.url)}" target="_blank" rel="noopener">原文链接 ↗</a>`); if (p.doi) links.push(`<a href="https://doi.org/${escapeAttr(p.doi)}" target="_blank" rel="noopener">DOI ↗</a>`);
     return `
@@ -1171,7 +1183,6 @@ function renderPapers() {
           ${p.abstract ? `<p class="abstract">${escapeHtml(p.abstract)}</p>` : ''}
           ${p.notes ? `<div class="notes">${escapeHtml(p.notes)}</div>` : ''}
           ${links.length ? `<div class="links">${links.join('')}</div>` : ''}
-          ${p.doi ? `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="${escapeAttr(p.doi)}" data-hide-no-mentions="true" style="margin-top:14px;"></div>` : ''}
         </div>
       </article>`;
   }).join('');
