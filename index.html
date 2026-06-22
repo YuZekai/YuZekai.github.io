@@ -13,6 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 <style>
   :root {
     --paper: #f4f1ea;
@@ -1170,10 +1171,12 @@ function renderPapers() {
           ${p.abstract ? `<p class="abstract">${escapeHtml(p.abstract)}</p>` : ''}
           ${p.notes ? `<div class="notes">${escapeHtml(p.notes)}</div>` : ''}
           ${links.length ? `<div class="links">${links.join('')}</div>` : ''}
+          ${p.doi ? `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="${escapeAttr(p.doi)}" data-hide-no-mentions="true" style="margin-top:14px;"></div>` : ''}
         </div>
       </article>`;
   }).join('');
   updateStats();
+  if (window._altmetric_embed_init) window._altmetric_embed_init();
 }
 
 function renderReviews() {
