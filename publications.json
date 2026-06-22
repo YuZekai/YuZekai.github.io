@@ -7633,5 +7633,79 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1782109432194_34ztw8",
+    "title": "The Impact of the Integrated Labor-Delivery-Recovery-Postpartum Unit on Maternal-Neonatal Outcomes and Psychological Experiences Among Low-Risk Parturients: A Prospective Cohort Study from a High-Volume Tertiary Center in China",
+    "authors": "Zheng, H., Zhu, M., Xu, L., Zhou, L., Xu, Y., Huang, L., Guan, Y., Liang, Y., Gao, Y., Yu, Z., Chen, Q., Xu, S., Chen, M., Xu, Z., Wang, X., Ying, C., Chen, K., Hong, H., & Xiong, W.",
+    "journal": "Frontiers in Medicine",
+    "impactFactor": "3.6",
+    "year": "2026",
+    "month": "6",
+    "day": "22",
+    "volume": "13",
+    "pages": "1845643",
+    "doi": "10.3389/fmed.2026.1845643",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782109432194_34ztw8.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "sciif",
+        "value": "3.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.83"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
