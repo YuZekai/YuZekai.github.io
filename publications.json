@@ -7486,7 +7486,7 @@
     "id": "p_1781347078935_on0bzm",
     "title": "Comments on \"Artificial Intelligence in Colonoscopy Surveillance for Lynch Syndrome: Emerging Evidence, Lessons Learned From Average-Risk Populations, and Future Directions\"",
     "authors": "Yu, Z., Xiong, W., Hu, H., & Qin, F",
-    "journal": "International journal of cancer",
+    "journal": "International Journal of Cancer",
     "impactFactor": "4.7",
     "year": "2026",
     "month": "6",
@@ -7700,6 +7700,162 @@
       {
         "key": "xrSmall",
         "value": "医学：内科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1782141523055_yhgrlt",
+    "title": "Enhancing Generalizability and Clinical Integration of CT-based Deep Learning for Ovarian Tumor Classification",
+    "authors": "Cheng W, Yu Z, Qin F.",
+    "journal": "Radiology: Imaging Cancer",
+    "impactFactor": "7.2",
+    "year": "2026",
+    "month": "6",
+    "day": "18",
+    "volume": "8(4)",
+    "pages": "e260141",
+    "doi": "10.1148/rycan.260141",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782141523055_yhgrlt.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "7.2"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.2"
+      },
+      {
+        "key": "jci",
+        "value": "1.26"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "esci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "肿瘤学2区/核医学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学2区; 核医学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1782141649831_bnxk2v",
+    "title": "The Best of Both Worlds-But at What Threshold? Caveats for LLM-Assisted CAUTI Surveillance",
+    "authors": "Yu, Z., Qin, F., & Li, E",
+    "journal": "Clinical Infectious Diseases",
+    "impactFactor": "8.3",
+    "year": "2026",
+    "month": "6",
+    "day": "19",
+    "volume": "",
+    "pages": "ciag373",
+    "doi": "10.1093/cid/ciag373",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782141649831_bnxk2v.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "nju",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T1"
+      },
+      {
+        "key": "sciif",
+        "value": "8.3"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.8"
+      },
+      {
+        "key": "jci",
+        "value": "1.88"
+      },
+      {
+        "key": "esi",
+        "value": "免疫学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科一流"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "传染病学1区/微生物学1区/免疫学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "免疫学1区; 传染病学1区; 微生物学1区"
       },
       {
         "key": "custom_1635615726460694528",
