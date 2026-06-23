@@ -2793,5 +2793,111 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1782220925661_36mh1z",
+    "journal": "Journal of Clinical Medicine Research-Canada",
+    "impactFactor": "2.2",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1782220925661_36mh1z.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.2"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "jci",
+        "value": "0.43"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科3区"
+      }
+    ]
+  },
+  {
+    "id": "r_1782220949117_sctzui",
+    "journal": "National Academy Science Letters-India",
+    "impactFactor": "1.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1782220949117_sctzui.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "综合性期刊T4"
+      },
+      {
+        "key": "sciif",
+        "value": "1.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q3"
+      },
+      {
+        "key": "sciBase",
+        "value": "综合性期刊4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "综合性期刊4区"
+      },
+      {
+        "key": "scu",
+        "value": "综合性期刊E"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.1"
+      },
+      {
+        "key": "jci",
+        "value": "0.22"
+      },
+      {
+        "key": "esi",
+        "value": "多学科"
+      },
+      {
+        "key": "xr",
+        "value": "综合性期刊4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "综合性期刊4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "综合性期刊4区"
+      }
+    ]
   }
 ]
