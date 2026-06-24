@@ -5462,7 +5462,7 @@
   },
   {
     "id": "p_1777804488016_fdnomu",
-    "title": "Quantifying the Privacy-Utility Trade-off in Medical Imaging AI.",
+    "title": "Quantifying the Privacy-Utility Trade-off in Medical Imaging AI",
     "authors": "Yu Z",
     "journal": "Radiology: Artificial intelligence",
     "impactFactor": "13.2",
@@ -7856,6 +7856,80 @@
       {
         "key": "xrSmall",
         "value": "免疫学1区; 传染病学1区; 微生物学1区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1782282454839_o5xpkl",
+    "title": "Cardiac xenotransplantation: Progress, barriers, and pathways toward clinical translation",
+    "authors": "Li, S., Wang, Y., He, D., Wang, J., Yu, Z., Yin, L., Dai, Z., Ren, Z., Cui, G., Wang, X., Zhang, G., Wang, H., Li, X., & Li, D.",
+    "journal": "Journal of Biomedical Research",
+    "impactFactor": "3.7",
+    "year": "2026",
+    "month": "6",
+    "day": "22",
+    "volume": "",
+    "pages": "",
+    "doi": "",
+    "citations": "",
+    "url": "http://www.jbr-pub.org.cn/article/id/4ee54865-3da5-407f-8247-8751ad80802b",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782282454839_o5xpkl.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "3.7"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "cscd",
+        "value": "核心库"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.6"
+      },
+      {
+        "key": "jci",
+        "value": "0.56"
+      },
+      {
+        "key": "zju",
+        "value": "国内核心期刊"
+      },
+      {
+        "key": "cju",
+        "value": "T1基础医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "esci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：研究与实验4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：研究与实验4区"
       },
       {
         "key": "custom_1635615726460694528",
