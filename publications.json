@@ -7937,5 +7937,83 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1782733667269_6u7z0c",
+    "title": "Crossover effect: causal machine learning reveals opposing mortality responses to mean arterial pressure targets among phenotypically distinct hypertensive patients with septic shock",
+    "authors": "Yu Z.",
+    "journal": "Internal Medicine Journal",
+    "impactFactor": "1.8",
+    "year": "2026",
+    "month": "6",
+    "day": "29",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1111/imj.70515",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782733667269_6u7z0c.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "1.8"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.9"
+      },
+      {
+        "key": "jci",
+        "value": "0.43"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
