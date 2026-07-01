@@ -8015,5 +8015,87 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1782883134289_skv5c2",
+    "title": "Machine learning phenotypes and heterogeneous albumin effects in cirrhotic AKI: A causal inference study",
+    "authors": "Yu, Z., & Qin, F",
+    "journal": "Internal and Emergency Medicine",
+    "impactFactor": "4.1",
+    "year": "2026",
+    "month": "7",
+    "day": "1",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1007/s11739-026-04446-3",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1782883134289_skv5c2.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.81"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
