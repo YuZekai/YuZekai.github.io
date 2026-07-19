@@ -3019,5 +3019,220 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1784295060507_cceuas",
+    "journal": "Scientific Reports",
+    "impactFactor": "4.9",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1784295060507_cceuas.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "hhu",
+        "value": "B类"
+      },
+      {
+        "key": "nju",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "综合性期刊T2"
+      },
+      {
+        "key": "sciif",
+        "value": "4.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "scu",
+        "value": "综合性期刊D"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.8"
+      },
+      {
+        "key": "jci",
+        "value": "1.13"
+      },
+      {
+        "key": "esi",
+        "value": "多学科"
+      },
+      {
+        "key": "xr",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "综合性期刊3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1784295154804_pk8je4",
+    "journal": "International Journal of Chronic Obstructive Pulmonary Disease",
+    "impactFactor": "4.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1784295154804_pk8je4.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.9"
+      },
+      {
+        "key": "jci",
+        "value": "0.93"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "呼吸系统3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "呼吸系统3区"
+      }
+    ]
+  },
+  {
+    "id": "r_1784447337470_eeuy4c",
+    "journal": "Cardiovascular Engineering and Technology",
+    "impactFactor": "2.4",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1784447337470_eeuy4c.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "2.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "scu",
+        "value": "工程技术E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.4"
+      },
+      {
+        "key": "jci",
+        "value": "0.47"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统4区/工程：生物医学4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心脏和心血管系统4区; 工程：生物医学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
