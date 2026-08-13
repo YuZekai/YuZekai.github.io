@@ -812,7 +812,7 @@
     "volume": "38(5)",
     "pages": "101265",
     "doi": "10.1016/j.aucc.2025.101265",
-    "citations": "7",
+    "citations": "8",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -2650,7 +2650,7 @@
     "volume": "16",
     "pages": "1676899",
     "doi": "10.3389/fpsyg.2025.1676899",
-    "citations": "12",
+    "citations": "15",
     "url": "",
     "abstract": "",
     "notes": "Funded by Zhejiang Shuren University, Talent Introduction Project (No. 2023R059).",
@@ -3865,7 +3865,7 @@
     "volume": "49(1)",
     "pages": "171",
     "doi": "10.1007/s10916-025-02318-5",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -3960,7 +3960,7 @@
     "volume": "",
     "pages": "",
     "doi": "10.1016/j.lanprc.2025.100087",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -4928,7 +4928,7 @@
     "volume": "49(4)",
     "pages": "1554-1555",
     "doi": "10.1038/s41440-025-02544-x",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -6724,7 +6724,7 @@
     "volume": "",
     "pages": "",
     "doi": "10.1017/S026646232610378X",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -8172,6 +8172,178 @@
       {
         "key": "xrSmall",
         "value": "耳鼻喉科学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1784607112305_7oi4fn",
+    "title": "Refining the Prognostic Interpretation of Myocardial PD-L1 Expression in ICI-Associated Myocarditis.",
+    "authors": "Li, S., Wang, Y., Yu, Z., Yin, L., & Li, D",
+    "journal": "JACC. CardioOncology",
+    "impactFactor": "15.5",
+    "year": "2026",
+    "month": "7",
+    "day": "20",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1016/j.jaccao.2026.04.010",
+    "citations": "1",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1784607112305_7oi4fn.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "15.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciif5",
+        "value": "15.8"
+      },
+      {
+        "key": "jci",
+        "value": "2.73"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统1区/肿瘤学1区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "肿瘤学1区; 心脏和心血管系统1区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1784615793113_4gubv7",
+    "title": "At the Heart of Peer Review: Why AI Concordance Misses the Human Pulse",
+    "authors": "Yu, Z.",
+    "journal": "European Heart Journal - Imaging Methods and Practice",
+    "impactFactor": "",
+    "year": "2026",
+    "month": "7",
+    "day": "20",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1093/ehjimp/qyag127/8737704",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1784615793113_4gubv7.jpeg",
+    "coverURL": "",
+    "ranks": null
+  },
+  {
+    "id": "p_1786625835382_24jh9c",
+    "title": "Single-cell transcriptomic profiling of cerebrospinal fluid reveals immune-cell heterogeneity and multicompartment MIF/CD74-related communication in tuberculous and purulent meningitis",
+    "authors": "Hu, H., Hou, L., Wang, Y., Yu, Z., Zhang, J. T., & Yang, F.",
+    "journal": "Frontiers in Cellular and Infection Microbiology",
+    "impactFactor": "5.5",
+    "year": "2026",
+    "month": "8",
+    "day": "13",
+    "volume": "16",
+    "pages": "1867160",
+    "doi": "10.3389/fcimb.2026.1867160",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1786625835382_24jh9c.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "5.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.1"
+      },
+      {
+        "key": "jci",
+        "value": "0.94"
+      },
+      {
+        "key": "esi",
+        "value": "微生物学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "免疫学2区/微生物学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "免疫学2区; 微生物学2区"
       },
       {
         "key": "custom_1635615726460694528",

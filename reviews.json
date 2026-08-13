@@ -3024,7 +3024,7 @@
     "id": "r_1784295060507_cceuas",
     "journal": "Scientific Reports",
     "impactFactor": "4.9",
-    "count": "1",
+    "count": "2",
     "notes": "",
     "coverFile": "r_1784295060507_cceuas.webp",
     "coverURL": "",
@@ -3227,6 +3227,154 @@
       {
         "key": "xrSmall",
         "value": "心脏和心血管系统4区; 工程：生物医学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1784701358489_j2i6yy",
+    "journal": "BMC Medical Informatics and Decision Making",
+    "impactFactor": "5.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1784701358489_j2i6yy.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "5.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.4"
+      },
+      {
+        "key": "jci",
+        "value": "0.99"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：信息3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：信息3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1786305520777_zdx6ak",
+    "journal": "BMC Medical Research Methodology",
+    "impactFactor": "3.7",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1786305520777_zdx6ak.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "3.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.5"
+      },
+      {
+        "key": "jci",
+        "value": "1.15"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务3区"
       },
       {
         "key": "custom_1635615726460694528",
