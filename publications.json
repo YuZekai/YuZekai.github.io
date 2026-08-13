@@ -8351,5 +8351,107 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1786631100102_wng3d1",
+    "title": "Methodological considerations in small-sample multitask QSPR modeling for PAMPA permeability",
+    "authors": "Yu, Z",
+    "journal": "Journal of Chemical Information and Modeling",
+    "impactFactor": "6.4",
+    "year": "2026",
+    "month": "8",
+    "day": "12",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1021/acs.jcim.6c01839",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1786631100102_wng3d1.jpeg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "uibe",
+        "value": "B"
+      },
+      {
+        "key": "hhu",
+        "value": "B类"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "化学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "6.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "化学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "化学2区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "scu",
+        "value": "化学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.9"
+      },
+      {
+        "key": "jci",
+        "value": "1.17"
+      },
+      {
+        "key": "esi",
+        "value": "化学"
+      },
+      {
+        "key": "cpu",
+        "value": "理学学科一流"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "化学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "化学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "化学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "化学：综合2区/药物化学3区/计算机：信息系统3区/计算机：跨学科应用3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "药物化学2区; 化学：综合2区; 计算机：信息系统3区; 计算机：跨学科应用3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
