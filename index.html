@@ -1220,7 +1220,6 @@ function renderPapers() {
   renderArticleTypeFilters();
   if (!papers.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无论文</p></div>`; updateStats(); return; }
   const sorted = papers.filter(p => articleTypeFilters.has(normalizeArticleType(p.articleType))).sort((a,b) => {
-    const medalDelta = articleTypeMedalRank(a.articleType) - articleTypeMedalRank(b.articleType); if (medalDelta !== 0) return medalDelta;
     if (paperSortMode === 'cite') return (parseInt(b.citations) || 0) - (parseInt(a.citations) || 0);
     if (paperSortMode === 'if') return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
     const ay = +a.year || 0, by = +b.year || 0; if (by !== ay) return by - ay;
