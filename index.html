@@ -846,6 +846,11 @@
       <div class="edu-timeline" id="eduList"></div>
     </div>
 
+    <div class="profile-funding" style="margin-top: 64px;">
+      <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Research Funding <em>· Grants</em></h3>
+      <div class="edu-timeline" id="fundingList"></div>
+    </div>
+
     <div class="profile-qualifications" style="margin-top: 64px;">
       <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Certificates <em>&amp; Qualifications</em></h3>
       <div class="edu-timeline" id="qualList"></div>
@@ -977,7 +982,7 @@
 // 1. DATA STATE
 // ==========================================
 // 新增了 qualifications
-let profile = { basic: {}, education: [], qualifications: [] };
+let profile = { basic: {}, education: [], funding: [], qualifications: [] };
 let papers = [];
 let reviews = [];
 let conferences = [];
@@ -1173,7 +1178,24 @@ function renderProfile() {
   `}).join('');
   document.getElementById('eduList').innerHTML = eduHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无经历</p>';
 
-  // 2. 证书资质 (降序)
+  // 2. 科研基金 (降序)
+  const sortedFunding = [...profile.funding].sort((a, b) => parseYearForSort(b.year) - parseYearForSort(a.year));
+  const fundingHtml = sortedFunding.map(f => {
+    const details = [f.number ? `No. ${escapeHtml(f.number)}` : '', f.amount ? escapeHtml(f.amount) : '', f.status ? escapeHtml(f.status) : ''].filter(Boolean).join(' · ');
+    return `
+    <div class="edu-item">
+      <div class="edu-year">${escapeHtml(f.year || '—')}</div>
+      ${f.role ? `<div class="edu-degree">${escapeHtml(f.role)}</div>` : ''}
+      <div class="edu-degree">${escapeHtml(f.name)}</div>
+      ${f.agency ? `<div class="edu-school">${escapeHtml(f.agency)}</div>` : ''}
+      ${details ? `<div class="edu-desc">${details}</div>` : ''}
+      ${f.desc ? `<div class="edu-desc" style="margin-top:6px;">${escapeHtml(f.desc)}</div>` : ''}
+      ${f.url ? `<div class="links" style="margin-top:8px;"><a href="${escapeAttr(f.url)}" target="_blank" rel="noopener">项目链接 ↗</a></div>` : ''}
+    </div>`;
+  }).join('');
+  document.getElementById('fundingList').innerHTML = fundingHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无基金项目</p>';
+
+  // 3. 证书资质 (降序)
   const sortedQual = [...profile.qualifications].sort((a, b) => parseYearForSort(b.year) - parseYearForSort(a.year));
   const qualHtml = sortedQual.map(q => {
     const coverSrc = resolveCover(q);
@@ -1188,7 +1210,7 @@ function renderProfile() {
   `}).join('');
   document.getElementById('qualList').innerHTML = qualHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无证书</p>';
 
-  // 3. 学会会员 (嵌套在 Profile 中,降序)
+  // 4. 学会会员 (嵌套在 Profile 中,降序)
   const msList = document.getElementById('msProfileList');
   if (!memberships.length) { msList.innerHTML = `<p style="color:var(--ink-faint);text-align:center;">暂无记录</p>`; return; }
   
@@ -1895,6 +1917,7 @@ async function loadData() {
         // 兼容之前没有 certificates 的旧数据
         if (!profile.qualifications) profile.qualifications = [];
         if (!profile.education) profile.education = [];
+        if (!profile.funding) profile.funding = [];
     }
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
