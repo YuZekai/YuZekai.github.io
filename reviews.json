@@ -3446,5 +3446,89 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1787094273789_cw26t8",
+    "journal": "Gastrointestinal Endoscopy",
+    "impactFactor": "8.0",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787094273789_cw26t8.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "8.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "scu",
+        "value": "医学B"
+      },
+      {
+        "key": "sciif5",
+        "value": "7.7"
+      },
+      {
+        "key": "jci",
+        "value": "1.52"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科一流"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "胃肠肝病学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "胃肠肝病学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
