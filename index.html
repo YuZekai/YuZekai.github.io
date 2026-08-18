@@ -122,6 +122,10 @@
   .sort-opt.active { color: var(--accent); font-weight: 600; }
   .sort-opt.active::after { content: ' ↓'; font-size: 10px; position: absolute; right: -12px; }
 
+  .article-type-filter { display: flex; align-items: center; justify-content: center; gap: 10px 16px; flex-wrap: wrap; padding: 14px 24px; border-bottom: 1px solid var(--rule); background: rgba(184,137,58,.05); }
+  .article-type-filter-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--ink-soft); margin-right: 2px; }
+  .article-type-options { display: flex; align-items: center; justify-content: center; gap: 8px 12px; flex-wrap: wrap; }
+
   /* Stats */
   .stats { display: flex; justify-content: center; gap: 64px; padding: 24px; border-bottom: 1px solid var(--rule); font-family: 'Cormorant Garamond', serif; flex-wrap: wrap; }
   .stat { text-align: center; }
@@ -225,6 +229,12 @@
   .journal-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; padding: 10px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
   .journal-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 17px; color: var(--ink); }
   .vol-page { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); }
+  .article-type-badge { display: inline-flex; align-items: center; position: relative; border: 1px solid; border-radius: 2px; font-family: 'Noto Serif SC', serif; font-size: 11px; font-weight: 600; letter-spacing: .04em; padding: 2px 8px; white-space: nowrap; transform: translateY(-1px); text-shadow: 0 1px 0 rgba(255,255,255,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(0,0,0,.2), 0 2px 0 rgba(70,45,15,.22), 0 4px 7px rgba(40,28,15,.16); transition: transform .2s ease, box-shadow .2s ease; }
+  .article-type-badge:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(0,0,0,.22), 0 3px 0 rgba(70,45,15,.22), 0 6px 10px rgba(40,28,15,.18); }
+  .article-type-badge.type-article { color: #4d2e06; border-color: rgba(90,55,10,.45); background: linear-gradient(135deg, #f7dc7a 0%, #e0b545 35%, #b88528 70%, #8a5a18 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,248,210,.9), inset -1.5px -1.5px 0 rgba(90,55,10,.45), 0 2px 0 rgba(90,55,10,.38), 0 4px 7px rgba(40,28,15,.18); }
+  .article-type-badge.type-review { color: #343b40; border-color: rgba(67,77,85,.5); background: linear-gradient(135deg, #f7f9fa 0%, #dce2e6 35%, #aeb6bd 70%, #7d8790 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,255,255,.92), inset -1.5px -1.5px 0 rgba(67,77,85,.42), 0 2px 0 rgba(67,77,85,.3), 0 4px 7px rgba(35,40,44,.16); }
+  .article-type-badge.type-other { color: #5a2e13; border-color: rgba(103,52,24,.5); background: linear-gradient(135deg, #f8d8b7 0%, #dfa16c 35%, #bd7640 70%, #7d421d 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,235,214,.8), inset -1.5px -1.5px 0 rgba(103,52,24,.48), 0 2px 0 rgba(103,52,24,.34), 0 4px 7px rgba(58,30,16,.17); }
+  .paper-type-top { margin-bottom: 8px; }
   .if-badge { background: var(--accent); color: var(--paper); font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 12px; padding: 2px 10px; letter-spacing: .08em; }
   .if-badge::before { content: 'IF '; opacity: .7; }
 
@@ -326,6 +336,15 @@
     display: flex; align-items: center; gap: 12px;
   }
   .chart-card .chart-sub::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .chart-type-switcher { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: -2px 0 14px; }
+  .chart-type-toggle { cursor: pointer; appearance: none; }
+  .chart-type-toggle:not(.active) { opacity: .38; filter: grayscale(1); box-shadow: none; transform: none; }
+  .chart-type-toggle:not(.active):hover { opacity: .72; transform: translateY(-1px); }
+  .chart-type-toggle .type-toggle-count { margin-left: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; opacity: .78; }
+  .division-mode-switch { display: flex; gap: 7px; margin: -2px 0 14px; }
+  .division-mode-btn { border: 1px solid var(--rule); background: var(--paper); color: var(--ink-faint); padding: 5px 12px; font-family: 'Noto Serif SC', serif; font-size: 11px; cursor: pointer; transition: all .2s; }
+  .division-mode-btn:hover { border-color: var(--gold); color: var(--ink); }
+  .division-mode-btn.active { color: var(--paper); border-color: var(--accent); background: var(--accent); box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 2px 4px rgba(0,0,0,.16); }
   .chart-box { position: relative; height: 300px; }
   .chart-card.full-width .chart-box { height: 340px; }
 
@@ -778,6 +797,9 @@
 
   /* 8. 统计图表卡片与地图 */
   .chart-card { background: rgba(31,31,29,.5); }
+  .article-type-badge.type-article { color: #5c3a08; border-color: rgba(0,0,0,.55); background: linear-gradient(135deg, #fff3a6 0%, #f7dc7a 35%, #e0b545 70%, #b88528 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,243,166,.55), inset -1.5px -1.5px 0 rgba(0,0,0,.55), 0 2px 0 rgba(0,0,0,.5), 0 4px 7px rgba(0,0,0,.35); }
+  .article-type-badge.type-review { color: #252b2f; border-color: rgba(0,0,0,.5); background: linear-gradient(135deg, #f3f5f6 0%, #c9d0d5 35%, #929ca5 70%, #616a72 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,255,255,.58), inset -1.5px -1.5px 0 rgba(0,0,0,.55), 0 2px 0 rgba(0,0,0,.48), 0 4px 7px rgba(0,0,0,.32); }
+  .article-type-badge.type-other { color: #40200e; border-color: rgba(0,0,0,.5); background: linear-gradient(135deg, #f3c99f 0%, #d38d55 35%, #a65f31 70%, #6f3718 100%); box-shadow: inset 1.5px 1.5px 0 rgba(255,231,207,.55), inset -1.5px -1.5px 0 rgba(0,0,0,.55), 0 2px 0 rgba(0,0,0,.48), 0 4px 7px rgba(0,0,0,.32); }
   .map-box .leaflet-tile-pane { filter: brightness(.85) sepia(.2) saturate(.7); }
   .map-box .leaflet-container, #citationMap { background: var(--paper-dark); }
 }
@@ -849,6 +871,7 @@
     <span class="sort-opt" id="sort-paper-cite" onclick="setPaperSort('cite')">Citations</span>
     <span class="sort-opt" id="sort-paper-if" onclick="setPaperSort('if')">Impact Factor</span>
   </div>
+  <div class="article-type-filter" id="articleTypeFilter" aria-label="按文章类型筛选"></div>
   <main id="list"></main>
 </div>
 
@@ -888,12 +911,24 @@
       <div class="chart-card full-width">
         <h3>Publications <em>· Count &amp; Impact Factor</em></h3>
         <div class="chart-sub">历年论文数量 · 颜色对应影响因子区间</div>
+        <div class="chart-type-switcher" id="publicationChartTypeSwitch" aria-label="按文章类型切换论文统计"></div>
         <div class="chart-box"><canvas id="chartPapersIF"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Publication <em>Types</em></h3>
+        <div class="chart-sub">文章类型分布</div>
+        <div class="chart-box"><canvas id="chartArticleTypes"></canvas></div>
       </div>
       <div class="chart-card">
         <h3>Peer Reviews <em>· Count &amp; Impact Factor</em></h3>
         <div class="chart-sub">按影响因子区间统计审稿次数</div>
         <div class="chart-box"><canvas id="chartReviewsIF"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>CAS Quartiles <em>· Major &amp; Minor Categories</em></h3>
+        <div class="chart-sub" id="casDivisionSub">中科院升级版分区 · 大类</div>
+        <div class="division-mode-switch"><button type="button" class="division-mode-btn active" id="division-mode-major" onclick="setDivisionChartMode('major')">大类分区</button><button type="button" class="division-mode-btn" id="division-mode-minor" onclick="setDivisionChartMode('minor')">小类分区</button></div>
+        <div class="chart-box"><canvas id="chartCasDivisions"></canvas></div>
       </div>
       <div class="chart-card">
         <h3>Most Cited <em>Works</em></h3>
@@ -952,6 +987,11 @@ let meta = { lastUpdated: null };
 
 let paperSortMode = 'date'; 
 let reviewSortMode = 'count'; 
+let articleTypeFilters = new Set();
+let articleTypeFilterInitialized = false;
+let publicationChartTypeFilters = new Set();
+let publicationChartTypeFilterInitialized = false;
+let divisionChartMode = 'major';
 
 // 智能年份排序助手
 function parseYearForSort(str) {
@@ -1010,6 +1050,28 @@ function setReviewSort(mode) { reviewSortMode = mode; document.querySelectorAll(
 
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
 function escapeAttr(s) { return escapeHtml(s); }
+function normalizeArticleType(type) { return String(type || '').trim() || '未标注'; }
+function articleTypeMedalRank(type) { const normalized = String(type || '').trim().toLowerCase(); return normalized === 'article' ? 0 : (normalized === 'review' ? 1 : 2); }
+function articleTypeBadgeClass(type) { const normalized = String(type || '').trim().toLowerCase(); return normalized === 'article' ? 'type-article' : (normalized === 'review' ? 'type-review' : 'type-other'); }
+function articleTypeOrder(a, b) { return articleTypeMedalRank(a) - articleTypeMedalRank(b) || a.localeCompare(b, 'zh-CN'); }
+function articleTypeCounts() { const counts = new Map(); papers.forEach(p => { const type = normalizeArticleType(p.articleType); counts.set(type, (counts.get(type) || 0) + 1); }); return counts; }
+function renderArticleTypeFilters() {
+  const container = document.getElementById('articleTypeFilter'); if (!container) return;
+  const counts = articleTypeCounts(); const types = [...counts.keys()].sort(articleTypeOrder);
+  if (!articleTypeFilterInitialized) { types.forEach(type => articleTypeFilters.add(type)); articleTypeFilterInitialized = true; }
+  else { [...articleTypeFilters].forEach(type => { if (!counts.has(type)) articleTypeFilters.delete(type); }); }
+  container.innerHTML = `<span class="article-type-filter-title">文章类型：</span><div class="article-type-options">${types.length ? types.map(type => `<button type="button" class="chart-type-toggle article-type-badge ${articleTypeBadgeClass(type)} ${articleTypeFilters.has(type) ? 'active' : ''}" data-type="${escapeAttr(type)}" aria-pressed="${articleTypeFilters.has(type)}" onclick="toggleArticleTypeFilter(this.dataset.type)">${escapeHtml(type)}<span class="type-toggle-count">${counts.get(type)}</span></button>`).join('') : '<span style="color:var(--ink-faint);font-size:12px">暂无文章类型</span>'}</div>`;
+}
+function toggleArticleTypeFilter(type) { if (articleTypeFilters.has(type)) articleTypeFilters.delete(type); else articleTypeFilters.add(type); renderPapers(); }
+function renderPublicationChartTypeSwitch() {
+  const container = document.getElementById('publicationChartTypeSwitch'); if (!container) return;
+  const counts = articleTypeCounts(); const types = [...counts.keys()].sort(articleTypeOrder);
+  if (!publicationChartTypeFilterInitialized) { types.forEach(type => publicationChartTypeFilters.add(type)); publicationChartTypeFilterInitialized = true; }
+  else { [...publicationChartTypeFilters].forEach(type => { if (!counts.has(type)) publicationChartTypeFilters.delete(type); }); }
+  container.innerHTML = types.map(type => `<button type="button" class="chart-type-toggle article-type-badge ${articleTypeBadgeClass(type)} ${publicationChartTypeFilters.has(type) ? 'active' : ''}" data-type="${escapeAttr(type)}" aria-pressed="${publicationChartTypeFilters.has(type)}" onclick="togglePublicationChartType(this.dataset.type)">${escapeHtml(type)}<span class="type-toggle-count">${counts.get(type)}</span></button>`).join('');
+}
+function togglePublicationChartType(type) { if (publicationChartTypeFilters.has(type)) publicationChartTypeFilters.delete(type); else publicationChartTypeFilters.add(type); renderStatistics(); }
+function setDivisionChartMode(mode) { divisionChartMode = mode === 'minor' ? 'minor' : 'major'; document.querySelectorAll('.division-mode-btn').forEach(btn => btn.classList.toggle('active', btn.id === `division-mode-${divisionChartMode}`)); renderStatistics(); }
 
 // ==========================================
 // 3. RANK BADGES UTILS
@@ -1155,13 +1217,16 @@ function renderProfile() {
 
 function renderPapers() {
   const list = document.getElementById('list');
+  renderArticleTypeFilters();
   if (!papers.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">尚无论文</p></div>`; updateStats(); return; }
-  const sorted = [...papers].sort((a,b) => {
+  const sorted = papers.filter(p => articleTypeFilters.has(normalizeArticleType(p.articleType))).sort((a,b) => {
+    const medalDelta = articleTypeMedalRank(a.articleType) - articleTypeMedalRank(b.articleType); if (medalDelta !== 0) return medalDelta;
     if (paperSortMode === 'cite') return (parseInt(b.citations) || 0) - (parseInt(a.citations) || 0);
     if (paperSortMode === 'if') return (parseFloat(b.impactFactor) || 0) - (parseFloat(a.impactFactor) || 0);
     const ay = +a.year || 0, by = +b.year || 0; if (by !== ay) return by - ay;
     const am = +a.month || 0, bm = +b.month || 0; if (bm !== am) return bm - am; return (+b.day || 0) - (+a.day || 0);
   });
+  if (!sorted.length) { list.innerHTML = `<div class="empty-state"><div class="ornament-big">∽</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">没有符合筛选条件的论文</p></div>`; updateStats(); return; }
   list.innerHTML = sorted.map(p => {
     let dateLabel = p.year || ''; if (p.year && p.month) dateLabel = `${p.year}.${String(p.month).padStart(2,'0')}`;
     const coverSrc = resolveCover(p); const cover = coverSrc ? `<img src="${escapeAttr(coverSrc)}" alt="${escapeAttr(p.journal||'cover')}">` : `<div class="cover-placeholder"><div class="icon">${escapeHtml((p.journal||'?').slice(0,1))}</div><div class="hint">No Cover</div></div>`;
@@ -1176,6 +1241,7 @@ function renderPapers() {
       <article class="entry" data-id="${p.id}">
         <div class="cover-wrap">${cover}</div>
         <div class="body">
+          ${p.articleType ? `<div class="paper-type-top"><span class="article-type-badge ${articleTypeBadgeClass(p.articleType)}">${escapeHtml(p.articleType)}</span></div>` : ''}
           <div class="year-marker">${escapeHtml(dateLabel)}</div>
           <h2 class="paper-title">${escapeHtml(p.title || '未命名')}</h2>
           ${p.authors ? `<div class="authors">${escapeHtml(p.authors)}</div>` : ''}
@@ -1278,6 +1344,7 @@ function renderStatistics() {
   document.getElementById('chartsGrid').style.display = hasData ? '' : 'none';
   document.getElementById('statsEmpty').style.display = hasData ? 'none' : '';
   if (!hasData) return;
+  renderPublicationChartTypeSwitch();
 
   // 全局默认字体与颜色
   Chart.defaults.font.family = "'Cormorant Garamond','Noto Serif SC',serif";
@@ -1434,12 +1501,13 @@ function renderStatistics() {
 
   // ---------- 1. 历年论文数量(按影响因子区间堆叠) ----------
   {
+    const selectedPapers = papers.filter(p => publicationChartTypeFilters.has(normalizeArticleType(p.articleType)));
     const yearSet = new Set();
-    papers.forEach(p => { if (+p.year) yearSet.add(+p.year); });
+    selectedPapers.forEach(p => { if (+p.year) yearSet.add(+p.year); });
     const years = yearAxis(yearSet);
     const datasets = STACK_ORDER.map(b => ({
       label: b.label,
-      data: years.map(y => papers.filter(p => +p.year === y && bucketOf(p.impactFactor) === b).length),
+      data: years.map(y => selectedPapers.filter(p => +p.year === y && bucketOf(p.impactFactor) === b).length),
       backgroundColor: b.gold ? years.map(() => b.color) : b.color, // 数组形式可禁用样式共享
       borderColor: b.border, borderWidth: 1,
       borderRadius: 2, maxBarThickness: 56, stack: 'papers',
@@ -1457,7 +1525,93 @@ function renderStatistics() {
     }
   }
 
-  // ---------- 2. 审稿环形图(按影响因子区间,中心显示总 IF 与总审稿数) ----------
+  // ---------- 2. 文章类型环形图 ----------
+  {
+    const typeCounts = articleTypeCounts();
+    const types = [...typeCounts.keys()].sort(articleTypeOrder);
+    const reviewStops = isDark ? ['#f3f5f6','#c9d0d5','#929ca5','#616a72'] : ['#f7f9fa','#dce2e6','#aeb6bd','#7d8790'];
+    const otherStops = isDark ? ['#f3c99f','#d38d55','#a65f31','#6f3718'] : ['#f8d8b7','#dfa16c','#bd7640','#7d421d'];
+    const typeStops = type => type === 'Article' ? goldStops : (type === 'Review' ? reviewStops : otherStops);
+    const typeColor = type => typeStops(type)[1];
+    const typeMaterialPlugin = {
+      id: 'articleTypeMaterial',
+      beforeDatasetsDraw(chart) {
+        const { ctx } = chart; const meta = chart.getDatasetMeta(0);
+        types.forEach((type, index) => {
+          const el = meta.data[index]; if (!el) return;
+          const { x: cx, y: cy, innerRadius, outerRadius, startAngle, endAngle } = el;
+          if ([cx, cy, innerRadius, outerRadius, startAngle, endAngle].some(v => v == null || isNaN(v))) return;
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+          for (let s = 0; s <= 24; s++) { const a = startAngle + (endAngle - startAngle) * s / 24; for (const r of [innerRadius, outerRadius]) { const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r; minX = Math.min(minX, px); minY = Math.min(minY, py); maxX = Math.max(maxX, px); maxY = Math.max(maxY, py); } }
+          const stops = typeStops(type); const g = ctx.createLinearGradient(minX, minY, maxX, maxY); g.addColorStop(0, stops[0]); g.addColorStop(.35, stops[1]); g.addColorStop(.7, stops[2]); g.addColorStop(1, stops[3]);
+          if (el.options && el.options.$shared) el.options = Object.assign({}, el.options, { $shared: false });
+          el.options.backgroundColor = g;
+        });
+      },
+      afterDatasetsDraw(chart) {
+        const { ctx } = chart; const meta = chart.getDatasetMeta(0);
+        types.forEach((type, index) => {
+          const el = meta.data[index]; if (!el) return;
+          const { x: cx, y: cy, innerRadius, outerRadius, startAngle, endAngle } = el;
+          if ([cx, cy, innerRadius, outerRadius, startAngle, endAngle].some(v => v == null || isNaN(v))) return;
+          const hi = type === 'Article' ? goldHi : (type === 'Review' ? 'rgba(255,255,255,.85)' : 'rgba(255,235,214,.75)');
+          const sh = type === 'Article' ? goldSh : (type === 'Review' ? 'rgba(67,77,85,.48)' : 'rgba(103,52,24,.5)');
+          ctx.save(); ctx.lineWidth = 1.5; ctx.strokeStyle = hi; ctx.beginPath(); ctx.arc(cx, cy, outerRadius - 1, startAngle, endAngle); ctx.stroke(); ctx.strokeStyle = sh; ctx.beginPath(); ctx.arc(cx, cy, innerRadius + 1, startAngle, endAngle); ctx.stroke(); ctx.restore();
+        });
+      }
+    };
+    destroyChart('articleTypes');
+    if (types.length) {
+      chartInstances.articleTypes = new Chart(document.getElementById('chartArticleTypes'), {
+        type: 'doughnut',
+        data: { labels: types, datasets: [{ data: types.map(type => typeCounts.get(type)), backgroundColor: types.map(typeColor), borderColor: t.paper, borderWidth: 2, hoverOffset: 7 }] },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '61%',
+          plugins: {
+            legend: { position: 'bottom', ...legendStyle },
+            tooltip: { ...tooltipStyle, callbacks: { label: item => ` ${item.label}: ${item.raw} 篇` } }
+          }
+        },
+        plugins: [typeMaterialPlugin]
+      });
+    }
+  }
+
+  // ---------- 3. 中科院大类 / 小类分区 ----------
+  {
+    document.querySelectorAll('.division-mode-btn').forEach(btn => btn.classList.toggle('active', btn.id === `division-mode-${divisionChartMode}`));
+    const rankKey = divisionChartMode === 'minor' ? 'sciUpSmall' : 'sciUp';
+    const categoryMap = new Map();
+    const parseDivisionEntries = value => {
+      const out = []; const text = String(value || '').replace(/[。．]/g, '').replace(/\r?\n/g, '/');
+      const re = /([^/;；]+?)([1-4])区/g; let match;
+      while ((match = re.exec(text))) { const category = match[1].trim().replace(/^[,，、:：\s]+|[,，、:：\s]+$/g, ''); if (category) out.push({ category, zone: parseInt(match[2], 10) }); }
+      return out;
+    };
+    papers.forEach(p => {
+      const rank = Array.isArray(p.ranks) ? p.ranks.find(r => r && r.key === rankKey) : null;
+      parseDivisionEntries(rank && rank.value).forEach(({ category, zone }) => { if (!categoryMap.has(category)) categoryMap.set(category, { 1:0, 2:0, 3:0, 4:0 }); categoryMap.get(category)[zone]++; });
+    });
+    const limit = divisionChartMode === 'minor' ? 12 : 10;
+    const rows = [...categoryMap.entries()].map(([category, zones]) => ({ category, zones, total: zones[1]+zones[2]+zones[3]+zones[4] })).sort((a,b) => b.total-a.total || a.category.localeCompare(b.category, 'zh-CN')).slice(0, limit);
+    const sub = document.getElementById('casDivisionSub'); if (sub) sub.textContent = `中科院升级版分区 · ${divisionChartMode === 'minor' ? '小类' : '大类'}${rows.length ? ` · 前 ${rows.length} 个学科` : ' · 暂无数据'}`;
+    const zoneConfigs = [
+      { zone:4, label:'4区', color:hexToRgba(bGreen,.62), border:bGreen },
+      { zone:3, label:'3区', color:hexToRgba(t.accent,.68), border:t.accent },
+      { zone:2, label:'2区', color:hexToRgba(bPurple,.74), border:bPurple },
+      { zone:1, label:'1区', color:goldStops[1], border:goldStops[3], gold:true }
+    ];
+    const datasets = zoneConfigs.map(z => ({ label:z.label, data:rows.map(row => row.zones[z.zone]), backgroundColor:z.gold ? rows.map(() => z.color) : z.color, borderColor:z.border, borderWidth:1, borderRadius:2, maxBarThickness:48, stack:'cas', _goldGradient:!!z.gold })).filter(ds => ds.data.some(v => v > 0));
+    destroyChart('casDivisions');
+    if (rows.length) {
+      const casOptions = stackedOptions('Papers');
+      casOptions.plugins.tooltip.callbacks = { title: items => rows[items[0].dataIndex].category, label: item => ` ${item.dataset.label}: ${item.raw} 篇` };
+      casOptions.scales.x.ticks = { ...baseScale.ticks, maxRotation:35, minRotation:0, font:{ size:10 } };
+      chartInstances.casDivisions = new Chart(document.getElementById('chartCasDivisions'), { type:'bar', data:{ labels:rows.map(row => truncateLabel(row.category, 12)), datasets }, options:casOptions, plugins:[goldGradientPlugin] });
+    }
+  }
+
+  // ---------- 4. 审稿环形图(按影响因子区间,中心显示总 IF 与总审稿数) ----------
   {
     const valid = reviews.filter(r => (parseInt(r.count) || 0) > 0);
     const totalReviews = valid.reduce((s, r) => s + (parseInt(r.count) || 0), 0);
@@ -1588,7 +1742,7 @@ function renderStatistics() {
     }
   }
 
-  // ---------- 3. 高被引论文(横向条形,Top 8) ----------
+  // ---------- 4. 高被引论文(横向条形,Top 8) ----------
   {
     const top = [...papers]
       .filter(p => (parseInt(p.citations) || 0) > 0)
