@@ -3382,5 +3382,69 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1787091346049_jt97j9",
+    "journal": "Frontiers in Medicine",
+    "impactFactor": "3.6",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787091346049_jt97j9.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "sciif",
+        "value": "3.6"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.7"
+      },
+      {
+        "key": "jci",
+        "value": "0.83"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
