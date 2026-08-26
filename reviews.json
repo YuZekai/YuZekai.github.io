@@ -504,7 +504,7 @@
     "id": "r_1777807115551_58opn2",
     "journal": "World Journal of Gastroenterology",
     "impactFactor": "5.4",
-    "count": "6",
+    "count": "7",
     "notes": "",
     "coverFile": "r_1777807115551_58opn2.jpg",
     "coverURL": "",
@@ -3523,6 +3523,220 @@
       {
         "key": "xrSmall",
         "value": "胃肠肝病学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1787164323941_xsovad",
+    "journal": "BMC Cardiovascular Disorders",
+    "impactFactor": "3.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787164323941_xsovad.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "hhu",
+        "value": "C类"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "3.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.67"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心脏和心血管系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1787164963669_je8jdv",
+    "journal": "Psychology Research and Behavior Management",
+    "impactFactor": "4.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787164963669_je8jdv.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "sciif",
+        "value": "4.5"
+      },
+      {
+        "key": "ssci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUp",
+        "value": "心理学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.5"
+      },
+      {
+        "key": "jci",
+        "value": "1.30"
+      },
+      {
+        "key": "esi",
+        "value": "精神病学／心理学"
+      },
+      {
+        "key": "xr",
+        "value": "心理学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "心理学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心理学：临床3区/心理学：综合3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心理学：临床2区; 心理学：综合2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1787173316690_3tcgo5",
+    "journal": "Discover Informatics",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787173316690_3tcgo5.webp",
+    "coverURL": "",
+    "ranks": null
+  },
+  {
+    "id": "r_1787637174788_peeeh7",
+    "journal": "Frontiers in Immunology",
+    "impactFactor": "7.0",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787637174788_peeeh7.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "7.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "7.4"
+      },
+      {
+        "key": "jci",
+        "value": "1.06"
+      },
+      {
+        "key": "esi",
+        "value": "免疫学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "免疫学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "免疫学2区"
       },
       {
         "key": "custom_1635615726460694528",
