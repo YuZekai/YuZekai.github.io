@@ -3744,5 +3744,77 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1787772854356_n7d4n6",
+    "journal": "Discover Artificial Intelligence",
+    "impactFactor": "",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787772854356_n7d4n6.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1787779121699_8ro5hb",
+    "journal": "Journal of Healthcare Informatics Research",
+    "impactFactor": "4.6",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1787779121699_8ro5hb.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "4.6"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "eii",
+        "value": "EI"
+      },
+      {
+        "key": "sciif5",
+        "value": "6.4"
+      },
+      {
+        "key": "jci",
+        "value": "1.10"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：信息系统4区/卫生保健与服务4区/医学：信息4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：信息系统3区; 卫生保健与服务3区; 医学：信息3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
