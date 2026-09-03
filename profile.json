@@ -61,5 +61,31 @@
       "url": "",
       "desc": ""
     }
+  ],
+  "languages": [
+    {
+      "id": "lang_1788271745100_oijc5g",
+      "name": "Chinese (Mandarin)",
+      "level": "Native",
+      "desc": ""
+    },
+    {
+      "id": "lang_1788271772213_27j8so",
+      "name": "English",
+      "level": "College English Test Band 4 (CET-4)",
+      "desc": "Score: 483"
+    },
+    {
+      "id": "lang_1788271800081_w3j2ys",
+      "name": "English",
+      "level": "College English Test Band 6 (CET-6)",
+      "desc": "Score: 527"
+    },
+    {
+      "id": "lang_1788271814308_ibvmbf",
+      "name": "German",
+      "level": "CEFR A1.1",
+      "desc": "Certified by Albert-Ludwigs-Universität Freiburg, 4 ECTS"
+    }
   ]
 }
