@@ -856,6 +856,11 @@
       <div class="edu-timeline" id="qualList"></div>
     </div>
 
+    <div class="profile-languages" style="margin-top: 64px;">
+      <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Languages <em>&amp; Proficiency</em></h3>
+      <div class="edu-timeline" id="languageList"></div>
+    </div>
+
     <div class="profile-memberships" style="margin-top: 64px;">
       <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Professional <em>Memberships</em></h3>
       <div id="msProfileList"></div>
@@ -982,7 +987,7 @@
 // 1. DATA STATE
 // ==========================================
 // 新增了 qualifications
-let profile = { basic: {}, education: [], funding: [], qualifications: [] };
+let profile = { basic: {}, education: [], funding: [], qualifications: [], languages: [] };
 let papers = [];
 let reviews = [];
 let conferences = [];
@@ -1210,7 +1215,17 @@ function renderProfile() {
   `}).join('');
   document.getElementById('qualList').innerHTML = qualHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无证书</p>';
 
-  // 4. 学会会员 (嵌套在 Profile 中,降序)
+  // 4. 语言及等级
+  const languageHtml = profile.languages.map(language => `
+    <div class="edu-item">
+      <div class="edu-degree">${escapeHtml(language.name || '—')}</div>
+      <div class="edu-school" style="color:var(--ink);font-style:normal;font-size:18px;">${escapeHtml(language.level || '—')}</div>
+      ${language.desc ? `<div class="edu-desc">${escapeHtml(language.desc)}</div>` : ''}
+    </div>
+  `).join('');
+  document.getElementById('languageList').innerHTML = languageHtml || '<p style="color:var(--ink-faint);text-align:center;">暂无语言信息</p>';
+
+  // 5. 学会会员 (嵌套在 Profile 中,降序)
   const msList = document.getElementById('msProfileList');
   if (!memberships.length) { msList.innerHTML = `<p style="color:var(--ink-faint);text-align:center;">暂无记录</p>`; return; }
   
@@ -1805,13 +1820,11 @@ function renderStatistics() {
 let citationMap = null;
 let citationTileLayer = null;
 
-const CARTO_API_KEY = 'cb1_2dhm_1_4fa28d37b1d56634a6185437';
-
 function mapTileURL() {
   const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   return dark
-    ? `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`
-    : `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`;
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 }
 
 function renderCitationMap() {
@@ -1920,6 +1933,7 @@ async function loadData() {
         if (!profile.qualifications) profile.qualifications = [];
         if (!profile.education) profile.education = [];
         if (!profile.funding) profile.funding = [];
+        if (!profile.languages) profile.languages = [];
     }
     if (pubRes && pubRes.ok) papers = await pubRes.json();
     if (revRes && revRes.ok) reviews = await revRes.json();
