@@ -1820,11 +1820,13 @@ function renderStatistics() {
 let citationMap = null;
 let citationTileLayer = null;
 
+const CARTO_API_KEY = 'cb1_2dhm_1_4fa28d37b1d56634a6185437';
+
 function mapTileURL() {
   const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   return dark
-    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+    ? `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`
+    : `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`;
 }
 
 function renderCitationMap() {
