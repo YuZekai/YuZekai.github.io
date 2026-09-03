@@ -8716,5 +8716,72 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1788425614459_8qbzne",
+    "title": "The health and productivity impact of thyroid diseases among working-age women in Western Europe",
+    "authors": "Hu, H., Wang, Y., Yu, Z., Li, K., & Yang, F",
+    "journal": "International Journal of Women's Health",
+    "articleType": "Article",
+    "impactFactor": "2.5",
+    "year": "2026",
+    "month": "9",
+    "day": "3",
+    "volume": "18",
+    "pages": "Article 630628",
+    "doi": "10.2147/IJWH.S630628",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1788425614459_8qbzne.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "2.5"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.0"
+      },
+      {
+        "key": "jci",
+        "value": "0.92"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "妇产科学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "妇产科学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
