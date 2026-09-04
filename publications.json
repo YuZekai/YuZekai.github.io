@@ -3506,9 +3506,9 @@
   {
     "id": "p_1777803593345_70v5vh",
     "title": "Explainable AI and debiased networks: The 'last mile' for precision medicine delivery",
-    "articleType": "Letter",
     "authors": "Liu, S., & Yu, Z",
     "journal": "British journal of pharmacology",
+    "articleType": "Letter",
     "impactFactor": "7.7",
     "year": "2025",
     "month": "11",
@@ -3516,7 +3516,7 @@
     "volume": "183(2)",
     "pages": "217-218",
     "doi": "10.1111/bph.70276",
-    "citations": "2",
+    "citations": "3",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -7079,7 +7079,7 @@
     "volume": "19",
     "pages": "605864",
     "doi": "10.2147/JAA.S605864",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "Funded by the National Natural Science Foundation of China (No. 82270033) and the National Clinical Research Center for Geriatric Disorders, Xiangya Hospital (No. 2023LNJJ06).",
@@ -8783,5 +8783,26 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1788526684942_xlakyy",
+    "title": "Balanced crystalloids versus saline for initial resuscitation in sepsis and 30-day major adverse kidney events: A target trial emulation across two critical-care databases",
+    "authors": "Yu, Z., Feng, J., & Qin, F",
+    "journal": "Intensive Care Science",
+    "articleType": "Article",
+    "impactFactor": "",
+    "year": "2026",
+    "month": "9",
+    "day": "4",
+    "volume": "1",
+    "pages": "66-75",
+    "doi": "10.1016/j.iics.2026.08.003",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1788526684942_xlakyy.jpg",
+    "coverURL": "",
+    "ranks": null
   }
 ]

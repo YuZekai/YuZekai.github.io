@@ -3816,5 +3816,53 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1788453197738_8jqqm2",
+    "journal": "Frontiers in Digital Health",
+    "impactFactor": "5.2",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1788453197738_8jqqm2.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "5.2"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.5"
+      },
+      {
+        "key": "jci",
+        "value": "1.02"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "esci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "卫生保健与服务3区/医学：信息4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务3区; 医学：信息3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
