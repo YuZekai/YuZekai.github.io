@@ -2680,7 +2680,7 @@
     "volume": "16",
     "pages": "1676899",
     "doi": "10.3389/fpsyg.2025.1676899",
-    "citations": "18",
+    "citations": "19",
     "url": "",
     "abstract": "",
     "notes": "Funded by Zhejiang Shuren University, Talent Introduction Project (No. 2023R059).",
@@ -2934,9 +2934,9 @@
   {
     "id": "p_1777803395682_yjphcx",
     "title": "Letter: The Blind Spot of Prostate-Specific Membrane Antigen Positron Emission Tomography Staging? Intraductal Carcinoma of the Prostate Is Overrepresented in Patients With No Uptake Pattern on Prostate-Specific Membrane Antigen Positron Emission Tomography and High-Grade Prostate Cancer",
-    "articleType": "Letter",
     "authors": "Feng, Y., Zhou, S., Huang, S., Yu, Z., & Zhuang, Z",
     "journal": "The Journal of urology",
+    "articleType": "Letter",
     "impactFactor": "7.5",
     "year": "2025",
     "month": "11",
@@ -2944,7 +2944,7 @@
     "volume": "215(1)",
     "pages": "89-90",
     "doi": "10.1097/JU.0000000000004787",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -3708,7 +3708,7 @@
     "volume": "20(11)",
     "pages": "e0336328",
     "doi": "10.1371/journal.pone.0336328",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "Funded by the Young Scholars' Support Plan of Xihua University (No. RX2400001936).",
@@ -8041,7 +8041,7 @@
     "volume": "",
     "pages": "",
     "doi": "10.1111/imj.70515",
-    "citations": "1",
+    "citations": "3",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -8120,7 +8120,7 @@
     "volume": "",
     "pages": "",
     "doi": "10.1007/s11739-026-04446-3",
-    "citations": "1",
+    "citations": "3",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -8804,5 +8804,88 @@
     "coverFile": "p_1788526684942_xlakyy.jpg",
     "coverURL": "",
     "ranks": null
+  },
+  {
+    "id": "p_1788766764199_kwx7hb",
+    "title": "From scoring to stress testing: Strengthening safety validation of large language model answers in otolaryngology",
+    "authors": "Yin, L., Wang, Y., Dai, Z., Li, S., & Yu, Z",
+    "journal": "European Archives of Oto-Rhino-Laryngology",
+    "articleType": "Letter",
+    "impactFactor": "2.4",
+    "year": "2026",
+    "month": "9",
+    "day": "7",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1007/s00405-026-10589-y",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1788766764199_kwx7hb.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "2.4"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.3"
+      },
+      {
+        "key": "jci",
+        "value": "1.24"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "耳鼻喉科学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "耳鼻喉科学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
