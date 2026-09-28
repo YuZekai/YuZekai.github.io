@@ -822,7 +822,7 @@
     "volume": "38(5)",
     "pages": "101265",
     "doi": "10.1016/j.aucc.2025.101265",
-    "citations": "9",
+    "citations": "10",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -2108,9 +2108,9 @@
   {
     "id": "p_1777803081464_388va4",
     "title": "Addressing the broader implications of AI-AI bias in decision-making systems",
-    "articleType": "Letter",
     "authors": "Yu Z",
     "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+    "articleType": "Letter",
     "impactFactor": "9.1",
     "year": "2025",
     "month": "9",
@@ -2118,7 +2118,7 @@
     "volume": "122(40)",
     "pages": "e2521127122",
     "doi": "10.1073/pnas.2521127122",
-    "citations": "1",
+    "citations": "2",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -2680,7 +2680,7 @@
     "volume": "16",
     "pages": "1676899",
     "doi": "10.3389/fpsyg.2025.1676899",
-    "citations": "19",
+    "citations": "20",
     "url": "",
     "abstract": "",
     "notes": "Funded by Zhejiang Shuren University, Talent Introduction Project (No. 2023R059).",
@@ -5679,9 +5679,9 @@
   {
     "id": "p_1777804600771_a4m5tb",
     "title": "Domain-Specific LLMs in Radiology: Considerations for Cross-Site and Temporal Robustness",
-    "articleType": "Letter",
     "authors": "Cheng, W., & Yu, Z",
     "journal": "Radiology",
+    "articleType": "Letter",
     "impactFactor": "15.2",
     "year": "2026",
     "month": "2",
@@ -5689,7 +5689,7 @@
     "volume": "318(2)",
     "pages": "e252758",
     "doi": "10.1148/radiol.252758",
-    "citations": "0",
+    "citations": "1",
     "url": "",
     "abstract": "",
     "notes": "",
@@ -8880,6 +8880,176 @@
       {
         "key": "xrSmall",
         "value": "耳鼻喉科学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1789818141965_chipxl",
+    "title": "Beyond scalar thresholds: Leveraging medical vision foundation models for pediatric surgical risk stratification",
+    "authors": "Zhao, Y., Zou, Y., Xiong, W., Yu, Z.",
+    "journal": "Pediatric Surgery International",
+    "articleType": "Letter",
+    "impactFactor": "1.8",
+    "year": "2026",
+    "month": "9",
+    "day": "19",
+    "volume": "42",
+    "pages": "415",
+    "doi": "10.1007/s00383-026-06652-8",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1789818141965_chipxl.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "B+"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "1.8"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.76"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "儿科3区/外科3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "儿科3区; 外科3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1790161723714_vti8al",
+    "title": "Artificial Intelligence in Outpatient Primary Care: Current Evidence, Implementation Gaps, and Practical Pathways to Impact",
+    "authors": "Cheng, W., Li, S., & Yu, Z",
+    "journal": "Journal of General Internal Medicine",
+    "articleType": "Letter",
+    "impactFactor": "4.1",
+    "year": "2026",
+    "month": "9",
+    "day": "21",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1007/s11606-026-10819-3",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1790161723714_vti8al.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "xju",
+        "value": "一区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "4.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学C"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.2"
+      },
+      {
+        "key": "jci",
+        "value": "1.11"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科2区/卫生保健与服务3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务3区; 医学：内科2区"
       },
       {
         "key": "custom_1635615726460694528",
