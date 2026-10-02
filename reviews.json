@@ -3864,5 +3864,72 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1790921068019_5yce01",
+    "journal": "Medicine",
+    "impactFactor": "2.0",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1790921068019_5yce01.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swjtu",
+        "value": "A+"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.1"
+      },
+      {
+        "key": "jci",
+        "value": "0.45"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科4区"
+      }
+    ]
   }
 ]
