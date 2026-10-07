@@ -3931,5 +3931,45 @@
         "value": "医学：内科4区"
       }
     ]
+  },
+  {
+    "id": "r_1790929054217_e6jwc0",
+    "journal": "Discover Social Science and Health",
+    "impactFactor": "1.5",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1790929054217_e6jwc0.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "1.5"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.44"
+      },
+      {
+        "key": "xr",
+        "value": "社会学3区"
+      },
+      {
+        "key": "esci",
+        "value": "Q3"
+      },
+      {
+        "key": "xrSmall",
+        "value": "公共卫生、环境卫生与职业卫生4区; 社会科学：生物医学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
