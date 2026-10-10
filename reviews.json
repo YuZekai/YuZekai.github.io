@@ -3971,5 +3971,141 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1791629555710_33h82g",
+    "journal": "British Journal of Biomedical Science",
+    "impactFactor": "11.9",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1791629555710_33h82g.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "11.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.4"
+      },
+      {
+        "key": "jci",
+        "value": "1.72"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学实验技术3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学实验技术3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "r_1791632985108_605pw1",
+    "journal": "BMC Nephrology",
+    "impactFactor": "2.9",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1791632985108_605pw1.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.9"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.0"
+      },
+      {
+        "key": "jci",
+        "value": "0.94"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "泌尿学与肾脏学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "泌尿学与肾脏学3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
