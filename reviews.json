@@ -4107,5 +4107,73 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1791703977567_zggmh9",
+    "journal": "BMC Pulmonary Medicine",
+    "impactFactor": "3.1",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1791703977567_zggmh9.webp",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "3.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.2"
+      },
+      {
+        "key": "jci",
+        "value": "0.82"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "呼吸系统3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "呼吸系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
