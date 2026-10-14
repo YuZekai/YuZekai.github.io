@@ -4175,5 +4175,61 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1791870188790_2t8kws",
+    "journal": "Frontiers in Cardiovascular Medicine",
+    "impactFactor": "3.0",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1791870188790_2t8kws.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "3.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.5"
+      },
+      {
+        "key": "jci",
+        "value": "0.68"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "心脏和心血管系统3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "心脏和心血管系统3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
