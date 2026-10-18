@@ -9136,5 +9136,139 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1792301684605_n20rhc",
+    "title": "From per-examination savings to project-level breakeven in expert-guided segmentation",
+    "authors": "Liang, Y., Yu, Z., & Hu, H",
+    "journal": "Radiology: Artificial Intelligence",
+    "articleType": "Letter",
+    "impactFactor": "20.1",
+    "year": "2026",
+    "month": "",
+    "day": "",
+    "volume": "8(6)",
+    "pages": "Article e260801",
+    "doi": "10.1148/ryai.260801",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "20.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciif5",
+        "value": "16.1"
+      },
+      {
+        "key": "jci",
+        "value": "3.22"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：人工智能1区/核医学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：人工智能1区; 核医学1区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1792301749811_jq4oln",
+    "title": "From per-examination savings to project-level breakeven in expert-guided segmentation",
+    "authors": "Liang, Y., Yu, Z., & Hu, H",
+    "journal": "Radiology: Artificial Intelligence",
+    "articleType": "Letter",
+    "impactFactor": "20.1",
+    "year": "2026",
+    "month": "10",
+    "day": "14",
+    "volume": "8(6)",
+    "pages": "Article e260801",
+    "doi": "10.1148/ryai.260801",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1792301749811_jq4oln.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "20.1"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学1区"
+      },
+      {
+        "key": "sciif5",
+        "value": "16.1"
+      },
+      {
+        "key": "jci",
+        "value": "3.22"
+      },
+      {
+        "key": "sciUpTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "xr",
+        "value": "医学1区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "计算机：人工智能1区/核医学2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "计算机：人工智能1区; 核医学1区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
