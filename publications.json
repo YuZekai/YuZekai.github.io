@@ -9270,5 +9270,84 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1793089611893_spd4b7",
+    "title": "Artificial intelligence early-warning systems for sepsis: From risk scores to bedside action.",
+    "authors": "Yu, Z., & Song, C",
+    "journal": "Technology and Health Care",
+    "articleType": "Review",
+    "impactFactor": "1.3",
+    "year": "2026",
+    "month": "10",
+    "day": "27",
+    "volume": "",
+    "pages": "",
+    "doi": "10.1177/09287329261502097",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1793089611893_spd4b7.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T4"
+      },
+      {
+        "key": "sciif",
+        "value": "1.3"
+      },
+      {
+        "key": "sci",
+        "value": "Q4"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "工程技术E"
+      },
+      {
+        "key": "sciif5",
+        "value": "1.4"
+      },
+      {
+        "key": "jci",
+        "value": "0.38"
+      },
+      {
+        "key": "esi",
+        "value": "分子生物与遗传学"
+      },
+      {
+        "key": "xr",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "工程：生物医学4区/卫生保健与服务4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "卫生保健与服务4区; 工程：生物医学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]

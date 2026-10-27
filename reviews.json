@@ -4231,5 +4231,89 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1792580528405_omamh6",
+    "journal": "PLoS One",
+    "impactFactor": "2.8",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1792580528405_omamh6.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "swjtu",
+        "value": "A++"
+      },
+      {
+        "key": "hhu",
+        "value": "C类"
+      },
+      {
+        "key": "nju",
+        "value": "B"
+      },
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "生物T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.8"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "scu",
+        "value": "综合性期刊D"
+      },
+      {
+        "key": "sciif5",
+        "value": "3.3"
+      },
+      {
+        "key": "jci",
+        "value": "0.80"
+      },
+      {
+        "key": "esi",
+        "value": "多学科"
+      },
+      {
+        "key": "xr",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "综合性期刊3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "综合性期刊3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
