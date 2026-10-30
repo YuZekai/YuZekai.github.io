@@ -9273,7 +9273,7 @@
   },
   {
     "id": "p_1793089611893_spd4b7",
-    "title": "Artificial intelligence early-warning systems for sepsis: From risk scores to bedside action.",
+    "title": "Artificial intelligence early-warning systems for sepsis: From risk scores to bedside action",
     "authors": "Yu, Z., & Song, C",
     "journal": "Technology and Health Care",
     "articleType": "Review",
@@ -9342,6 +9342,85 @@
       {
         "key": "xrSmall",
         "value": "卫生保健与服务4区; 工程：生物医学4区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
+  },
+  {
+    "id": "p_1793343158075_v4r27y",
+    "title": "Day-to-day variability in naturalistic key-hold duration is associated with self-reported Parkinson’s disease impact",
+    "authors": "Wang, Y., Hu, H., Peng, J., Yu, Z., & Yang, F",
+    "journal": "Frontiers in Aging Neuroscience",
+    "articleType": "Article",
+    "impactFactor": "5.2",
+    "year": "2026",
+    "month": "10",
+    "day": "30",
+    "volume": "18",
+    "pages": "Article 1982964",
+    "doi": "10.3389/fnagi.2026.1982964",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1793343158075_v4r27y.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "二区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T2"
+      },
+      {
+        "key": "sciif",
+        "value": "5.2"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学3区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.6"
+      },
+      {
+        "key": "jci",
+        "value": "0.99"
+      },
+      {
+        "key": "esi",
+        "value": "神经科学与行为"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "老年医学3区/神经科学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "老年医学3区; 神经科学2区"
       },
       {
         "key": "custom_1635615726460694528",

@@ -4315,5 +4315,81 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1793279015380_8up0sc",
+    "journal": "Psychology Health & Medicine",
+    "impactFactor": "2.2",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1793279015380_8up0sc.jpg",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "swufe",
+        "value": "B"
+      },
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "公众,环境与职业健康T3"
+      },
+      {
+        "key": "sciif",
+        "value": "2.2"
+      },
+      {
+        "key": "sci",
+        "value": "Q2"
+      },
+      {
+        "key": "ssci",
+        "value": "Q2"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学4区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学4区"
+      },
+      {
+        "key": "scu",
+        "value": "医学E"
+      },
+      {
+        "key": "sciif5",
+        "value": "2.6"
+      },
+      {
+        "key": "jci",
+        "value": "0.64"
+      },
+      {
+        "key": "esi",
+        "value": "精神病学／心理学"
+      },
+      {
+        "key": "xr",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "公共卫生、环境卫生与职业卫生4区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "公共卫生、环境卫生与职业卫生3区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
