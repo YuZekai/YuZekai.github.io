@@ -9428,5 +9428,92 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "p_1793526004240_je8e0p",
+    "title": "Metabolic and functional correlates of first transitions to low muscle strength and memory reserve across four longitudinal cohorts",
+    "authors": "Hu, H., Peng, J., Yu, Z., & Yang, F",
+    "journal": "Journal of Nutrition Health & Aging",
+    "articleType": "Article",
+    "impactFactor": "5.0",
+    "year": "2026",
+    "month": "10",
+    "day": "30",
+    "volume": "30(12)",
+    "pages": "101013",
+    "doi": "10.1016/j.jnha.2026.101013",
+    "citations": "0",
+    "url": "",
+    "abstract": "",
+    "notes": "",
+    "coverFile": "p_1793526004240_je8e0p.gif",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "xju",
+        "value": "三区"
+      },
+      {
+        "key": "cug",
+        "value": "医学T3"
+      },
+      {
+        "key": "sciif",
+        "value": "5.0"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciBase",
+        "value": "医学3区"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "医学D"
+      },
+      {
+        "key": "sciif5",
+        "value": "5.5"
+      },
+      {
+        "key": "jci",
+        "value": "1.19"
+      },
+      {
+        "key": "esi",
+        "value": "农业科学"
+      },
+      {
+        "key": "cpu",
+        "value": "医学学科重要"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "xrTop",
+        "value": "医学TOP"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "营养学2区/老年医学3区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "老年医学2区; 营养学2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
