@@ -4459,5 +4459,61 @@
         "customAbbName": "Scopus"
       }
     ]
+  },
+  {
+    "id": "r_1794723249308_6lp07f",
+    "journal": "Journal of Evidence-Based Medicine",
+    "impactFactor": "4.7",
+    "count": "1",
+    "notes": "",
+    "coverFile": "r_1794723249308_6lp07f.png",
+    "coverURL": "",
+    "ranks": [
+      {
+        "key": "sciif",
+        "value": "4.7"
+      },
+      {
+        "key": "sci",
+        "value": "Q1"
+      },
+      {
+        "key": "sciUp",
+        "value": "医学2区"
+      },
+      {
+        "key": "scu",
+        "value": "E"
+      },
+      {
+        "key": "sciif5",
+        "value": "4.8"
+      },
+      {
+        "key": "jci",
+        "value": "0.94"
+      },
+      {
+        "key": "esi",
+        "value": "临床医学"
+      },
+      {
+        "key": "xr",
+        "value": "医学2区"
+      },
+      {
+        "key": "sciUpSmall",
+        "value": "医学：内科2区。"
+      },
+      {
+        "key": "xrSmall",
+        "value": "医学：内科2区"
+      },
+      {
+        "key": "custom_1635615726460694528",
+        "value": " ",
+        "customAbbName": "Scopus"
+      }
+    ]
   }
 ]
