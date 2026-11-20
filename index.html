@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zekai Yu-Opera Selecta</title>
+<title>Opera Selecta</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23b8893a%22>❦</text></svg>">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -506,7 +506,7 @@
     padding: 0;                           /* 移除原 padding,让背景充满 */
     background-image: 
       linear-gradient(180deg, rgba(244,241,234,.45) 0%, rgba(244,241,234,.25) 40%, rgba(244,241,234,.55) 100%),
-      url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
+      var(--title-image, url('./assets/title-bg.jpg'));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -623,7 +623,7 @@
       padding: 0;
       background-image: 
         linear-gradient(180deg, rgba(244,241,234,.6) 0%, rgba(244,241,234,.4) 40%, rgba(244,241,234,.65) 100%),
-        url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
+        var(--title-image, url('./assets/title-bg.jpg'));
       background-size: cover;
       background-position: center;
       display: flex;
@@ -734,7 +734,7 @@
   .title-block {
     background-image: 
       linear-gradient(180deg, rgba(22,22,20,0.6) 0%, rgba(22,22,20,0.4) 40%, rgba(22,22,20,0.7) 100%),
-      url('https://cdn.jsdelivr.net/gh/YuZekai/YuZekai.github.io@main/assets/title-bg.jpg');
+      var(--title-image, url('./assets/title-bg.jpg'));
     filter: brightness(0.8) contrast(1.1);
   }
 
@@ -803,6 +803,35 @@
   .map-box .leaflet-tile-pane { filter: brightness(.85) sepia(.2) saturate(.7); }
   .map-box .leaflet-container, #citationMap { background: var(--paper-dark); }
 }
+
+  #editorialList {
+    --cover-width: 90px;
+    --cover-height: 120px;
+    --cover-gap: 18px;
+    padding-left: 24px;
+    margin-left: calc(var(--cover-width) + var(--cover-gap));
+  }
+  #editorialList .entry {
+    display: block;
+    padding: 0;
+    border: 0;
+    min-height: var(--cover-height);
+  }
+  #editorialList .entry > .cover-wrap {
+    position: absolute;
+    top: 0;
+    right: calc(100% + 26px + var(--cover-gap));
+    width: var(--cover-width);
+    height: var(--cover-height);
+  }
+  #editorialList .body { overflow-wrap: anywhere; }
+  @media (max-width: 600px) {
+    #editorialList {
+      --cover-width: 60px;
+      --cover-height: 80px;
+      --cover-gap: 14px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -820,7 +849,7 @@
       <span class="title-gold">Opera</span>
       <em>Selecta</em>
     </h1>
-    <div class="subtitle">— Investigationes et Experimenta Zekai Yu —</div>
+    <div class="subtitle">— Investigationes et Experimenta <span data-profile-name></span> —</div>
   </div>
 </header>
 
@@ -845,6 +874,12 @@
       <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Education <em>&amp; Experience</em></h3>
       <div class="edu-timeline" id="eduList"></div>
     </div>
+
+    <section aria-labelledby="editorial-heading" style="margin-top: 64px;">
+      <h3 id="editorial-heading" style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Editorial <em>Service</em></h3>
+      
+      <div class="edu-timeline" id="editorialList"></div>
+    </section>
 
     <div class="profile-funding" style="margin-top: 64px;">
       <h3 style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:32px;">Research Funding <em>· Grants</em></h3>
@@ -964,10 +999,10 @@
     ❦ &nbsp; Per Aspera Ad Astra &nbsp; ❦
   </div>
   <div style="font-size: 13px; letter-spacing: 0.1em; color: var(--ink-faint); font-family: 'Cormorant Garamond', serif;">
-    — Ex Officina Zekai Yu —
+    — Ex Officina <span data-profile-name></span> —
   </div>
   <div style="font-size: 12px; letter-spacing: 0.12em; color: var(--ink-faint); font-family: 'Cormorant Garamond', serif; font-style: italic; margin-top: 6px;">
-    Since May 3, 2026
+    <span id="siteSince"></span>
   </div>
   <div class="visitor-stats">
     <span id="busuanzi_container_site_pv" style="display:none">
@@ -1030,11 +1065,9 @@ function resolveCover(item) {
     // 使用系统的保存时间作为版本号
     return `${url}${url.includes('?') ? '&' : '?'}v=${v}`;
   }
-  if (item.coverFile) { 
-    const user = 'YuZekai'; 
-    const repo = 'YuZekai.github.io'; 
-    // 只有当你真正在编辑器里点了"保存"时,这里的 v 才会变,CDN 才会拉取新图
-    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@main/covers/${item.coverFile}?v=${v}`; 
+  if (item.coverFile) {
+    if (dataDirectory === './data') return `./data/covers/${encodeURIComponent(item.coverFile)}?v=${v}`; 
+    return `${meta.assetBase || './'}covers/${encodeURIComponent(item.coverFile)}?v=${v}`; 
   }
   return '';
 }
@@ -1154,7 +1187,45 @@ function updateStats() {
   updateDateLabel();
 }
 
+
+function editorialEntries() {
+  return Array.isArray(profile.editorial) ? profile.editorial : [];
+}
+
+function validEditorialURL(value) {
+  try { return ['http:', 'https:'].includes(new URL(value).protocol); }
+  catch { return false; }
+}
+
+function renderEditorial() {
+  const html = editorialEntries().map((entry, index) => {
+    const link = validEditorialURL(entry.url) ? `<span class="links" style="display:inline;margin:0"><a href="${escapeAttr(entry.url)}" target="_blank" rel="noopener" aria-label="Website — ${escapeAttr(entry.linkText || entry.journal || '期刊编辑任职')}">Website ↗</a></span>` : '';
+    const details = [escapeHtml(entry.desc || ''), escapeHtml(entry.linkText || '')].filter(Boolean).join(' · ');
+    const src = resolveCover(entry);
+    const cover = src ? `<div class="cover-wrap"><img src="${escapeAttr(src)}" alt="${escapeAttr(entry.journal || '期刊')}封面"></div>` : '';
+    return `<article class="edu-item${cover ? ' entry' : ''}">
+      ${cover}
+      <div class="body">
+      <div class="edu-year">${escapeHtml(entry.year || '')}</div>
+      <div class="edu-degree">${escapeHtml(entry.role || '')}</div>
+      <div class="edu-school">${escapeHtml(entry.journal || '')} ${entry.impactFactor != null && entry.impactFactor !== '' ? `<span class="if-badge">${escapeHtml(entry.impactFactor)}</span>` : ''}</div>
+      ${renderRankBadges((entry.ranks || []).filter(rank => rank.key !== 'sciif' || !String(entry.impactFactor ?? '')))}
+      ${details || link ? `<div class="edu-desc">${details}${details && link ? '&nbsp;' : ''}${link}</div>` : ''}
+      
+      </div>
+    </article>`;
+  }).join('');
+  document.getElementById('editorialList').innerHTML = html || '<p style="color:var(--ink-faint);text-align:center">暂无期刊编辑任职</p>';
+}
+
 function renderProfile() {
+  const name = profile.basic.name || '';
+  document.title = name ? name + '-Opera Selecta' : 'Opera Selecta';
+  document.querySelectorAll('[data-profile-name]').forEach(span => { span.textContent = name; });
+  document.getElementById('siteSince').textContent = meta.siteSince ? 'Since ' + meta.siteSince : '';
+  const titleImage = (meta.assetBase || './') + 'assets/title-bg.jpg';
+  document.documentElement.style.setProperty('--title-image', 'url(' + JSON.stringify(titleImage) + ')');
+  renderEditorial();
   if (profile.basic.name) document.getElementById('profName').textContent = profile.basic.name;
   else document.getElementById('profName').innerHTML = '<em>Loading...</em>';
   
@@ -1918,38 +1989,39 @@ function nocache(url) {
   return `${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`;
 }
 
+let dataDirectory = '.';
+async function readDataFile(name) {
+  try {
+    const response = await fetch(nocache(dataDirectory + '/' + name));
+    return response.ok ? await response.json() : null;
+  } catch { return null; }
+}
+
 async function loadData() {
   try {
-    const [profRes, pubRes, revRes, confRes, msRes, metaRes, citingRes] = await Promise.all([
-      fetch(nocache('./profile.json')).catch(() => null),
-      fetch(nocache('./publications.json')).catch(() => null),
-      fetch(nocache('./reviews.json')).catch(() => null),
-      fetch(nocache('./conferences.json')).catch(() => null),
-      fetch(nocache('./memberships.json')).catch(() => null),
-      fetch(nocache('./meta.json')).catch(() => null),
-      fetch(nocache('./citing.json')).catch(() => null)
-    ]);
-    if (profRes && profRes.ok) {
-        profile = await profRes.json();
-        // 兼容之前没有 certificates 的旧数据
+    dataDirectory = './data';
+    let loadedProfile = await readDataFile('profile.json');
+    if (!loadedProfile) {
+      dataDirectory = '.';
+      loadedProfile = await readDataFile('profile.json');
+    }
+    const [pubs, revs, confs, groups, metadata, citations] = await Promise.all(
+      ['publications.json','reviews.json','conferences.json','memberships.json','meta.json','citing.json'].map(readDataFile)
+    );
+    if (loadedProfile) {
+        profile = loadedProfile;
+        if (!profile.basic) profile.basic = {};
         if (!profile.qualifications) profile.qualifications = [];
         if (!profile.education) profile.education = [];
         if (!profile.funding) profile.funding = [];
         if (!profile.languages) profile.languages = [];
     }
-    if (pubRes && pubRes.ok) papers = await pubRes.json();
-    if (revRes && revRes.ok) reviews = await revRes.json();
-    if (confRes && confRes.ok) conferences = await confRes.json();
-    if (msRes && msRes.ok) memberships = await msRes.json();
-    if (citingRes && citingRes.ok) {
-      try { citing = await citingRes.json(); } catch (e) { citing = null; }
-    }
-    if (metaRes && metaRes.ok) {
-      try {
-        const m = await metaRes.json();
-        if (m && typeof m === 'object') meta = m;
-      } catch (e) { /* meta.json 解析失败,保持默认 */ }
-    }
+    if (pubs) papers = pubs;
+    if (revs) reviews = revs;
+    if (confs) conferences = confs;
+    if (groups) memberships = groups;
+    if (metadata) meta = metadata;
+    citing = citations;
   } catch (error) {
     console.error("Data load failed:", error);
   } finally {
