@@ -87,5 +87,73 @@
       "level": "CEFR A1.1",
       "desc": "Certified by Albert-Ludwigs-Universität Freiburg, 4 ECTS"
     }
+  ],
+  "editorial": [
+    {
+      "year": "Nov 2026 – Present",
+      "role": "Guest Editor",
+      "journal": "Jove-Journal of Visualized Experiments",
+      "desc": "Topical Collection",
+      "linkText": "Causal Machine Learning in Medicine",
+      "url": "https://www.jove.com/topical-collections/6174/causal-machine-learning-in-medicine",
+      "id": "editorial_9eaa5dac-d834-4f66-b9da-b0646d31728e",
+      "coverFile": "editorial_9eaa5dac-d834-4f66-b9da-b0646d31728e.png",
+      "coverURL": "",
+      "impactFactor": "1.2",
+      "ranks": [
+        {
+          "key": "xju",
+          "value": "三区"
+        },
+        {
+          "key": "cug",
+          "value": "综合性期刊T3"
+        },
+        {
+          "key": "sciif",
+          "value": "1.2"
+        },
+        {
+          "key": "sci",
+          "value": "Q3"
+        },
+        {
+          "key": "sciBase",
+          "value": "综合性期刊4区"
+        },
+        {
+          "key": "sciUp",
+          "value": "综合性期刊4区"
+        },
+        {
+          "key": "scu",
+          "value": "综合性期刊E"
+        },
+        {
+          "key": "sciif5",
+          "value": "1.4"
+        },
+        {
+          "key": "jci",
+          "value": "0.25"
+        },
+        {
+          "key": "esi",
+          "value": "多学科"
+        },
+        {
+          "key": "xr",
+          "value": "综合性期刊4区"
+        },
+        {
+          "key": "sciUpSmall",
+          "value": "综合性期刊4区。"
+        },
+        {
+          "key": "xrSmall",
+          "value": "综合性期刊4区"
+        }
+      ]
+    }
   ]
 }
